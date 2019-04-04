@@ -1,0 +1,11 @@
+query GET_POST($first: Int){
+    posts(first: $first) {
+            edges {
+                node {
+                  id
+                  title
+                  date
+                }
+            }
+        }
+    }
