@@ -41,6 +41,17 @@ export default {
       '@nuxtjs/apollo'
   ],
 
+  // Example to override router functionality
+  // router: {
+  //     extendRoutes (routes, resolve) {
+  //     routes.push({
+  //       name: '404',
+  //       path: '*',
+  //       component: resolve(__dirname, 'pages/404.vue')
+  //     })
+  //   }
+  // },
+
   // Give apollo module options
   apollo: {
     // tokenName: 'yourApolloTokenName', // optional, default: apollo-token
@@ -65,12 +76,11 @@ export default {
         // LocalStorage token
         tokenName: 'apollo-token', // optional
         // Enable Automatic Query persisting with Apollo Engine
-        persisting: false, // Optional
+        persisting: true, // Optional
         // Use websockets for everything (no HTTP)
         // You need to pass a `wsEndpoint` for this to work
         websocketsOnly: false // Optional
       }
-      // alternative: user path to config which returns exact same config options
     }
 },
 

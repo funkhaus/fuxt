@@ -1,31 +1,34 @@
 <template>
   <section class="container">
-    <div v-for="post in posts.edges">
-      {{ posts }}
-    </div>
+    {{ page }}
   </section>
 </template>
 
 <script>
 
-import gql from 'graphql-tag'
-import postQuery from '~/queries/Post.gql'
+import pageQuery from '~/queries/pages/GetPageByDevId.gql'
+import { formatPageData } from '~/utils/formatters.js'
 
 export default {
     data() {
         return {
-            posts: ""
+            page: ""
         }
     },
     apollo: {
-        posts: {
-            query: postQuery,
+        page: {
+            query: pageQuery,
             variables: {
-              first: 1,
+                devId: 'dev-about'
+            },
+            update(queryData) {
+                return formatPageData(queryData)
             }
         }
     }
 }
+
+
 </script>
 
 <style>
