@@ -6,6 +6,7 @@ export default {
   /*
   ** Headers of the page
   */
+  // For GA tracking, query wordpressGQL for token and set it on client before mounted
   head: {
     title: pkg.name,
     meta: [

@@ -18,3 +18,7 @@ export const mutations = {
         state.referral = referral
     }
 }
+
+//Actions
+
+// Wite action that will take a page object and set the nessesary data for OG
