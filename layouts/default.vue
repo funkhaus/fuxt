@@ -1,7 +1,9 @@
-<!-- This will be out App.vue -->
+<!-- This will be our App.vue -->
 <template>
-  <div>
+  <div class="container">
+      <!-- Header goes here -->
     <nuxt />
+    <!-- Footer goes here -->
   </div>
 </template>
 

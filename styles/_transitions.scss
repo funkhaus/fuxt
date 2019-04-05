@@ -1,0 +1,75 @@
+// Fade
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.4s;
+}
+
+// Slide left & slide right
+.slide-right-enter,
+.slide-left-leave-to {
+    transform: translateX(-100%);
+}
+.slide-left-enter,
+.slide-right-leave-to {
+    transform: translateX(100%);
+}
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+    transition: transform 0.4s;
+}
+
+// Slide up
+.slide-up-enter {
+    transform: translateY(120%);
+}
+.slide-up-enter-to {
+    transform: translateY(0%);
+}
+.slide-up-leave {
+    transform: translateY(0%);
+}
+.slide-up-leave-to {
+    transform: translateY(120%);
+}
+.slide-up-enter-active,
+.slide-up-leave-active {
+    transition: transform 1s;
+}
+
+// Slide down
+.slide-down-leave-to {
+    transform: translateY(100%);
+}
+.slide-down-enter {
+    transform: translateY(-100%);
+}
+.slide-down-enter-active,
+.slide-down-leave-active {
+    transition: transform 0.6s;
+}
+
+// Slide open animation
+.slide-leave-to,
+.slide-enter {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform 0.6s, opacity 0.4s;
+}
+
+.slide-enter-active .menu {
+    /* transition-delay: 0.4s; */
+}
+
+.slide-enter .menu {
+    opacity: 0;
+}
