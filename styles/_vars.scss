@@ -1,25 +1,25 @@
 // Sass constants
 $white: #ffffff;
-$black: #222222;
-$grey: #999999;
-$font-family: 'GT-Eesti-Pro';
-$desktop-padding: 50px;
-$mobile-padding: 20px;
-$header-height: 80px;
+$black: #000000;
+$font-family: sans-serif;
 
-$max-cinema: 1800px;
-$max-desktop: 1200px;
-$max-tablet: 900px;
-$max-phone: 750px;
-$max-mini: 480px;
+// $desktop-padding: 50px;
+// $mobile-padding: 20px;
+// $header-height: 80px;
+
+// $max-cinema: 1800px;
+// $max-desktop: 1200px;
+// $max-tablet: 900px;
+// $max-phone: 750px;
+// $max-mini: 480px;
 
 // Breakpoints
-$gt-cinema: 'only screen and (min-width: 1800px)';
-$lt-desktop: 'only screen and (max-width: 1100px)';
-$lt-tablet: 'only screen and (max-width: 1024px)';
-$lt-phone: 'only screen and (max-width: 750px)';
-$lt-phone-landscape: 'only screen and (max-width: 750px) and (orientation: landscape)';
-$ipad: 'only screen and (min-device-width : 768px) and (max-device-width : 1024px)';
+// $gt-cinema: 'only screen and (min-width: 1800px)';
+// $lt-desktop: 'only screen and (max-width: 1100px)';
+// $lt-tablet: 'only screen and (max-width: 1024px)';
+// $lt-phone: 'only screen and (max-width: 750px)';
+// $lt-phone-landscape: 'only screen and (max-width: 750px) and (orientation: landscape)';
+// $ipad: 'only screen and (min-device-width : 768px) and (max-device-width : 1024px)';
 
 // mixins
 @mixin fill($position: absolute) {
@@ -28,14 +28,4 @@ $ipad: 'only screen and (min-device-width : 768px) and (max-device-width : 1024p
     right: 0;
     left: 0;
     top: 0;
-}
-@mixin cover {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-@mixin contain {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
 }
