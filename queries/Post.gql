@@ -5,7 +5,30 @@ query GET_POST($first: Int){
                   id
                   title
                   date
+                  content
+                  featuredImage {
+                      id
+                      link
+                      caption
+                      altText
+                      description
+                      mediaType
+                      sourceUrl
+                      mediaDetails{
+                        width
+                        height
+                        file
+                        sizes{
+                          name
+                          file
+                          width
+                          height
+                          mimeType
+                          sourceUrl
+                        }
+                    }
                 }
             }
         }
     }
+}

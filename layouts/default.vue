@@ -1,3 +1,4 @@
+<!-- This will be out App.vue -->
 <template>
   <div>
     <nuxt />
