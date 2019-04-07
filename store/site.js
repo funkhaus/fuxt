@@ -1,7 +1,7 @@
 export const state = () => ({
-  menuOpened: false,
-  breakpoint: "",
-  referral: ""
+    menuOpened: false,
+    breakpoint: '',
+    referral: '',
 })
 
 export const mutations = {
@@ -16,7 +16,7 @@ export const mutations = {
     },
     UPDATE_REFERRAL_ROUTE(state, referral) {
         state.referral = referral
-    }
+    },
 }
 
 //Actions

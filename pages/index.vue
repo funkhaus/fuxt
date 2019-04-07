@@ -2,9 +2,10 @@
     <div class="loading-message" v-if="$apollo.loading">
         Loading...
     </div>
-  <section v-else :class="classes">
-    {{ page }}
-  </section>
+
+    <section v-else :class="classes">
+        {{ page }}
+    </section>
 </template>
 
 <script>
@@ -14,48 +15,41 @@ import { formatPageData } from '~/utils/formatters.js'
 export default {
     data() {
         return {
-            page: "",
-            devId: 'front-page'
+            page: '',
+            devId: 'front-page',
         }
     },
     computed: {
         classes() {
-            return [
-                'section',
-                this.devId
-            ]
-        }
+            return ['section', this.devId]
+        },
     },
     apollo: {
         page: {
             query: pageQuery,
             variables() {
                 return {
-                    devId: this.devId
+                    devId: this.devId,
                 }
             },
             update(queryData) {
                 return formatPageData(queryData)
-            }
-        }
-    }
+            },
+        },
+    },
 }
-
-
 </script>
 
 <style lang="scss">
 @import '~/styles/_vars.scss';
 
 .container {
-  color: $black;
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    color: $black;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
-
 </style>

@@ -1,10 +1,10 @@
 <!-- This will be our App.vue -->
 <template>
-  <div class="container">
-    <!-- Header goes here -->
-    <nuxt />
-    <!-- Footer goes here -->
-  </div>
+    <div class="container">
+        <!-- Header goes here -->
+        <nuxt />
+        <!-- Footer goes here -->
+    </div>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
         let output = {
             winHeight: 0,
             winWidth: 0,
-            sTop: 0
+            sTop: 0,
         }
         if (process.client) {
             output.winHeight = window.innerHeight
@@ -31,7 +31,7 @@ export default {
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
                 { scrolled: this.sTop > 0 },
-                { 'menu-opened': this.$store.state.menuOpened }
+                { 'menu-opened': this.$store.state.menuOpened },
             ]
         },
         breakpoint() {
@@ -40,7 +40,7 @@ export default {
                 this.$store.commit('SET_BREAKPOINT', breakpoint)
             }
             return breakpoint
-        }
+        },
     },
     mounted() {
         window.addEventListener('resize', _throttle(this.onResize, 30))
@@ -65,12 +65,9 @@ export default {
             this.sTop = window.pageYOffset || document.documentElement.scrollTop
 
             this.$emit('throttled.scroll')
-        }
-    }
+        },
+    },
 }
-
 </script>
 
-<style>
-
-</style>
+<style></style>
