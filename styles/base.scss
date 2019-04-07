@@ -12,11 +12,10 @@ body {
     -webkit-font-smoothing: antialiased !important;
     text-rendering: optimizeLegibility !important;
     letter-spacing: 0.5px;
-
-    *::selection {
-        color: $black;
-        background: $white;
-    }
+}
+::selection {
+    color: $black;
+    background: $white;
 }
 h1,
 h2,
@@ -55,51 +54,35 @@ button {
 .footer {
     z-index: 200;
 }
-.newsletter-signup {
+.header {
     z-index: 300;
 }
-.cookie-crumbs {
+.menu-panel {
     z-index: 400;
 }
-.menu-panel {
-    z-index: 500;
-}
-.header {
-    z-index: 600;
-}
 .hamburger {
-    z-index: 700;
-}
-
-// Global buttons
-.close-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 20px;
-    padding: 20px;
-    cursor: pointer;
+    z-index: 500;
 }
 
 // Animations
-.bounce {
-    animation: bounce 1.5s ease-in-out infinite;
-}
-@keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0) translateX(-50%);
-    }
-    40% {
-        transform: translateY(-5px) translateX(-50%);
-    }
-    60% {
-        transform: translateY(5px) translateX(-50%);
-    }
-}
+// .bounce {
+//     animation: bounce 1.5s ease-in-out infinite;
+// }
+// @keyframes bounce {
+//     0%,
+//     20%,
+//     50%,
+//     80%,
+//     100% {
+//         transform: translateY(0) translateX(-50%);
+//     }
+//     40% {
+//         transform: translateY(-5px) translateX(-50%);
+//     }
+//     60% {
+//         transform: translateY(5px) translateX(-50%);
+//     }
+// }
 
 // Generic content Styles
 // .entry {

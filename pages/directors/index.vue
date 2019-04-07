@@ -1,13 +1,11 @@
 <template>
-    <div class="container">
+    <div class="director-list">
         This is the /directors page
     </div>
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
-<style lang="css">
-</style>
+<style lang="scss"></style>
