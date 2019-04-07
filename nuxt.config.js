@@ -13,21 +13,22 @@ export default {
             { charset: 'utf-8' },
             {
                 name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
+                content: 'width=device-width, initial-scale=1'
             },
             {
                 hid: 'description',
                 name: 'description',
-                content: pkg.description,
-            },
+                content: pkg.description
+            }
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     },
 
     /*
      ** Customize the progress-bar color
+     ** See: https://nuxtjs.org/api/configuration-loading#use-a-custom-loading-component
      */
-    loading: { color: '#fff' },
+    loading: {},
 
     /*
      ** Global CSS
@@ -37,7 +38,7 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [],
+    plugins: ['~/plugins/global-component-loader.js'],
 
     /*
      ** Nuxt.js modules
@@ -86,9 +87,9 @@ export default {
                 persisting: true, // Optional
                 // Use websockets for everything (no HTTP)
                 // You need to pass a `wsEndpoint` for this to work
-                websocketsOnly: false, // Optional
-            },
-        },
+                websocketsOnly: false // Optional
+            }
+        }
     },
 
     /*
@@ -98,6 +99,6 @@ export default {
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {},
-    },
+        extend(config, ctx) {}
+    }
 }
