@@ -75,8 +75,8 @@ export default {
     clientConfigs: {
       default: {
         // required
-        // httpEndpoint: "http://stackhaus.flywheelsites.com/graphql",
-        httpEndpoint: process.env.WP_ENDPOINT,
+        httpEndpoint: "http://stackhaus.flywheelsites.com/graphql",
+        // httpEndpoint: process.env.WP_ENDPOINT,
         // httpEndpoint: 'http://localhost:3001',
         // optional
         // See https://www.apollographql.com/docs/link/links/http.html#options
