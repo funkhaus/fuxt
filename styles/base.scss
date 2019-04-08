@@ -1,0 +1,144 @@
+// Imports
+@import '~/styles/_vars.scss';
+
+// Globals
+body {
+    font-family: $font-family;
+    font-size: 16px;
+    letter-spacing: 0.25px;
+    color: $black;
+    background-color: $white;
+    margin: 0;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+    letter-spacing: 0.5px;
+}
+::selection {
+    color: $black;
+    background: $white;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 400;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.4s;
+}
+button {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    margin: 0;
+}
+.title {
+    .line {
+        display: block;
+    }
+}
+.overlay {
+    @include fill;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+// Z-Indexs
+.content {
+    z-index: 100;
+}
+.footer {
+    z-index: 200;
+}
+.header {
+    z-index: 300;
+}
+.menu-panel {
+    z-index: 400;
+}
+.hamburger {
+    z-index: 500;
+}
+
+// Animations
+// .bounce {
+//     animation: bounce 1.5s ease-in-out infinite;
+// }
+// @keyframes bounce {
+//     0%,
+//     20%,
+//     50%,
+//     80%,
+//     100% {
+//         transform: translateY(0) translateX(-50%);
+//     }
+//     40% {
+//         transform: translateY(-5px) translateX(-50%);
+//     }
+//     60% {
+//         transform: translateY(5px) translateX(-50%);
+//     }
+// }
+
+// Generic content Styles
+// .entry {
+//     margin: 0 auto;
+//     text-align: center;
+//     padding: 80px 0;
+//
+//     a {
+//         text-decoration: underline;
+//     }
+//     > {
+//         h1,
+//         h2,
+//         h3,
+//         p {
+//             max-width: 800px;
+//             margin: 2em auto;
+//
+//             a {
+//                 text-decoration: underline;
+//             }
+//         }
+//         h1,
+//         h2,
+//         h3,
+//         blockquote {
+//             margin: 20px auto;
+//         }
+//         p {
+//             font-size: 14px;
+//             line-height: 25px;
+//             text-align: justify;
+//             margin: 3em auto;
+//         }
+//         p + p span {
+//             margin-top: -0.5em;
+//         }
+//         h2 {
+//             font-size: 26px;
+//             font-weight: 100;
+//             margin-bottom: 50px;
+//         }
+//         .alignnone {
+//             max-width: 100%;
+//             height: auto;
+//         }
+//         h2 + iframe {
+//             margin-top: -0.5em;
+//         }
+//         .block-gallery,
+//         .fluid-width-video-wrapper {
+//             margin: 40px auto;
+//         }
+//         h2 + .fluid-width-video-wrapper,
+//         h2 + .block-gallery {
+//             margin-top: -5px;
+//         }
+//     }
+// }

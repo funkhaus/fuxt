@@ -1,13 +1,11 @@
 <template>
-    <div class="container">
+    <div class="director-detail">
         This is a detail with id
     </div>
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
-<style lang="css">
-</style>
+<style lang="scss"></style>

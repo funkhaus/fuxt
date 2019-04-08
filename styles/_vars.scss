@@ -6,7 +6,6 @@ $font-family: sans-serif;
 // $desktop-padding: 50px;
 // $mobile-padding: 20px;
 // $header-height: 80px;
-
 // $max-cinema: 1800px;
 // $max-desktop: 1200px;
 // $max-tablet: 900px;
@@ -21,7 +20,7 @@ $font-family: sans-serif;
 // $lt-phone-landscape: 'only screen and (max-width: 750px) and (orientation: landscape)';
 // $ipad: 'only screen and (min-device-width : 768px) and (max-device-width : 1024px)';
 
-// mixins
+// SCSS Mixins
 @mixin fill($position: absolute) {
     position: $position;
     bottom: 0;

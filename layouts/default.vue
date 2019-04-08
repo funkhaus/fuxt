@@ -1,10 +1,12 @@
 <!-- This will be our App.vue -->
 <template>
-  <div class="container">
-    <!-- Header goes here -->
-    <nuxt />
-    <!-- Footer goes here -->
-  </div>
+    <div :class="classes">
+        <!-- Header goes here -->
+        <site-hamburger />
+
+        <nuxt />
+        <!-- Footer goes here -->
+    </div>
 </template>
 
 <script>
@@ -31,13 +33,13 @@ export default {
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
                 { scrolled: this.sTop > 0 },
-                { 'menu-opened': this.$store.state.menuOpened }
+                { 'menu-opened': this.$store.state.site.menuOpened }
             ]
         },
         breakpoint() {
             let breakpoint = this.winWidth >= 750 ? 'desktop' : 'mobile'
             if (this.$store.state.breakpoint != breakpoint) {
-                this.$store.commit('SET_BREAKPOINT', breakpoint)
+                this.$store.commit('site/SET_BREAKPOINT', breakpoint)
             }
             return breakpoint
         }
@@ -68,9 +70,6 @@ export default {
         }
     }
 }
-
 </script>
 
-<style>
-
-</style>
+<style lang="scss"></style>
