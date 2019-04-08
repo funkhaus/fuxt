@@ -18,6 +18,7 @@
     "@nuxtjs/apollo": "^4.0.0-rc4",
     "apollo-boost": "^0.3.1",
     "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
     "lodash": "^4.17.11",
