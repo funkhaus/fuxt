@@ -22,3 +22,4 @@ $ npm run generate
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 -   TODO Get web font loader working: https://github.com/typekit/webfontloader#custom
+-   TODO For GA tracking, query wordpressGQL for token and set it on client before mounted

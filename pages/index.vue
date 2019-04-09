@@ -16,34 +16,34 @@ export default {
     data() {
         return {
             page: '',
-            devId: 'front-page',
+            devId: 'front-page'
         }
     },
     computed: {
         classes() {
             return ['section', this.devId]
-        },
+        }
     },
     apollo: {
         page: {
             query: pageQuery,
             variables() {
                 return {
-                    devId: this.devId,
+                    devId: this.devId
                 }
             },
             update(queryData) {
                 return formatPageData(queryData)
-            },
-        },
-    },
+            }
+        }
+    }
 }
 </script>
 
 <style lang="scss">
 @import '~/styles/_vars.scss';
 
-.container {
+.section {
     color: $black;
     margin: 0 auto;
     min-height: 100vh;

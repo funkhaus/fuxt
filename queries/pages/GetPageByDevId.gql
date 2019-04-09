@@ -1,5 +1,4 @@
 # Query page by dev id meta field
-# need to query for relativePath
 query GET_PAGE_BY_DEV_ID($devId: String) {
     pages(
         where: {
