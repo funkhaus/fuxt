@@ -1,10 +1,10 @@
-# funkhaus-nuxt-test
+# stackhaus
 
-> Testing new tech stack
+New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo.
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install
 
@@ -20,3 +20,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+-   TODO Get web font loader working: https://github.com/typekit/webfontloader#custom
