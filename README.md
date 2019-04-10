@@ -21,5 +21,29 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
--   TODO Get web font loader working: https://github.com/typekit/webfontloader#custom
--   TODO For GA tracking, query wordpressGQL for token and set it on client before mounted
+TODO Boilerplate improvements:
+
+-   Get web font loader working: https://github.com/typekit/webfontloader#custom
+-   For GA tracking, query WP-GQL for token and set it on client before mounted
+-   Src-set on attachments
+-   Meta on posts/pages/attachments/menu items
+-   ACF from everything?
+-   Open Graph tags in head
+
+TODO Components we need:
+
+-   Wp-content
+-   Wp-menu
+-   Responsive-Image (better version, should play videos too)
+-   Split Text
+
+TODO GQL queries we need:
+
+-   For everything we need slug/name and id generally
+-   Current page, and all its child pages (for grid pages).
+-   Get menu by name
+-   News grid?
+-   Category and it’s posts (featured image, title, id). Need parent category name and description too.
+-   Current post (title, featured image, content)
+-   Anytime we need a featured image we need (src-set, caption, height, width, video-url, title)
+-   Get page ancestors pages (to build breadcrumbs)

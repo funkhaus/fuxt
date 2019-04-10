@@ -20,8 +20,8 @@ query GET_PAGE_BY_DEV_ID($devId: String) {
                 pageId
                 title
                 content
-                link
                 date
+                slug
             }
         }
     }
