@@ -85,3 +85,6 @@ sw.*
 
 # Environment Vars
 .env
+
+# OS Junk
+.DS_Store
