@@ -24,10 +24,11 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 TODO Boilerplate improvements:
 
 -   Get web font loader working: https://github.com/typekit/webfontloader#custom
--   For GA tracking, query WP-GQL for token and set it on client before mounted
+-   For GA tracking, query WP-GQL for token and set it on client before mounted. See: https://stackoverflow.com/questions/54013335/nuxt-js-how-to-include-an-asynchronous-script-in-the-nuxt-config-js-file
 -   Src-set on attachments
 -   Meta on posts/pages/attachments/menu items
--   Open Graph tags in head
+-   Set nuxt.config.js title prop from server using: https://stackoverflow.com/questions/54013335/nuxt-js-how-to-include-an-asynchronous-script-in-the-nuxt-config-js-file
+-   Open Graph tags in head. This might help.
 -   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 
@@ -40,7 +41,8 @@ TODO Components we need:
 
 TODO GQL queries we need:
 
--   For everything we need slug/name and id generally
+-   Site settings (title, staging/production urls perhaps, GA number etc...)
+-   For everything we need slug/name and encoded id generally
 -   Current page, and all its child pages (for grid pages).
 -   Get menu by name
 -   News grid?
