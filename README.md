@@ -21,6 +21,8 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
+## TODO list
+
 TODO Boilerplate improvements:
 
 -   Get web font loader working: https://github.com/typekit/webfontloader#custom
@@ -31,6 +33,8 @@ TODO Boilerplate improvements:
 -   Open Graph tags in head. This might help.
 -   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
+-   Get it working on Heroku
+-   Add CI pipeline (TBD what we are testing for)
 
 TODO Components we need:
 
@@ -45,8 +49,9 @@ TODO GQL queries we need:
 -   For everything we need slug/name and encoded id generally
 -   Current page, and all its child pages (for grid pages).
 -   Get menu by name
--   News grid?
--   Category and it’s posts (featured image, title, id). Need parent category name and description too.
+-   Get all Posts
+-   Category, and it’s posts (featured image, title, id). Need parent category name and description too.
 -   Current post (title, featured image, content)
 -   Anytime we need a featured image we need (src-set, caption, height, width, video-url, title)
 -   Get page ancestors pages (to build breadcrumbs)
+-   Get next/prev post or page (for pagination)
