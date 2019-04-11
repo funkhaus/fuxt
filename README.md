@@ -30,7 +30,7 @@ TODO Boilerplate improvements:
 -   Src-set on attachments
 -   Meta on posts/pages/attachments/menu items
 -   Set nuxt.config.js title prop from server using: https://stackoverflow.com/questions/54013335/nuxt-js-how-to-include-an-asynchronous-script-in-the-nuxt-config-js-file
--   Open Graph tags in head. This might help.
+-   Open Graph tags in head. This might help: https://stackoverflow.com/questions/51962020/vue-nuxt-async-meta-tags-generation
 -   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Get it working on Heroku
