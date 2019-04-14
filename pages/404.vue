@@ -1,7 +1,7 @@
 <template>
-    <div class="404">
+    <section class="404">
         This is a 404
-    </div>
+    </section>
 </template>
 
 <script>

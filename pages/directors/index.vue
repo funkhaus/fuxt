@@ -1,7 +1,7 @@
 <template>
-    <div class="director-list">
+    <section class="director-list">
         This is the /directors page
-    </div>
+    </section>
 </template>
 
 <script>

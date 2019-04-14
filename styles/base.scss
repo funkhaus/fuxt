@@ -5,13 +5,13 @@
 body {
     font-family: $font-family;
     font-size: 16px;
-    letter-spacing: 0.25px;
     color: $black;
     background-color: $white;
     margin: 0;
-    -webkit-font-smoothing: antialiased !important;
-    text-rendering: optimizeLegibility !important;
-    letter-spacing: 0.5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1;
+    font-kerning: normal;
 }
 ::selection {
     color: $black;

@@ -1,7 +1,7 @@
 <template>
-    <div class="director-detail">
+    <section class="director-detail">
         This is a detail with id
-    </div>
+    </section>
 </template>
 
 <script>

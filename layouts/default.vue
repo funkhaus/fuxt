@@ -1,12 +1,12 @@
 <!-- This will be our App.vue -->
 <template>
-    <div :class="classes">
+    <main :class="classes">
         <!-- Header goes here -->
         <site-hamburger />
 
         <nuxt />
         <!-- Footer goes here -->
-    </div>
+    </main>
 </template>
 
 <script>
@@ -30,6 +30,7 @@ export default {
         classes() {
             return [
                 'container',
+                'main',
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
                 { scrolled: this.sTop > 0 },

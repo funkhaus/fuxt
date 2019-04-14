@@ -35,6 +35,8 @@ TODO Boilerplate improvements:
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Get it working on Heroku
 -   Add CI pipeline (TBD what we are testing for)
+-   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
+-   Commit isScrolled to store
 
 TODO Components we need:
 
