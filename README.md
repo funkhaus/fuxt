@@ -38,6 +38,7 @@ TODO Boilerplate improvements:
 
 TODO Components we need:
 
+-   SVG inline images!
 -   Wp-content
 -   Wp-menu
 -   Responsive-Image (better version, should play videos too)
