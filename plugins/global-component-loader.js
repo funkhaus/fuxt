@@ -1,9 +1,17 @@
-// Define any compoenet here that is used globally
+// Register all components globally
 import Vue from 'vue'
-import SiteHamburger from '~/components/site/Hamburger.vue'
+import _kebabCase from 'lodash/kebabCase'
 
-const components = { SiteHamburger }
+const components = require.context('~/components', true, /[A-Z]\w+\.(vue)$/)
+components.keys().map(fileName => {
+    // Get component config
+    const componentConfig = components(fileName)
 
-Object.entries(components).forEach(([name, component]) => {
-    Vue.component(name, component)
+    // Turn './ComponentName.vue' into 'component-name'
+    const componentName = _kebabCase(
+        fileName.replace(/^\.\//, '').replace(/\.vue$/, '')
+    )
+
+    // Register new component globally
+    Vue.component(componentName, componentConfig.default || componentConfig)
 })
