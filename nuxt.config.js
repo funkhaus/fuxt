@@ -32,12 +32,18 @@ export default {
     /*
      ** Global CSS
      */
-    css: ['~/styles/base.scss'],
+    css: [
+        '~/styles/base.scss'
+        //'~/styles/fonts.css'
+    ],
 
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: ['~/plugins/global-component-loader.js'],
+    plugins: [
+        { src: '~/plugins/global-component-loader.js' }
+        //{ src: '~/plugins/web-font-loader.js', ssr: false }
+    ],
 
     /*
      ** Nuxt.js modules
