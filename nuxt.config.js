@@ -1,5 +1,4 @@
 import pkg from './package'
-require('dotenv').config()
 
 export default {
     mode: 'universal',
