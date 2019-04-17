@@ -10,10 +10,10 @@
 export default {
     methods: {
         toggleMenu() {
-            if (this.$store.state.site.menuOpened) {
-                this.$store.commit('site/CLOSE_MENU')
+            if (this.$store.state.menuOpened) {
+                this.$store.commit('CLOSE_MENU')
             } else {
-                this.$store.commit('site/OPEN_MENU')
+                this.$store.commit('OPEN_MENU')
             }
         }
     }

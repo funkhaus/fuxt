@@ -34,13 +34,13 @@ export default {
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
                 { scrolled: this.sTop > 0 },
-                { 'menu-opened': this.$store.state.site.menuOpened }
+                { 'menu-opened': this.$store.state.menuOpened }
             ]
         },
         breakpoint() {
             let breakpoint = this.winWidth >= 750 ? 'desktop' : 'mobile'
             if (this.$store.state.breakpoint != breakpoint) {
-                this.$store.commit('site/SET_BREAKPOINT', breakpoint)
+                this.$store.commit('SET_BREAKPOINT', breakpoint)
             }
             return breakpoint
         }
