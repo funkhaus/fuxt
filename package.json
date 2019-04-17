@@ -1,36 +1,33 @@
 {
-  "name": "funkhaus-nuxt-test",
-  "version": "1.0.0",
-  "engines": {
-    "node": "10.13.0"
-  },
-  "description": "Testing new tech stack",
-  "author": "Luke Waldner",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "heroku-postbuild": "npm run build"
-  },
-  "dependencies": {
-    "@nuxtjs/apollo": "^4.0.0-rc4",
-    "apollo-boost": "^0.3.1",
-    "cross-env": "^5.2.0",
-    "dotenv": "^7.0.0",
-    "graphql": "^14.2.1",
-    "graphql-tag": "^2.10.1",
-    "lodash": "^4.17.11",
-    "node-fetch": "^2.3.0",
-    "nuxt": "^2.4.0",
-    "vue-apollo": "^3.0.0-beta.28"
-  },
-  "devDependencies": {
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.18.9",
-    "prettier-eslint": "^8.8.2",
-    "prettier-stylelint": "^0.4.2",
-    "sass-loader": "^7.1.0"
-  }
+    "name": "stackhaus",
+    "version": "1.0.0",
+    "engines": {
+        "node": "10.13.0"
+    },
+    "description": "A Vue/Nuxt frontned boiler plate optimzed to work with the Stackhaus-Backend WordPress theme.",
+    "author": "Funkhaus",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "heroku-postbuild": "npm run build"
+    },
+    "dependencies": {
+        "@nuxtjs/apollo": "^4.0.0-rc4",
+        "cross-env": "^5.2.0",
+        "graphql": "^14.2.1",
+        "lodash": "^4.17.11",
+        "node-fetch": "^2.3.0",
+        "nuxt": "^2.6.2",
+        "vue-apollo": "^3.0.0-beta.28"
+    },
+    "devDependencies": {
+        "node-sass": "^4.11.0",
+        "nodemon": "^1.18.9",
+        "prettier-eslint": "^8.8.2",
+        "prettier-stylelint": "^0.4.2",
+        "sass-loader": "^7.1.0"
+    }
 }
