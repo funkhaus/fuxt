@@ -33,6 +33,7 @@ For Typekit or google fonts, please see the [webfontloader](https://github.com/t
 
 TODO Boilerplate improvements:
 
+-   Install eslint and es-lint vue plugin, config like MPC
 -   For GA tracking, query WP-GQL for token and set it on client before mounted. See: https://stackoverflow.com/questions/54013335/nuxt-js-how-to-include-an-asynchronous-script-in-the-nuxt-config-js-file
 -   Src-set on attachments
 -   Meta on posts/pages/attachments/menu items
@@ -44,6 +45,7 @@ TODO Boilerplate improvements:
 -   Add CI pipeline (TBD what we are testing for)
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
 -   Commit isScrolled to store
+-   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 
 TODO Components we need:
 
