@@ -46,6 +46,7 @@ TODO Boilerplate improvements:
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
 -   Commit isScrolled to store
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
+-   Setup Router scroll-behavior: https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
 
 TODO Components we need:
 
