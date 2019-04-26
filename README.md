@@ -47,6 +47,7 @@ TODO Boilerplate improvements:
 -   Commit isScrolled to store
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 -   Setup Router scroll-behavior: https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
+-   Remove Dev ID, figure out way to lock slug on certain pages (don't auto update on page title change too).
 
 TODO Components we need:
 

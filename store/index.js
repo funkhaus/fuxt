@@ -4,6 +4,7 @@ export const state = () => ({
     //referral: ''
 })
 
+// Mutations
 export const mutations = {
     SET_BREAKPOINT(state, breakpoint) {
         state.breakpoint = breakpoint
@@ -17,4 +18,11 @@ export const mutations = {
     // UPDATE_REFERRAL_ROUTE(state, referral) {
     //     state.referral = referral
     // }
+}
+
+// Actions
+export const actions = {
+    async nuxtServerInit(context, { req, app }) {
+        // TODO Load menus into store here
+    }
 }
