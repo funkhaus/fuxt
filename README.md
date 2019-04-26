@@ -52,7 +52,7 @@ TODO Boilerplate improvements:
 
 TODO Components we need:
 
--   SVG inline images!
+-   SVG inline images. Seems to me this might help: https://github.com/visualfanatic/svg-to-vue or this: https://github.com/visualfanatic/vue-svg-loader
 -   Wp-content
 -   Wp-menu
 -   Responsive-Image (better version, should play videos too)
