@@ -33,14 +33,13 @@ For Typekit or google fonts, please see the [webfontloader](https://github.com/t
 
 TODO Boilerplate improvements:
 
--   Install eslint and es-lint vue plugin, config like MPC
+-   Install eslint and es-lint vue plugin, config like MPC. Maybe use Buetify instead?
 -   For GA tracking, query WP-GQL for token and set it on client before mounted. See: https://stackoverflow.com/questions/54013335/nuxt-js-how-to-include-an-asynchronous-script-in-the-nuxt-config-js-file
 -   Src-set on attachments (waiting on WP-GQL)
 -   Video URL, focus and color meta on posts/pages/attachments/menu items
 -   Set nuxt.config.js title prop from server using: https://stackoverflow.com/questions/54013335/nuxt-js-how-to-include-an-asynchronous-script-in-the-nuxt-config-js-file
 -   Open Graph tags in head. This might help: https://stackoverflow.com/questions/51962020/vue-nuxt-async-meta-tags-generation
 -   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
--   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Get it working on Heroku
 -   Add CI pipeline (TBD what we are testing for)
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
@@ -49,6 +48,7 @@ TODO Boilerplate improvements:
 -   Setup Router scroll-behavior: https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
 -   Remove Dev ID, figure out way to lock slug on certain pages (don't auto update on page title change too).
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
+-   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 
 TODO Components we need:
 
