@@ -1,7 +1,5 @@
 <template>
-    <section class="loading-message" v-if="$apollo.loading">
-        Loading...
-    </section>
+    <site-loading v-if="$apollo.loading" />
 
     <section v-else :class="classes">
         {{ page }}
@@ -9,41 +7,34 @@
 </template>
 
 <script>
-import pageQuery from '~/queries/pages/GetPageByDevId.gql'
-import { formatPageData } from '~/utils/formatters.js'
+//import pageQuery from '~/queries/pages/GetPageByDevId.gql'
 
 export default {
-    data() {
-        return {
-            page: '',
-            devId: 'front-page'
-        }
-    },
     computed: {
         classes() {
-            return ['section', this.devId]
-        }
-    },
-    apollo: {
-        page: {
-            query: pageQuery,
-            variables() {
-                return {
-                    devId: this.devId
-                }
-            },
-            update(queryData) {
-                return formatPageData(queryData)
-            }
+            return ['section', 'section-home']
         }
     }
+    // apollo: {
+    //     page: {
+    //         query: pageQuery,
+    //         variables() {
+    //             return {
+    //                 devId: this.devId
+    //             }
+    //         },
+    //         update(data) {
+    //             return data
+    //         }
+    //     }
+    // }
 }
 </script>
 
 <style lang="scss">
 @import '~/styles/_vars.scss';
 
-.main {
+.section-home {
     color: $black;
     margin: 0 auto;
     min-height: 100vh;
