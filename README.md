@@ -49,6 +49,7 @@ TODO Boilerplate improvements:
 -   Remove Dev ID, figure out way to lock slug on certain pages (don't auto update on page title change too).
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
+-   Remove WP Graph QL Meta from required plugins. Replace with ACF plugin, not required though.
 
 TODO Components we need:
 
