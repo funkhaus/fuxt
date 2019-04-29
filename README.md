@@ -25,7 +25,11 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 This theme uses [webfontloader](https://github.com/typekit/webfontloader) for font loading.
 
-If you are using a `@font-face` font, then you will need to put the font files in `/static/fonts`, then define the CSS in `/styles/fonts.css`, the names of the font families in `/web-font-loader.js`, and uncomment the `fonts.css` CSS line and the `web-font-loader.js` plugin line in the `nuxt.config.js` file.
+1.  If you are using a `@font-face` font, then you will need to put the font files in `/static/fonts`
+1.  Then define the CSS in `/styles/fonts.css`
+1.  Set the names of the font families in `/web-font-loader.js`
+1.  Uncomment the `fonts.css` CSS line in `nuxt.config.js`
+1.  Uncomment the `web-font-loader.js` plugin line in `nuxt.config.js`
 
 For Typekit or google fonts, please see the [webfontloader](https://github.com/typekit/webfontloader) documentation.
 
