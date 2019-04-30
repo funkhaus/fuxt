@@ -1,8 +1,11 @@
 <template>
     <site-loading v-if="$apollo.loading" />
 
-    <section v-else :class="classes">
-        {{ page }}
+    <section
+        v-else
+        :class="classes"
+    >
+        <svg-funkhaus-logo />
     </section>
 </template>
 

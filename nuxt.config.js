@@ -41,7 +41,8 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: "~/plugins/global-component-loader.js" }
+        { src: "~/plugins/global-component-loader.js" },
+        { src: "~/plugins/global-svg-loader.js" }
         //{ src: '~/plugins/web-font-loader.js', ssr: false }
     ],
 
@@ -114,6 +115,10 @@ export default {
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {}
+        extend(config, ctx) {
+
+            config.module.noParse = /\/assets\/svgs\/.+(svg$)/
+
+        }
     }
 }
