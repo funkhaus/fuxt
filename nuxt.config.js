@@ -50,18 +50,9 @@ export default {
      */
     modules: ["@nuxtjs/apollo"],
 
-    // Example to override router functionality
-    // router: {
-    //     extendRoutes (routes, resolve) {
-    //     routes.push({
-    //       name: '404',
-    //       path: '*',
-    //       component: resolve(__dirname, 'pages/404.vue')
-    //     })
-    //   }
-    // },
-
-    // Give apollo module options
+    /*
+     * Apollo options. Used for Graph QL queries
+     */
     apollo: {
         // tokenName: 'yourApolloTokenName', // optional, default: apollo-token
         // tokenExpires: 10, // optional, default: 7 (days)
@@ -101,10 +92,16 @@ export default {
     /*
      ** Customize router
      */
-
     router: {
         linkExactActiveClass: "exact-active-link",
         linkActiveClass: "active-link"
+        // Example to override router functionality
+        //     extendRoutes (routes, resolve) {
+        //     routes.push({
+        //       name: '404',
+        //       path: '*',
+        //       component: resolve(__dirname, 'pages/404.vue')
+        //     })
     },
 
     /*
