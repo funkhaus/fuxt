@@ -43,7 +43,7 @@ export default {
     plugins: [
         { src: "~/plugins/global-component-loader.js" },
         { src: "~/plugins/global-svg-loader.js" }
-        //{ src: '~/plugins/web-font-loader.js', ssr: false }
+        //{ src: '~/plugins/web-font-loader.client.js', ssr: false }
     ],
 
     /*
@@ -52,40 +52,16 @@ export default {
     modules: ["@nuxtjs/apollo"],
 
     /*
-     * Apollo options. Used for Graph QL queries
+     ** Apollo options. Used for Graph QL queries
+     ** See: https://www.apollographql.com/docs/link/links/http.html#options
      */
     apollo: {
-        // tokenName: 'yourApolloTokenName', // optional, default: apollo-token
-        // tokenExpires: 10, // optional, default: 7 (days)
-        includeNodeModules: true, // optional, default: false (this includes graphql-tag for node_modules folder)
-        // authenticationType: 'Basic', // optional, default: 'Bearer'
-        // optional
-        errorHandler(error) {
-            console.log(
-                "%cError",
-                "background: red; color: white; padding: 2px 4px; border-radius: 3px; font-weight: bold;",
-                error.message
-            )
-        },
-        // required
         clientConfigs: {
             default: {
-                // required
                 httpEndpoint: "http://stackhaus-backend.local/graphql",
-                // httpEndpoint: process.env.WP_ENDPOINT,
-                // httpEndpoint: 'http://localhost:3001',
-                // optional
-                // See https://www.apollographql.com/docs/link/links/http.html#options
-                // httpLinkOptions: {
-                //   credentials: 'same-origin'
-                // },
-                // LocalStorage token
-                tokenName: "apollo-token", // optional
-                // Enable Automatic Query persisting with Apollo Engine
-                persisting: true, // Optional
-                // Use websockets for everything (no HTTP)
-                // You need to pass a `wsEndpoint` for this to work
-                websocketsOnly: false // Optional
+                tokenName: "apollo-token",
+                persisting: false,
+                websocketsOnly: false
             }
         }
     },
@@ -109,13 +85,9 @@ export default {
      ** Build configuration
      */
     build: {
-        /*
-         ** You can extend webpack config here
-         */
         extend(config, ctx) {
-
+            // This is used by plugins/global-svg-loader.js
             config.module.noParse = /\/assets\/svgs\/.+(svg$)/
-
         }
     }
 }
