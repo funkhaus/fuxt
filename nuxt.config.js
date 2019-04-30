@@ -1,7 +1,7 @@
-import pkg from './package'
+import pkg from "./package"
 
 export default {
-    mode: 'universal',
+    mode: "universal",
 
     /*
      ** Headers of the page
@@ -9,18 +9,18 @@ export default {
     head: {
         title: pkg.name,
         meta: [
-            { charset: 'utf-8' },
+            { charset: "utf-8" },
             {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1'
+                name: "viewport",
+                content: "width=device-width, initial-scale=1"
             },
             {
-                hid: 'description',
-                name: 'description',
+                hid: "description",
+                name: "description",
                 content: pkg.description
             }
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
+        link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
     },
 
     /*
@@ -33,7 +33,7 @@ export default {
      ** Global CSS
      */
     css: [
-        '~/styles/base.scss'
+        "~/styles/base.scss"
         //'~/styles/fonts.css'
     ],
 
@@ -41,14 +41,14 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: '~/plugins/global-component-loader.js' }
+        { src: "~/plugins/global-component-loader.js" }
         //{ src: '~/plugins/web-font-loader.js', ssr: false }
     ],
 
     /*
      ** Nuxt.js modules
      */
-    modules: ['@nuxtjs/apollo'],
+    modules: ["@nuxtjs/apollo"],
 
     // Example to override router functionality
     // router: {
@@ -70,8 +70,8 @@ export default {
         // optional
         errorHandler(error) {
             console.log(
-                '%cError',
-                'background: red; color: white; padding: 2px 4px; border-radius: 3px; font-weight: bold;',
+                "%cError",
+                "background: red; color: white; padding: 2px 4px; border-radius: 3px; font-weight: bold;",
                 error.message
             )
         },
@@ -79,7 +79,7 @@ export default {
         clientConfigs: {
             default: {
                 // required
-                httpEndpoint: 'http://stackhaus-backend.local/graphql',
+                httpEndpoint: "http://stackhaus-backend.local/graphql",
                 // httpEndpoint: process.env.WP_ENDPOINT,
                 // httpEndpoint: 'http://localhost:3001',
                 // optional
@@ -88,7 +88,7 @@ export default {
                 //   credentials: 'same-origin'
                 // },
                 // LocalStorage token
-                tokenName: 'apollo-token', // optional
+                tokenName: "apollo-token", // optional
                 // Enable Automatic Query persisting with Apollo Engine
                 persisting: true, // Optional
                 // Use websockets for everything (no HTTP)
@@ -96,6 +96,15 @@ export default {
                 websocketsOnly: false // Optional
             }
         }
+    },
+
+    /*
+     ** Customize router
+     */
+
+    router: {
+        linkExactActiveClass: "exact-active-link",
+        linkActiveClass: "active-link"
     },
 
     /*
