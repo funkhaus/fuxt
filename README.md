@@ -29,7 +29,7 @@ This theme uses [webfontloader](https://github.com/typekit/webfontloader) for fo
 1.  Then define the CSS in `/styles/fonts.css`
 1.  Set the names of the font families in `/web-font-loader.js`
 1.  Uncomment the `fonts.css` CSS line in `nuxt.config.js`
-1.  Uncomment the `web-font-loader.js` plugin line in `nuxt.config.js`
+1.  Uncomment the `web-font-loader.client.js` plugin line in `nuxt.config.js`
 
 For Typekit or google fonts, please see the [webfontloader](https://github.com/typekit/webfontloader) documentation.
 
