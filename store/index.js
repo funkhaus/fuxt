@@ -1,10 +1,13 @@
+import config from "~/nuxt.config"
+
+// Define State defaults
 export const state = () => ({
     menuOpened: false,
-    breakpoint: ''
-    //referral: ''
+    breakpoint: "",
+    apiUrl: ""
 })
 
-// Mutations
+// Define mutations
 export const mutations = {
     SET_BREAKPOINT(state, breakpoint) {
         state.breakpoint = breakpoint
@@ -14,15 +17,30 @@ export const mutations = {
     },
     CLOSE_MENU(state) {
         state.menuOpened = false
+    },
+    SET_API(state, url) {
+        state.apiUrl = url
     }
-    // UPDATE_REFERRAL_ROUTE(state, referral) {
-    //     state.referral = referral
-    // }
 }
 
-// Actions
+// Define actions
 export const actions = {
-    async nuxtServerInit(context, { req, app }) {
-        // TODO Load menus into store here
+    async nuxtServerInit(store, context) {
+        // Store backend API
+        if (config.hasOwnProperty("apollo")) {
+            store.commit(
+                "SET_API",
+                config.apollo.clientConfigs.default.httpEndpoint.replace(
+                    "/graphql",
+                    ""
+                )
+            )
+        }
+
+        // Define menus here.
+        // Use menu location, as definded in WordPress functions/theme-config.php
+        // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
+        // let menuLocations = ["MAIN_MENU"]
+        // await store.dispatch("menus/QUERY_MENUS", menuLocations)
     }
 }

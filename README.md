@@ -1,6 +1,6 @@
 # stackhaus
 
-New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo.
+New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo. Works best with the [stackhuas-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme.
 
 ## Build Setup
 
@@ -33,6 +33,15 @@ This theme uses [webfontloader](https://github.com/typekit/webfontloader) for fo
 
 For Typekit or google fonts, please see the [webfontloader](https://github.com/typekit/webfontloader) documentation.
 
+## Menus
+
+Stackhaus has built in SSR friendly menus. To use them, you first need to define menu locations in WordPress. This can be done in the `/functions/theme-config.php` file in the `stackhaus-backend` WordPress theme. We have some boilerplate code in the `register_custom_nav_menus()` function.
+
+1. Define menu locations in your WordPress theme.
+1. Assign menus to those menu-locations in the WordPress dashboard.
+1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
+1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
+
 ## TODO list
 
 TODO Boilerplate improvements:
@@ -55,6 +64,7 @@ TODO Boilerplate improvements:
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Remove WP Graph QL Meta from required plugins. Replace with ACF plugin, not required though.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
+-   Add tools.js file to /utils. Maybe take date and link functions from MPC.
 
 TODO Components we need:
 
