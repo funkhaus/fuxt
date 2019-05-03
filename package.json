@@ -16,14 +16,12 @@
     },
     "dependencies": {
         "@nuxtjs/apollo": "^4.0.0-rc4",
-        "cross-env": "^5.2.0",
         "graphql": "^14.2.1",
         "lodash": "^4.17.11",
-        "node-fetch": "^2.3.0",
-        "nuxt": "^2.6.2",
-        "svg-inline-loader": "^0.8.0",
+        "node-fetch": "^2.4.1",
+        "nuxt": "^2.6.3",
         "vue-apollo": "^3.0.0-beta.28",
-        "vue-template-compiler": "^2.6.10"
+        "core-js": "^2.6.5"
     },
     "devDependencies": {
         "eslint": "^5.16.0",
@@ -32,6 +30,8 @@
         "prettier-stylelint": "^0.4.2",
         "node-sass": "^4.11.0",
         "nodemon": "^1.18.9",
-        "sass-loader": "^7.1.0"
+        "sass-loader": "^7.1.0",
+        "svg-inline-loader": "^0.8.0",
+        "webfontloader": "^1.6.28"
     }
 }
