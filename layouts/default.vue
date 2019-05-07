@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import _throttle from 'lodash/throttle'
-import _kebabCase from 'lodash/kebabCase'
+import _throttle from "lodash/throttle"
+import _kebabCase from "lodash/kebabCase"
 
 export default {
     data() {
@@ -20,6 +20,8 @@ export default {
             winWidth: 0,
             sTop: 0
         }
+
+        // On client side, we have window so set the height/width
         if (process.client) {
             output.winHeight = window.innerHeight
             output.winWidth = window.innerWidth
@@ -29,45 +31,68 @@ export default {
     computed: {
         classes() {
             return [
-                'container',
-                'main',
+                "container",
+                "main",
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
                 { scrolled: this.sTop > 0 },
-                { 'menu-opened': this.$store.state.menuOpened }
+                { "menu-opened": this.$store.state.menuOpened }
             ]
         },
         breakpoint() {
-            let breakpoint = this.winWidth >= 750 ? 'desktop' : 'mobile'
+            let breakpoint = "desktop"
+
+            switch (true) {
+                case this.winWidth == 0:
+                    breakpoint = "desktop"
+                    break
+
+                case this.winWidth <= 1024:
+                    breakpoint = "mobile"
+                    break
+
+                default:
+                    breakpoint = "desktop"
+            }
+
             if (this.$store.state.breakpoint != breakpoint) {
-                this.$store.commit('SET_BREAKPOINT', breakpoint)
+                this.$store.commit("SET_BREAKPOINT", breakpoint)
             }
             return breakpoint
         }
     },
     mounted() {
-        window.addEventListener('resize', _throttle(this.onResize, 30))
-        window.addEventListener('scroll', _throttle(this.onScroll, 10))
+        // Do these only on client side
+        if (process.client) {
+            // Throttle common events
+            window.addEventListener("resize", _throttle(this.onResize, 30))
+            window.addEventListener("scroll", _throttle(this.onScroll, 10))
 
-        // Monitor keydown
-        window.addEventListener('keydown', key => {
-            // Close menu on esc key
-            if (key && key.keyCode == 27) {
-                this.$store.commit('CLOSE_MENU')
-            }
-        })
+            // Trigger a resize to start
+            this.onResize()
+
+            // Monitor keydown
+            window.addEventListener("keydown", key => {
+                // Esc key
+                if (key && key.keyCode == 27) {
+                    this.closeMenu()
+                }
+            })
+        }
     },
     methods: {
         onResize() {
             this.winWidth = window.innerWidth
             this.winHeight = window.innerHeight
-
-            this.$emit('throttled.resize')
+            this.$store.commit("SET_WIN_WIDTH", this.winWidth)
+            this.$store.commit("SET_WIN_HEIGHT", this.winHeight)
         },
         onScroll() {
             this.sTop = window.pageYOffset || document.documentElement.scrollTop
-
-            this.$emit('throttled.scroll')
+            this.$store.commit("SET_S_TOP", this.sTop)
+        },
+        closeMenu() {
+            this.$store.commit("CLOSE_MENU")
         }
     }
 }

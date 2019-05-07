@@ -4,7 +4,7 @@
     "engines": {
         "node": "10.13.0"
     },
-    "description": "A Vue/Nuxt frontned boiler plate optimzed to work with the Stackhaus-Backend WordPress theme.",
+    "description": "A Vue/Nuxt frontend boiler plate optimzed to work with the Stackhaus-Backend WordPress theme.",
     "author": "Funkhaus",
     "private": true,
     "scripts": {
