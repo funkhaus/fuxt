@@ -72,10 +72,11 @@ export default {
             this.onResize()
 
             // Monitor keydown
-            window.addEventListener("keydown", key => {
-                // Esc key
-                if (key && key.keyCode == 27) {
-                    this.closeMenu()
+            window.addEventListener("keydown", e => {
+                switch (e && e.key) {
+                    case "Escape":
+                        this.$store.commit("CLOSE_MENU")
+                        break
                 }
             })
         }
