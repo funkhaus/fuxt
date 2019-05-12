@@ -35,7 +35,7 @@ export default {
                 "main",
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
-                { scrolled: this.sTop > 0 },
+                { "is-scrolled": this.sTop > 0 },
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-ssr": process.server }
             ]
