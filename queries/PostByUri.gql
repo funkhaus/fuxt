@@ -27,15 +27,16 @@ query PostByUri($uri: String) {
 
 fragment postImage on MediaItem {
     sourceUrl(size: FULLSCREEN)
+    id
     caption
+    mediaItemId
+    title
     mediaDetails {
-        file
         height
         width
-        meta {
-            caption
-            credit
-            title
-        }
+    }
+    acfImageMeta {
+        videoUrl
+        primaryColor
     }
 }
