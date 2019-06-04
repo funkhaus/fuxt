@@ -14,6 +14,8 @@ query PageByUri($uri: String) {
 
 fragment pageImage on MediaItem {
     sourceUrl(size: FULLSCREEN)
+    sizes(size: FULLSCREEN)
+    srcSet(size: FULLSCREEN)
     id
     caption
     mediaItemId

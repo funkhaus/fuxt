@@ -10,20 +10,20 @@
 </template>
 
 <script>
-//import pageQuery from '~/queries/pages/GetPageByDevId.gql'
+//import indexQuery from '~/queries/pages/Index.gql'
 
 export default {
     computed: {
         classes() {
-            return ['section', 'section-home']
+            return ["section", "section-home"]
         }
     }
     // apollo: {
     //     page: {
-    //         query: pageQuery,
+    //         query: indexQuery,
     //         variables() {
     //             return {
-    //                 devId: this.devId
+    //                 uri: "/"
     //             }
     //         },
     //         update(data) {
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/styles/_vars.scss';
+@import "~/styles/_vars.scss";
 
 .section-home {
     color: $black;
