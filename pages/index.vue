@@ -1,18 +1,30 @@
 <template>
     <site-loading v-if="$apollo.loading" />
 
-    <section
-        v-else
-        :class="classes"
-    >
-        <svg-funkhaus-logo />
+    <section v-else :class="classes">
+        <svg-logo-funkhaus />
     </section>
 </template>
 
 <script>
-//import indexQuery from '~/queries/pages/Index.gql'
+import _get from "lodash/get"
+//import HomeQuery from '~/queries/pages/HomeQuery.gql'
 
 export default {
+    transition: "fade",
+    head() {
+        return {
+            title: _get(this, "page.title", "")
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: _get(this, "page.excerpt", "")
+                }
+            ]
+        }
+    },
     computed: {
         classes() {
             return ["section", "section-home"]

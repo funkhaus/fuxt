@@ -2,6 +2,7 @@ import config from "~/nuxt.config"
 
 // Define State defaults
 export const state = () => ({
+    siteMeta: {},
     menuOpened: false,
     breakpoint: "",
     apiUrl: "",
@@ -32,6 +33,9 @@ export const mutations = {
     },
     SET_WIN_WIDTH(state, width) {
         state.winWidth = width
+    },
+    SET_SITE_META(state, data) {
+        state.siteMeta = data
     }
 }
 
@@ -54,5 +58,22 @@ export const actions = {
         // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
         // let menuLocations = ["MAIN_MENU"]
         // await store.dispatch("menus/QUERY_MENUS", menuLocations)
+
+        // Get site settings from WordPress and save them to store
+        let client = context.app.apolloProvider.defaultClient
+        await client
+            .query({
+                query: WpSettingsQuery
+            })
+            .then(({ data }) => {
+                let settings = _get(data, "generalSettings", {})
+                let meta = {
+                    title: settings.title,
+                    url: settings.url,
+                    host: context.req.headers.host,
+                    description: settings.description
+                }
+                store.commit("SET_SITE_META", meta)
+            })
     }
 }

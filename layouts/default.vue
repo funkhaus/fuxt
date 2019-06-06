@@ -14,6 +14,47 @@ import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
 
 export default {
+    head() {
+        return {
+            bodyAttrs: {
+                class: "default-theme"
+            },
+            titleTemplate: titleChunk => {
+                return titleChunk
+                    ? `${this.$store.state.siteMeta.title} - ${titleChunk}`
+                    : this.$store.state.siteMeta.title
+            },
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: this.$store.state.siteMeta.description
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image"
+                    // content: `${
+                    //     this.$store.state.siteMeta.url
+                    // }/wp-content/themes/${THEME_NAME_HERE}/screenshot.${FILE_EXT}`
+                },
+                {
+                    property: "og:url",
+                    content: `${this.$store.state.siteMeta.host}${
+                        this.$route.path
+                    }`
+                },
+                {
+                    property: "og:site_name",
+                    content: this.$store.state.siteMeta.title
+                },
+                {
+                    property: "og:type",
+                    content: "website"
+                }
+            ]
+        }
+    },
     data() {
         let output = {
             winHeight: 0,
@@ -35,8 +76,8 @@ export default {
                 "main",
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
-                { "is-scrolled": this.sTop > 0 },
                 { "menu-opened": this.$store.state.menuOpened },
+                { "is-scrolled": this.sTop > 0 },
                 { "is-ssr": process.server }
             ]
         },
