@@ -1,0 +1,9 @@
+query WpSettingsQuery {
+    generalSettings {
+        title
+        description
+        themeScreenshotUrl
+        gaTrackingCode1
+        gaTrackingCode2
+    }
+}

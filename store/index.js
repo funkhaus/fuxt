@@ -69,9 +69,13 @@ export const actions = {
                 let settings = _get(data, "generalSettings", {})
                 let meta = {
                     title: settings.title,
-                    url: settings.url,
                     host: context.req.headers.host,
-                    description: settings.description
+                    description: settings.description,
+                    themeScreenshotUrl: settings.themeScreenshotUrl,
+                    gaTrackingCodes: [
+                        settings.gaTrackingCode1,
+                        settings.gaTrackingCode2
+                    ]
                 }
                 store.commit("SET_SITE_META", meta)
             })
