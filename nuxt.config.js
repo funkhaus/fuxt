@@ -39,7 +39,7 @@ export default {
     plugins: [
         { src: "~/plugins/global-component-loader.js" },
         { src: "~/plugins/global-svg-loader.js" }
-        //{ src: '~/plugins/web-font-loader.client.js', ssr: false }
+        //{ src: "~/plugins/web-font-loader.client.js", mode: "client" }
     ],
 
     /*
