@@ -8,13 +8,13 @@
 
 <script>
 import _get from "lodash/get"
-//import HomeQuery from '~/queries/pages/HomeQuery.gql'
+import HomeQuery from '~/queries/pages/HomeQuery.gql'
 
 export default {
     transition: "fade",
     head() {
         return {
-            title: _get(this, "page.title", "")
+            title: _get(this, "page.title", ""),
             meta: [
                 {
                     hid: "description",
@@ -29,20 +29,20 @@ export default {
         classes() {
             return ["section", "section-home"]
         }
+    },
+    apollo: {
+        page: {
+            query: HomeQuery,
+            variables() {
+                return {
+                    uri: "/featured"
+                }
+            },
+            update(data) {
+                return data
+            }
+        }
     }
-    // apollo: {
-    //     page: {
-    //         query: indexQuery,
-    //         variables() {
-    //             return {
-    //                 uri: "/"
-    //             }
-    //         },
-    //         update(data) {
-    //             return data
-    //         }
-    //     }
-    // }
 }
 </script>
 

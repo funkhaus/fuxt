@@ -1,4 +1,6 @@
 import config from "~/nuxt.config"
+import WpSettingsQuery from '~/queries/WpSettingsQuery.gql'
+import _get from "lodash/get"
 
 // Define State defaults
 export const state = () => ({
