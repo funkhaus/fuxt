@@ -33,10 +33,8 @@ export default {
                 },
                 {
                     hid: "og:image",
-                    property: "og:image"
-                    // content: `${
-                    //     this.$store.state.siteMeta.url
-                    // }/wp-content/themes/${THEME_NAME_HERE}/screenshot.${FILE_EXT}`
+                    property: "og:image",
+                    content: this.$store.state.siteMeta.themeScreenshotUrl
                 },
                 {
                     property: "og:url",
