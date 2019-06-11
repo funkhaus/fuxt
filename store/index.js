@@ -1,5 +1,5 @@
 import config from "~/nuxt.config"
-import WpSettingsQuery from '~/queries/WpSettingsQuery.gql'
+import WpSettingsQuery from "~/queries/WpSettingsQuery.gql"
 import _get from "lodash/get"
 
 // Define State defaults
@@ -24,9 +24,6 @@ export const mutations = {
     CLOSE_MENU(state) {
         state.menuOpened = false
     },
-    SET_API(state, url) {
-        state.apiUrl = url
-    },
     SET_S_TOP(state, pos) {
         state.sTop = pos
     },
@@ -44,16 +41,12 @@ export const mutations = {
 // Define actions
 export const actions = {
     async nuxtServerInit(store, context) {
-        // Store backend API
-        if (config.hasOwnProperty("apollo")) {
-            store.commit(
-                "SET_API",
-                config.apollo.clientConfigs.default.httpEndpoint.replace(
-                    "/graphql",
-                    ""
-                )
-            )
-        }
+        // Get backend API
+        let apiUrl = _get(
+            config,
+            "apollo.clientConfigs.default.httpEndpoint",
+            ""
+        ).replace("/graphql", "")
 
         // Define menus here.
         // Use menu location, as definded in WordPress functions/theme-config.php
@@ -74,6 +67,7 @@ export const actions = {
                     host: context.req.headers.host,
                     description: settings.description,
                     themeScreenshotUrl: settings.themeScreenshotUrl,
+                    apiUrl: apiUrl,
                     gaTrackingCodes: [
                         settings.gaTrackingCode1,
                         settings.gaTrackingCode2
