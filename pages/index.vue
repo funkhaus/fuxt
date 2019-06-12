@@ -1,14 +1,17 @@
 <template>
     <site-loading v-if="$apollo.loading" />
 
-    <section v-else :class="classes">
+    <section
+        v-else
+        :class="classes"
+    >
         <svg-logo-funkhaus />
     </section>
 </template>
 
 <script>
 import _get from "lodash/get"
-import HomeQuery from '~/queries/pages/HomeQuery.gql'
+import HomeQuery from "~/queries/pages/HomeQuery.gql"
 
 export default {
     transition: "fade",
@@ -35,7 +38,7 @@ export default {
             query: HomeQuery,
             variables() {
                 return {
-                    uri: "/featured"
+                    uri: "/featured" // FYI you can't query home by just using '/'
                 }
             },
             update(data) {

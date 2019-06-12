@@ -102,41 +102,43 @@ export default {
         }
     },
     mounted() {
-        // Do these only on client side
-        if (process.client) {
-            // Throttle common events
-            window.addEventListener("resize", _throttle(this.onResize, 30))
-            window.addEventListener("scroll", _throttle(this.onScroll, 10))
+        // Throttle common events
+        window.addEventListener("resize", _throttle(this.onResize, 30))
+        window.addEventListener("scroll", _throttle(this.onScroll, 10))
 
-            // Trigger a resize to start
-            this.onResize()
+        // Trigger a resize to start
+        this.onResize()
 
-            // Monitor keydown
-            window.addEventListener("keydown", e => {
-                switch (e && e.key) {
-                    case "Escape":
-                        this.$store.commit("CLOSE_MENU")
-                        break
-                }
-            })
-        }
+        // Monitor keydown
+        window.addEventListener("keydown", e => {
+            switch (e && e.key) {
+                case "Escape":
+                    this.$store.commit("CLOSE_MENU")
+                    break
+            }
+        })
     },
     methods: {
         onResize() {
             this.winWidth = window.innerWidth
             this.winHeight = window.innerHeight
-            this.$store.commit("SET_WIN_WIDTH", this.winWidth)
-            this.$store.commit("SET_WIN_HEIGHT", this.winHeight)
+            let dimensions = {
+                height: this.winHeight,
+                width: this.winHeight
+            }
+            this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
         },
         onScroll() {
             this.sTop = window.pageYOffset || document.documentElement.scrollTop
             this.$store.commit("SET_S_TOP", this.sTop)
-        },
-        closeMenu() {
-            this.$store.commit("CLOSE_MENU")
         }
     }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "~/styles/_vars.scss";
+
+.container {
+}
+</style>

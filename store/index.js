@@ -27,11 +27,9 @@ export const mutations = {
     SET_S_TOP(state, pos) {
         state.sTop = pos
     },
-    SET_WIN_HEIGHT(state, height) {
-        state.winHeight = height
-    },
-    SET_WIN_WIDTH(state, width) {
-        state.winWidth = width
+    SET_WIN_DIMENSIONS(state, dimensions) {
+        state.winHeight = dimensions.height
+        state.winWidth = dimensions.width
     },
     SET_SITE_META(state, data) {
         state.siteMeta = data
