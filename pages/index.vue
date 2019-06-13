@@ -5,37 +5,52 @@
         v-else
         :class="classes"
     >
-        <svg-funkhaus-logo />
+        <svg-logo-funkhaus />
     </section>
 </template>
 
 <script>
-//import pageQuery from '~/queries/pages/GetPageByDevId.gql'
+import _get from "lodash/get"
+import HomeQuery from "~/queries/pages/HomeQuery.gql"
 
 export default {
+    transition: "fade",
+    head() {
+        return {
+            title: _get(this, "page.title", ""),
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: _get(this, "page.excerpt", "")
+                }
+            ]
+        }
+    },
     computed: {
         classes() {
-            return ['section', 'section-home']
+            return ["section", "section-home"]
+        }
+    },
+    apollo: {
+        page: {
+            query: HomeQuery,
+            variables() {
+                return {
+                    uri: "/featured" // FYI you can't query home by just using '/'
+                }
+            },
+            update(data) {
+                return data
+            }
         }
     }
-    // apollo: {
-    //     page: {
-    //         query: pageQuery,
-    //         variables() {
-    //             return {
-    //                 devId: this.devId
-    //             }
-    //         },
-    //         update(data) {
-    //             return data
-    //         }
-    //     }
-    // }
 }
 </script>
 
 <style lang="scss">
-@import '~/styles/_vars.scss';
+@import "~/styles/_vars.scss";
 
 .section-home {
     color: $black;

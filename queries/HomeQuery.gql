@@ -1,5 +1,5 @@
 # Query to get all the sub pages of the homepage
-query PageByUri($uri: String) {
+query HomeQuery($uri: String) {
     pageBy(uri: $uri) {
         title
         content
@@ -7,13 +7,15 @@ query PageByUri($uri: String) {
         #     videoUrl
         # }
         featuredImage {
-            ...pageImage
+            ...homeImage
         }
     }
 }
 
-fragment pageImage on MediaItem {
+fragment homeImage on MediaItem {
     sourceUrl(size: FULLSCREEN)
+    sizes(size: FULLSCREEN)
+    srcSet(size: FULLSCREEN)
     id
     caption
     mediaItemId

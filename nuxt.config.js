@@ -13,11 +13,6 @@ export default {
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1"
-      },
-      {
-        hid: "description",
-        name: "description",
-        content: pkg.description
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
@@ -28,13 +23,12 @@ export default {
    ** See: https://nuxtjs.org/api/configuration-loading#use-a-custom-loading-component
    */
   loading: {},
-
   /*
    ** Global CSS
    */
   css: [
-    "~/styles/base.scss"
-    // '~/assets/transition.scss',
+    "~/styles/base.scss",
+    "~/styles/transitions.scss"
     //'~/styles/fonts.css'
   ],
 
@@ -43,8 +37,9 @@ export default {
    */
   plugins: [
     { src: "~/plugins/global-component-loader.js" },
-    { src: "~/plugins/global-svg-loader.js" }
-    //{ src: '~/plugins/web-font-loader.client.js', ssr: false }
+    { src: "~/plugins/global-svg-loader.js" },
+    { src: "~/plugins/google-gtag.client.js", mode: "client" }
+    //{ src: "~/plugins/web-font-loader.client.js", mode: "client" }
   ],
 
   /*

@@ -14,6 +14,45 @@ import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
 
 export default {
+    head() {
+        return {
+            bodyAttrs: {
+                class: "default-theme"
+            },
+            titleTemplate: titleChunk => {
+                return titleChunk
+                    ? `${this.$store.state.siteMeta.title} - ${titleChunk}`
+                    : this.$store.state.siteMeta.title
+            },
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: this.$store.state.siteMeta.description
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: this.$store.state.siteMeta.themeScreenshotUrl
+                },
+                {
+                    property: "og:url",
+                    content: `${this.$store.state.siteMeta.host}${
+                        this.$route.path
+                    }`
+                },
+                {
+                    property: "og:site_name",
+                    content: this.$store.state.siteMeta.title
+                },
+                {
+                    property: "og:type",
+                    content: "website"
+                }
+            ]
+        }
+    },
     data() {
         let output = {
             winHeight: 0,
@@ -35,8 +74,8 @@ export default {
                 "main",
                 `breakpoint-${this.breakpoint}`,
                 `route-${_kebabCase(this.$route.name)}`,
-                { "is-scrolled": this.sTop > 0 },
                 { "menu-opened": this.$store.state.menuOpened },
+                { "is-scrolled": this.sTop > 0 },
                 { "is-ssr": process.server }
             ]
         },
@@ -63,41 +102,43 @@ export default {
         }
     },
     mounted() {
-        // Do these only on client side
-        if (process.client) {
-            // Throttle common events
-            window.addEventListener("resize", _throttle(this.onResize, 30))
-            window.addEventListener("scroll", _throttle(this.onScroll, 10))
+        // Throttle common events
+        window.addEventListener("resize", _throttle(this.onResize, 30))
+        window.addEventListener("scroll", _throttle(this.onScroll, 10))
 
-            // Trigger a resize to start
-            this.onResize()
+        // Trigger a resize to start
+        this.onResize()
 
-            // Monitor keydown
-            window.addEventListener("keydown", e => {
-                switch (e && e.key) {
-                    case "Escape":
-                        this.$store.commit("CLOSE_MENU")
-                        break
-                }
-            })
-        }
+        // Monitor keydown
+        window.addEventListener("keydown", e => {
+            switch (e && e.key) {
+                case "Escape":
+                    this.$store.commit("CLOSE_MENU")
+                    break
+            }
+        })
     },
     methods: {
         onResize() {
             this.winWidth = window.innerWidth
             this.winHeight = window.innerHeight
-            this.$store.commit("SET_WIN_WIDTH", this.winWidth)
-            this.$store.commit("SET_WIN_HEIGHT", this.winHeight)
+            let dimensions = {
+                height: this.winHeight,
+                width: this.winHeight
+            }
+            this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
         },
         onScroll() {
             this.sTop = window.pageYOffset || document.documentElement.scrollTop
             this.$store.commit("SET_S_TOP", this.sTop)
-        },
-        closeMenu() {
-            this.$store.commit("CLOSE_MENU")
         }
     }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "~/styles/_vars.scss";
+
+.container {
+}
+</style>
