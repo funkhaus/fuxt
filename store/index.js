@@ -7,7 +7,6 @@ export const state = () => ({
     siteMeta: {},
     menuOpened: false,
     breakpoint: "",
-    apiUrl: "",
     sTop: 0,
     winHeight: 0,
     winWidth: 0
@@ -39,6 +38,12 @@ export const mutations = {
 // Define actions
 export const actions = {
     async nuxtServerInit(store, context) {
+        // Define menus here.
+        // Use menu location, as definded in WordPress functions/theme-config.php
+        // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
+        // let menuLocations = ["MAIN_MENU"]
+        // await store.dispatch("menus/QUERY_MENUS", menuLocations)
+
         // Get backend API
         let apiUrl = _get(
             config,
@@ -46,19 +51,15 @@ export const actions = {
             ""
         ).replace("/graphql", "")
 
-        // Define menus here.
-        // Use menu location, as definded in WordPress functions/theme-config.php
-        // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
-        // let menuLocations = ["MAIN_MENU"]
-        // await store.dispatch("menus/QUERY_MENUS", menuLocations)
-
         // Get site settings from WordPress and save them to store
         let client = context.app.apolloProvider.defaultClient
         await client
             .query({
                 query: WpSettingsQuery
             })
-            .then(({ data }) => {
+            .then(({
+                data
+            }) => {
                 let settings = _get(data, "generalSettings", {})
                 let meta = {
                     title: settings.title,
