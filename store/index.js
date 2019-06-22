@@ -57,9 +57,7 @@ export const actions = {
             .query({
                 query: WpSettingsQuery
             })
-            .then(({
-                data
-            }) => {
+            .then(({ data }) => {
                 let settings = _get(data, "generalSettings", {})
                 let meta = {
                     title: settings.title,

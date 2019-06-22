@@ -50,18 +50,15 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 
 ## Linting
 
-This theme has linting for Vue/GQL/SCSS/CSS/HTML built in, using Prettier and ESLint to get all code up to the Vue style guide "Recommended" spec automatically.
+This theme has perfect linting for Vue/GQL/JS/SCSS/CSS and HTML using Prettier and ESLint. The ruleset is the Vue style guide "Recommended" spec.
 
-The workflow is meant to be: Code > Prettier > ESLint > Nice code!
+Behind the scenes, the workflow is this: Ugly code > Prettier > ESLint > Nice code!
 
-The idea is that Prettier formats things like CSS and GQL nicely, and ESLint goes last does everything else. This allows us to config ESLint to the Vue specs (Prettier has little config options by design).
+The idea is that Prettier formats things like CSS and GQL nicely, and ESLint goes last and does everything else. This allows us to config ESLint to the Vue specs (Prettier has little config options by design). So that is what the .eslintrc.js file is for.
 
-In your code editor, you'll want to install a Prettier plugin (see below for links), and set the "ESLint Integration" to `true` and "Format on Save" to `true`. The settings for "prettier-eslint" will have a toggle for "Run Prettier Last", you want that set to `false`. We want ESLint to run last, this ensure the Vue specs get priority, not Prettier's specs.
+In your code editor, you'll want to install a Prettier plugin ([VS Code](https://github.com/prettier/prettier-vscode) or [Atom](https://github.com/prettier/prettier-atom)), and set the "ESLint Integration" to `true` and "Format on Save" to `true`. The settings for "prettier-eslint” should have a toggle for "Run Prettier Last", you want that set to `false`. We need ESLint to run last, this ensures the Vue Recommended specs get priority, not Prettier's specs.
 
-https://github.com/prettier/prettier-vscode
-https://github.com/prettier/prettier-atom
-
-The 4 `devDependencies` installed are "eslint", "eslint-plugin-vue", "prettier" and "prettier-eslint". The "prettier" plugin is not required as most editor plugins will include this be default, although we have more control over the version of Prettier if we include it in the package file. "prettier-eslint" is used to integrate "prettier" and "eslint" together, and get them running one after the other.
+The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vue", "prettier" and "prettier-eslint". The "prettier" plugin is not required as most editor plugins will use a default version they ship with, although we have more control over the version of Prettier if we include it in the package file, so we did just to be safe. It also means it would run the same server side or client side if you do that as part of CI. "prettier-eslint" is used to integrate "prettier" and "eslint" together, and get them running one after the other.
 
 ## TODO list
 
