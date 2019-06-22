@@ -21,6 +21,12 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
+## Theme Config
+
+1.  Install promoted Plugins
+1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
+1.  Define image sizes and menus in /functions/theme-config.php
+
 ## Fonts
 
 This theme uses [webfontloader](https://github.com/typekit/webfontloader) for font loading.
@@ -47,13 +53,11 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 TODO Boilerplate improvements:
 
 -   Install eslint and es-lint vue plugin, config like MPC. Maybe use Buetify instead?
--   For GA tracking, query WP-GQL for token and set it on client before mounted. See: https://stackoverflow.com/questions/54013335/nuxt-js-how-to-include-an-asynchronous-script-in-the-nuxt-config-js-file
 -   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
 -   Add CI pipeline (TBD what we are testing for)
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 -   Setup Router scroll-behavior: https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
--   Figure out way to lock slug on certain pages (don't auto update on page title change too).
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/

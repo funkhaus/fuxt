@@ -6,7 +6,7 @@ import _get from "lodash/get"
 export const state = () => ({
     siteMeta: {},
     menuOpened: false,
-    breakpoint: "",
+    breakpoint: "desktop",
     sTop: 0,
     winHeight: 0,
     winWidth: 0

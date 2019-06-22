@@ -3,7 +3,7 @@
 
     <section
         v-else
-        :class="classes"
+        s
     >
         <svg-logo-funkhaus />
     </section>
@@ -11,7 +11,7 @@
 
 <script>
 import _get from "lodash/get"
-import HomeQuery from "~/queries/pages/HomeQuery.gql"
+import HomeQuery from "~/queries/HomeQuery.gql"
 
 export default {
     transition: "fade",
@@ -23,29 +23,29 @@ export default {
                     hid: "description",
                     name: "description",
                     property: "og:description",
-                    content: _get(this, "page.excerpt", "")
-                }
-            ]
+                    content: _get(this, "page.excerpt", ""),
+                },
+            ],
         }
     },
     computed: {
         classes() {
             return ["section", "section-home"]
-        }
+        },
     },
     apollo: {
         page: {
             query: HomeQuery,
             variables() {
                 return {
-                    uri: "/featured" // FYI you can't query home by just using '/'
+                    uri: "/featured", // FYI you can't query home by just using '/'
                 }
             },
             update(data) {
                 return data
-            }
-        }
-    }
+            },
+        },
+    },
 }
 </script>
 

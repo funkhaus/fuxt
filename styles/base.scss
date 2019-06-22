@@ -1,5 +1,5 @@
 // Imports
-@import '~/styles/_vars.scss';
+@import "~/styles/_vars.scss";
 
 // Globals
 body {
@@ -10,7 +10,7 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'kern' 1;
+    font-feature-settings: "kern" 1;
     font-kerning: normal;
 }
 ::selection {

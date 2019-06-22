@@ -24,6 +24,7 @@ export default {
                     ? `${this.$store.state.siteMeta.title} - ${titleChunk}`
                     : this.$store.state.siteMeta.title
             },
+            title: this.$store.state.siteMeta.title,
             meta: [
                 {
                     hid: "description",
