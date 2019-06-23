@@ -84,6 +84,10 @@ export default {
         extend(config, ctx) {
             // This is used by plugins/global-svg-loader.js
             config.module.noParse = /\/assets\/svgs\/.+(svg$)/
+
+            // Includes the Compiler version of Vue.
+            // If you don't use the <wp-content> component, then you can delete this safely.
+            config.resolve.alias["vue$"] = "vue/dist/vue.esm.js"
         }
     }
 }
