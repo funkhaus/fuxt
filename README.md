@@ -74,3 +74,5 @@ TODO Boilerplate improvements:
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
 -   Add tools.js file to /utils. Maybe take date and link functions from MPC?
+-   Document analytics and how `this.$gtag` works for custom events
+-   Fix ACF auto-import of default fields
