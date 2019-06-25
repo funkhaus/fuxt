@@ -76,3 +76,4 @@ TODO Boilerplate improvements:
 -   Add tools.js file to /utils. Maybe take date and link functions from MPC?
 -   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
+-   Get this working: https://github.com/potato4d/nuxt-basic-auth-module#readme
