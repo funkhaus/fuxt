@@ -12,6 +12,7 @@
 <script>
 import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
+import { decodeHtmlEntity } from "~/utils/tools"
 
 export default {
     head() {
@@ -20,9 +21,9 @@ export default {
                 class: "default-theme"
             },
             titleTemplate: titleChunk => {
-                return titleChunk
-                    ? `${this.$store.state.siteMeta.title} - ${titleChunk}`
-                    : this.$store.state.siteMeta.title
+                let title = decodeHtmlEntity(titleChunk)
+                let site = decodeHtmlEntity(this.$store.state.siteMeta.title)
+                return title ? `${site} - ${title}` : site
             },
             meta: [
                 {

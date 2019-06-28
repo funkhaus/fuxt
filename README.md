@@ -77,3 +77,4 @@ TODO Boilerplate improvements:
 -   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
 -   Get this working: https://github.com/potato4d/nuxt-basic-auth-module#readme
+-   Get this working: https://github.com/nuxt-community/sitemap-module

@@ -23,29 +23,34 @@ export default {
                     hid: "description",
                     name: "description",
                     property: "og:description",
-                    content: _get(this, "page.excerpt", ""),
+                    content: _get(this, "page.excerpt", "")
                 },
-            ],
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: _get(this, "page.featuredImage.sourceUrl", "")
+                }
+            ]
         }
     },
     computed: {
         classes() {
             return ["section", "section-home"]
-        },
+        }
     },
     apollo: {
         page: {
             query: HomeQuery,
             variables() {
                 return {
-                    uri: "/featured", // FYI you can't query home by just using '/'
+                    uri: "/featured" // FYI you can't query home by just using '/'
                 }
             },
             update(data) {
                 return data
-            },
-        },
-    },
+            }
+        }
+    }
 }
 </script>
 
