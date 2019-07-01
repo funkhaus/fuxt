@@ -125,7 +125,7 @@ export default {
             this.winHeight = window.innerHeight
             let dimensions = {
                 height: this.winHeight,
-                width: this.winHeight
+                width: this.winWidth
             }
             this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
         },
