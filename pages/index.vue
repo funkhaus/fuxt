@@ -3,7 +3,7 @@
 
     <section
         v-else
-        s
+        :class="classes"
     >
         <svg-logo-funkhaus />
     </section>
@@ -65,5 +65,9 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    // Breakpoints
+    // @media #{$lt-tablet} {
+    // }
 }
 </style>
