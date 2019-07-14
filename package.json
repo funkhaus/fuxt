@@ -15,21 +15,21 @@
         "heroku-postbuild": "npm run build"
     },
     "dependencies": {
-        "@nuxtjs/apollo": "^4.0.0-rc7",
+        "@nuxtjs/apollo": "^4.0.0-rc8.1",
         "core-js": "^2.6.9",
-        "graphql": "^14.3.1",
-        "lodash": "^4.17.11",
+        "graphql": "^14.4.2",
+        "lodash": "^4.17.14",
         "node-fetch": "^2.4.1",
         "nuxt": "^2.6.3",
         "vue-apollo": "^3.0.0-rc.1"
     },
     "devDependencies": {
         "eslint": "^5.16.0",
-        "eslint-plugin-vue": "^5.2.2",
-        "prettier": "^1.18.2",
-        "prettier-eslint": "^9.0.0",
+        "eslint-plugin-vue": "^5.2.3",
         "node-sass": "^4.12.0",
         "nodemon": "^1.19.1",
+        "prettier": "^1.18.2",
+        "prettier-eslint": "^9.0.0",
         "sass-loader": "^7.1.0",
         "svg-inline-loader": "^0.8.0",
         "webfontloader": "^1.6.28"
