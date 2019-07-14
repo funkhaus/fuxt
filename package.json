@@ -20,7 +20,7 @@
         "graphql": "^14.4.2",
         "lodash": "^4.17.14",
         "node-fetch": "^2.4.1",
-        "nuxt": "^2.6.3",
+        "nuxt": "^2.8.1",
         "vue-apollo": "^3.0.0-rc.1"
     },
     "devDependencies": {
