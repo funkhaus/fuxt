@@ -1,5 +1,8 @@
 <template>
-    <div class="site-hamburger" @click="toggleMenu()">
+    <div
+        class="site-hamburger"
+        @click="toggleMenu()"
+    >
         <div class="line line-1" />
         <div class="line line-2" />
         <div class="line line-3" />
@@ -11,9 +14,9 @@ export default {
     methods: {
         toggleMenu() {
             if (this.$store.state.menuOpened) {
-                this.$store.commit('CLOSE_MENU')
+                this.$store.commit("CLOSE_MENU")
             } else {
-                this.$store.commit('OPEN_MENU')
+                this.$store.commit("OPEN_MENU")
             }
         }
     }
@@ -21,8 +24,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/styles/_vars.scss';
-
 .site-hamburger {
     background-color: red;
     height: 20px;

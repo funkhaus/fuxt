@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~/styles/_vars.scss";
 .shortcode-gallery {
     font-size: 0;
     letter-spacing: 0;

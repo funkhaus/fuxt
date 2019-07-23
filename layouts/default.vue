@@ -137,8 +137,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~/styles/_vars.scss";
-
 .container {
 }
 </style>

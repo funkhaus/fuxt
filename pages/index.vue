@@ -50,8 +50,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~/styles/_vars.scss";
-
 .section-home {
     color: $black;
     margin: 0 auto;
