@@ -12,6 +12,7 @@
 <script>
 import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
+import { decodeHtmlEntity } from "~/utils/tools"
 
 export default {
     head() {
@@ -20,9 +21,9 @@ export default {
                 class: "default-theme"
             },
             titleTemplate: titleChunk => {
-                return titleChunk
-                    ? `${this.$store.state.siteMeta.title} - ${titleChunk}`
-                    : this.$store.state.siteMeta.title
+                let title = decodeHtmlEntity(titleChunk)
+                let site = decodeHtmlEntity(this.$store.state.siteMeta.title)
+                return title ? `${site} - ${title}` : site
             },
             meta: [
                 {
@@ -124,7 +125,7 @@ export default {
             this.winHeight = window.innerHeight
             let dimensions = {
                 height: this.winHeight,
-                width: this.winHeight
+                width: this.winWidth
             }
             this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
         },

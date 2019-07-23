@@ -32,12 +32,12 @@ export default {
     position: fixed;
     top: 20px;
     right: 20px;
-}
 
-// Breakpoints
-// @media #{$lt-tablet} {
-//     .hamburger {
-//         display: block;
-//     }
-// }
+    // Breakpoints
+    // @media #{$lt-tablet} {
+    //     .hamburger {
+    //         display: block;
+    //     }
+    // }
+}
 </style>

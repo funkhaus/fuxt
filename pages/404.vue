@@ -1,5 +1,5 @@
 <template>
-    <section class="404">
+    <section class="page-404">
         This is a 404
     </section>
 </template>

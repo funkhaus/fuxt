@@ -11,7 +11,7 @@
 
 <script>
 import _get from "lodash/get"
-import HomeQuery from "~/queries/pages/HomeQuery.gql"
+import HomeQuery from "~/queries/HomeQuery.gql"
 
 export default {
     transition: "fade",
@@ -24,6 +24,11 @@ export default {
                     name: "description",
                     property: "og:description",
                     content: _get(this, "page.excerpt", "")
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: _get(this, "page.featuredImage.sourceUrl", "")
                 }
             ]
         }
@@ -58,5 +63,9 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    // Breakpoints
+    // @media #{$lt-tablet} {
+    // }
 }
 </style>

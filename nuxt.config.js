@@ -7,7 +7,6 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: pkg.name,
         meta: [
             { charset: "utf-8" },
             {
@@ -37,6 +36,7 @@ export default {
      */
     plugins: [
         { src: "~/plugins/global-component-loader.js" },
+        { src: "~/plugins/global-directive-loader.js" },
         { src: "~/plugins/global-svg-loader.js" },
         { src: "~/plugins/google-gtag.client.js", mode: "client" }
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" }
@@ -91,6 +91,10 @@ export default {
         extend(config, ctx) {
             // This is used by plugins/global-svg-loader.js
             config.module.noParse = /\/assets\/svgs\/.+(svg$)/
+
+            // Includes the Compiler version of Vue.
+            // If you don't use the <wp-content> component, then you can delete this safely.
+            config.resolve.alias["vue$"] = "vue/dist/vue.esm.js"
         }
     }
 }

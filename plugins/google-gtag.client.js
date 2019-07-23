@@ -1,6 +1,9 @@
+import _get from "lodash/get"
+
 export default ({ store, app: { router, context } }, inject) => {
     // Remove any empty tracking codes
-    const codes = store.state.siteMeta.gaTrackingCodes.filter(Boolean)
+    let codes = _get(store, "state.siteMeta.gaTrackingCodes", [])
+    codes = codes.filter(Boolean)
 
     // Abort if no codes
     if (!codes.length) {
