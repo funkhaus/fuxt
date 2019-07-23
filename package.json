@@ -24,12 +24,13 @@
         "core-js": "^2.6.5"
     },
     "devDependencies": {
+        "@nuxtjs/style-resources": "^0.1.2",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.2",
-        "prettier-eslint": "^8.8.2",
-        "prettier-stylelint": "^0.4.2",
         "node-sass": "^4.11.0",
         "nodemon": "^1.18.9",
+        "prettier-eslint": "^8.8.2",
+        "prettier-stylelint": "^0.4.2",
         "sass-loader": "^7.1.0",
         "svg-inline-loader": "^0.8.0",
         "webfontloader": "^1.6.28"
