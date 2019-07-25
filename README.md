@@ -43,7 +43,7 @@ For Typekit or google fonts, please see the [webfontloader](https://github.com/t
 
 Stackhaus has built in SSR friendly menus. To use them, you first need to define menu locations in WordPress. This can be done in the `/functions/theme-config.php` file in the `stackhaus-backend` WordPress theme. We have some boilerplate code in the `register_custom_nav_menus()` function.
 
-1. Define menu locations in your WordPress theme.
+1. Define menu locations in your WordPress theme in `functions/theme-config.php`.
 1. Assign menus to those menu-locations in the WordPress dashboard.
 1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
 1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
