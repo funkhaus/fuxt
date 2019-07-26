@@ -60,6 +60,10 @@ In your code editor, you'll want to install a Prettier plugin ([VS Code](https:/
 
 The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vue", "prettier" and "prettier-eslint". The "prettier" plugin is not required as most editor plugins will use a default version they ship with, although we have more control over the version of Prettier if we include it in the package file, so we did just to be safe. It also means it would run the same server side or client side if you do that as part of CI. "prettier-eslint" is used to integrate "prettier" and "eslint" together, and get them running one after the other.
 
+## Basic authentication
+
+This theme has built in basic authentication (.htaccess) protection. It is enabled by default (because generally you'll want this on when deploying to public staging sites like we do at Funkhaus), you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults.
+
 ## TODO list
 
 TODO Boilerplate improvements:
