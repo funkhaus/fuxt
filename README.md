@@ -68,7 +68,6 @@ This theme has built in basic authentication (.htaccess) protection. It is enabl
 
 TODO Boilerplate improvements:
 
--   Install eslint and es-lint vue plugin, config like MPC. Maybe use Buetify instead?
 -   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
 -   Add CI pipeline (TBD what we are testing for)
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
@@ -80,5 +79,4 @@ TODO Boilerplate improvements:
 -   Add tools.js file to /utils. Maybe take date and link functions from MPC?
 -   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
--   Get this working: https://github.com/potato4d/nuxt-basic-auth-module#readme
 -   Get this working: https://github.com/nuxt-community/sitemap-module
