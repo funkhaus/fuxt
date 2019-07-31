@@ -1,4 +1,4 @@
-# stackhaus
+    # stackhaus
 
 New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo. Works best with the [stackhuas-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme.
 
@@ -48,6 +48,16 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
 1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
 
+## install
+
+## page structure and Setup
+
+## test wpgrapql
+
+## Menu set up
+
+## wp link settings
+
 ## Linting
 
 This theme has perfect linting for Vue/GQL/JS/SCSS/CSS and HTML using Prettier and ESLint. The ruleset is the Vue style guide "Recommended" spec.
@@ -59,6 +69,16 @@ The idea is that Prettier formats things like CSS and GQL nicely, and ESLint goe
 In your code editor, you'll want to install a Prettier plugin ([VS Code](https://github.com/prettier/prettier-vscode) or [Atom](https://github.com/prettier/prettier-atom)), and set the "ESLint Integration" to `true` and "Format on Save" to `true`. The settings for "prettier-eslint” should have a toggle for "Run Prettier Last", you want that set to `false`. We need ESLint to run last, this ensures the Vue Recommended specs get priority, not Prettier's specs.
 
 The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vue", "prettier" and "prettier-eslint". The "prettier" plugin is not required as most editor plugins will use a default version they ship with, although we have more control over the version of Prettier if we include it in the package file, so we did just to be safe. It also means it would run the same server side or client side if you do that as part of CI. "prettier-eslint" is used to integrate "prettier" and "eslint" together, and get them running one after the other.
+
+# Deploying to heroku
+
+Make sure you have [heroku cli tools installed](https://devcenter.heroku.com/articles/heroku-cli).
+
+Login in to [heroku](https://heroku.com)
+
+Create a new app
+
+Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
 
 ## TODO list
 
