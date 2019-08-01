@@ -92,6 +92,11 @@ export default {
      ** Build configuration
      */
     build: {
+        // This and the transpile code below fix an issue with the spread operator in Safari 10.
+        babel: {
+            plugins: ["transform-object-rest-spread"]
+        },
+        transpile: ["ky", "vuex"],
         extend(config, ctx) {
             // This is used by plugins/global-svg-loader.js
             config.module.noParse = /\/assets\/svgs\/.+(svg$)/
@@ -108,6 +113,6 @@ export default {
     basic: {
         name: "funkhaus",
         pass: "12345", // https://youtu.be/a6iW-8xPw3k
-        enabled: true
+        enabled: false
     }
 }

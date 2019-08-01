@@ -25,6 +25,7 @@
         "nuxt-basic-auth-module": "^1.2.0"
     },
     "devDependencies": {
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "@nuxtjs/style-resources": "^0.1.2",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.3",
