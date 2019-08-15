@@ -45,7 +45,11 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: ["@nuxtjs/apollo", "@nuxtjs/style-resources"],
+    modules: [
+        "@nuxtjs/apollo",
+        "@nuxtjs/style-resources",
+        "nuxt-basic-auth-module"
+    ],
 
     /*
      ** Load scss globally via styleResources
@@ -96,5 +100,14 @@ export default {
             // If you don't use the <wp-content> component, then you can delete this safely.
             config.resolve.alias["vue$"] = "vue/dist/vue.esm.js"
         }
+    },
+
+    /*
+     ** Basic (htaccess) authentication configuration
+     */
+    basic: {
+        name: "funkhaus",
+        pass: "12345", // https://youtu.be/a6iW-8xPw3k
+        enabled: true
     }
 }

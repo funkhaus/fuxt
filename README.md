@@ -43,7 +43,7 @@ For Typekit or google fonts, please see the [webfontloader](https://github.com/t
 
 Stackhaus has built in SSR friendly menus. To use them, you first need to define menu locations in WordPress. This can be done in the `/functions/theme-config.php` file in the `stackhaus-backend` WordPress theme. We have some boilerplate code in the `register_custom_nav_menus()` function.
 
-1. Define menu locations in your WordPress theme.
+1. Define menu locations in your WordPress theme in `functions/theme-config.php`.
 1. Assign menus to those menu-locations in the WordPress dashboard.
 1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
 1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
@@ -80,11 +80,16 @@ Create a new app
 
 Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
 
+## Basic authentication
+
+This theme has built in basic authentication (.htaccess) protection. It is enabled by default (because generally you'll want this on when deploying to public staging sites like we do at Funkhaus), you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
+
+> > > > > > > 76d2dcb66c3e7127d3f61cb5a8e983202682d76e
+
 ## TODO list
 
 TODO Boilerplate improvements:
 
--   Install eslint and es-lint vue plugin, config like MPC. Maybe use Buetify instead?
 -   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
 -   Add CI pipeline (TBD what we are testing for)
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
@@ -96,5 +101,4 @@ TODO Boilerplate improvements:
 -   Add tools.js file to /utils. Maybe take date and link functions from MPC?
 -   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
--   Get this working: https://github.com/potato4d/nuxt-basic-auth-module#readme
 -   Get this working: https://github.com/nuxt-community/sitemap-module
