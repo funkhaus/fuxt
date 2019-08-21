@@ -1,4 +1,4 @@
-# stackhaus
+    # stackhaus
 
 New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo. Works best with the [stackhuas-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme.
 
@@ -60,9 +60,21 @@ In your code editor, you'll want to install a Prettier plugin ([VS Code](https:/
 
 The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vue", "prettier" and "prettier-eslint". The "prettier" plugin is not required as most editor plugins will use a default version they ship with, although we have more control over the version of Prettier if we include it in the package file, so we did just to be safe. It also means it would run the same server side or client side if you do that as part of CI. "prettier-eslint" is used to integrate "prettier" and "eslint" together, and get them running one after the other.
 
+# Deploying to heroku
+
+Make sure you have [heroku cli tools installed](https://devcenter.heroku.com/articles/heroku-cli).
+
+Login in to [heroku](https://heroku.com)
+
+Create a new app
+
+Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
+
 ## Basic authentication
 
 This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
+
+> > > > > > > 76d2dcb66c3e7127d3f61cb5a8e983202682d76e
 
 ## TODO list
 
