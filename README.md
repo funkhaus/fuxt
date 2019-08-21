@@ -62,7 +62,7 @@ The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vu
 
 ## Basic authentication
 
-This theme has built in basic authentication (.htaccess) protection. It is enabled by default (because generally you'll want this on when deploying to public staging sites like we do at Funkhaus), you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
+This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
 
 ## TODO list
 
@@ -80,3 +80,6 @@ TODO Boilerplate improvements:
 -   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
 -   Get this working: https://github.com/nuxt-community/sitemap-module
+-   Add ACF and ACF gql plugin to auto installer. Make not required.
+-   Fix \$lt-tablet being used in shortcode-gallery. Throws errors on build.
+-   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
