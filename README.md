@@ -95,3 +95,4 @@ TODO Boilerplate improvements:
 -   Add ACF and ACF gql plugin to auto installer. Make not required.
 -   Fix \$lt-tablet being used in shortcode-gallery. Throws errors on build.
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
+-   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
