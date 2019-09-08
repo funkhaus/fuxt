@@ -74,8 +74,6 @@ Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/her
 
 This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
 
-> > > > > > > 76d2dcb66c3e7127d3f61cb5a8e983202682d76e
-
 ## TODO list
 
 TODO Boilerplate improvements:
@@ -98,4 +96,3 @@ TODO Boilerplate improvements:
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
 -   Add a redirect for site-url.com/wp-admin (and /admin) to redirect to API login page
 -   Refactor nuxtServerInit to use Promise.all() to all requests in parallel
--   Remove the use of global component loader, bad for performance of big sites. Will need to consider how this impacts coupled components like wp-mneu and wp-menu-item
