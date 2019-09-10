@@ -82,7 +82,6 @@ TODO Boilerplate improvements:
 -   Add CI pipeline (TBD what we are testing for)
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
--   Setup Router scroll-behavior: https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
@@ -96,3 +95,6 @@ TODO Boilerplate improvements:
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
 -   Add a redirect for site-url.com/wp-admin (and /admin) to redirect to API login page
 -   Refactor nuxtServerInit to use Promise.all() to all requests in parallel
+-   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)
+-   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
+-   A better FocusHaus/auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
