@@ -98,3 +98,7 @@ TODO Boilerplate improvements:
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)
 -   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
 -   A better FocusHaus/auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
+-   Use Nuxt-Device on server side to set breakpoint
+-   Refactor Responsive Image component to use <picture> element and IntersectionObserver.
+-   Build a InfinateScroll component that uses IntersectionObserver
+-   Build a <click-to-load-more> component that handles pagination loading
