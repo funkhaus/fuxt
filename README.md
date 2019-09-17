@@ -22,7 +22,7 @@ $ npm run generate
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 ## Theme Config
-
+1.  Disable privacy mode on wordpress host (if applicable)
 1.  Install promoted Plugins
 1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
 1.  Define image sizes and menus in /functions/theme-config.php
