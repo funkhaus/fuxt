@@ -19,9 +19,7 @@ export default {
             ""
         )
 
-        let wpAdmin = `${gqlEndpoint.split("/graphql")[0]}/wp-admin`
-
-        window.location = wpAdmin
+        window.location = `${gqlEndpoint.split("/graphql")[0]}/wp-admin`
     }
 }
 </script>
