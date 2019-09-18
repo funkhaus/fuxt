@@ -96,7 +96,6 @@ TODO Boilerplate improvements:
 -   Fix \$lt-tablet being used in shortcode-gallery. Throws errors on build.
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
--   Add a redirect for site-url.com/wp-admin (and /admin) to redirect to API login page
 -   Refactor nuxtServerInit to use Promise.all() to all requests in parallel
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)
 -   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
