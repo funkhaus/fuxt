@@ -15,25 +15,25 @@
         "heroku-postbuild": "npm run build"
     },
     "dependencies": {
-        "@nuxtjs/apollo": "^4.0.0-rc8.1",
+        "@nuxtjs/apollo": "^4.0.0-rc9",
         "core-js": "^2.6.9",
         "graphql": "^14.4.2",
-        "lodash": "^4.17.14",
+        "lodash": "^4.17.15",
         "node-fetch": "^2.4.1",
-        "nuxt": "^2.8.1",
-        "vue-apollo": "^3.0.0-rc.1",
-        "nuxt-basic-auth-module": "^1.2.0"
+        "nuxt": "^2.9.1",
+        "nuxt-basic-auth-module": "^1.2.0",
+        "vue-apollo": "^3.0.0-rc.2"
     },
     "devDependencies": {
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "@nuxtjs/style-resources": "^0.1.2",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.3",
         "node-sass": "^4.12.0",
         "nodemon": "^1.19.1",
         "prettier": "^1.18.2",
         "prettier-eslint": "^9.0.0",
-        "sass-loader": "^7.1.0",
+        "sass-loader": "^7.3.1",
         "svg-inline-loader": "^0.8.0",
         "webfontloader": "^1.6.28"
     }

@@ -22,7 +22,7 @@ $ npm run generate
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 ## Theme Config
-
+1.  Disable privacy mode on wordpress host (if applicable)
 1.  Install promoted Plugins
 1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
 1.  Define image sizes and menus in /functions/theme-config.php
@@ -82,9 +82,10 @@ Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/her
 
 ## Basic authentication
 
-This theme has built in basic authentication (.htaccess) protection. It is enabled by default (because generally you'll want this on when deploying to public staging sites like we do at Funkhaus), you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
+This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
 
-> > > > > > > 76d2dcb66c3e7127d3f61cb5a8e983202682d76e
+Note: If you start getting this error after enabling basic auth "Cannot read property toLowerCase of undefined" clear local storage. See [https://github.com/nuxt/nuxt.js/issues/6116](https://github.com/nuxt/nuxt.js/issues/6116)
+
 
 ## TODO list
 
@@ -94,7 +95,6 @@ TODO Boilerplate improvements:
 -   Add CI pipeline (TBD what we are testing for)
 -   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
--   Setup Router scroll-behavior: https://router.vuejs.org/guide/advanced/scroll-behavior.html#async-scrolling
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
@@ -102,3 +102,11 @@ TODO Boilerplate improvements:
 -   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
 -   Get this working: https://github.com/nuxt-community/sitemap-module
+-   Add ACF and ACF gql plugin to auto installer. Make not required.
+-   Fix \$lt-tablet being used in shortcode-gallery. Throws errors on build.
+-   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
+-   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
+-   Refactor nuxtServerInit to use Promise.all() to all requests in parallel
+-   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)
+-   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
+-   A better FocusHaus/auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name

@@ -65,7 +65,8 @@ export default {
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint: "http://stackhaus-backend.local/graphql",
+                httpEndpoint:
+                    "http://stackhaus-backend.flywheelsites.com/graphql",
                 tokenName: "apollo-token",
                 persisting: false,
                 websocketsOnly: false

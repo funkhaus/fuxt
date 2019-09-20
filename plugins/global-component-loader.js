@@ -1,8 +1,8 @@
-// Register all files inside /components globally
+// Register all files inside the root /components globally
 import Vue from "vue"
 import _kebabCase from "lodash/kebabCase"
 
-const components = require.context("~/components", true, /[A-Z]\w+\.(vue)$/)
+const components = require.context("~/components", false, /[A-Z]\w+\.(vue)$/)
 components.keys().map(fileName => {
     // Get component config
     const componentConfig = components(fileName)
