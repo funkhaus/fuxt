@@ -48,6 +48,16 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
 1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
 
+## install
+
+## page structure and Setup
+
+## test wpgrapql
+
+## Menu set up
+
+## wp link settings
+
 ## Linting
 
 This theme has perfect linting for Vue/GQL/JS/SCSS/CSS and HTML using Prettier and ESLint. The ruleset is the Vue style guide "Recommended" spec.
