@@ -1,5 +1,5 @@
 <template>
-    <site-loading v-if="$apollo.loading" />
+    <loading-icon v-if="$apollo.loading" />
 
     <section
         v-else

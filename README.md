@@ -23,7 +23,8 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## Theme Config
 
-1.  Install prompted Plugins
+1.  Disable privacy mode on WordPress host (if applicable)
+1.  Install promoted Plugins
 1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
 1.  Define image sizes and menus in `/functions/theme-config.php`
 
@@ -47,6 +48,16 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 1. Assign menus to those menu-locations in the WordPress dashboard.
 1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
 1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
+
+## install
+
+## page structure and Setup
+
+## test wpgrapql
+
+## Menu set up
+
+## wp link settings
 
 ## Linting
 
@@ -97,6 +108,8 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
 
 This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
 
+<<<<<<< HEAD
+
 ## Google Analytics using `this.$gtag`
 
 By default we track page views, but you can track anything you want using `this.$gtag()`. See: https://developers.google.com/analytics/devguides/collection/gtagjs
@@ -108,6 +121,11 @@ By default we track page views, but you can track anything you want using `this.
       'value': <value>
     });
 ```
+
+=======
+Note: If you start getting this error after enabling basic auth "Cannot read property toLowerCase of undefined" clear local storage. See [https://github.com/nuxt/nuxt.js/issues/6116](https://github.com/nuxt/nuxt.js/issues/6116)
+
+> > > > > > > 49fa22bedbe7fe98a87ee811d0c9358797295d3f
 
 ## TODO list
 
@@ -128,7 +146,6 @@ TODO Boilerplate improvements:
 -   Fix \$lt-tablet being used in shortcode-gallery. Throws errors on build.
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
--   Add a redirect for site-url.com/wp-admin (and /admin) to redirect to API login page
 -   Refactor nuxtServerInit to use Promise.all() to all requests in parallel
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)
 -   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
