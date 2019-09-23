@@ -27,7 +27,7 @@ export default ({ store, app: { router, context } }, inject) => {
     let script = document.createElement("script")
     script.async = true
     script.id = "gtag"
-    script.src = `//www.googletagmanager.com/gtag/js?id=${codes[0]}`
+    script.src = "//www.googletagmanager.com/gtag/js"
     document.head.appendChild(script)
 
     // Include Google gtag code and inject it (so this.$gtag works in pages/components)

@@ -27,5 +27,7 @@ fragment homeImage on MediaItem {
     acfImageMeta {
         videoUrl
         primaryColor
+        #focalPointX
+        #focalPointY
     }
 }

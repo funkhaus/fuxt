@@ -23,9 +23,9 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## Theme Config
 
-1.  Install promoted Plugins
+1.  Install prompted Plugins
 1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
-1.  Define image sizes and menus in /functions/theme-config.php
+1.  Define image sizes and menus in `/functions/theme-config.php`
 
 ## Fonts
 
@@ -70,9 +70,44 @@ Create a new app
 
 Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
 
+## Going Live!
+
+We recommended using CloudFlare for your DNS, it's free plan is enough to do everything you need.
+
+1.  Prep Nuxt to go live.
+    1.  Disable Basic Auth in `nuxt.config.js`
+    1.  Set the Apollo endpoints to be the new domain names. Probably `https://api.your-site.com/graphql` and if you're using Shopify, `https://shop.your-site.com/api/{version number here}/graphql.json`. You may want to use a `.env` for these, it helps when dealing with staging setups later.
+    1.  If you want the site to be HTTPS (you should), you'll probably want to install the `Redirect SSL` module in Nuxt [from here](https://github.com/nuxt-community/redirect-ssl).
+    1.  Be sure to turn off Privacy mode in Flywheel.
+1.  In Heroku, add your custom domain name to the App. [See here](https://devcenter.heroku.com/articles/custom-domains]). Note the "DNS Target" Heroku gives you, it should be some funny names and a random string like `space-balls-12345drewish.herokudns.com`.
+1.  Turn on SSL in Heroku using the "Automated Certificate Management" (this only works if you're hosting on a paid Heroku plan, which Funkhaus has).
+1.  In CloudFlare, click "+ Add Site" (top left of screen).
+    1.  When it asks for DNS entries, you'll want to set two CNAME's pointing to the "DNS Target" shown in Heroku (mentioned in Step 1). One CNAME for `www` and one CNAME set to `@`, which CloudFlare will then auto apply "CNAME Flattening", which is good. [See here for more](https://thoughtbot.com/blog/set-up-cloudflare-free-ssl-on-heroku).
+    1.  Add an A-RECORD for your API backend, which is on Flywheel. Generally you want this to be `api.your-site.com`.
+    1.  You do not need to do anything for SSL in CloudFlare, Heroku handles it.
+1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`.
+    1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turn on.
+    1.  Be sure to turn off Privacy mode in Flywheel.
+1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are `ed.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
+1.  If the site uses Shopify, you'll need to "Add an existing domain". Probably this will be `shop.your-site.com`.
+    1.  In CloudFlare set a CNAME for `shop.your-site.com` to point to `shops.myshopify.com`.
+    1.  **You do not need to setup an A-RECORD if you only want the shop to be on a sub-domain.**
+
 ## Basic authentication
 
 This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
+
+## Google Analytics using `this.$gtag`
+
+By default we track page views, but you can track anything you want using `this.$gtag()`. See: https://developers.google.com/analytics/devguides/collection/gtagjs
+
+```
+    this.gtag('event', <action>, {
+      'event_category': <category>,
+      'event_label': <label>,
+      'value': <value>
+    });
+```
 
 ## TODO list
 
@@ -99,6 +134,8 @@ TODO Boilerplate improvements:
 -   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
 -   A better FocusHaus/auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
 -   Use Nuxt-Device on server side to set breakpoint
--   Refactor Responsive Image component to use <picture> element and IntersectionObserver.
+-   Refactor Responsive Image component to use <picture> element and IntersectionObserver?
 -   Build a InfinateScroll component that uses IntersectionObserver
--   Build a <click-to-load-more> component that handles pagination loading
+-   Build a <click-to-load-more> component that handles pagination loading (maybe pass in GQL query?)
+-   Take Focal Point scripts from ICM and make a WordPress plugin, then add to auto-plugin installer
+-   Move GQL files into own /gql folder and import fragments
