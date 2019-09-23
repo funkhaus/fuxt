@@ -1,4 +1,4 @@
-    # stackhaus
+# stackhaus
 
 New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo. Works best with the [stackhuas-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme.
 
@@ -49,16 +49,6 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
 1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
 
-## install
-
-## page structure and Setup
-
-## test wpgrapql
-
-## Menu set up
-
-## wp link settings
-
 ## Linting
 
 This theme has perfect linting for Vue/GQL/JS/SCSS/CSS and HTML using Prettier and ESLint. The ruleset is the Vue style guide "Recommended" spec.
@@ -108,9 +98,9 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
 
 This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
 
-<<<<<<< HEAD
+Note: If you start getting this error after enabling basic auth "Cannot read property toLowerCase of undefined" clear local storage. See [https://github.com/nuxt/nuxt.js/issues/6116](https://github.com/nuxt/nuxt.js/issues/6116)
 
-## Google Analytics using `this.$gtag`
+## Google Analytics using `this.$gtag()`
 
 By default we track page views, but you can track anything you want using `this.$gtag()`. See: https://developers.google.com/analytics/devguides/collection/gtagjs
 
@@ -121,11 +111,6 @@ By default we track page views, but you can track anything you want using `this.
       'value': <value>
     });
 ```
-
-=======
-Note: If you start getting this error after enabling basic auth "Cannot read property toLowerCase of undefined" clear local storage. See [https://github.com/nuxt/nuxt.js/issues/6116](https://github.com/nuxt/nuxt.js/issues/6116)
-
-> > > > > > > 49fa22bedbe7fe98a87ee811d0c9358797295d3f
 
 ## TODO list
 
