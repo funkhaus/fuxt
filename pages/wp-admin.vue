@@ -15,8 +15,9 @@ export default {
             "apollo.clientConfigs.default.httpEndpoint",
             ""
         )
-
-        window.location = `${gqlEndpoint.split("/graphql")[0]}/wp-admin`
+        if (process.client) {
+            window.location = `${gqlEndpoint.split("/graphql")[0]}/wp-admin`
+        }
     }
 }
 </script>

@@ -85,6 +85,15 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
     1.  When it asks for DNS entries, you'll want to set two CNAME's pointing to the "DNS Target" shown in Heroku (mentioned in Step 1). One CNAME for `www` and one CNAME set to `@`, which CloudFlare will then auto apply "CNAME Flattening", which is good. [See here for more](https://thoughtbot.com/blog/set-up-cloudflare-free-ssl-on-heroku).
     1.  Add an A-RECORD for your API backend, which is on Flywheel. Generally you want this to be `api.your-site.com`.
     1.  You do not need to do anything for SSL in CloudFlare, Heroku handles it.
+1. Setting up www redirects in CloudFlare:
+    1. Click 'Page Rules'.
+    1. Click 'Add a rule'.
+    1. Match the URL to `*www.your-site.com`.
+    1. select 'Forwarding URL' from the dropdown menu.
+    1. Choose '301 - Permanent Redirect'.
+    1. Set the redirect URL to `https://your-site.com`.
+    1. Repeat above steps adding `*www.your-site.com/*` URL and `https://your-site.com/$1`.
+    1. Repeat again adding `*www.your-site.com/*/*` URL and `https://your-site.com/$1/$2` (You can only have 3 rules on free plan).
 1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`.
     1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turn on.
     1.  Be sure to turn off Privacy mode in Flywheel.
