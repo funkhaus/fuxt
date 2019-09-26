@@ -1,7 +1,7 @@
-// Register all files inside the root /components globally
 import Vue from "vue"
 import _kebabCase from "lodash/kebabCase"
 
+// Register all files inside the root of ~/components globally
 const components = require.context("~/components", false, /[A-Z]\w+\.(vue)$/)
 components.keys().map(fileName => {
     // Get component config
@@ -15,3 +15,7 @@ components.keys().map(fileName => {
     // Register new component globally
     Vue.component(componentName, componentConfig.default || componentConfig)
 })
+
+// Components used globally. Generally anything that is a shortcode would go here.
+//import shortcodeGallery from "~/components/shortcode/Gallery"
+//Vue.component("shortcode-gallery", shortcodeGallery)

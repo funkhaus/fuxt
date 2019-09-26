@@ -61,13 +61,12 @@ In your code editor, you'll want to install a Prettier plugin ([VS Code](https:/
 
 The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vue", "prettier" and "prettier-eslint". The "prettier" plugin is not required as most editor plugins will use a default version they ship with, although we have more control over the version of Prettier if we include it in the package file, so we did just to be safe. It also means it would run the same server side or client side if you do that as part of CI. "prettier-eslint" is used to integrate "prettier" and "eslint" together, and get them running one after the other.
 
-# Deploying to heroku
+## Deploying to heroku
 
-Make sure you have [heroku cli tools installed](https://devcenter.heroku.com/articles/heroku-cli).
+If you're comfortable with command clines, install the [heroku cli tools](https://devcenter.heroku.com/articles/heroku-cli).
 
-Login in to [heroku](https://heroku.com)
-
-Create a new app
+1.  Login in to [heroku](https://heroku.com)
+1.  Create an App
 
 Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
 
@@ -112,6 +111,10 @@ By default we track page views, but you can track anything you want using `this.
     });
 ```
 
+## Store tracking breakpoint size
+
+By default, on nuxtServerInit a user agent detect will happen and set the `state.breakpoint` to equal mobile or desktop. This is also set in `Default.vue` as well. We do this to try to make sure that SSR is at least close to the client as possible. We use a combination of `@nuxtjs/device` and window width to do this.
+
 ## TODO list
 
 TODO Boilerplate improvements:
@@ -123,7 +126,6 @@ TODO Boilerplate improvements:
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
--   Add tools.js file to /utils. Maybe take date and link functions from MPC?
 -   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
 -   Get this working: https://github.com/nuxt-community/sitemap-module
@@ -135,9 +137,8 @@ TODO Boilerplate improvements:
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)
 -   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
 -   A better FocusHaus/auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
--   Use Nuxt-Device on server side to set breakpoint
 -   Refactor Responsive Image component to use <picture> element and IntersectionObserver?
 -   Build a InfinateScroll component that uses IntersectionObserver
 -   Build a <click-to-load-more> component that handles pagination loading (maybe pass in GQL query?)
 -   Take Focal Point scripts from ICM and make a WordPress plugin, then add to auto-plugin installer
--   Move GQL files into own /gql folder and import fragments
+-   Document how to use Heroku Pipelines. Connect GitHub to Pipeline. Never deploy to Production from GitHub for live site. Always promote from Staging to Production.

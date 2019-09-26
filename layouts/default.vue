@@ -10,19 +10,26 @@
 </template>
 
 <script>
+// Helpers
 import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
-import { decodeHtmlEntity } from "~/utils/tools"
+import { decodeHtmlEntities } from "~/utils/tools"
+
+// Components
+import siteHamburger from "~/components/site/Hamburger"
 
 export default {
+    components: {
+        siteHamburger
+    },
     head() {
         return {
             bodyAttrs: {
                 class: "default-theme"
             },
             titleTemplate: titleChunk => {
-                let title = decodeHtmlEntity(titleChunk)
-                let site = decodeHtmlEntity(this.$store.state.siteMeta.title)
+                let title = decodeHtmlEntities(titleChunk)
+                let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
                 return title ? `${site} - ${title}` : site
             },
             meta: [
@@ -39,9 +46,7 @@ export default {
                 },
                 {
                     property: "og:url",
-                    content: `${this.$store.state.siteMeta.host}${
-                        this.$route.path
-                    }`
+                    content: `${this.$store.state.siteMeta.host}${this.$route.path}`
                 },
                 {
                     property: "og:site_name",

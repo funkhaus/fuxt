@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@nuxtjs/apollo": "^4.0.0-rc9",
+        "@nuxtjs/device": "^1.2.3",
         "core-js": "^2.6.9",
         "graphql": "^14.4.2",
         "lodash": "^4.17.15",

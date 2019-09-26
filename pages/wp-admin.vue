@@ -1,19 +1,16 @@
 <template>
-    <site-loading />
+    <page-loading />
 </template>
 
 <script>
+// Helpers
 import _get from "lodash/get"
-import siteLoading from "~/components/site/Loading"
 import config from "~/nuxt.config"
 
 export default {
-    components: {
-        siteLoading
-    },
     transition: "fade",
     mounted() {
-        let gqlEndpoint = _get(
+        const gqlEndpoint = _get(
             config,
             "apollo.clientConfigs.default.httpEndpoint",
             ""

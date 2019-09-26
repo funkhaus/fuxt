@@ -1,5 +1,5 @@
 <template>
-    <loading-icon v-if="$apollo.loading" />
+    <page-loading v-if="$apollo.loading" />
 
     <section
         v-else
@@ -11,7 +11,7 @@
 
 <script>
 import _get from "lodash/get"
-import HomeQuery from "~/queries/HomeQuery.gql"
+import Home from "~/gql/queries/Home.gql"
 
 export default {
     transition: "fade",
@@ -40,7 +40,7 @@ export default {
     },
     apollo: {
         page: {
-            query: HomeQuery,
+            query: Home,
             variables() {
                 return {
                     uri: "/featured" // FYI you can't query home by just using '/'

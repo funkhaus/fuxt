@@ -1,4 +1,4 @@
-query WpSettingsQuery {
+query WpSettings {
     generalSettings {
         title
         description

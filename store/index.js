@@ -1,5 +1,5 @@
 import config from "~/nuxt.config"
-import WpSettingsQuery from "~/queries/WpSettingsQuery.gql"
+import WpSettings from "~/gql/queries/WpSettings.gql"
 import _get from "lodash/get"
 
 // Define State defaults
@@ -44,18 +44,28 @@ export const actions = {
         // let menuLocations = ["MAIN_MENU"]
         // await store.dispatch("menus/QUERY_MENUS", menuLocations)
 
+        // Query settings
+        await store.dispatch("QUERY_SETTINGS")
+
+        // Set default breakpoint
+        if (context.isMobileOrTablet) {
+            store.commit("SET_BREAKPOINT", "mobile")
+        }
+    },
+
+    async QUERY_SETTINGS(store, context) {
         // Get backend API
-        let apiUrl = _get(
+        const apiUrl = _get(
             config,
             "apollo.clientConfigs.default.httpEndpoint",
             ""
         ).replace("/graphql", "")
 
         // Get site settings from WordPress and save them to store
-        let client = context.app.apolloProvider.defaultClient
+        let client = this.app.apolloProvider.defaultClient
         await client
             .query({
-                query: WpSettingsQuery
+                query: WpSettings
             })
             .then(({ data }) => {
                 let settings = _get(data, "generalSettings", {})

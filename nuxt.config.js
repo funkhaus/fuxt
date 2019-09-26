@@ -48,7 +48,8 @@ export default {
     modules: [
         "@nuxtjs/apollo",
         "@nuxtjs/style-resources",
-        "nuxt-basic-auth-module"
+        "nuxt-basic-auth-module",
+        "@nuxtjs/device"
     ],
 
     /*

@@ -4,14 +4,14 @@ query GET_MENU($location: MenuLocationEnum) {
             ...locationMenuItem
             childItems {
                 nodes {
-                    ...locationMenuItem
+                    ...LocationMenuItem
                 }
             }
         }
     }
 }
 
-fragment locationMenuItem on MenuItem {
+fragment LocationMenuItem on MenuItem {
     label
     cssClasses
     target

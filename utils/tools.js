@@ -20,8 +20,72 @@ export const formatDate = date => {
  * This function is used to decode HTML entities. Useful for setting head title tags.
  * Will convert ``&amp;#8211;`` into `-` for example.
  */
-export const decodeHtmlEntity = string => {
+export const decodeHtmlEntities = string => {
     return string.replace(/&#(\d+);/g, function(match, dec) {
         return String.fromCharCode(dec)
     })
+}
+
+/*
+ * This function is used generate "share this" style links.
+ */
+export const buildShareLinks = opts => {
+    const url = opts.url || ""
+    const text = opts.text.replace(/<[^>]*>?/gm, "") || ""
+
+    const title = opts.title || ""
+
+    return {
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            url
+        )}`,
+        twitter: `http://twitter.com/share?text=${encodeURIComponent(
+            text.substring(0, 280)
+        )}&url=${encodeURIComponent(url)}`,
+        tumblr: `http://www.tumblr.com/share/link?url=${encodeURIComponent(
+            url
+        )}`,
+        reddit: `http://www.reddit.com/submit?url=${url}&title=${encodeURIComponent(
+            title
+        )}`,
+        email: `mailto:?subject=${encodeURIComponent(
+            title
+        )}&body=${encodeURIComponent(text)}%0D%0A %0D%0A${encodeURIComponent(
+            url
+        )}`,
+        linkedin: `http://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+            url
+        )}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(
+            text
+        )}`,
+        pinterest: `http://pinterest.com/pin/create/button/?url=${encodeURIComponent(
+            url
+        )}&description=${encodeURIComponent(text)}`,
+        reddit: `http://www.reddit.com/submit?url=${encodeURIComponent(url)}`
+    }
+}
+
+/*
+ * Take array of items and sort equally across n new arrays. Great for sorting items into columns.
+ */
+export const sortColumns = (items, count = 2) => {
+    const buckets = Array(count)
+        .fill(0)
+        .map(v => [])
+    let pointer = 0
+
+    items.forEach(item => {
+        buckets[pointer].push(item)
+        pointer = (pointer + 1) % count
+    })
+
+    return buckets
+}
+
+/*
+ * Mimics PHP's nl2br
+ * SEE https://www.php.net/manual/en/function.nl2br.php
+ */
+export const nl2br = str => {
+    return str.replace(/(?:\r\n|\r|\n)/g, "<br>")
 }
