@@ -38,19 +38,21 @@ export const mutations = {
 // Define actions
 export const actions = {
     async nuxtServerInit(store, context) {
-        // Define menus here.
-        // Use menu location, as definded in WordPress functions/theme-config.php
-        // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
-        // let menuLocations = ["MAIN_MENU"]
-        // await store.dispatch("menus/QUERY_MENUS", menuLocations)
-
-        // Query settings
-        await store.dispatch("QUERY_SETTINGS")
-
         // Set default breakpoint
         if (context.isMobileOrTablet) {
             store.commit("SET_BREAKPOINT", "mobile")
         }
+
+        // Define menus here.
+        // Use menu location, as definded in WordPress functions/theme-config.php
+        // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
+        // let menuLocations = ["MAIN_MENU"]
+
+        // Make all requests in parallel
+        const data = await Promise.all([
+            store.dispatch("QUERY_SETTINGS")
+            //store.dispatch("menus/QUERY_MENUS", menuLocations)
+        ])
     },
 
     async QUERY_SETTINGS(store, context) {
