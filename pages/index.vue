@@ -6,6 +6,8 @@
         :class="classes"
     >
         <svg-logo-funkhaus />
+
+        <div v-html="page.content" />
     </section>
 </template>
 
@@ -47,7 +49,7 @@ export default {
                 }
             },
             update(data) {
-                return data
+                return _get(data, "pageBy", "")
             }
         }
     }
@@ -59,10 +61,14 @@ export default {
     color: $black;
     margin: 0 auto;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 
     // Breakpoints
     // @media #{$lt-tablet} {
