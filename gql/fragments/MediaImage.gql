@@ -10,10 +10,10 @@ fragment MediaImage on MediaItem {
         height
         width
     }
-    # acfImageMeta {
-    #     videoUrl
-    #     primaryColor
-    #     focalPointX
-    #     focalPointY
-    # }
+    acfImageMeta {
+        videoUrl
+        primaryColor
+        focalPointX
+        focalPointY
+    }
 }

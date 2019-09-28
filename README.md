@@ -175,15 +175,13 @@ TODO Boilerplate improvements:
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
--   Fix ACF auto-import of default fields
 -   Get this working: https://github.com/nuxt-community/sitemap-module
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)?
 -   A WordPress function to generate all post/page/category/tags/CPT routes?
--   A better FocusHaus/auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
+-   A better auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
 -   Refactor Responsive Image component to use <picture> element and IntersectionObserver?
 -   Build a InfinateScroll component that uses IntersectionObserver?
 -   Build a <click-to-load-more> component that handles pagination loading (maybe pass in GQL query?)
 -   Document how to use Heroku Pipelines. Connect GitHub to Pipeline. Never deploy to Production from GitHub for live site. Always promote from Staging to Production.
--   Take Focal Point scripts from ICM and make a WordPress plugin, then add to auto-plugin installer
