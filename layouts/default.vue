@@ -28,9 +28,9 @@ export default {
                 class: "default-theme"
             },
             titleTemplate: titleChunk => {
-                //let title = decodeHtmlEntities(titleChunk)
-                //let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
-                //return title ? `${site} - ${title}` : site
+                let title = decodeHtmlEntities(titleChunk)
+                let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
+                return title ? `${site} - ${title}` : site
             },
             meta: [
                 {

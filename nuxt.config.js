@@ -1,3 +1,4 @@
+require("dotenv").config()
 import pkg from "./package"
 
 export default {
@@ -61,16 +62,12 @@ export default {
 
     /*
      ** Apollo options. Used for Graph QL queries
-     ** See: https://www.apollographql.com/docs/link/links/http.html#options
+     ** See: https://github.com/nuxt-community/apollo-module#setup
      */
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint:
-                    "http://stackhaus-backend.flywheelsites.com/graphql",
-                tokenName: "apollo-token",
-                persisting: false,
-                websocketsOnly: false
+                httpEndpoint: process.env.DEFAULT_ENDPOINT
             }
         }
     },
@@ -106,6 +103,9 @@ export default {
             // Includes the Compiler version of Vue.
             // If you don't use the <wp-content> component, then you can delete this safely.
             config.resolve.alias["vue$"] = "vue/dist/vue.esm.js"
+
+            // This stops a @nuxtjs/dotenv error.
+            config.node = { fs: "empty" }
         }
     },
 
@@ -115,6 +115,6 @@ export default {
     basic: {
         name: "funkhaus",
         pass: "12345", // https://youtu.be/a6iW-8xPw3k
-        enabled: false
+        enabled: process.env.BASIC_AUTH_ENABLED === "true"
     }
 }
