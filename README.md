@@ -25,8 +25,9 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 1.  Disable privacy mode on WordPress host (if applicable)
 1.  Install promoted Plugins
+1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.
 1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
-1.  Define image sizes and menus in `/functions/theme-config.php`
+1.  Define image sizes and menu locations in `/functions/theme-config.php`.
 
 ## Fonts
 
@@ -61,14 +62,18 @@ In your code editor, you'll want to install a Prettier plugin ([VS Code](https:/
 
 The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vue", "prettier" and "prettier-eslint". The "prettier" plugin is not required as most editor plugins will use a default version they ship with, although we have more control over the version of Prettier if we include it in the package file, so we did just to be safe. It also means it would run the same server side or client side if you do that as part of CI. "prettier-eslint" is used to integrate "prettier" and "eslint" together, and get them running one after the other.
 
-## Deploying to heroku
+## Deploying to Heroku
 
 If you're comfortable with command clines, install the [heroku cli tools](https://devcenter.heroku.com/articles/heroku-cli).
+
+Otherwise you can do it all through the website Dashboard too.
 
 1.  Login in to [heroku](https://heroku.com)
 1.  Create an App
 
 Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
+
+**TODO this section needs to be filled out more, speak to Drew in the meantime**
 
 ## Going Live!
 
