@@ -29,7 +29,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
     1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.
     1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
     1.  Define image sizes and menu locations in `/functions/theme-config.php`.
-1.  Rename your `.env.example` to `.env` and config your GraphQL endpoint to match the WordPress installed above.
+1.  Rename your `.env.example` to `.env` and config "DEFAULT_ENDPOINT" to be the GraphQL endpoint from the WordPress you installed above.
 
 ## Fonts
 
