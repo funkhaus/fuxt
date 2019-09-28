@@ -147,6 +147,8 @@ Common shortcodes we've included:
 [/columns]
 ```
 
+**For this to work, you must also turn on `[column]` shortcode, but this does not require any Vue code to work.**
+
 ### SVG images
 
 `[svg]` That maps to an SVG from `~/assets/svgs` using the `name` prop.
