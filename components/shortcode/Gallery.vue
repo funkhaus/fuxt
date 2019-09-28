@@ -65,13 +65,13 @@ export default {
     }
 
     // Breakpoints
-    @media #{$lt-tablet} {
-        &.columns-2,
-        &.columns-3 {
-            .gallery-block {
-                width: 100%;
-            }
-        }
-    }
+    // @media #{$lt-tablet} {
+    //     &.columns-2,
+    //     &.columns-3 {
+    //         .gallery-block {
+    //             width: 100%;
+    //         }
+    //     }
+    // }
 }
 </style>

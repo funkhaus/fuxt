@@ -50,12 +50,12 @@ export const actions = {
 
         // Make all requests in parallel
         const data = await Promise.all([
-            store.dispatch("QUERY_SETTINGS")
+            store.dispatch("QUERY_SETTINGS", context)
             //store.dispatch("menus/QUERY_MENUS", menuLocations)
         ])
     },
 
-    async QUERY_SETTINGS(store, context) {
+    async QUERY_SETTINGS({ dispatch, commit }, context) {
         // Get backend API
         const apiUrl = _get(
             config,
@@ -82,7 +82,7 @@ export const actions = {
                         settings.gaTrackingCode2
                     ]
                 }
-                store.commit("SET_SITE_META", meta)
+                commit("SET_SITE_META", meta)
             })
     }
 }

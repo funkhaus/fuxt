@@ -85,7 +85,7 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
     1.  When it asks for DNS entries, you'll want to set two CNAME's pointing to the "DNS Target" shown in Heroku (mentioned in Step 1). One CNAME for `www` and one CNAME set to `@`, which CloudFlare will then auto apply "CNAME Flattening", which is good. [See here for more](https://thoughtbot.com/blog/set-up-cloudflare-free-ssl-on-heroku).
     1.  Add an A-RECORD for your API backend, which is on Flywheel. Generally you want this to be `api.your-site.com`.
     1.  You do not need to do anything for SSL in CloudFlare, Heroku handles it.
-1. Setting up www redirects in CloudFlare:
+1.  Setting up www redirects in CloudFlare:
     1. Click 'Page Rules'.
     1. Click 'Add a rule'.
     1. Match the URL to `*www.your-site.com`.
@@ -110,7 +110,7 @@ Note: If you start getting this error after enabling basic auth "Cannot read pro
 
 ## Google Analytics using `this.$gtag()`
 
-By default we track page views, but you can track anything you want using `this.$gtag()`. See: https://developers.google.com/analytics/devguides/collection/gtagjs
+You can set tracking codes in Settings > General. By default page views are tracked, but you can track anything you want using `this.$gtag()` in a component or page. See: https://developers.google.com/analytics/devguides/collection/gtagjs
 
 ```
     this.gtag('event', <action>, {
@@ -124,6 +124,37 @@ By default we track page views, but you can track anything you want using `this.
 
 By default, on nuxtServerInit a user agent detect will happen and set the `state.breakpoint` to equal mobile or desktop. This is also set in `Default.vue` as well. We do this to try to make sure that SSR is at least close to the client as possible. We use a combination of `@nuxtjs/device` and window width to do this.
 
+## Shortcodes
+
+This theme unpacks WordPress shortcods into Vue components. You need to register the shortcodes in `Stackhaus Backend` in the `/functions/shortcods.php` file [here](https://github.com/funkhaus/stackhaus-backend/blob/master/functions/shortcodes.php). There are a few common ones we have built, that you can uncomment the `//add_shortcode` lines to turn on.
+
+Common shortcodes we've included:
+
+### Gallery
+
+`[gallery]` that builds a grid of images. Designed to work with `<responsive-image>` and FocusHaus.
+
+`[gallery ids="123,456,789" columns="2"]`
+
+### Columns
+
+`[columns]` shortcode that can be used to layout elements into columns.
+
+```
+[columns columns="2"]
+    [column]Left text[/column]
+    [column]Right text, or an <img> even![/column]
+[/columns]
+```
+
+### SVG images
+
+`[svg]` That maps to an SVG from `~/assets/svgs` using the `name` prop.
+
+```
+[svg name="arrow-icon"]
+```
+
 ## TODO list
 
 TODO Boilerplate improvements:
@@ -135,19 +166,15 @@ TODO Boilerplate improvements:
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
--   Document analytics and how `this.$gtag` works for custom events
 -   Fix ACF auto-import of default fields
 -   Get this working: https://github.com/nuxt-community/sitemap-module
--   Add ACF and ACF gql plugin to auto installer. Make not required.
--   Fix \$lt-tablet being used in shortcode-gallery. Throws errors on build.
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
--   Refactor nuxtServerInit to use Promise.all() to all requests in parallel
--   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)
--   A WordPress function to generate all post/page/category/tags/CPT routes. Maybe this helps: https://wordpress.org/plugins/list-urls/
+-   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)?
+-   A WordPress function to generate all post/page/category/tags/CPT routes?
 -   A better FocusHaus/auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
 -   Refactor Responsive Image component to use <picture> element and IntersectionObserver?
--   Build a InfinateScroll component that uses IntersectionObserver
+-   Build a InfinateScroll component that uses IntersectionObserver?
 -   Build a <click-to-load-more> component that handles pagination loading (maybe pass in GQL query?)
--   Take Focal Point scripts from ICM and make a WordPress plugin, then add to auto-plugin installer
 -   Document how to use Heroku Pipelines. Connect GitHub to Pipeline. Never deploy to Production from GitHub for live site. Always promote from Staging to Production.
+-   Take Focal Point scripts from ICM and make a WordPress plugin, then add to auto-plugin installer

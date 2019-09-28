@@ -19,3 +19,6 @@ components.keys().map(fileName => {
 // Components used globally. Generally anything that is a shortcode would go here.
 //import shortcodeGallery from "~/components/shortcode/Gallery"
 //Vue.component("shortcode-gallery", shortcodeGallery)
+
+//import shortcodeColumns from "~/components/shortcode/Columns"
+//Vue.component("shortcode-columns", shortcodeColumns)

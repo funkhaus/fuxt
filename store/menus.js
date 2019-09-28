@@ -1,6 +1,6 @@
 import _get from "lodash/get"
 import _camelCase from "lodash/camelCase"
-import MenuByLocation from "~/queries/MenuByLocation.gql"
+import MenuByLocation from "~/gql/queries/MenuByLocation.gql"
 
 // Define State defaults
 export const state = () => ({
