@@ -18,20 +18,25 @@ export const mutations = {
 export const actions = {
     async QUERY_MENUS({ commit }, menuLocations) {
         let client = this.app.apolloProvider.defaultClient
+        let queries = []
 
-        // Get each menu from server
+        // Build the query for each menu location passed in
         for (const location of menuLocations) {
-            const query = await client.query({
+            let query = client.query({
                 query: MenuByLocation,
                 variables: {
                     location: location
                 }
             })
+            queries.push(query)
+        }
 
-            // Commit menu to store
+        // Send all requests in parallel and then commit each menu to store as it comes back
+        const allResponses = await Promise.all(queries)
+        for (const [index, response] of allResponses.entries()) {
             commit("SET_MENU", {
-                location: _camelCase(location),
-                items: await _get(query, "data.menuItems.nodes", {})
+                location: _camelCase(menuLocations[index]),
+                items: _get(response, "data.menuItems.nodes", {})
             })
         }
     }
