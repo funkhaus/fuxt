@@ -46,7 +46,7 @@ export const actions = {
         // Define menus here.
         // Use menu location, as definded in WordPress functions/theme-config.php
         // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
-        // let menuLocations = ["MAIN_MENU"]
+        // const menuLocations = ["MAIN_MENU"]
 
         // Make all requests in parallel
         const data = await Promise.all([
