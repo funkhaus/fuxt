@@ -64,8 +64,7 @@ export const actions = {
         ).replace("/graphql", "")
 
         // Get site settings from WordPress and save them to store
-        let client = this.app.apolloProvider.defaultClient
-        await client
+        await this.app.apolloProvider.defaultClient
             .query({
                 query: WpSettings
             })
