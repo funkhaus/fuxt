@@ -1,5 +1,5 @@
 <template>
-    <page-loading v-if="$apollo.loading" />
+    <site-loading v-if="$apollo.loading" />
 
     <section
         v-else
@@ -19,18 +19,22 @@ export default {
     transition: "fade",
     head() {
         return {
-            title: _get(this, "page.title", ""),
+            title: "",
             meta: [
                 {
                     hid: "description",
                     name: "description",
                     property: "og:description",
-                    content: _get(this, "page.excerpt", "")
+                    content: _get(this, "page.excerpt", undefined)
                 },
                 {
                     hid: "og:image",
                     property: "og:image",
-                    content: _get(this, "page.featuredImage.sourceUrl", "")
+                    content: _get(
+                        this,
+                        "page.featuredImage.sourceUrl",
+                        undefined
+                    )
                 }
             ]
         }

@@ -1,8 +1,19 @@
-<!-- This will be our App.vue -->
 <template>
     <main :class="classes">
-        <!-- Header goes here -->
+        <!-- This helps with SEO -->
+        <p
+            v-if="$route.name == 'index'"
+            id="tagline"
+            v-html="$store.state.meta.description"
+        />
+
+        <!-- Header would go  here -->
+
         <site-hamburger />
+
+        <nuxt-link to="/">
+            <svg-logo-funkhaus />
+        </nuxt-link>
 
         <nuxt />
         <!-- Footer goes here -->
@@ -46,7 +57,7 @@ export default {
                 },
                 {
                     property: "og:url",
-                    content: `${this.$store.state.siteMeta.host}${this.$route.path}`
+                    content: `https://${this.$store.state.siteMeta.host}${this.$route.path}`
                 },
                 {
                     property: "og:site_name",
@@ -144,5 +155,8 @@ export default {
 
 <style lang="scss">
 .container {
+    #tagline {
+        display: none;
+    }
 }
 </style>
