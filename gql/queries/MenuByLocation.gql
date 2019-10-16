@@ -1,7 +1,7 @@
 query GET_MENU($location: MenuLocationEnum) {
     menuItems(first: 99, where: { location: $location }) {
         nodes {
-            ...locationMenuItem
+            ...LocationMenuItem
             childItems {
                 nodes {
                     ...LocationMenuItem
