@@ -9,7 +9,8 @@ export const state = () => ({
     breakpoint: "desktop",
     sTop: 0,
     winHeight: 0,
-    winWidth: 0
+    winWidth: 0,
+    isRouting: false
 })
 
 // Define mutations
@@ -32,6 +33,9 @@ export const mutations = {
     },
     SET_SITE_META(state, data) {
         state.siteMeta = data
+    },
+    SET_ROUTING(data) {
+        state.isRouting = data
     }
 }
 

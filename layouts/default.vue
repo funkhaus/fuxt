@@ -4,7 +4,7 @@
         <p
             v-if="$route.name == 'index'"
             id="tagline"
-            v-html="$store.state.meta.description"
+            v-html="$store.state.siteMeta.description"
         />
 
         <!-- Header would go  here -->
@@ -93,7 +93,8 @@ export default {
                 `route-${_kebabCase(this.$route.name)}`,
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.sTop > 0 },
-                { "is-ssr": process.server }
+                { "is-ssr": process.server },
+                { "is-routing": this.$store.state.isRouting }
             ]
         },
         breakpoint() {

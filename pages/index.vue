@@ -5,8 +5,6 @@
         v-else
         :class="classes"
     >
-        <svg-logo-funkhaus />
-
         <div v-html="page.content" />
     </section>
 </template>

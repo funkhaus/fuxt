@@ -185,3 +185,4 @@ TODO Boilerplate improvements:
 -   Build a InfinateScroll component that uses IntersectionObserver?
 -   Build a <click-to-load-more> component that handles pagination loading (maybe pass in GQL query?)
 -   Document how to use Heroku Pipelines. Connect GitHub to Pipeline. Never deploy to Production from GitHub for live site. Always promote from Staging to Production.
+-   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546
