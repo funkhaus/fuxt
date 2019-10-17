@@ -14,9 +14,9 @@ export default {
     methods: {
         toggleMenu() {
             if (this.$store.state.menuOpened) {
-                this.$store.commit("CLOSE_MENU")
+                this.$store.commit("SET_MENU", false)
             } else {
-                this.$store.commit("OPEN_MENU")
+                this.$store.commit("SET_MENU", true)
             }
         }
     }

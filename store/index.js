@@ -10,7 +10,7 @@ export const state = () => ({
     sTop: 0,
     winHeight: 0,
     winWidth: 0,
-    isRouting: false
+    isLoading: false
 })
 
 // Define mutations
@@ -18,11 +18,8 @@ export const mutations = {
     SET_BREAKPOINT(state, breakpoint) {
         state.breakpoint = breakpoint
     },
-    OPEN_MENU(state) {
-        state.menuOpened = true
-    },
-    CLOSE_MENU(state) {
-        state.menuOpened = false
+    SET_MENU(state, data) {
+        state.menuOpened = data
     },
     SET_S_TOP(state, pos) {
         state.sTop = pos
@@ -34,8 +31,8 @@ export const mutations = {
     SET_SITE_META(state, data) {
         state.siteMeta = data
     },
-    SET_ROUTING(state, data) {
-        state.isRouting = data
+    SET_LOADING(state, data) {
+        state.isLoading = data
     }
 }
 

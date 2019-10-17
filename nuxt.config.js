@@ -39,8 +39,7 @@ export default {
         { src: "~/plugins/global-component-loader.js" },
         { src: "~/plugins/global-directive-loader.js" },
         { src: "~/plugins/global-svg-loader.js" },
-        { src: "~/plugins/google-gtag.client.js", mode: "client" },
-        { src: "~/plugins/router-guards.client.js", mode: "client" }
+        { src: "~/plugins/google-gtag.client.js", mode: "client" }
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" }
     ],
 

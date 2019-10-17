@@ -8,6 +8,18 @@
         </div>
     </div>
 </template>
+
+<script type="text/javascript">
+export default {
+    mounted() {
+        this.$store.commit("SET_LOADING", true)
+    },
+    destroyed() {
+        this.$store.commit("SET_LOADING", false)
+    }
+}
+</script>
+
 <style lang="scss">
 // Pulled from https://loading.io/css/
 .site-loading {

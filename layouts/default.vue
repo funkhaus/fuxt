@@ -11,8 +11,11 @@
 
         <site-hamburger />
 
-        <nuxt-link to="/">
-            <svg-logo-funkhaus />
+        <nuxt-link
+            to="/"
+            class="logo"
+        >
+            <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
         <nuxt />
@@ -94,7 +97,7 @@ export default {
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.sTop > 0 },
                 { "is-ssr": process.server },
-                { "is-routing": this.$store.state.isRouting }
+                { "is-loading": this.$store.state.isLoading }
             ]
         },
         breakpoint() {
@@ -158,6 +161,11 @@ export default {
 .container {
     #tagline {
         display: none;
+    }
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
     }
 }
 </style>
