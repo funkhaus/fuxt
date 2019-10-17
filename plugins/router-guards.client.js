@@ -1,8 +1,5 @@
 export default ({ app, store }) => {
-    if (process.server) {
-        return
-    }
-    app.router.beforeEach(() => {
+    app.router.beforeEach((to, from, next) => {
         store.commit("SET_ROUTING", true)
         next()
     })
