@@ -34,7 +34,7 @@ export const mutations = {
     SET_SITE_META(state, data) {
         state.siteMeta = data
     },
-    SET_ROUTING(data) {
+    SET_ROUTING(state, data) {
         state.isRouting = data
     }
 }
