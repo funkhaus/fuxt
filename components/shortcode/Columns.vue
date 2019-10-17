@@ -6,7 +6,7 @@
 
 <script>
 // Components
-import shortcodeColumn from "~/shortcode/Column"
+import shortcodeColumn from "~/components/shortcode/Column"
 
 export default {
     components: {
