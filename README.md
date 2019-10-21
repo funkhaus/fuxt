@@ -52,6 +52,12 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
 1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
 
+## SVGs
+
+The theme includes global loading of all SVGs in the `/assets/svgs` directory. This means you can use any SVG by using a component with the filename prepended by `svg`. For example `<svg-filename class="svg"/>` if your SVG was located at `/assets/svgs/filename.svg`.
+
+If you want to use an SVG in your CSS file, you can't place it in `/assets/svgs/`, you'be put it in just `/assets/filename.svg` and use it like this in your CSS: `background-image: url("~assets/filename.svg")`.
+
 ## Linting
 
 This theme has perfect linting for Vue/GQL/JS/SCSS/CSS and HTML using Prettier and ESLint. The ruleset is the Vue style guide "Recommended" spec.
