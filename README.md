@@ -72,7 +72,7 @@ The 4 `devDependencies` installed in the package are "eslint", "eslint-plugin-vu
 
 ## Deploying to Heroku
 
-If you're comfortable with command clines, install the [heroku cli tools](https://devcenter.heroku.com/articles/heroku-cli).
+If you're comfortable with the command line, install the [heroku cli tools](https://devcenter.heroku.com/articles/heroku-cli).
 
 Otherwise you can do it all through the website Dashboard too.
 
@@ -80,6 +80,13 @@ Otherwise you can do it all through the website Dashboard too.
 1.  Create an App
 
 Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
+Make sure you transfer ownership to Funkhaus if you're part of the team.
+
+To set up different environments (staging / production) follow the instructions here: [Set up Heroku Environments](https://medium.com/@ivanpilot/deploying-your-app-on-heroku-with-staging-and-production-environments-17156870983e)
+
+## Creating Heroku Pipeline
+When you have staging and production environments set up, you'll want to add them to a project specific pipeline.
+Follow the instructions here [pipelines](https://devcenter.heroku.com/articles/pipelines)
 
 **TODO this section needs to be filled out more, speak to Drew in the meantime**
 
