@@ -21,9 +21,15 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
+## Repo naming conventions
+
+**This is advice for Funkhaus team only.**
+
+The frontend theme repo should be name based on the URL of the site it's for, dropping any TLDs and appended with `-frontend` or `-backend`. So if it was for `funkhaus.us`, the repo would be named `funkhaus-frontend`, and the backend theme repo would be `funkhaus-backend`.
+
 ## Theme Config
 
-1.  Install `stackhaus-backend` theme into WordPress [from here](https://github.com/funkhaus/stackhaus-backend)
+1.  Install `stackhaus-backend` theme into WordPress [from here](https://github.com/funkhaus/stackhaus-backend). Rename theme directory to the site name appended with `-backend-2019`, so `example-backend`. Also change the theme name to the same in `style.css`.
     1.  Disable privacy mode on WordPress host (if applicable)
     1.  Install promoted Plugins
     1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.

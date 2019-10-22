@@ -54,6 +54,11 @@ export default {
     ],
 
     /*
+     * Build modules
+     */
+    buildModules: ["@nuxtjs/dotenv"],
+
+    /*
      ** Load scss globally via styleResources
      */
     styleResources: {
