@@ -1,13 +1,10 @@
 import Vue from "vue"
 import _kebabCase from "lodash/kebabCase"
 
-// Register all files inside the root of ~/components and ~/components/shortcode
-let componentDirs = [
-    require.context("~/components", false, /[A-Z]\w+\.(vue)$/),
-    require.context("~/components/shortcode", false, /[A-Z]\w+\.(vue)$/)
-]
-componentDirs.forEach(components => {
-    components.keys().map(fileName => {
+const components = require.context("~/components", true, /[A-Z]\w+\.(vue)$/)
+components.keys().map(fileName => {
+    // only load components in root or /shortcode dirs
+    if (fileName.match(/shortcode/g) || fileName.match(/\//g).length == 1) {
         // Get component config
         const componentConfig = components(fileName)
 
@@ -18,5 +15,5 @@ componentDirs.forEach(components => {
 
         // Register new component globally
         Vue.component(componentName, componentConfig.default || componentConfig)
-    })
+    }
 })
