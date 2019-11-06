@@ -83,15 +83,23 @@ If you're comfortable with the command line, install the [heroku cli tools](http
 Otherwise you can do it all through the website Dashboard too.
 
 1.  Login in to [heroku](https://heroku.com)
-1.  Create an App
+1.  Create an App.
+1.  Name it `{project-name}-production`
+1.  After beta you will create `{project-name}-staging`
+1.  Make sure you transfer ownership to Funkhaus if you're part of the team.
 
-Follow the instructions here:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
-Make sure you transfer ownership to Funkhaus if you're part of the team.
+Follow the instructions here to set up your config vars and link it to your github repo:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
+
 
 To set up different environments (staging / production) follow the instructions here: [Set up Heroku Environments](https://medium.com/@ivanpilot/deploying-your-app-on-heroku-with-staging-and-production-environments-17156870983e)
 
 ## Creating Heroku Pipeline
-When you have staging and production environments set up, you'll want to add them to a project specific pipeline.
+When you have your app set up, you'll want to add it to a project specific pipeline.
+
+1.  Name your pipeline `{project-name}-nuxt`
+1.  Add the corresponging app to production or staging pipelines.
+1.  Make sure you transfer ownership to Funkhaus if you're part of the team.
+
 Follow the instructions here [pipelines](https://devcenter.heroku.com/articles/pipelines)
 
 **TODO this section needs to be filled out more, speak to Drew in the meantime**
