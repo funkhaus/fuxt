@@ -72,7 +72,10 @@ export default {
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint: process.env.DEFAULT_ENDPOINT
+                httpEndpoint: process.env.DEFAULT_ENDPOINT,
+                httpLinkOptions: {
+                    credentials: "include"
+                }
             }
         }
     },
