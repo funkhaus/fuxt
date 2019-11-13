@@ -90,10 +90,10 @@ Otherwise you can do it all through the website Dashboard too.
 
 Follow the instructions here to set up your config vars and link it to your github repo:[nuxt heroku deployment](https://nuxtjs.org/faq/heroku-deployment/)
 
-
 To set up different environments (staging / production) follow the instructions here: [Set up Heroku Environments](https://medium.com/@ivanpilot/deploying-your-app-on-heroku-with-staging-and-production-environments-17156870983e)
 
 ## Creating Heroku Pipeline
+
 When you have your app set up, you'll want to add it to a project specific pipeline.
 
 1.  Name your pipeline `{project-name}-nuxt`
@@ -110,26 +110,24 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
 
 1.  Prep Nuxt to go live.
     1.  Disable Basic Auth in `nuxt.config.js`
-    1.  Set the Apollo endpoints to be the new domain names. Probably `https://api.your-site.com/graphql` and if you're using Shopify, `https://shop.your-site.com/api/{version number here}/graphql.json`. You may want to use a `.env` for these, it helps when dealing with staging setups later.
-    1.  If you want the site to be HTTPS (you should), you'll probably want to install the `Redirect SSL` module in Nuxt [from here](https://github.com/nuxt-community/redirect-ssl).
+    1.  Set the Apollo endpoints to be the new domain names. Probably `https://api.your-site.com/graphql`.
+    1.  If you're using Shopify, `https://shop.your-site.com/api/{version number here}/graphql.json`. You may want to use a `.env` for these, it helps when dealing with staging setups later.
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  In Heroku, add your custom domain name to the App. [See here](https://devcenter.heroku.com/articles/custom-domains]). Note the "DNS Target" Heroku gives you, it should be some funny names and a random string like `space-balls-12345drewish.herokudns.com`.
 1.  Turn on SSL in Heroku using the "Automated Certificate Management" (this only works if you're hosting on a paid Heroku plan, which Funkhaus has).
 1.  In CloudFlare, click "+ Add Site" (top left of screen).
     1.  When it asks for DNS entries, you'll want to set two CNAME's pointing to the "DNS Target" shown in Heroku (mentioned in Step 1). One CNAME for `www` and one CNAME set to `@`, which CloudFlare will then auto apply "CNAME Flattening", which is good. [See here for more](https://thoughtbot.com/blog/set-up-cloudflare-free-ssl-on-heroku).
-    1.  Add an A-RECORD for your API backend, which is on Flywheel. Generally you want this to be `api.your-site.com`.
-    1.  You do not need to do anything for SSL in CloudFlare, Heroku handles it.
-1.  Setting up www redirects in CloudFlare:
+    1.  Add an A-RECORD for your API backend, which is the WordPress install hosted on Flywheel. Generally you want this to be `api.your-site.com`.
+1.  Turn on 'Always Use HTTPS' in CloudFlare under 'SSL/TLS > Edge Certificates'
+1.  Setting up `www.` redirects in CloudFlare:
     1. Click 'Page Rules'.
     1. Click 'Add a rule'.
-    1. Match the URL to `*www.your-site.com`.
+    1. Match the URL to `http://www.your-site.com/*`.
     1. select 'Forwarding URL' from the dropdown menu.
     1. Choose '301 - Permanent Redirect'.
     1. Set the redirect URL to `https://your-site.com`.
-    1. Repeat above steps adding `*www.your-site.com/*` URL and `https://your-site.com/$1`.
-    1. Repeat again adding `*www.your-site.com/*/*` URL and `https://your-site.com/$1/$2` (You can only have 3 rules on free plan).
 1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`.
-    1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turn on.
+    1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turned on under Advanced.
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are `ed.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
 1.  If the site uses Shopify, you'll need to "Add an existing domain". Probably this will be `shop.your-site.com`.
