@@ -130,7 +130,7 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are `ed.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
 1.  Turn on 'Always Use HTTPS' in CloudFlare under 'SSL/TLS > Edge Certificates'. You need to do this step last, as it conflicts with the auto SSL setup on Flywheel.
-1.  Confirm that CLoudFlare's SSL mode is set to 'Flexible' under 'SSL/TLS' tab.
+1.  Confirm that CloudFlare's SSL mode is set to 'Flexible' under 'SSL/TLS' tab.
 1.  If the site uses Shopify, you'll need to "Add an existing domain". Probably this will be `shop.your-site.com`.
     1.  In CloudFlare set a CNAME for `shop.your-site.com` to point to `shops.myshopify.com`.
     1.  **You do not need to setup an A-RECORD if you only want the shop to be on a sub-domain.**
