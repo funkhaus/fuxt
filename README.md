@@ -118,11 +118,10 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
 1.  In CloudFlare, click "+ Add Site" (top left of screen).
     1.  When it asks for DNS entries, you'll want to set two CNAME's pointing to the "DNS Target" shown in Heroku (mentioned in Step 1). One CNAME for `www` and one CNAME set to `@`, which CloudFlare will then auto apply "CNAME Flattening", which is good. [See here for more](https://thoughtbot.com/blog/set-up-cloudflare-free-ssl-on-heroku).
     1.  Add an A-RECORD for your API backend, which is the WordPress install hosted on Flywheel. Generally you want this to be `api.your-site.com`.
-1.  Turn on 'Always Use HTTPS' in CloudFlare under 'SSL/TLS > Edge Certificates'
 1.  Setting up `www.` redirects in CloudFlare:
     1. Click 'Page Rules'.
     1. Click 'Add a rule'.
-    1. Match the URL to `http://www.your-site.com/*`.
+    1. Match the URL to `www.your-site.com/*`.
     1. select 'Forwarding URL' from the dropdown menu.
     1. Choose '301 - Permanent Redirect'.
     1. Set the redirect URL to `https://your-site.com`.
@@ -130,6 +129,8 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
     1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turned on under Advanced.
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are `ed.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
+1.  Turn on 'Always Use HTTPS' in CloudFlare under 'SSL/TLS > Edge Certificates'. You need to do this step last, as it conflicts with the auto SSL setup on Flywheel.
+1.  Confirm that CLoudFlare's SSL mode is set to 'Flexible' under 'SSL/TLS' tab.
 1.  If the site uses Shopify, you'll need to "Add an existing domain". Probably this will be `shop.your-site.com`.
     1.  In CloudFlare set a CNAME for `shop.your-site.com` to point to `shops.myshopify.com`.
     1.  **You do not need to setup an A-RECORD if you only want the shop to be on a sub-domain.**
