@@ -1,23 +1,18 @@
 <template>
-    <site-loading />
+  <site-loading />
 </template>
 
 <script>
 // Helpers
-import _get from "lodash/get"
-import config from "~/nuxt.config"
+import _get from "lodash/get";
+import config from "~/nuxt.config";
 
 export default {
-    transition: "fade",
-    mounted() {
-        const gqlEndpoint = _get(
-            config,
-            "apollo.clientConfigs.default.httpEndpoint",
-            ""
-        )
-        if (process.client) {
-            window.location = `${gqlEndpoint.split("/graphql")[0]}/wp-admin`
-        }
+  transition: "fade",
+  mounted() {
+    if (process.client) {
+      window.location = `${this.$store.state.siteMeta.apiUrl}/wp-admin`;
     }
-}
+  }
+};
 </script>
