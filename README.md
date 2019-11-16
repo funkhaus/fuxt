@@ -64,6 +64,12 @@ The theme includes global loading of all SVGs in the `/assets/svgs` directory. T
 
 If you want to use an SVG in your CSS file, you can't place it in `/assets/svgs/`, you'be put it in just `/assets/filename.svg` and use it like this in your CSS: `background-image: url("~assets/filename.svg")`.
 
+## 100vh on iOS
+
+To address the [infamous 100vh on iOS bug/feature](https://medium.com/@susiekim9/how-to-compensate-for-the-ios-viewport-unit-bug-46e78d54af0d), this theme has a CSS var called `--real100vh` that is updated from a function in `/layouts/default.vue` called `set100vhVar()`.
+
+You can simply use the CSS `height: var(--real100vh); transition: height 0.4s ease-in-out;` and it will work across all devices smoothly.
+
 ## Linting
 
 This theme has perfect linting for Vue/GQL/JS/SCSS/CSS and HTML using Prettier and ESLint. The ruleset is the Vue style guide "Recommended" spec.
@@ -121,10 +127,10 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
 1.  Setting up `www.` redirects in CloudFlare:
     1. Click 'Page Rules'.
     1. Click 'Add a rule'.
-    1. Match the URL to `www.your-site.com/*`.
+    1. Match the URL to `*www.your-site.com/*`.
     1. select 'Forwarding URL' from the dropdown menu.
     1. Choose '301 - Permanent Redirect'.
-    1. Set the redirect URL to `https://your-site.com`.
+    1. Set the redirect URL to `https://your-site.com/$2`.
 1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`.
     1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turned on under Advanced.
     1.  Be sure to turn off Privacy mode in Flywheel.

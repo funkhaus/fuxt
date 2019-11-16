@@ -151,10 +151,22 @@ export default {
                 width: this.winWidth
             }
             this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
+            this.set100vhVar()
         },
         onScroll() {
             this.sTop = window.pageYOffset || document.documentElement.scrollTop
             this.$store.commit("SET_S_TOP", this.sTop)
+        }
+    },
+    set100vhVar() {
+        // If less than most tablets, set var to window height. This fixes the 100vh iOS bug/feature.
+        if (this.winWidth <= 1024) {
+            document.documentElement.style.setProperty(
+                "--real100vh",
+                `${window.innerHeight}px`
+            )
+        } else {
+            document.documentElement.style.setProperty("--real100vh", "100vh")
         }
     }
 }
