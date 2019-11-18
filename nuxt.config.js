@@ -3,6 +3,9 @@ import pkg from "./package"
 
 export default {
     mode: "universal",
+    env: {
+        ...process.env
+    },
 
     /*
      ** Headers of the page
