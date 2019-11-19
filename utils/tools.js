@@ -1,3 +1,5 @@
+import _get from "lodash/get"
+
 /*
  * This function builds out a Date using regaulr JS (not moment.js)
  */
@@ -87,4 +89,22 @@ export const sortColumns = (items, count = 2) => {
  */
 export const nl2br = str => {
     return str.replace(/(?:\r\n|\r|\n)/g, "<br>")
+}
+
+/*
+ * This function does a lodash _get, but removes HTML tags from the string.
+ * Useful for setting head() description tags.
+ */
+export function getStripped(obj, path, def = undefined) {
+    const text = _get(obj, path, def)
+        ? stripTags(_get(obj, path, def))
+        : undefined
+    return text
+}
+
+/*
+ * Takes a string and stipes HTML tags from it
+ */
+export const stripTags = str => {
+    return str.replace(/<[^>]*>?/gm, "")
 }

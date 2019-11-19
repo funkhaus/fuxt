@@ -22,6 +22,14 @@ export default {
     },
 
     /*
+     ** Default transition for all pages
+     */
+    pageTransition: {
+        name: "fade",
+        mode: "out-in"
+    },
+
+    /*
      ** Customize the progress-bar color
      ** See: https://nuxtjs.org/api/configuration-loading#use-a-custom-loading-component
      */

@@ -11,10 +11,10 @@
 
 <script>
 import _get from "lodash/get"
-import Home from "~/gql/queries/Home.gql"
+import Home from "~/gql/queries/Home"
+import { getStripped } from "~/utils/tools"
 
 export default {
-    transition: "fade",
     head() {
         return {
             title: "",
@@ -23,7 +23,7 @@ export default {
                     hid: "description",
                     name: "description",
                     property: "og:description",
-                    content: _get(this, "page.excerpt", undefined)
+                    content: getStripped(this, "page.excerpt")
                 },
                 {
                     hid: "og:image",
