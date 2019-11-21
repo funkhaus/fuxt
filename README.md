@@ -70,6 +70,10 @@ To address the [infamous 100vh on iOS bug/feature](https://medium.com/@susiekim9
 
 You can simply use the CSS `height: var(--real100vh); transition: height 0.4s ease-in-out;` and it will work across all devices smoothly.
 
+## Referrer object
+
+The store contains an object `this.$store.state.referrer` that is populated by the last `from` route object that was displayed. This is controlled by the `/middleware/referrer.js` file.
+
 ## Linting
 
 This theme has perfect linting for Vue/GQL/JS/SCSS/CSS and HTML using Prettier and ESLint. The ruleset is the Vue style guide "Recommended" spec.

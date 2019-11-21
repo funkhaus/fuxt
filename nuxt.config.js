@@ -96,7 +96,10 @@ export default {
      */
     router: {
         linkExactActiveClass: "exact-active-link",
-        linkActiveClass: "active-link"
+        linkActiveClass: "active-link",
+        middleware: "referrer",
+        prefetchLinks: true,
+        linkPrefetchedClass: "link-prefetched"
         // Example to override router functionality
         //     extendRoutes (routes, resolve) {
         //     routes.push({

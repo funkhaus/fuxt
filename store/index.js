@@ -10,7 +10,8 @@ export const state = () => ({
     sTop: 0,
     winHeight: 0,
     winWidth: 0,
-    isLoading: false
+    isLoading: false,
+    referrer: {}
 })
 
 // Define mutations
@@ -33,6 +34,9 @@ export const mutations = {
     },
     SET_LOADING(state, data) {
         state.isLoading = data
+    },
+    SET_REFERRER(state, object) {
+        state.referrer = object
     }
 }
 
