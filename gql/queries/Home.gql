@@ -5,6 +5,7 @@ query Home($uri: String) {
     pageBy(uri: $uri) {
         title
         content
+        id
         # acfMeta {
         #     videoUrl
         # }
