@@ -10,9 +10,12 @@
 </template>
 
 <script>
+// Helpers
 import _get from "lodash/get"
-import Home from "~/gql/queries/Home"
 import { getStripped } from "~/utils/tools"
+
+// Queries
+import Home from "~/gql/queries/Home"
 
 export default {
     head() {
