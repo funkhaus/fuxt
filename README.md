@@ -35,8 +35,9 @@ The frontend theme repo should be name based on the URL of the site it's for, dr
     1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.
     1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
     1.  Define image sizes and menu locations in `/functions/theme-config.php`.
-1.  Rename your `.env.example` to `.env` and config "DEFAULT_ENDPOINT" to be the GraphQL endpoint from the WordPress you installed above.
+1.  Rename your `.env.example` to `.env` and config `DEFAULT_ENDPOINT` to be the GraphQL endpoint from the WordPress you installed above.
     1.  If you are using an endpoint that is protected by Basic Authentication, like the Flywheel staging cites, then you should set the `BASIC_API_TOKEN` var in the `.env` file too. You can find out what your token should be by just going to the endpoint in your browser, successfully entering the username/password combination, then use your browsers Network Inspector to see what the Request headers are, and find the `Authorization` one. That is the token you need.
+1.  All Funkhaus sites that under development and accessible to the internet need to have `BASIC_AUTH_ENABLED` set to `"true"`.
 
 ## Fonts
 
@@ -120,9 +121,9 @@ Follow the instructions here [pipelines](https://devcenter.heroku.com/articles/p
 We recommended using CloudFlare for your DNS, it's free plan is enough to do everything you need.
 
 1.  Prep Nuxt to go live.
-    1.  Disable Basic Auth in `nuxt.config.js`
+    1.  Disable Basic Auth on servers `.env` file or settings panel.
     1.  Set the Apollo endpoints to be the new domain names. Probably `https://api.your-site.com/graphql`.
-    1.  If you're using Shopify, `https://shop.your-site.com/api/{version number here}/graphql.json`. You may want to use a `.env` for these, it helps when dealing with staging setups later.
+    1.  If you're using Shopify, `https://shop.your-site.com/api/{version number here}/graphql.json`. You may want to use a `.env` for these, it helps when dealing with staging setups.
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  In Heroku, add your custom domain name to the App. [See here](https://devcenter.heroku.com/articles/custom-domains]). Note the "DNS Target" Heroku gives you, it should be some funny names and a random string like `space-balls-12345drewish.herokudns.com`.
 1.  Turn on SSL in Heroku using the "Automated Certificate Management" (this only works if you're hosting on a paid Heroku plan, which Funkhaus has).
@@ -139,9 +140,9 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
 1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`.
     1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turned on under Advanced.
     1.  Be sure to turn off Privacy mode in Flywheel.
-1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are `ed.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
-1.  Turn on 'Always Use HTTPS' in CloudFlare under 'SSL/TLS > Edge Certificates'. You need to do this step last, as it conflicts with the auto SSL setup on Flywheel.
-1.  Confirm that CloudFlare's SSL mode is set to 'Flexible' under 'SSL/TLS' tab.
+1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are close to `homer.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
+1.  Turn on 'Always Use HTTPS' in CloudFlare under 'SSL/TLS > Edge Certificates'.
+1.  Confirm that CloudFlare's SSL mode is set to 'Flexible' under 'SSL/TLS' tab. You need to do this, as it conflicts with the auto SSL setup on Flywheel.
 1.  If the site uses Shopify, you'll need to "Add an existing domain". Probably this will be `shop.your-site.com`.
     1.  In CloudFlare set a CNAME for `shop.your-site.com` to point to `shops.myshopify.com`.
     1.  **You do not need to setup an A-RECORD if you only want the shop to be on a sub-domain.**
