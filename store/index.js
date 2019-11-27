@@ -65,7 +65,7 @@ export const actions = {
         const apiUrl = _get(
             config,
             "apollo.clientConfigs.default.httpEndpoint",
-            ""
+            process.env.DEFAULT_ENDPOINT
         ).replace("/graphql", "")
 
         // Get site settings from WordPress and save them to store

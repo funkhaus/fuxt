@@ -34,6 +34,7 @@ export default {
      ** See: https://nuxtjs.org/api/configuration-loading#use-a-custom-loading-component
      */
     loading: {},
+
     /*
      ** Global CSS
      */
@@ -82,13 +83,9 @@ export default {
      ** See: https://github.com/nuxt-community/apollo-module#setup
      */
     apollo: {
+        authenticationType: "Basic",
         clientConfigs: {
-            default: {
-                httpEndpoint: process.env.DEFAULT_ENDPOINT,
-                httpLinkOptions: {
-                    credentials: "include"
-                }
-            }
+            default: "~/plugins/apollo-config-default.js"
         }
     },
 

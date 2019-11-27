@@ -15,7 +15,7 @@
         "heroku-postbuild": "npm run build"
     },
     "dependencies": {
-        "@nuxtjs/apollo": "^4.0.0-rc9",
+        "@nuxtjs/apollo": "^4.0.0-rc18",
         "@nuxtjs/device": "^1.2.3",
         "@nuxtjs/dotenv": "^1.4.1",
         "core-js": "^2.6.10",
