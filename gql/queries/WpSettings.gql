@@ -2,6 +2,8 @@ query WpSettings {
     generalSettings {
         title
         description
+        url
+        siteUrl
         themeScreenshotUrl
         gaTrackingCode1
         gaTrackingCode2

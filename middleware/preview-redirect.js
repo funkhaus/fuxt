@@ -2,8 +2,7 @@
  * This file controls redirects of WordPress preview URLs.
  * It requires the wp-graph-ql-cors plugin to WordPress
  */
-export default async ctx => {
-    const { route, redirect } = ctx
+export default function({ route, redirect }) {
 
     // No query in URL, so just skip all this
     if (!route.query) {
@@ -11,7 +10,7 @@ export default async ctx => {
     }
 
     switch (true) {
-        case route.query.preview && !route.query.slug:
+        case Boolean(route.query.preview) && !route.query.slug:
             return ctx.error({
                 statusCode: 404,
                 message:
@@ -19,11 +18,11 @@ export default async ctx => {
             })
             break
 
-        case route.query.preview && route.query.path:
+        case Boolean(route.query.preview) && Boolean(route.query.path):
             redirect(route.query.path)
             break
 
-        case route.query.preview && route.query.id:
+        case Boolean(route.query.preview) && Boolean(route.query.id):
             // Could do a Apollo request from ID here? Not sure how to send data to page?
             // Maybe it comes from cache? Maybe it just works becuase route is path?
             break

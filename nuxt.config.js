@@ -51,7 +51,6 @@ export default {
         { src: "~/plugins/global-component-loader.js" },
         { src: "~/plugins/global-directive-loader.js" },
         { src: "~/plugins/global-svg-loader.js" },
-        { src: "~/plugins/preview-redirect.js" },
         { src: "~/plugins/google-gtag.client.js", mode: "client" }
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" }
     ],
@@ -95,7 +94,7 @@ export default {
     router: {
         linkExactActiveClass: "exact-active-link",
         linkActiveClass: "active-link",
-        middleware: "referrer",
+        middleware: ["referrer", "preview-redirect"],
         prefetchLinks: true,
         linkPrefetchedClass: "link-prefetched"
         // Example to override router functionality

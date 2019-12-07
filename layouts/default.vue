@@ -63,7 +63,7 @@ export default {
                 },
                 {
                     property: "og:url",
-                    content: `https://${this.$store.state.siteMeta.host}${this.$route.path}`
+                    content: `${this.$store.state.siteMeta.frontendUrl}${this.$route.path}`
                 },
                 {
                     property: "og:site_name",
@@ -137,13 +137,15 @@ export default {
         window.addEventListener("keydown", e => {
             switch (e && e.key) {
                 case "Escape":
-                    this.$store.commit("CLOSE_MENU")
+                    // Close menu on ESC press
+                    this.$store.commit("SET_MENU", FALS)
                     break
             }
         })
     },
     methods: {
         onResize() {
+            // Save window dimensions to store
             this.winWidth = window.innerWidth
             this.winHeight = window.innerHeight
             let dimensions = {
@@ -154,6 +156,7 @@ export default {
             this.set100vhVar()
         },
         onScroll() {
+            // Save window scroll position to store
             this.sTop = window.pageYOffset || document.documentElement.scrollTop
             this.$store.commit("SET_S_TOP", this.sTop)
         },

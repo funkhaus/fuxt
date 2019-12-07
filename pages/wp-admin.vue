@@ -6,7 +6,7 @@
 export default {
     mounted() {
         if (process.client) {
-            window.location = `${this.$store.state.siteMeta.apiUrl}/wp-admin`
+            window.location = `${this.$store.state.siteMeta.backendUrl}/wp-admin`
         }
     }
 }

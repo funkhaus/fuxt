@@ -61,13 +61,6 @@ export const actions = {
     },
 
     async QUERY_SETTINGS({ dispatch, commit }, context) {
-        // Get backend API
-        const apiUrl = _get(
-            config,
-            "apollo.clientConfigs.default.httpEndpoint",
-            process.env.DEFAULT_ENDPOINT
-        ).replace("/graphql", "")
-
         // Get site settings from WordPress and save them to store
         await this.app.apolloProvider.defaultClient
             .query({
@@ -80,7 +73,8 @@ export const actions = {
                     host: context.req.headers.host,
                     description: settings.description,
                     themeScreenshotUrl: settings.themeScreenshotUrl,
-                    apiUrl: apiUrl,
+                    backendUrl: settings.url,
+                    frontendUrl: settings.siteUrl,
                     gaTrackingCodes: [
                         settings.gaTrackingCode1,
                         settings.gaTrackingCode2
