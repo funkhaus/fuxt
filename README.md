@@ -204,7 +204,7 @@ Common shortcodes we've included:
 
 ### Swipe Events
 
-To enable swipe event listeners on a given element us the function `initSwipeEvents` located in `utils/tools.js`.
+To enable swipe event listeners on a given element use the function `initSwipeEvents` located in `utils/tools.js`.
 
 The parameters to the `initSwipeEvents` function are el the element which event listeners will be added to and deltaMin the minimum swipe distance required to fire a swipe event. The default value od deltaMin is 80.
 
