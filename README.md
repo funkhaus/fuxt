@@ -217,10 +217,10 @@ import { initSwipeEvents } from "~/utils/tools"
 
 <template>
     <div
-        @swipeRight="foo"
-        @swipeLeft="bar"
-        @swipeUp="foo"
-        @swipeDown="bar"
+        @swipe-right="foo"
+        @swipe-left="bar"
+        @swipe-up="foo"
+        @swipe-down="bar"
     />
 </template>
 <script>

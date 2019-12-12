@@ -135,16 +135,16 @@ export const initSwipeEvents = (el, deltaMin = 80) => {
         const deltaY = swipeData.endY - swipeData.startY
 
         if (Math.abs(deltaX) > deltaMin) {
-            if (deltaX > 0) directionEvents.push("Right")
-            else directionEvents.push("Left")
+            if (deltaX > 0) directionEvents.push("right")
+            else directionEvents.push("left")
         }
         if (Math.abs(deltaY) > deltaMin) {
-            if (deltaY > 0) directionEvents.push("Down")
-            else directionEvents.push("Up")
+            if (deltaY > 0) directionEvents.push("down")
+            else directionEvents.push("up")
         }
 
         directionEvents.forEach(direction =>
-            el.dispatchEvent(new Event(`swipe${direction}`))
+            el.dispatchEvent(new Event(`swipe-${direction}`))
         )
 
         directionEvents = []
