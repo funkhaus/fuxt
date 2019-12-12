@@ -108,3 +108,43 @@ export function getStripped(obj, path, def = undefined) {
 export const stripTags = str => {
     return str.replace(/<[^>]*>?/gm, "")
 }
+
+// Constructor to detect swipe events on the element provided
+export const initSwipeEvents = (el, deltaMin = 80) => {
+    const swipeData = {
+        startX: 0,
+        startY: 0,
+        endX: 0,
+        endY: 0
+    }
+    let directionEvents = []
+    el.addEventListener("touchstart", e => {
+        const t = e.touches[0]
+        swipeData.startX = t.screenX
+        swipeData.startY = t.screenY
+    })
+    el.addEventListener("touchmove", e => {
+        const t = e.touches[0]
+        swipeData.endX = t.screenX
+        swipeData.endY = t.screenY
+    })
+    el.addEventListener("touchend", () => {
+        const deltaX = swipeData.endX - swipeData.startX
+        const deltaY = swipeData.endY - swipeData.startY
+
+        if (Math.abs(deltaX) > deltaMin) {
+            if (deltaX > 0) directionEvents.push("Right")
+            else directionEvents.push("Left")
+        }
+        if (Math.abs(deltaY) > deltaMin) {
+            if (deltaY > 0) directionEvents.push("Down")
+            else directionEvents.push("Up")
+        }
+
+        directionEvents.forEach(direction =>
+            el.dispatchEvent(new Event(`swipe${direction}`))
+        )
+
+        directionEvents = []
+    })
+}
