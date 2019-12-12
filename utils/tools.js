@@ -109,7 +109,9 @@ export const stripTags = str => {
     return str.replace(/<[^>]*>?/gm, "")
 }
 
-// Constructor to detect swipe events on the element provided
+/*
+ *  Constructor to detect swipe events on the element provided. See the readme for more info.
+ */
 export const initSwipeEvents = (el, deltaMin = 80) => {
     const swipeData = {
         startX: 0,

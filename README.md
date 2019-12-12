@@ -206,9 +206,32 @@ Common shortcodes we've included:
 
 To enable swipe event listeners on a given element use the function `initSwipeEvents` located in `utils/tools.js`.
 
-The parameters to the `initSwipeEvents` function are el the element which event listeners will be added to and deltaMin the minimum swipe distance required to fire a swipe event. The default value od deltaMin is 80.
+The parameters to the `initSwipeEvents` function are el the element which event listeners will be added to and deltaMin the minimum swipe distance required to fire a swipe event. The default value of deltaMin is 80.
 
-The events emiited by this function are `swipeUp`, `swipeDown`, `swipeRight`, `swipeLeft`
+The events emitted by this function are `swipeUp`, `swipeDown`, `swipeRight`, `swipeLeft`
+
+An example of a component:
+
+```
+import { initSwipeEvents } from "~/utils/tools"
+
+<template>
+    <div
+        @swipeRight="foo"
+        @swipeLeft="bar"
+        @swipeUp="foo"
+        @swipeDown="bar"
+    />
+</template>
+<script>
+export default {
+     mounted() {
+         // 80 is the default, you can leave it empty normally
+         initSwipeEvents(this.$el, 80)
+     }
+}
+</script>
+```
 
 ## TODO list
 
