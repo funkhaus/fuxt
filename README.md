@@ -206,9 +206,7 @@ Common shortcodes we've included:
 
 TODO Boilerplate improvements:
 
--   Get preview URLs working: https://gist.githubusercontent.com/resir014/28bd011b909c44cb9a9bcfce8a63b0b6/raw/7e388ba7bd21c6981769c95f972865b0622c926a/functions.php
 -   Add CI pipeline (TBD what we are testing for)
--   Wire up UPDATE_REFERRAL_ROUTE into router. Maybe this helps: https://github.com/funkhaus/vuehaus/blob/9adbf3cdcde3426455848fcce19f8f5d1d2c18c0/src/utils/router.js#L51-L77
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
@@ -222,5 +220,4 @@ TODO Boilerplate improvements:
 -   Refactor Responsive Image component to use <picture> element and IntersectionObserver?
 -   Build a InfinateScroll component that uses IntersectionObserver?
 -   Build a <click-to-load-more> component that handles pagination loading (maybe pass in GQL query?)
--   Document how to use Heroku Pipelines. Connect GitHub to Pipeline. Never deploy to Production from GitHub for live site. Always promote from Staging to Production.
 -   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546
