@@ -96,7 +96,7 @@ export default {
                 "container",
                 "main",
                 `breakpoint-${this.breakpoint}`,
-                `route-${_kebabCase(this.$route.name)}`,
+                `route-${_kebabCase(this.$route.name || "error")}`,
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.sTop > 0 },
                 { "is-ssr": process.server },

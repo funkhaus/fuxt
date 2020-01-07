@@ -1,0 +1,38 @@
+<template>
+    <section class="section section-404">
+        <h2 v-if="error.statusCode === 404">
+            Sorry the page could not be found.
+        </h2>
+        <h2 v-else>
+            A {{ error.statusCode }} error occurred.
+        </h2>
+
+        <nuxt-link to="/">
+            Back to the home page
+        </nuxt-link>
+    </section>
+</template>
+
+<script>
+export default {
+    props: ["error"],
+    head() {
+        return {
+            title: `${this.error.statusCode} Error`
+        }
+    }
+}
+</script>
+
+<style lang="scss">
+.section-404 {
+    min-height: var(--real100vh);
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+</style>
