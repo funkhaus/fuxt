@@ -130,13 +130,17 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
 1.  In CloudFlare, click "+ Add Site" (top left of screen).
     1.  When it asks for DNS entries, you'll want to set two CNAME's pointing to the "DNS Target" shown in Heroku (mentioned in Step 1). One CNAME for `www` and one CNAME set to `@`, which CloudFlare will then auto apply "CNAME Flattening", which is good. [See here for more](https://thoughtbot.com/blog/set-up-cloudflare-free-ssl-on-heroku).
     1.  Add an A-RECORD for your API backend, which is the WordPress install hosted on Flywheel. Generally you want this to be `api.your-site.com`.
-1.  Setting up `www.` redirects in CloudFlare:
+1.  Setting up `www.` and force SSL redirects in CloudFlare. You want two rules:
     1. Click 'Page Rules'.
     1. Click 'Add a rule'.
     1. Match the URL to `*www.your-site.com/*`.
-    1. select 'Forwarding URL' from the dropdown menu.
-    1. Choose '301 - Permanent Redirect'.
-    1. Set the redirect URL to `https://your-site.com/$2`.
+        1. Select 'Forwarding URL' from the dropdown menu.
+        1. Choose '301 - Permanent Redirect'.
+        1. Set the redirect URL to `https://your-site.com/$2`.
+    1. Match the URL to `http://your-site.com/*`
+        1. Select 'Forwarding URL' from the dropdown menu.
+        1. Choose '301 - Permanent Redirect'.
+        1. Set the redirect URL to `https://your-site.com/$1`.
 1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`.
     1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turned on under Advanced.
     1.  Be sure to turn off Privacy mode in Flywheel.
@@ -237,8 +241,7 @@ export default {
 
 TODO Boilerplate improvements:
 
--   Add CI pipeline (TBD what we are testing for)
--   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
+-   Build a function that makes the bodyAtts head() function work like Vue class arrays
 -   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
 -   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
@@ -246,9 +249,6 @@ TODO Boilerplate improvements:
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)?
--   A WordPress function to generate all post/page/category/tags/CPT routes?
--   A better auto caption/color plugin. Yes image names help SEO: https://yoast.com/image-seo/#name
--   Refactor Responsive Image component to use <picture> element and IntersectionObserver?
--   Build a InfinateScroll component that uses IntersectionObserver?
--   Build a <click-to-load-more> component that handles pagination loading (maybe pass in GQL query?)
 -   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546
+-   Add CI pipeline (TBD what we are testing for)
+-   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
