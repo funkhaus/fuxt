@@ -163,7 +163,7 @@ export default {
         set100vhVar() {
             // This fixes the 100vh iOS bug/feature.
             // If less than most tablets, set var to window height.
-            let value = "100vh"
+            let value = ""
             if (this.winWidth <= 1024) {
                 value = `${window.innerHeight}px`
             }
