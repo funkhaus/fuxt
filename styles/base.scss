@@ -83,11 +83,11 @@ button {
 
 // Generic content Styles
 // .entry {
-//     margin: 0 auto;
+//     margin: 80px auto;
 //     text-align: center;
-//     padding: 80px 0;
 //
 //     a {
+//         color: red;
 //         text-decoration: underline;
 //     }
 //     > {
@@ -96,11 +96,7 @@ button {
 //         h3,
 //         p {
 //             max-width: 800px;
-//             margin: 2em auto;
-//
-//             a {
-//                 text-decoration: underline;
-//             }
+//             margin: 20px auto;
 //         }
 //         h1,
 //         h2,
@@ -108,34 +104,27 @@ button {
 //         blockquote {
 //             margin: 20px auto;
 //         }
-//         p {
-//             font-size: 14px;
-//             line-height: 25px;
-//             text-align: justify;
-//             margin: 3em auto;
-//         }
-//         p + p span {
-//             margin-top: -0.5em;
-//         }
 //         h2 {
 //             font-size: 26px;
-//             font-weight: 100;
-//             margin-bottom: 50px;
+//         }
+//         p {
+//             text-align: left;
+//             max-width: 600px;
+//             line-height: 1.4;
+//         }
+//         .alignnone,
+//         .shortcode-gallery,
+//         .fit-vid {
+//             margin: 60px auto;
 //         }
 //         .alignnone {
-//             max-width: 100%;
+//             width: 100%;
 //             height: auto;
+//             display: block;
+//             max-width: 1280px;
 //         }
-//         h2 + iframe {
-//             margin-top: -0.5em;
-//         }
-//         .block-gallery,
-//         .fluid-width-video-wrapper {
-//             margin: 40px auto;
-//         }
-//         h2 + .fluid-width-video-wrapper,
-//         h2 + .block-gallery {
-//             margin-top: -5px;
+//         .fit-vid {
+//             max-width: 1280px;
 //         }
 //     }
 // }
