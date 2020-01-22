@@ -145,7 +145,6 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
     1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turned on under Advanced.
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are close to `homer.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
-1.  Turn on 'Always Use HTTPS' in CloudFlare under 'SSL/TLS > Edge Certificates'.
 1.  Confirm that CloudFlare's SSL mode is set to 'Flexible' under 'SSL/TLS' tab. You need to do this, as it conflicts with the auto SSL setup on Flywheel.
 1.  If the site uses Shopify, you'll need to "Add an existing domain". Probably this will be `shop.your-site.com`.
     1.  In CloudFlare set a CNAME for `shop.your-site.com` to point to `shops.myshopify.com`.
