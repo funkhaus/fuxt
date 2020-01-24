@@ -11,7 +11,7 @@ export const state = () => ({
     winHeight: 0,
     winWidth: 0,
     isLoading: false,
-    referrer: {}
+    referrer: false
 })
 
 // Define mutations
