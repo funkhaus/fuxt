@@ -3,7 +3,7 @@ fragment MediaImage on MediaItem {
     sizes(size: FULLSCREEN)
     srcSet(size: FULLSCREEN)
     id
-    caption
+    caption(format: RAW)
     mediaItemId
     title
     mediaDetails {
