@@ -251,3 +251,5 @@ TODO Boilerplate improvements:
 -   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546
 -   Add CI pipeline (TBD what we are testing for)
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
+-   Get this working: https://github.com/nuxt/nuxtjs.org/tree/master/modules/crawler
+-   Update readme with "features" list at top, make it easier to understand.
