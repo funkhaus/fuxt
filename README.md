@@ -253,3 +253,4 @@ TODO Boilerplate improvements:
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 -   Get this working: https://github.com/nuxt/nuxtjs.org/tree/master/modules/crawler
 -   Update readme with "features" list at top, make it easier to understand.
+-   Replace Google Tracking with this: https://github.com/nuxt-community/gtm-module
