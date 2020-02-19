@@ -135,5 +135,10 @@ export default {
         name: "funkhaus",
         pass: "12345", // https://youtu.be/a6iW-8xPw3k
         enabled: process.env.BASIC_AUTH_ENABLED === "true"
+    },
+    
+    // Allow view from devices on local network
+    server: {
+        host: process.env.HOST || "0.0.0.0"
     }
 }
