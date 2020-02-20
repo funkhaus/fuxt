@@ -5,7 +5,19 @@ query WpSettings {
         url
         siteUrl
         themeScreenshotUrl
-        gaTrackingCode1
-        gaTrackingCode2
+    }
+}
+
+query SiteOptions {
+    siteOptions {
+        acfSiteOptions {
+            socialMedia {
+                platform
+                url
+            }
+            googleAnalytics {
+                code
+            }
+        }
     }
 }

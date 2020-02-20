@@ -74,11 +74,11 @@ export default {
     justify-content: center;
     align-content: center;
     align-items: center;
-    
+
     // Hover states
-    @media #{$hasHover} {
-        // Hover styles would go here
-    }
+    // @media #{$hasHover} {
+    // Hover styles would go here
+    // }
 
     // Breakpoints
     // @media #{$lt-tablet} {

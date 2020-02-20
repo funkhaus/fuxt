@@ -1,5 +1,5 @@
 import config from "~/nuxt.config"
-import WpSettings from "~/gql/queries/WpSettings.gql"
+import { WpSettings, SiteOptions } from "~/gql/queries/WpSettings.gql"
 import _get from "lodash/get"
 
 // Define State defaults
@@ -55,7 +55,8 @@ export const actions = {
 
         // Make all requests in parallel
         const data = await Promise.all([
-            store.dispatch("QUERY_SETTINGS", context)
+            store.dispatch("QUERY_SETTINGS", context),
+            store.dispatch("QUERY_OPTIONS", store)
             //store.dispatch("menus/QUERY_MENUS", menuLocations)
         ])
     },
@@ -74,13 +75,33 @@ export const actions = {
                     description: settings.description,
                     themeScreenshotUrl: settings.themeScreenshotUrl,
                     backendUrl: settings.url,
-                    frontendUrl: settings.siteUrl,
-                    gaTrackingCodes: [
-                        settings.gaTrackingCode1,
-                        settings.gaTrackingCode2
-                    ]
+                    frontendUrl: settings.siteUrl
                 }
                 commit("SET_SITE_META", meta)
+            })
+    },
+    // Get site options from WordPress and save them to store
+    async QUERY_OPTIONS({ dispatch, commit }, store) {
+        await this.app.apolloProvider.defaultClient
+            .query({
+                query: SiteOptions
+            })
+            .then(({ data }) => {
+                let options = _get(data, "siteOptions.acfSiteOptions", {})
+
+                let gaCodes = []
+
+                options.googleAnalytics.forEach(item => {
+                    gaCodes.push(item.code)
+                })
+
+                store.state.siteMeta.gaTrackingCodes = gaCodes
+
+                if (options.socialMedia.length) {
+                    store.state.siteMeta.socialMedia = options.socialMedia
+                }
+
+                commit("SET_SITE_META", store.state.siteMeta)
             })
     }
 }
