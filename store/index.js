@@ -91,13 +91,15 @@ export const actions = {
 
                 let gaCodes = []
 
-                options.googleAnalytics.forEach(item => {
-                    gaCodes.push(item.code)
-                })
+                if (options.googleAnalytics) {
+                    options.googleAnalytics.forEach(item => {
+                        gaCodes.push(item.code)
+                    })
+                }
 
                 store.state.siteMeta.gaTrackingCodes = gaCodes
 
-                if (options.socialMedia.length) {
+                if (options.socialMedia) {
                     store.state.siteMeta.socialMedia = options.socialMedia
                 }
 
