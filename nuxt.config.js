@@ -18,7 +18,14 @@ export default {
                 content: "width=device-width, initial-scale=1"
             }
         ],
-        link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
+        link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
+        script: [
+            {
+                src:
+                    "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver,smoothscroll&flags=gated",
+                body: true
+            }
+        ]
     },
 
     /*
@@ -97,13 +104,6 @@ export default {
         middleware: ["referrer", "preview-redirect"],
         prefetchLinks: true,
         linkPrefetchedClass: "link-prefetched"
-        // Example to override router functionality
-        //     extendRoutes (routes, resolve) {
-        //     routes.push({
-        //       name: '404',
-        //       path: '*',
-        //       component: resolve(__dirname, 'pages/404.vue')
-        //     })
     },
 
     /*
@@ -136,8 +136,10 @@ export default {
         pass: "12345", // https://youtu.be/a6iW-8xPw3k
         enabled: process.env.BASIC_AUTH_ENABLED === "true"
     },
-    
-    // Allow view from devices on local network
+
+    /*
+     ** Allow devices on local network to view the site at {your IP}:3000
+     */
     server: {
         host: process.env.HOST || "0.0.0.0"
     }

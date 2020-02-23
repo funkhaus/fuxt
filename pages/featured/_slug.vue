@@ -6,16 +6,6 @@
         :class="classes"
     >
         <div v-html="page.content" />
-
-        <nuxt-link to="/featured/private-page">
-            Private Page
-        </nuxt-link>
-
-        <br>
-
-        <nuxt-link to="/featured/featured-spot-1">
-            Public page
-        </nuxt-link>
     </section>
 </template>
 
@@ -52,7 +42,7 @@ export default {
     },
     computed: {
         classes() {
-            return ["section", "section-home"]
+            return ["section", "section-featured"]
         }
     },
     apollo: {
@@ -60,7 +50,7 @@ export default {
             query: Home,
             variables() {
                 return {
-                    uri: "/featured" // FYI you can't query home by just using '/'
+                    uri: this.$route.fullPath
                 }
             },
             update(data) {
@@ -72,7 +62,7 @@ export default {
 </script>
 
 <style lang="scss">
-.section-home {
+.section-featured {
     color: $black;
     margin: 0 auto;
     min-height: 100vh;

@@ -7,6 +7,11 @@
             A {{ error.statusCode }} error occurred.
         </h2>
 
+        <p
+            v-if="error.message"
+            v-text="error.message"
+        />
+
         <nuxt-link to="/">
             Back to the home page
         </nuxt-link>

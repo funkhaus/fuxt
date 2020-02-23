@@ -241,16 +241,13 @@ export default {
 TODO Boilerplate improvements:
 
 -   Build a function that makes the bodyAtts head() function work like Vue class arrays
--   Setup ACF site options panel, move GA tracking code and frontend/backend URL settings to that panel. See: https://www.advancedcustomfields.com/resources/options-page/
--   Get a meta field added to admin dashboard for Frontend URL. Needs both staging and production.
 -   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
 -   Get this working: https://github.com/nuxt-community/sitemap-module
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)?
 -   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546
--   Add CI pipeline (TBD what we are testing for)
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 -   Get this working: https://github.com/nuxt/nuxtjs.org/tree/master/modules/crawler
 -   Update readme with "features" list at top, make it easier to understand.
--   Replace Google Tracking with this: https://github.com/nuxt-community/gtm-module
+-   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
