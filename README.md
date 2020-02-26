@@ -33,7 +33,7 @@ The frontend theme repo should be name based on the URL of the site it's for, dr
     1.  Disable privacy mode on WordPress host (if applicable)
     1.  Install promoted Plugins
     1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.
-    1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this)
+    1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this) to the `Post name` option.
     1.  Define image sizes and menu locations in `/functions/theme-config.php`.
 1.  Rename your `.env.example` to `.env` and config `DEFAULT_ENDPOINT` to be the GraphQL endpoint from the WordPress you installed above.
     1.  If you are using an endpoint that is protected by Basic Authentication, like the Flywheel staging sites, then you should set the `BASIC_API_TOKEN` var in the `.env` file too. You can find out what your token should be by just going to the endpoint in your browser, successfully entering the username/password combination, then use your browsers Network Inspector to see what the Request headers are, and find the `Authorization` one. That is the token you need.
