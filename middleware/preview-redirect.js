@@ -18,7 +18,16 @@ export default function({ route, redirect, error }) {
             break
 
         case Boolean(route.query.preview) && Boolean(route.query.path):
-            redirect(route.query.path)
+            let uri = route.query.path
+
+            // Custom Preview routing
+            switch (route.query.type) {
+                case "post":
+                    uri = `news/${uri}`
+                    break
+            }
+
+            redirect(`/${uri}`)
             break
 
         case Boolean(route.query.preview) && Boolean(route.query.id):
