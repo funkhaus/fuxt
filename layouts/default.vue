@@ -1,6 +1,11 @@
 <template>
     <main :class="classes">
         <!-- This helps with SEO -->
+        <h1
+            v-if="$route.name == 'index'"
+            id="site-title"
+            v-html="$store.state.siteMeta.title"
+        />
         <p
             v-if="$route.name == 'index'"
             id="tagline"
@@ -19,6 +24,7 @@
         </nuxt-link>
 
         <nuxt />
+
         <!-- Footer goes here -->
     </main>
 </template>
@@ -175,6 +181,7 @@ export default {
 
 <style lang="scss">
 .container {
+    #site-title,
     #tagline {
         display: none;
     }

@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@nuxtjs/apollo": "^4.0.0-rc19",
-        "@nuxtjs/device": "^1.2.6",
+        "@nuxtjs/device": "^1.2.7",
         "@nuxtjs/dotenv": "^1.4.1",
         "core-js": "^2.6.11",
         "graphql": "^14.6.0",
@@ -35,7 +35,7 @@
         "prettier": "^1.19.1",
         "prettier-eslint": "^9.0.1",
         "sass-loader": "^7.3.1",
-        "svg-inline-loader": "^0.8.0",
+        "svg-inline-loader": "^0.8.2",
         "webfontloader": "^1.6.28"
     }
 }
