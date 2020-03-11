@@ -1,6 +1,6 @@
 # stackhaus
 
-New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo. Works best with the [stackhuas-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme.
+New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo. Works best with the [stackhaus-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme.
 
 ## Build Setup
 
