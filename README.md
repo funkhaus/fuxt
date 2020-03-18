@@ -141,7 +141,7 @@ We recommended using CloudFlare for your DNS, it's free plan is enough to do eve
         1. Select 'Forwarding URL' from the dropdown menu.
         1. Choose '301 - Permanent Redirect'.
         1. Set the redirect URL to `https://your-site.com/$1`.
-1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`.
+1.  In Flywheel, add a new primary domain, this should match the CloudFlare entry you set above, probably `api.your-site.com`. When adding the domain ensure that the "Also add www" checkbox is not selected.
     1.  Setup the free SSL on Flywheel, and then make sure "Force SSL" is turned on under Advanced.
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  At this point, you will probably want to redirect your nameservers to point to CloudFlare. Probably these are close to `homer.ns.cloudflare.com` and `marge.ns.cloudflare.com`.
