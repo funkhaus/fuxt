@@ -1,4 +1,4 @@
-import _get from "lodash/get"
+import {_get, _isUndefined} from "lodash"
 
 /*
  * This function builds out a Date using regaulr JS (not moment.js)
