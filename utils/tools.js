@@ -150,3 +150,15 @@ export const initSwipeEvents = (el, deltaMin = 80) => {
         directionEvents = []
     })
 }
+/*
+ * Allows _get() to try multple paths, then return default
+ */
+export const _getAll = (obj, paths, defaultValue) => {
+    const values = paths
+        .map(path => _get(obj, path))
+        .filter(v => !_isUndefined(v))
+
+    return values.length ? values : [defaultValue]
+}
+
+
