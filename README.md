@@ -246,8 +246,10 @@ TODO Boilerplate improvements:
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
 -   Figure out a way to have better staging site URLs for Funkhaus (hide Heroku)?
--   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546
+-   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546 Maybe use apollo global loader?
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 -   Get this working: https://github.com/nuxt/nuxtjs.org/tree/master/modules/crawler
 -   Update readme with "features" list at top, make it easier to understand.
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
+-   Rename `site` components to `global`
+-   Use scoped styles
