@@ -254,3 +254,4 @@ TODO Boilerplate improvements:
 -   Rename `site` components to `global`
 -   Use scoped styles
 -   Use UPPERCASE for GQL query vars
+-   Add default styles for wp-content, with prop to disable?
