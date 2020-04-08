@@ -253,3 +253,4 @@ TODO Boilerplate improvements:
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
 -   Rename `site` components to `global`
 -   Use scoped styles
+-   Use UPPERCASE for GQL query vars
