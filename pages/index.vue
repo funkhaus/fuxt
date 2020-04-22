@@ -25,7 +25,7 @@ import _get from "lodash/get"
 import { getStripped } from "~/utils/tools"
 
 // Queries
-import Home from "~/gql/queries/Home"
+import HOME from "~/gql/queries/Home"
 
 export default {
     head() {
@@ -57,7 +57,7 @@ export default {
     },
     apollo: {
         page: {
-            query: Home,
+            query: HOME,
             variables() {
                 return {
                     uri: "/featured" // FYI you can't query home by just using '/'
@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .section-home {
     color: $black;
     margin: 0 auto;
