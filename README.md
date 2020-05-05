@@ -241,7 +241,6 @@ export default {
 TODO Boilerplate improvements:
 
 -   Build a function that makes the bodyAtts head() function work like Vue class arrays
--   Animate scrollToTop on router: https://nuxtjs.org/api/pages-scrolltotop/
 -   Get this working: https://github.com/nuxt-community/sitemap-module
 -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing smart link and maybe wp-menu-item?
@@ -251,8 +250,6 @@ TODO Boilerplate improvements:
 -   Get this working: https://github.com/nuxt/nuxtjs.org/tree/master/modules/crawler
 -   Update readme with "features" list at top, make it easier to understand.
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
--   Rename `site` components to `global`
--   Use scoped styles
--   Use UPPERCASE for GQL query vars
 -   Add default styles for wp-content, with prop to disable?
--   Seperate out common styles into SCSS imports
+-   Separate out common styles into SCSS imports
+-   Get this working (and playing nicely with Prettier). Should have --fix set to true. https://github.com/nuxt-community/stylelint-module

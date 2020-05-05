@@ -36,7 +36,7 @@ import _kebabCase from "lodash/kebabCase"
 import { decodeHtmlEntities } from "~/utils/tools"
 
 // Components
-import siteHamburger from "~/components/site/Hamburger"
+import siteHamburger from "~/components/global/Hamburger"
 
 export default {
     components: {
