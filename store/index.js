@@ -1,5 +1,4 @@
-import config from "~/nuxt.config"
-import { WpSettings, SiteOptions } from "~/gql/queries/WpSettings.gql"
+import SITE_SETTINGS from "~/gql/queries/SiteSettings.gql"
 import _get from "lodash/get"
 
 // Define State defaults
@@ -55,8 +54,7 @@ export const actions = {
 
         // Make all requests in parallel
         const data = await Promise.all([
-            store.dispatch("QUERY_SETTINGS", context),
-            store.dispatch("QUERY_OPTIONS", store)
+            store.dispatch("QUERY_SETTINGS", context)
             //store.dispatch("menus/QUERY_MENUS", menuLocations)
         ])
     },
@@ -65,10 +63,11 @@ export const actions = {
         // Get site settings from WordPress and save them to store
         await this.app.apolloProvider.defaultClient
             .query({
-                query: WpSettings
+                query: SITE_SETTINGS
             })
             .then(({ data }) => {
-                let settings = _get(data, "generalSettings", {})
+                // Get WP settings
+                const settings = _get(data, "wpSettings", {})
                 let meta = {
                     title: settings.title,
                     host: context.req.headers.host,
@@ -77,33 +76,19 @@ export const actions = {
                     backendUrl: settings.url,
                     frontendUrl: settings.siteUrl
                 }
-                commit("SET_SITE_META", meta)
-            })
-    },
-    // Get site options from WordPress and save them to store
-    async QUERY_OPTIONS({ dispatch, commit }, store) {
-        await this.app.apolloProvider.defaultClient
-            .query({
-                query: SiteOptions
-            })
-            .then(({ data }) => {
-                let options = _get(data, "siteOptions.acfSiteOptions", {})
 
-                let gaCodes = []
-
+                // Get ACF site settings, shape them correctly
+                const options = _get(data, "acfSettings.acfSiteOptions", {})
                 if (options.googleAnalytics) {
-                    options.googleAnalytics.forEach(item => {
-                        gaCodes.push(item.code)
+                    meta.gaTrackingCodes = options.googleAnalytics.map(item => {
+                        return item.code
                     })
-                    store.state.siteMeta.gaTrackingCodes = gaCodes
+                    delete options.googleAnalytics
                 }
 
+                commit("SET_SITE_META", { ...meta, ...options })
 
-                if (options.socialMedia) {
-                    store.state.siteMeta.socialMedia = options.socialMedia
-                }
-
-                commit("SET_SITE_META", store.state.siteMeta)
+                return data
             })
     }
 }

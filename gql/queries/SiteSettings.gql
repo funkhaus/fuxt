@@ -1,15 +1,13 @@
 query WpSettings {
-    generalSettings {
+    # This syntax is called a GQL alias. See: https://graphql.org/learn/queries/#aliases
+    wpSettings: generalSettings {
         title
         description
         url
         siteUrl
         themeScreenshotUrl
     }
-}
-
-query SiteOptions {
-    siteOptions {
+    acfSettings: siteOptions {
         acfSiteOptions {
             socialMedia {
                 platform
