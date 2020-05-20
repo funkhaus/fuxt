@@ -1,4 +1,4 @@
-query WpSettings {
+query SiteSettings {
     # This syntax is called a GQL alias. See: https://graphql.org/learn/queries/#aliases
     wpSettings: generalSettings {
         title
