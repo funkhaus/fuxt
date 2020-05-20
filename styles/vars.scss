@@ -6,7 +6,7 @@
 // SCSS constants
 $white: #ffffff;
 $black: #000000;
-$font-family: sans-serif;
+$font-primary: sans-serif;
 // $desktop-padding: 60px;
 // $mobile-padding: 20px;
 // $header-height: 80px;
@@ -20,7 +20,7 @@ $font-family: sans-serif;
 // $lt-phone: 'only screen and (max-width: 750px)';
 // $lt-phone-landscape: 'only screen and (max-width: 750px) and (orientation: landscape)';
 // $ipad: 'only screen and (min-device-width : 768px) and (max-device-width : 1024px)';
-$has-hover: '(hover: hover)';
+$has-hover: "(hover: hover)";
 
 // SCSS Mixins
 @mixin fill($position: absolute) {
