@@ -27,12 +27,7 @@ export default function({ route, redirect, error }) {
                     break
             }
 
-            redirect(`/${uri}`)
-            break
-
-        case Boolean(route.query.preview) && Boolean(route.query.id):
-            // Could do a Apollo request from ID here? Not sure how to send data to page?
-            // Maybe it comes from cache? Maybe it just works becuase route is path?
+            redirect(`/${uri}/?preview=true`)
             break
     }
 

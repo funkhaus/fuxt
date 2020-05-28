@@ -107,6 +107,11 @@ export default {
     },
 
     /*
+     ** Server side middleware
+     */
+    serverMiddleware: ["~/middleware/preview-spa-mode"],
+
+    /*
      ** Build configuration
      */
     build: {
