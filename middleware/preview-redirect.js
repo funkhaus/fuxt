@@ -9,7 +9,7 @@ export default function({ route, redirect, error }) {
     }
 
     switch (true) {
-        case Boolean(route.query.preview) && !route.query.slug:
+        case Boolean(route.query.preview) && route.query.id === "":
             return error({
                 statusCode: 404,
                 message:
