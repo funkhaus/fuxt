@@ -23,7 +23,7 @@ export const formatDate = date => {
  * This function is used to decode HTML entities. Useful for setting head title tags.
  * Will convert ``&amp;#8211;`` into `-` for example.
  */
-export const decodeHtmlEntities = string => {
+export const decodeHtmlEntities = (string = "") => {
     return string.replace(/&#(\d+);/g, function(match, dec) {
         return String.fromCharCode(dec)
     })
@@ -152,7 +152,6 @@ export const initSwipeEvents = (el, deltaMin = 80) => {
     })
 }
 
-
 /*
  * Allows _get() to try multple paths, then return default
  */
@@ -163,4 +162,3 @@ export const _getOne = (obj, paths, defaultValue) => {
 
     return values.length ? values[0] : defaultValue
 }
-
