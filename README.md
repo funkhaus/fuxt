@@ -330,6 +330,7 @@ Otherwise you can do it all through the website Dashboard too.
 Boilerplate improvements:
 
 -   Document the included WordPress components
+-   Document the stackhaus-backend theme auto-installs
 -   Change and document deployment to Netlify and generated sites.
 -   Get this working using generated routes: https://github.com/nuxt-community/sitemap-module
     -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
