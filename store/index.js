@@ -47,15 +47,10 @@ export const actions = {
             store.commit("SET_BREAKPOINT", "mobile")
         }
 
-        // Define menus here.
-        // Use menu location, as definded in WordPress functions/theme-config.php
-        // WordPress saves them as UPPERCASE_WITH_UNDERSCORES_FOR_SPACES always
-        // const menuLocations = ["MAIN_MENU"]
-
         // Make all requests in parallel
         const data = await Promise.all([
             store.dispatch("QUERY_SETTINGS", context)
-            //store.dispatch("menus/QUERY_MENUS", menuLocations)
+            //store.dispatch("ANOTHER_ACTION_EXAMPLE", context)
         ])
     },
 

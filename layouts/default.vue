@@ -12,8 +12,6 @@
             v-html="$store.state.siteMeta.description"
         />
 
-        <!-- Header would go  here -->
-
         <site-hamburger />
 
         <nuxt-link
@@ -24,8 +22,6 @@
         </nuxt-link>
 
         <nuxt />
-
-        <!-- Footer goes here -->
     </main>
 </template>
 

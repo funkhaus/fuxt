@@ -5,17 +5,11 @@
         v-else
         :class="classes"
     >
+        <!--
+        You should probably use the wp-content compoennt here
+        SEE https://github.com/funkhaus/components/blob/master/src/components/WpContent.vue
+        -->
         <div v-html="page.content" />
-
-        <nuxt-link to="/featured/private-page">
-            Private Page
-        </nuxt-link>
-
-        <br>
-
-        <nuxt-link to="/featured/featured-spot-1">
-            Public page
-        </nuxt-link>
     </section>
 </template>
 

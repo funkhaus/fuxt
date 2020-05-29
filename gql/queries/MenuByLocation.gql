@@ -1,4 +1,4 @@
-query GET_MENU($location: MenuLocationEnum) {
+query MenuByLocation($location: MenuLocationEnum) {
     menuItems(first: 99, where: { location: $location }) {
         nodes {
             ...LocationMenuItem

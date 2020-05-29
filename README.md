@@ -1,8 +1,37 @@
 # stackhaus
 
-New Graph QL powered frontend tech stack. Built on Nuxt, using Apollo. Works best with the [stackhaus-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme.
+A complete Headless WordPress tech stack built on Nuxt, using Apollo.
+
+Works best with the [stackhaus-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme and our WordPress [optimized component library](https://github.com/funkhaus/components).
+
+## Features
+
+-   Auto installs any WordPress plugin dependencies
+-   WordPress Previews and Drafts work with regular WordPress logins.
+-   GraphQL and Apollo powered API
+-   ACF first class citizen
+-   Supports only the classic editor (#guttenbergsucks)
+-   Works with shortcodes and oEmbeds
+-   Google Analytics plugin baked in, pulls from WordPress dashboard.
+-   [Lots of components for common WordPress needs](https://github.com/funkhaus/components/tree/master/src/components)
+    -   wp-content (supports oEmbed and shortcodes)
+    -   wp-menu and wp-menu-item (supports sub-menus!)
+    -   responsive-image (uses WordPress generated src-sets)
+    -   smart-link (handles parsing WordPress permalinks)
+-   Built in webfontloader for fast font loading
+-   Auto imports SVGs from `@/assets/svgs`
+-   Auto imports root components from `@/components`
+-   Lots of common functions to save you time!
+    -   Mobile swipe events baked in
+    -   Device detection baked in
+    -   Solve for 100vh on mobile baked in
+    -   Tracks window dimensions and scroll top position
+-   Prettier and ESLint built in for nice looking code
+-   Lodash baked in
 
 ## Build Setup
+
+Works best with the [stackhaus-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme as the backend.
 
 ```bash
 # install dependencies
@@ -21,12 +50,6 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-## Repo naming conventions
-
-**This is advice for Funkhaus team only.**
-
-The frontend theme repo should be name based on the URL of the site it's for, dropping any TLDs and appended with `-frontend` or `-backend`. So if it was for `funkhaus.us`, the repo would be named `funkhaus-frontend`, and the backend theme repo would be `funkhaus-backend`.
-
 ## Theme Config
 
 1.  Install `stackhaus-backend` theme into WordPress [from here](https://github.com/funkhaus/stackhaus-backend). Rename theme directory to the site name appended with `-backend-2019`, so `example-backend`. Also change the theme name to the same in `style.css`.
@@ -34,10 +57,9 @@ The frontend theme repo should be name based on the URL of the site it's for, dr
     1.  Install promoted Plugins
     1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.
     1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this) to the `Post name` option.
-    1.  Define image sizes and menu locations in `/functions/theme-config.php`.
+    1.  Define menu locations in `/functions/theme-config.php`.
 1.  Rename your `.env.example` to `.env` and config `DEFAULT_ENDPOINT` to be the GraphQL endpoint from the WordPress you installed above.
     1.  If you are using an endpoint that is protected by Basic Authentication, like the Flywheel staging sites, then you should set the `BASIC_API_TOKEN` var in the `.env` file too. You can find out what your token should be by just going to the endpoint in your browser, successfully entering the username/password combination, then use your browsers Network Inspector to see what the Request headers are, and find the `Authorization` one. That is the token you need.
-1.  All Funkhaus sites that under development and accessible to the internet need to have `BASIC_AUTH_ENABLED` set to `"true"`.
 
 ## Fonts
 
@@ -57,8 +79,7 @@ Stackhaus has built in SSR friendly menus. To use them, you first need to define
 
 1. Define menu locations in your WordPress theme in `functions/theme-config.php`.
 1. Assign menus to those menu-locations in the WordPress dashboard.
-1. Define your menu locations in `store/index.js`, see the `nuxtServerInit()` function for commented out boilerplate.
-1. That is it! Your menus will now be in the Vuex store under `$store.menus.locations`.
+1. Use the `<wp-menu>` component [from here](https://github.com/funkhaus/components), like so: `<wp-menu location="Location Name"/>`.
 
 ## SVGs
 
@@ -236,6 +257,18 @@ export default {
 </script>
 ```
 
+## Funkhaus guidlines
+
+**This is advice for Funkhaus team only.**
+
+### Repo naming conventions
+
+The frontend theme repo should be name based on the URL of the site it's for, dropping any TLDs and appended with `-frontend` or `-backend`. So if it was for `funkhaus.us`, the repo would be named `funkhaus-frontend`, and the backend theme repo would be `funkhaus-backend`.
+
+### Basic Auth
+
+All Funkhaus sites that under development and accessible to the internet need to have `BASIC_AUTH_ENABLED` set to `"true"`.
+
 ## TODO list
 
 TODO Boilerplate improvements:
@@ -248,8 +281,6 @@ TODO Boilerplate improvements:
 -   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546 Maybe use apollo global loader?
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
 -   Get this working: https://github.com/nuxt/nuxtjs.org/tree/master/modules/crawler
--   Update readme with "features" list at top, make it easier to understand.
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
--   Add default styles for wp-content, with prop to disable?
 -   Separate out common styles into SCSS imports
 -   Get this working (and playing nicely with Prettier). Should have --fix set to true. https://github.com/nuxt-community/stylelint-module

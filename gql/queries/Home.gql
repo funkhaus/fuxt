@@ -1,16 +1,18 @@
 #import "~/gql/fragments/MediaImage.gql"
 
 # Query to get all the sub pages of the homepage
-query Home($uri: String) {
-    pageBy(uri: $uri) {
-        title
-        content
-        id
-        # acfMeta {
-        #     videoUrl
-        # }
-        featuredImage {
-            ...MediaImage
+query Home($uri: String!) {
+    nodeByUri(uri: $uri) {
+        ... on Page {
+            title
+            content
+            id
+            # acfMeta {
+            #     videoUrl
+            # }
+            featuredImage {
+                ...MediaImage
+            }
         }
     }
 }
