@@ -9,10 +9,10 @@ Works best with the [stackhaus-backend](https://github.com/funkhaus/stackhaus-ba
 -   Auto installs any WordPress plugin dependencies
 -   WordPress Previews and Drafts work with regular WordPress logins.
 -   GraphQL and Apollo powered API
--   ACF first class citizen
+-   [ACF](https://www.advancedcustomfields.com/) first class citizen
 -   Supports only the classic editor (#guttenbergsucks)
 -   Works with shortcodes and oEmbeds
--   Google Analytics plugin baked in, pulls from WordPress dashboard.
+-   Google Analytics plugin baked in, pulls from WordPress dashboard (requires [ACF Pro](https://www.advancedcustomfields.com/pro/)).
 -   [Lots of components for common WordPress needs](https://github.com/funkhaus/components/tree/master/src/components)
     -   wp-content (supports oEmbed and shortcodes)
     -   wp-menu and wp-menu-item (supports sub-menus!)
@@ -58,6 +58,8 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
     1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.
     1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this) to the `Post name` option.
     1.  Define menu locations in `/functions/theme-config.php`.
+    1.  If you want to use ACF, there are some default fields we recommend, you can import them from the theme in the directory `/acf/`.
+        1.  One of these field groups is Site Options, which allows Google Analytics to work. You need ACF Pro installed for this to work.
 1.  Rename your `.env.example` to `.env` and config `DEFAULT_ENDPOINT` to be the GraphQL endpoint from the WordPress you installed above.
     1.  If you are using an endpoint that is protected by Basic Authentication, like the Flywheel staging sites, then you should set the `BASIC_API_TOKEN` var in the `.env` file too. You can find out what your token should be by just going to the endpoint in your browser, successfully entering the username/password combination, then use your browsers Network Inspector to see what the Request headers are, and find the `Authorization` one. That is the token you need.
 
@@ -179,7 +181,9 @@ Note: If you start getting this error after enabling basic auth "Cannot read pro
 
 ## Google Analytics using `this.$gtag()`
 
-You can set tracking codes in Settings > General. By default page views are tracked, but you can track anything you want using `this.$gtag()` in a component or page. See: https://developers.google.com/analytics/devguides/collection/gtagjs
+If you have ACF Pro installed, you will get a Site Options panel. In the Site Options you will be able to set Google Analytics codes.
+
+By default page views are tracked, but you can track anything you want using `this.$gtag()` in a component or page. See: https://developers.google.com/analytics/devguides/collection/gtagjs
 
 ```
     this.gtag('event', <action>, {

@@ -54,11 +54,11 @@ export default {
             query: HOME,
             variables() {
                 return {
-                    uri: "/featured" // FYI you can't query home by just using '/'
+                    uri: "/featured" // NOTE FYI you can't query home by just using '/'
                 }
             },
             update(data) {
-                return _get(data, "pageBy", "")
+                return _get(data, "nodeByUri", {})
             }
         }
     }
