@@ -1,10 +1,12 @@
-# stackhaus
+# fuxt
 
 A complete Headless WordPress tech stack built on Nuxt, using Apollo.
 
-Works best with the [stackhaus-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme and included WordPress optimized components.
+Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme and included WordPress optimized components.
 
 We also have some [Shopify components under development here](https://github.com/funkhaus/shophaus). Headless Shopify and WordPress together finally!
+
+PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's provocative](https://www.youtube.com/watch?v=_eRRab36XLI).
 
 ## Features
 
@@ -36,7 +38,7 @@ We also have some [Shopify components under development here](https://github.com
 
 **This is just a Nuxt site, so it builds and deploys like any other Nuxt project.**
 
-Works best with the [stackhaus-backend](https://github.com/funkhaus/stackhaus-backend) WordPress theme as the backend.
+Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme as the backend.
 
 ```bash
 # install dependencies
@@ -57,14 +59,14 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## Theme Config - WordPress as a headless CMS
 
-1.  Install `stackhaus-backend` theme into WordPress [from here](https://github.com/funkhaus/stackhaus-backend). Rename theme directory to the site name appended with `-backend-2019`, so `example-backend`. Also change the theme name to the same in `style.css`.
+1.  Install `fuxt-backend` theme into WordPress [from here](https://github.com/funkhaus/fuxt-backend). Rename theme directory to the site name appended with `-backend-2019`, so `example-backend`. Also change the theme name to the same in `style.css`.
     1.  Disable privacy mode on WordPress host (if applicable)
     1.  Install promoted Plugins
     1.  Go to Settings > General, and set the "Site Address (URL)" to be the frontend URL. Often times you'll have to email your host (Flywheel) to get them to allow this field to be edited.
     1.  Save Permalinks in the WordPress dashboard (WP-GQL requires this) to the `Post name` option.
         1.  Use the `<wp-link>` component to handle parsing the WordPress URL's into Nuxt friendly paths.
     1.  Define menu locations in `/functions/theme-config.php`.
-    1.  If you want to use ACF, there are some default fields we recommend, you can find the file to import from the theme directory `/acf/` or [here](https://github.com/funkhaus/stackhaus-backend/tree/master/acf).
+    1.  If you want to use ACF, there are some default fields we recommend, you can find the file to import from the theme directory `/acf/` or [here](https://github.com/funkhaus/fuxt-backend/tree/master/acf).
         1.  One of these field groups is Site Options, which allows Google Analytics to work. You need ACF Pro installed for this to work.
         1.  See below for instructions on how to remove the ACF Pro requirement.
 1.  Rename your `.env.example` to `.env` and config `DEFAULT_ENDPOINT` to be the GraphQL endpoint from the WordPress you installed above.
@@ -91,7 +93,7 @@ For Typekit or google fonts, please see the [webfontloader](https://github.com/t
 
 ## Menus
 
-Stackhaus has built in SSR friendly menus. To use them, you first need to define menu locations in WordPress. This can be done in the `/functions/theme-config.php` file in the `stackhaus-backend` WordPress theme. We have some boilerplate code in the `register_custom_nav_menus()` function.
+Fuxt has built in SSR friendly menus. To use them, you first need to define menu locations in WordPress. This can be done in the `/functions/theme-config.php` file in the `fuxt-backend` WordPress theme. We have some boilerplate code in the `register_custom_nav_menus()` function.
 
 1. Define menu locations in your WordPress theme in `functions/theme-config.php`.
 1. Assign menus to those menu-locations in the WordPress dashboard.
@@ -183,7 +185,7 @@ By default, on nuxtServerInit a user agent detect will happen and set the `state
 
 ## Shortcodes
 
-This theme unpacks WordPress shortcods into Vue components. You need to register the shortcodes in your WordPress theme in the `/functions/shortcods.php` file [here](https://github.com/funkhaus/stackhaus-backend/blob/master/functions/shortcodes.php). There are a few common ones we have built, that you can uncomment the `//add_shortcode` lines to turn on.
+This theme unpacks WordPress shortcods into Vue components. You need to register the shortcodes in your WordPress theme in the `/functions/shortcods.php` file [here](https://github.com/funkhaus/fuxt-backend/blob/master/functions/shortcodes.php). There are a few common ones we have built, that you can uncomment the `//add_shortcode` lines to turn on.
 
 Common shortcodes we've included:
 
@@ -330,13 +332,13 @@ Otherwise you can do it all through the website Dashboard too.
 Boilerplate improvements:
 
 -   Document the included WordPress components
--   Document the stackhaus-backend theme auto-installs
+-   Document the fuxt-backend theme auto-installs
 -   Change and document deployment to Netlify and generated sites.
 -   Get this working using generated routes: https://github.com/nuxt-community/sitemap-module
     -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing wp-link and maybe wp-menu-item?
 -   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546 Maybe use apollo global loader?
--   Get SCSS functions for type settings working: https://github.com/funkhaus/stackhaus/issues/1
+-   Get SCSS functions for type settings working: https://github.com/funkhaus/fuxt/issues/1
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
 -   Separate out common styles into SCSS imports
 -   Get this working (and playing nicely with Prettier). Should have --fix set to true. https://github.com/nuxt-community/stylelint-module
