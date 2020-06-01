@@ -24,7 +24,8 @@
         "lodash": "^4.17.15",
         "node-fetch": "^2.4.1",
         "nuxt": "^2.12.2",
-        "nuxt-basic-auth-module": "^1.3.2"
+        "nuxt-basic-auth-module": "^1.3.2",
+        "sanitize-html": "^1.25.0"
     },
     "devDependencies": {
         "@nuxtjs/style-resources": "^0.1.2",

@@ -2,6 +2,7 @@
 // TODO Maybe include these in package by default? Perhaps don't need sanitizeHtml anymore?
 import cheerio from "cheerio"
 import _kebabCase from "lodash/kebabCase"
+import sanitizeHtml from "sanitize-html"
 
 export default {
     props: {
@@ -66,6 +67,13 @@ export default {
 
                 // Setup fitVids on the HTML
                 output = this.initFitVids(output)
+
+                // Sanitize HTML (good for cleaning up WP's bad formatted p tag combinations)
+                output = sanitizeHtml(output, {
+                    allowedTags: false,
+                    allowedAttributes: false,
+                    allowedIframeHostnames: false
+                })
 
                 const $ = cheerio.load(output)
                 output = $("body").html()

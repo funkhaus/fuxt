@@ -24,7 +24,7 @@ export default {
     },
     computed: {
         classes() {
-            return ["shortcode-gallery", `columns-${this.columns}`]
+            return ["shortcode", "shortcode-gallery", `columns-${this.columns}`]
         }
     }
 }
