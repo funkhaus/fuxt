@@ -1,14 +1,12 @@
 <template>
     <div :class="classes">
-        <!--
-            <responsive-image
-                v-for="(image, i) in images"
-                :key="i"
-                :image="image"
-                :aspect-ratio="56.25"
-                class="gallery-block"
-            />
-        -->
+        <wp-image
+            v-for="(image, i) in images"
+            :key="i"
+            :image="image"
+            :aspect-ratio="56.25"
+            class="gallery-block"
+        />
     </div>
 </template>
 
@@ -32,7 +30,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .shortcode-gallery {
     font-size: 0;
     letter-spacing: 0;

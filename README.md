@@ -344,3 +344,4 @@ Boilerplate improvements:
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
 -   Separate out common styles into SCSS imports
 -   Get this working (and playing nicely with Prettier). Should have --fix set to true. https://github.com/nuxt-community/stylelint-module
+-   Audit packages. Do we still need core-js and node-fetch?

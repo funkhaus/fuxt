@@ -1,6 +1,5 @@
 <script>
 // TODO Maybe include these in package by default? Perhaps don't need sanitizeHtml anymore?
-import sanitizeHtml from "sanitize-html"
 import cheerio from "cheerio"
 import _kebabCase from "lodash/kebabCase"
 
@@ -62,15 +61,14 @@ export default {
                 // Unwrap any elements
                 output = this.unwrapElements(output, this.unwrapSelector)
 
+                // Strip tags again (the unwrap method maybe left empty P tags)
+                output = this.removeElements(output, this.removeSelector)
+
                 // Setup fitVids on the HTML
                 output = this.initFitVids(output)
 
-                // Santize HTML
-                output = sanitizeHtml(output, {
-                    allowedTags: false,
-                    allowedAttributes: false,
-                    allowedIframeHostnames: false
-                })
+                const $ = cheerio.load(output)
+                output = $("body").html()
             }
 
             return output
@@ -139,7 +137,6 @@ export default {
             $(selector).each(function() {
                 var $p = $(this).parent()
                 $(this).insertAfter($(this).parent())
-                $p.remove()
             })
 
             return $("body").html()
@@ -200,7 +197,7 @@ export default {
         .instagram-media,
         .fb_iframe_widget,
         .fit-vid {
-            margin: 2em auto;
+            margin: 2em auto !important; // Wish we didn't have to do this, but some provides use inline margins
             max-width: 1280px;
             display: block;
             text-align: center;

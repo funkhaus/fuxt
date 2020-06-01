@@ -21,6 +21,8 @@
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
+        <wp-menu location="Header Menu" />
+
         <nuxt />
     </main>
 </template>
@@ -184,7 +186,11 @@ export default {
     .logo {
         position: absolute;
         top: 20px;
-        left: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 200px;
+        text-align: center;
     }
 }
 </style>

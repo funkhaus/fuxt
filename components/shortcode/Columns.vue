@@ -20,13 +20,13 @@ export default {
     },
     computed: {
         classes() {
-            return ["shortcode-columns", `columns-${this.columns}`]
+            return ["shortcode", "shortcode-columns", `columns-${this.columns}`]
         }
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .shortcode-columns {
     display: flex;
     flex-direction: row;

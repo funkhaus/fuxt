@@ -5,11 +5,12 @@
         v-else
         :class="classes"
     >
-        <!--
-        You should probably use the wp-content compoennt here
-        SEE https://github.com/funkhaus/components/blob/master/src/components/WpContent.vue
-        -->
-        <div v-html="page.content" />
+        <wp-image
+            class="image"
+            :image="page.featuredImage"
+        />
+
+        <wp-content :html="page.content" />
     </section>
 </template>
 
@@ -72,12 +73,16 @@ export default {
     min-height: 100vh;
     text-align: center;
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    .image {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-content: center;
+    // align-items: center;
 
     // Hover states
     // @media #{$hasHover} {
