@@ -149,13 +149,13 @@ export default {
             return this.image.mediaDetails.width
         },
         parsedSrc() {
-            return this.src || this.image.sourceUrl
+            return this.src || _get(this, "image.sourceUrl", "")
         },
         parsedSrcset() {
-            return this.srcset || this.image.srcSet
+            return this.srcset || _get(this, "image.srcSet", "")
         },
         parsedSizes() {
-            return this.sizes || this.image.sizes
+            return this.sizes || _get(this, "image.sizes", "")
         },
         parsedColor() {
             return (
