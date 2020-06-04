@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss">
 .section-404 {
-    min-height: var(--real100vh);
+    min-height: var(--real-100vh);
 
     display: flex;
     flex-direction: column;

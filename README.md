@@ -109,9 +109,9 @@ If you want to use an SVG in your CSS file, you can't place it in `/assets/svgs/
 
 ## 100vh on iOS
 
-To address the [infamous 100vh on iOS bug/feature](https://medium.com/@susiekim9/how-to-compensate-for-the-ios-viewport-unit-bug-46e78d54af0d), this theme has a CSS var called `--real100vh` that is updated from a function in `/layouts/default.vue` called `set100vhVar()`.
+To address the [infamous 100vh on iOS bug/feature](https://medium.com/@susiekim9/how-to-compensate-for-the-ios-viewport-unit-bug-46e78d54af0d), this theme has a CSS var called `--real-100vh` that is updated from a function in `/layouts/default.vue` called `set100vhVar()`.
 
-You can simply use the CSS `height: var(--real100vh); transition: height 0.4s ease-in-out;` and it will work across all devices smoothly.
+You can simply use the CSS `height: var(--real-100vh); transition: height 0.4s ease-in-out;` and it will work across all devices smoothly.
 
 ## Referrer object
 

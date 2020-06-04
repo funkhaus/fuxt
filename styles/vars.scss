@@ -1,12 +1,13 @@
 // CSS vars
 :root {
-    --real100vh: 100vh;
+    --real-100vh: 100vh;
+    --font-primary: sans-serif;
+    //--font-secondary: serif;
 }
 
 // SCSS constants
 $white: #ffffff;
 $black: #000000;
-$font-primary: sans-serif;
 // $desktop-padding: 60px;
 // $mobile-padding: 20px;
 // $header-height: 80px;

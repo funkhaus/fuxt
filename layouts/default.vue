@@ -171,7 +171,7 @@ export default {
             if (this.winWidth <= 1024) {
                 value = `${window.innerHeight}px`
             }
-            document.documentElement.style.setProperty("--real100vh", value)
+            document.documentElement.style.setProperty("--real-100vh", value)
         }
     }
 }
