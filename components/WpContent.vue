@@ -54,30 +54,34 @@ export default {
         },
         htmlTemplate() {
             // This is the main computed function that parses the HTML that ends up on the page
+
+            // Abort if empty
             let output = this.html
-            if (output) {
-                // Strip tags (important to strip script tags here)
-                output = this.removeElements(output, this.removeSelector)
-
-                // Unwrap any elements
-                output = this.unwrapElements(output, this.unwrapSelector)
-
-                // Strip tags again (the unwrap method maybe left empty P tags)
-                output = this.removeElements(output, this.removeSelector)
-
-                // Setup fitVids on the HTML
-                output = this.initFitVids(output)
-
-                // Sanitize HTML (good for cleaning up WP's bad formatted p tag combinations)
-                output = sanitizeHtml(output, {
-                    allowedTags: false,
-                    allowedAttributes: false,
-                    allowedIframeHostnames: false
-                })
-
-                const $ = cheerio.load(output)
-                output = $("body").html()
+            if (!output) {
+                return output
             }
+
+            // Strip tags (important to strip script tags here)
+            output = this.removeElements(output, this.removeSelector)
+
+            // Unwrap any elements
+            output = this.unwrapElements(output, this.unwrapSelector)
+
+            // Strip tags again (the unwrap method maybe left empty P tags)
+            output = this.removeElements(output, this.removeSelector)
+
+            // Setup fitVids on the HTML
+            output = this.initFitVids(output)
+
+            // Sanitize HTML (good for cleaning up WP's bad formatted p tag combinations)
+            output = sanitizeHtml(output, {
+                allowedTags: false,
+                allowedAttributes: false,
+                allowedIframeHostnames: false
+            })
+
+            const $ = cheerio.load(output)
+            output = $("body").html()
 
             return output
         }
@@ -94,8 +98,14 @@ export default {
     },
     methods: {
         getScripts() {
-            const $ = cheerio.load(this.html)
             let output = []
+
+            // Abort if empty
+            if (!this.html) {
+                return output
+            }
+
+            const $ = cheerio.load(this.html)
 
             // Collect script tags so we can put them in head
             $("script").each((i, elem) => {
