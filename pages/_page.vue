@@ -24,28 +24,6 @@ import { getStripped } from "~/utils/tools"
 import HOME from "~/gql/queries/Home"
 
 export default {
-    head() {
-        return {
-            title: "",
-            meta: [
-                {
-                    hid: "description",
-                    name: "description",
-                    property: "og:description",
-                    content: getStripped(this, "page.excerpt")
-                },
-                {
-                    hid: "og:image",
-                    property: "og:image",
-                    content: _get(
-                        this,
-                        "page.featuredImage.sourceUrl",
-                        undefined
-                    )
-                }
-            ]
-        }
-    },
     computed: {
         classes() {
             return ["section", "section-home"]
