@@ -1,0 +1,24 @@
+#import "~/gql/fragments/MediaImage.gql"
+
+query Seo($uri: String!) {
+    nodeByUri(uri: $uri) {
+        ... on Post {
+            id
+            title
+            content
+            excerpt
+            featuredImage {
+                ...MediaImage
+            }
+        }
+        ... on Page {
+            id
+            title
+            content
+            excerpt
+            featuredImage {
+                ...MediaImage
+            }
+        }
+    }
+}

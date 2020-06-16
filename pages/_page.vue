@@ -6,6 +6,7 @@
         :class="classes"
     >
         <wp-image
+            v-if="page.featuredImage"
             class="image"
             :image="page.featuredImage"
         />
@@ -48,6 +49,14 @@ export default {
     computed: {
         classes() {
             return ["section", "section-home"]
+        },
+        path() {
+            // FYI you can't query home by just using '/'
+            let path = this.$route.path
+            if (path == "/") {
+                path = "/featured"
+            }
+            return path
         }
     },
     apollo: {
@@ -55,7 +64,7 @@ export default {
             query: HOME,
             variables() {
                 return {
-                    uri: "/featured" // NOTE FYI you can't query home by just using '/'
+                    uri: this.path
                 }
             },
             update(data) {
@@ -77,12 +86,6 @@ export default {
         max-width: 50%;
         margin: 0 auto;
     }
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    // align-content: center;
-    // align-items: center;
 
     // Hover states
     // @media #{$hasHover} {

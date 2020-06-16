@@ -1,16 +1,7 @@
 <template>
     <main :class="classes">
         <!-- This helps with SEO -->
-        <h1
-            v-if="$route.name == 'index'"
-            id="site-title"
-            v-html="$store.state.siteMeta.title"
-        />
-        <p
-            v-if="$route.name == 'index'"
-            id="tagline"
-            v-html="$store.state.siteMeta.description"
-        />
+        <wp-seo />
 
         <site-hamburger />
 
