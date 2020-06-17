@@ -25,6 +25,9 @@ export default {
         return {
             title: `${this.error.statusCode} Error`
         }
+    },
+    mounted() {
+        console.log(this.error)
     }
 }
 </script>
