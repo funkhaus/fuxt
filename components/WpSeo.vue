@@ -124,11 +124,21 @@ export default {
             return output
         },
         parsedImageUrl() {
-            // Use supplied image URL, or image from page
-            return (
-                this.image ||
-                _get(this, "data.featuredImage.sourceUrl", undefined)
-            )
+            let output = this.image
+
+            if (!output) {
+                output = _get(this, "data.featuredImage.sourceUrl", undefined)
+            }
+            if (!output) {
+                output = _get(
+                    this,
+                    "$store.state.siteMeta.themeScreenshotUrl",
+                    undefined
+                )
+            }
+
+            // Use supplied image URL, or image from server, fallback to theme screenshot
+            return output
         }
     },
     watch: {

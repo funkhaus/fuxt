@@ -81,7 +81,7 @@ export default {
      ** Load scss globally via styleResources
      */
     styleResources: {
-        scss: ["~/styles/vars.scss"]
+        scss: ["~/styles/variables.scss", "~/styles/mixins.scss"]
     },
 
     /*

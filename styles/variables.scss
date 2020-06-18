@@ -22,12 +22,3 @@ $black: #000000;
 // $lt-phone-landscape: 'only screen and (max-width: 750px) and (orientation: landscape)';
 // $ipad: 'only screen and (min-device-width : 768px) and (max-device-width : 1024px)';
 $has-hover: "(hover: hover)";
-
-// SCSS Mixins
-@mixin fill($position: absolute) {
-    position: $position;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-}
