@@ -28,7 +28,7 @@ import _get from "lodash/get"
 import { getStripped } from "~/utils/tools"
 
 // Queries
-import SEO from "~/gql/queries/SEO.gql"
+import SEO from "~/gql/queries/Seo.gql"
 
 export default {
     props: {
