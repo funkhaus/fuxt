@@ -66,7 +66,7 @@ export default {
     }
 
     // Hover states
-    // @media #{$hasHover} {
+    // @media #{$has-hover} {
     // Hover styles would go here
     // }
 

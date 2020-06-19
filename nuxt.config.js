@@ -46,7 +46,7 @@ export default {
      ** Global CSS
      */
     css: [
-        "~/styles/base.scss",
+        "~/styles/global.scss",
         "~/styles/transitions.scss"
         //'~/styles/fonts.css'
     ],
@@ -78,7 +78,7 @@ export default {
     buildModules: ["@nuxtjs/dotenv"],
 
     /*
-     ** Load scss globally via styleResources
+     ** Load SCSS into each component
      */
     styleResources: {
         scss: ["~/styles/variables.scss", "~/styles/mixins.scss"]
