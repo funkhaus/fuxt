@@ -7,7 +7,7 @@
             :key="i"
             class="menu-item"
             :item="item"
-            @menu-interacted="menuInteracted()"
+            @menu-interacted="menuInteracted"
         />
 
         <slot name="after" />
