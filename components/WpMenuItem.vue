@@ -30,7 +30,7 @@
                 :key="`sub-${i}`"
                 class="menu-item sub-menu-item"
                 :item="subItem"
-                @menu-interacted="menuInteracted()"
+                @menu-interacted="menuInteracted"
             />
         </ul>
     </li>
