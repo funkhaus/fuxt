@@ -267,7 +267,7 @@ export default {
 </script>
 
 <style lang="scss">
-.responsive-image {
+.wp-image {
     .sizer {
         position: relative;
     }
