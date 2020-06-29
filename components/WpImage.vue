@@ -120,7 +120,7 @@ export default {
     computed: {
         classes() {
             return [
-                "responsive-image",
+                "wp-image",
                 `mode-${this.mode}`,
                 { "has-loaded": this.hasLoaded },
                 { "has-background-color": this.parsedColor },
