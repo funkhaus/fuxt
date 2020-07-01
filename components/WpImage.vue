@@ -126,13 +126,21 @@ export default {
                 { "has-background-color": this.parsedColor },
                 { "has-error": this.hasError },
                 { "has-image-error": this.hasError.image },
-                { "has-video-error": this.hasError.video }
+                { "has-video-error": this.hasError.video },
+                `is-orientation-${this.orientation}`
             ]
         },
         aspectPadding() {
             return (
                 this.aspectRatio || (this.parsedHeight / this.parsedWidth) * 100
             )
+        },
+        orientation() {
+            let output = "landscape"
+            if (this.parsedHeight > this.parsedWidth) {
+                output = "portrait"
+            }
+            return output
         },
         parsedHeight() {
             // default to defined height
