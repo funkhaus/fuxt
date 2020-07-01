@@ -28,6 +28,10 @@ export default {
         location: {
             type: String,
             default: ""
+        },
+        items: {
+            type: Array,
+            default: () => []
         }
     },
     data() {
@@ -41,9 +45,14 @@ export default {
         }
     },
     async fetch() {
+        // Don't fetch if WordPress menu items provided, use them.
+        if (this.items.length) {
+            this.menuItems = this.items
+            return
+        }
+
         // Make location name upper case with undersocres instead of spaces
         const locationName = _upperCase(this.location).replace(/ /g, "_")
-
         try {
             let response = await this.$apollo
                 .query({
