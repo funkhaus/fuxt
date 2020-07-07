@@ -37,7 +37,7 @@ export default {
                 lang: "en"
             },
             bodyAttrs: {
-                class: "default-theme"
+                class: `default-theme route-${_kebabCase(this.$route.name || "error")} ${process.server ? 'is-ssr' : ''}`
             },
             titleTemplate: titleChunk => {
                 let title = decodeHtmlEntities(titleChunk)
@@ -91,10 +91,8 @@ export default {
                 "container",
                 "main",
                 `breakpoint-${this.breakpoint}`,
-                `route-${_kebabCase(this.$route.name || "error")}`,
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.sTop > 0 },
-                { "is-ssr": process.server },
                 { "is-loading": this.$store.state.isLoading }
             ]
         },
