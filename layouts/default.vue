@@ -42,7 +42,19 @@ export default {
             titleTemplate: titleChunk => {
                 let title = decodeHtmlEntities(titleChunk)
                 let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
-                return title ? `${site} - ${title}` : site
+                let output = site
+                
+                switch (true) {
+                    case site == title:
+                        output = site
+                        break;
+
+                    case title:
+                        output = `${site} - ${title}`
+                        break
+                }
+
+                return output
             },
             meta: [
                 {
