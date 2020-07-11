@@ -218,7 +218,7 @@ Common shortcodes we've included:
 [svg name="arrow-icon"]
 ```
 
-### Swipe Events
+## Swipe Events
 
 To enable swipe event listeners on a given element use the function `initSwipeEvents` located in `utils/tools.js`.
 
@@ -248,6 +248,16 @@ export default {
 }
 </script>
 ```
+
+## ACF Custom Filter rules
+
+We have a custom "Page URI contains" ACF filter enabled by default. It's defualts are `/contact` and `/featured/` but it’s easy to add custom ones you might need in `functions/acf-functions.php` in the `acf_location_rules_values_uri_contains()` function.
+
+The `URI` it is testing against is the page/post/custom-post-type URI, with a slash on both ends of the URI.
+
+This is handy for ACF fields that are only needed on the homepage, or on the contact page (or any of it’s child pages).
+
+When you use this feature, be sure to toggle on the `Prevent non-developer deletion` option on the page edit screen, so that the user can’t change that URI in the future.
 
 ## Funkhaus guidlines
 
@@ -348,3 +358,4 @@ Boilerplate improvements:
 -   Redo the way we load SVGs? Maybe use same package as Facotry
 -   Update to work with new Nuxt auto component importer
 -   Document Netlify deployment
+-   Write a custom ACF filter rule that goes off a slug?
