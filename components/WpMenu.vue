@@ -36,7 +36,7 @@ export default {
     },
     data() {
         return {
-            menuItems: []
+            menuItems: this.items
         }
     },
     computed: {
