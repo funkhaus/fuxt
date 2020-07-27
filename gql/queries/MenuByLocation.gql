@@ -1,5 +1,5 @@
 query MenuByLocation($location: MenuLocationEnum) {
-    menuItems(first: 99, where: { location: $location }) {
+    menuItems(first: 99, where: { location: $location, parentDatabaseId: 0 }) {
         nodes {
             ...LocationMenuItem
             childItems {
