@@ -11,7 +11,9 @@ query Home($uri: String!) {
             #     videoUrl
             # }
             featuredImage {
-                ...MediaImage
+                node {
+                    ...MediaImage
+                }
             }
         }
     }
