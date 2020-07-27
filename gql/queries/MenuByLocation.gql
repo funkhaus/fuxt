@@ -16,4 +16,5 @@ fragment LocationMenuItem on MenuItem {
     cssClasses
     target
     url
+    id
 }
