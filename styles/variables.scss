@@ -1,13 +1,16 @@
 // CSS vars
 :root {
-    --real-100vh: 100vh;
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --unit-100vh: 100vh;
+    //--unit-gap: 40px;
+
     --font-primary: sans-serif;
     //--font-secondary: serif;
 }
 
 // SCSS constants
-$white: #ffffff;
-$black: #000000;
 // $desktop-padding: 60px;
 // $mobile-padding: 20px;
 // $header-height: 80px;

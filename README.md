@@ -1,6 +1,6 @@
 # fuxt
 
-A complete Headless WordPress tech stack built on Nuxt, using Apollo.
+A complete Headless WordPress tech stack built on Nuxt, using GraphQL.
 
 Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme and included WordPress optimized components.
 
@@ -14,7 +14,7 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 
 -   Auto installs any WordPress plugin dependencies
 -   WordPress Previews and Drafts work with regular WordPress logins
--   GraphQL and Apollo powered API
+-   GraphQL powered API (using Nuxt GraphQL Request)
 -   [ACF](https://www.advancedcustomfields.com/) first class citizen
 -   Supports only the classic editor (#guttenbergsucks)
 -   Works with shortcodes and oEmbeds
@@ -109,9 +109,9 @@ If you want to use an SVG in your CSS file, you can't place it in `/assets/svgs/
 
 ## 100vh on iOS
 
-To address the [infamous 100vh on iOS bug/feature](https://medium.com/@susiekim9/how-to-compensate-for-the-ios-viewport-unit-bug-46e78d54af0d), this theme has a CSS var called `--real-100vh` that is updated from a function in `/layouts/default.vue` called `set100vhVar()`.
+To address the [infamous 100vh on iOS bug/feature](https://medium.com/@susiekim9/how-to-compensate-for-the-ios-viewport-unit-bug-46e78d54af0d), this theme has a CSS var called `--unit-100vh` that is updated from a function in `/layouts/default.vue` called `set100vhVar()`.
 
-You can simply use the CSS `height: var(--real-100vh); transition: height 0.4s ease-in-out;` and it will work across all devices smoothly.
+You can simply use the CSS `height: var(--unit-100vh); transition: height 0.4s ease-in-out;` and it will work across all devices smoothly.
 
 ## Referrer object
 
@@ -310,7 +310,7 @@ Otherwise you can do it all through the website Dashboard too.
 
 1.  Prep Nuxt to go live.
     1.  Disable Basic Auth on servers `.env` file or settings panel.
-    1.  Set the Apollo endpoints to be the new domain names. Probably `https://api.your-site.com/graphql`.
+    1.  Set the environment endpoints to be the new domain names. Probably `https://api.your-site.com/graphql`.
     1.  If you're using Shopify, `https://shop.your-site.com/api/{version number here}/graphql.json`. You may want to use a `.env` for these, it helps when dealing with staging setups.
     1.  Be sure to turn off Privacy mode in Flywheel.
 1.  In Heroku, add your custom domain name to the App. [See here](https://devcenter.heroku.com/articles/custom-domains]). Note the "DNS Target" Heroku gives you, it should be some funny names and a random string like `space-balls-12345drewish.herokudns.com`.
@@ -350,7 +350,7 @@ Boilerplate improvements:
 -   Get this working using generated routes: https://github.com/nuxt-community/sitemap-module
     -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing wp-link and maybe wp-menu-item?
--   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546 Maybe use apollo global loader?
+-   Would be nice to have a class added to body when the router is in the middle of something. See: https://stackoverflow.com/a/46063580/503546
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/fuxt/issues/1
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
 -   Separate out common styles into SCSS imports

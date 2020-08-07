@@ -12,7 +12,7 @@
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
-        <wp-menu location="Header Menu" />
+        <wp-menu location="MAIN_MENU" />
 
         <nuxt />
     </main>
@@ -37,17 +37,19 @@ export default {
                 lang: "en"
             },
             bodyAttrs: {
-                class: `default-theme route-${_kebabCase(this.$route.name || "error")} ${process.server ? 'is-ssr' : ''}`
+                class: `default-theme route-${_kebabCase(
+                    this.$route.name || "error"
+                )} ${process.server ? "is-ssr" : ""}`
             },
             titleTemplate: titleChunk => {
                 let title = decodeHtmlEntities(titleChunk)
                 let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
                 let output = site
-                
+
                 switch (true) {
                     case site == title:
                         output = site
-                        break;
+                        break
 
                     case title:
                         output = `${site} - ${title}`
@@ -172,7 +174,7 @@ export default {
             if (this.winWidth <= 1024) {
                 value = `${window.innerHeight}px`
             }
-            document.documentElement.style.setProperty("--real-100vh", value)
+            document.documentElement.style.setProperty("--unit-100vh", value)
         }
     }
 }

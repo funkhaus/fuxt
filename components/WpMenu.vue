@@ -54,16 +54,10 @@ export default {
         // Make location name upper case with undersocres instead of spaces
         const locationName = _upperCase(this.location).replace(/ /g, "_")
         try {
-            let response = await this.$apollo
-                .query({
-                    query: MENU_BY_LOCATION,
-                    variables: {
-                        location: locationName
-                    }
-                })
-                .then(({ data }) => data)
-
-            this.menuItems = _get(response, "menuItems.nodes", [])
+            const data = await this.$graphql.request(MENU_BY_LOCATION, {
+                location: locationName
+            })
+            this.menuItems = _get(data, "menuItems.nodes", [])
         } catch (error) {
             console.log("Fetch error in <wp-menu>: ", error)
         }

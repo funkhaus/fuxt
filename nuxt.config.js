@@ -66,7 +66,7 @@ export default {
      ** Nuxt.js modules
      */
     modules: [
-        "@nuxtjs/apollo",
+        "nuxt-graphql-request",
         "@nuxtjs/style-resources",
         "nuxt-basic-auth-module",
         "@nuxtjs/device"
@@ -85,13 +85,18 @@ export default {
     },
 
     /*
-     ** Apollo options. Used for Graph QL queries
-     ** See: https://github.com/nuxt-community/apollo-module#setup
+     ** GraphQL Request options.
+     ** See: https://github.com/Gomah/nuxt-graphql-request
      */
-    apollo: {
-        authenticationType: "Basic",
-        clientConfigs: {
-            default: "~/plugins/apollo-config-default.js"
+    graphql: {
+        AST: true,
+        endpoint: process.env.DEFAULT_ENDPOINT,
+        options: {
+            credentials: "include",
+            mode: "cors",
+            headers: {
+                authorization: `Bearer ${process.env.BASIC_API_TOKEN || ""}`
+            }
         }
     },
 
@@ -103,13 +108,17 @@ export default {
         linkActiveClass: "active-link",
         middleware: ["referrer", "preview-redirect"],
         prefetchLinks: true,
-        linkPrefetchedClass: "link-prefetched"
+        linkPrefetchedClass: "link-prefetched",
+        trailingSlash: true
     },
 
     /*
      ** Server side middleware
      */
-    serverMiddleware: ["~/middleware/preview-spa-mode"],
+    serverMiddleware: [
+        "~/middleware/preview-spa-mode.server.js",
+        "~/middleware/redirect-trailing-slash.server.js"
+    ],
 
     /*
      ** Build configuration

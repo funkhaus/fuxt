@@ -152,19 +152,14 @@ export default {
         }
 
         // Get data from API
-        const data = await this.$apollo
-            .query({
-                query: SEO,
-                variables: {
-                    uri: this.parsedUri
-                }
+        try {
+            const data = await this.$graphql.request(SEO, {
+                uri: this.parsedUri
             })
-            .then(({ data }) => {
-                this.data = _get(data, "nodeByUri", {})
-            })
-            .catch(error => {
-                console.warn("<wp-seo> Fetch Error:", this.parsedUri, error)
-            })
+            this.data = _get(data, "nodeByUri", {})
+        } catch (e) {
+            console.warn("<wp-seo> Fetch Error:", this.parsedUri, e)
+        }
     }
 }
 </script>

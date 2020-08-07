@@ -1,6 +1,6 @@
 {
     "name": "fuxt",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "engines": {
         "node": "10.13.0"
     },
@@ -15,17 +15,18 @@
         "heroku-postbuild": "npm run build"
     },
     "dependencies": {
-        "@nuxtjs/apollo": "^4.0.0-rc9",
         "@nuxtjs/device": "^1.2.7",
         "@nuxtjs/dotenv": "^1.4.1",
         "cheerio": "^1.0.0-rc.3",
         "core-js": "^2.6.11",
-        "graphql": "^14.6.0",
-        "lodash": "^4.17.15",
+        "graphql": "^14.7.0",
+        "graphql-tag": "^2.11.0",
+        "lodash": "^4.17.19",
         "node-fetch": "^2.4.1",
-        "nuxt": "^2.13.0",
+        "nuxt": "^2.14.1",
         "nuxt-basic-auth-module": "^1.3.2",
-        "sanitize-html": "^1.27.0"
+        "nuxt-graphql-request": "^3.0.0",
+        "sanitize-html": "^1.27.2"
     },
     "devDependencies": {
         "@nuxtjs/style-resources": "^0.1.2",

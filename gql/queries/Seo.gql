@@ -8,7 +8,9 @@ query Seo($uri: String!) {
             content
             excerpt
             featuredImage {
-                ...MediaImage
+                node {
+                    ...MediaImage
+                }
             }
         }
         ... on Page {
@@ -17,7 +19,9 @@ query Seo($uri: String!) {
             content
             excerpt
             featuredImage {
-                ...MediaImage
+                node {
+                    ...MediaImage
+                }
             }
         }
     }

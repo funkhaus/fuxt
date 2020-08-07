@@ -2,8 +2,8 @@
 body {
     font-family: var(--font-primary);
     font-size: 16px;
-    color: $black;
-    background-color: $white;
+    color: var(--color-black);
+    background-color: var(--color-white);
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -11,8 +11,8 @@ body {
     font-kerning: normal;
 }
 ::selection {
-    color: $white;
-    background: $black;
+    color: var(--color-white);
+    background: var(--color-black);
 }
 h1,
 h2,

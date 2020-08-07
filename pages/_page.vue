@@ -1,5 +1,5 @@
 <template>
-    <site-loading v-if="$apollo.loading" />
+    <site-loading v-if="$fetchState.pending" />
 
     <section
         v-else
@@ -24,6 +24,11 @@ import { getStripped } from "~/utils/tools"
 import HOME from "~/gql/queries/Home"
 
 export default {
+    data() {
+        return {
+            page: {}
+        }
+    },
     computed: {
         classes() {
             return ["section", "section-home"]
@@ -37,25 +42,18 @@ export default {
             return path
         }
     },
-    apollo: {
-        page: {
-            query: HOME,
-            variables() {
-                return {
-                    uri: this.path
-                }
-            },
-            update(data) {
-                return _get(data, "nodeByUri", {})
-            }
-        }
+    async fetch() {
+        const data = await this.$graphql.request(HOME, {
+            uri: this.path
+        })
+        this.page = _get(data, "nodeByUri", {})
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .section-home {
-    color: $black;
+    color: var(--color-black);
     margin: 0 auto;
     min-height: 100vh;
     text-align: center;

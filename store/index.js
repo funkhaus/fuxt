@@ -56,34 +56,34 @@ export const actions = {
 
     async QUERY_SETTINGS({ dispatch, commit }, context) {
         // Get site settings from WordPress and save them to store
-        await this.app.apolloProvider.defaultClient
-            .query({
-                query: SITE_SETTINGS
-            })
-            .then(({ data }) => {
-                // Get WP settings
-                const settings = _get(data, "wpSettings", {})
-                let meta = {
-                    title: settings.title,
-                    host: context.req.headers.host,
-                    description: settings.description,
-                    themeScreenshotUrl: settings.themeScreenshotUrl,
-                    backendUrl: settings.url,
-                    frontendUrl: settings.siteUrl
-                }
+        try {
+            const data = await this.$graphql.request(SITE_SETTINGS)
 
-                // Get ACF site settings, shape them correctly
-                const options = _get(data, "acfSettings.acfSiteOptions", {})
-                if (options.googleAnalytics) {
-                    meta.gaTrackingCodes = options.googleAnalytics.map(item => {
-                        return item.code
-                    })
-                    delete options.googleAnalytics
-                }
+            // Get and shape general settings
+            const settings = _get(data, "wpSettings", {})
+            let meta = {
+                title: settings.title,
+                host: context.req.headers.host,
+                description: settings.description,
+                themeScreenshotUrl: settings.themeScreenshotUrl,
+                backendUrl: settings.url,
+                frontendUrl: settings.siteUrl
+            }
 
-                commit("SET_SITE_META", { ...meta, ...options })
+            // Get ACF site settings, shape them correctly
+            const options = _get(data, "acfSettings.acfSiteOptions", {})
+            if (options.googleAnalytics) {
+                meta.gaTrackingCodes = options.googleAnalytics.map(item => {
+                    return item.code
+                })
+                delete options.googleAnalytics
+            }
 
-                return data
-            })
+            commit("SET_SITE_META", { ...meta, ...options })
+
+            return data
+        } catch (e) {
+            throw new Error(e)
+        }
     }
 }
