@@ -25,7 +25,6 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
     -   wp-image (uses WordPress generated src-sets and much more!)
     -   wp-link (handles parsing WordPress permalinks)
 -   Built in webfontloader for fast font loading
--   Auto imports SVGs from `@/assets/svgs`
 -   Auto imports root components from `@/components`
 -   Includes GQL email mutation to send email from frontend
 -   Lots of common functions to save you time!
@@ -103,7 +102,20 @@ Fuxt has built in SSR friendly menus. To use them, you first need to define menu
 
 ## SVGs
 
-The theme includes global loading of all SVGs in the `/assets/svgs` directory. This means you can use any SVG by using a component with the filename prepended by `svg`. For example `<svg-filename class="svg"/>` if your SVG was located at `/assets/svgs/filename.svg`.
+The theme includes and [SVG as component loader](https://vue-svg-loader.js.org/). This means you can use any SVG as you would a regular component. For example:
+
+```
+// In script
+import svgLogoFunkhaus from "~/assets/svgs/logo-funkhaus"
+export default {
+    components: {
+        svgLogoFunkhaus
+    }
+}
+
+// In template
+<svg-logo-funkhaus class="svg" />
+```
 
 If you want to use an SVG in your CSS file, you can't place it in `/assets/svgs/`, you should put it in `/assets` like this `/assets/filename.svg` and use it like this in your CSS: `background-image: url("~assets/filename.svg")`.
 
