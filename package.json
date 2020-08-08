@@ -38,7 +38,8 @@
         "prettier": "^1.19.1",
         "prettier-eslint": "^9.0.2",
         "sass-loader": "^7.3.1",
-        "svg-inline-loader": "^0.8.2",
+        "vue-svg-loader": "^0.16.0",
+        "vue-template-compiler": "^2.6.11",
         "webfontloader": "^1.6.28"
     }
 }

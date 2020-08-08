@@ -57,7 +57,6 @@ export default {
     plugins: [
         { src: "~/plugins/global-component-loader.js" },
         { src: "~/plugins/global-directive-loader.js" },
-        { src: "~/plugins/global-svg-loader.js" },
         { src: "~/plugins/google-gtag.client.js", mode: "client" }
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" }
     ],
@@ -130,15 +129,35 @@ export default {
         },
         transpile: ["ky", "vuex"],
         extend(config, ctx) {
-            // This is used by plugins/global-svg-loader.js
-            config.module.noParse = /\/assets\/svgs\/.+(svg$)/
-
             // Includes the Compiler version of Vue.
             // If you don't use the <wp-content> component, then you can delete this safely.
             config.resolve.alias["vue$"] = "vue/dist/vue.esm.js"
 
             // This stops a @nuxtjs/dotenv error.
             config.node = { fs: "empty" }
+
+            // Remove SVG from default Nuxt webpack rules
+            const svgRule = config.module.rules.find(rule =>
+                rule.test.test(".svg")
+            )
+            svgRule.test = /\.(png|jpe?g|gif|webp)$/i
+
+            // Use SVG loader for .svg files
+            config.resolve.extensions.push(".svg")
+            config.module.rules.push({
+                test: /\.svg$/,
+                use: [
+                    "babel-loader",
+                    {
+                        loader: "vue-svg-loader",
+                        options: {
+                            svgo: {
+                                plugins: [{ removeViewBox: false }]
+                            }
+                        }
+                    }
+                ]
+            })
         }
     },
 
