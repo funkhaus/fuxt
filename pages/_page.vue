@@ -55,7 +55,7 @@ export default {
 .section-home {
     color: var(--color-black);
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: var(--unit-100vh);
     text-align: center;
 
     .image {
