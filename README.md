@@ -368,7 +368,6 @@ Boilerplate improvements:
 -   Separate out common styles into SCSS imports
 -   Get this working (and playing nicely with Prettier). Should have --fix set to true. https://github.com/nuxt-community/stylelint-module
 -   Audit packages. Do we still need core-js and node-fetch?
--   Redo the way we load SVGs? Maybe use same package as Facotry
 -   Update to work with new Nuxt auto component importer
 -   Document Netlify deployment
--   Write a custom ACF filter rule that goes off a slug?
+-   Get Nuxt Storybook module working
