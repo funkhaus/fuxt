@@ -175,5 +175,19 @@ export default {
      */
     server: {
         host: process.env.HOST || "0.0.0.0"
+    },
+
+    /*
+     ** Storybook
+     ** SEE https://storybook.nuxtjs.org/options
+     */
+    storybook: {
+        stories: ["~/stories/**/*.stories.js"],
+        webpackFinal(config, { configDir }) {
+            // Allow webpack to auto-load .gql files
+            config.resolve.extensions.push(".gql")
+
+            return config
+        }
     }
 }

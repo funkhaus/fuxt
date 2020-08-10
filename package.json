@@ -29,6 +29,7 @@
         "sanitize-html": "^1.27.2"
     },
     "devDependencies": {
+        "@nuxtjs/storybook": "^1.2.0",
         "@nuxtjs/style-resources": "^1.0.0",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "eslint": "^7.6.0",

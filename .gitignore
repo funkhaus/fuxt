@@ -88,3 +88,7 @@ sw.*
 
 # OS Junk
 .DS_Store
+
+# Storybook
+.nuxt-storybook
+storybook-static
