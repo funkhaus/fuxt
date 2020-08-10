@@ -11,6 +11,7 @@
         "dev": "nuxt",
         "build": "nuxt build",
         "start": "nuxt start",
+        "storybook": "nuxt storybook",
         "generate": "nuxt generate",
         "heroku-postbuild": "npm run build"
     },
