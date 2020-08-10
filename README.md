@@ -50,7 +50,7 @@ $ npm install
 $ npm run dev
 
 # serve with hot reload Storybook at localhost:3003
-$ npx nuxt storybook
+$ npm run storybook
 
 # build for production and launch server
 $ npm run build
@@ -89,7 +89,7 @@ ACF Pro is used for Site Options, which by default is how we store the Google An
 
 This theme ships with the Nuxt Storybook module installed and configured. Stories should live in `/stories`, we even included some examples for you.
 
-You can run Storybook in dev mode by using: `npx nuxt stroybook`
+You can run Storybook in dev mode by using: `npm run stroybook`
 
 If you want to export Storybook (to deploy it to a static host): `yarn nuxt storybook build`
 
