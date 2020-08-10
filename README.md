@@ -14,6 +14,7 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 
 -   Auto installs any WordPress plugin dependencies
 -   WordPress Previews and Drafts work with regular WordPress logins
+-   Includes [Nuxt Storybook module](https://storybook.nuxtjs.org/)!
 -   GraphQL powered API (using Nuxt GraphQL Request)
 -   [ACF](https://www.advancedcustomfields.com/) first class citizen
 -   Supports only the classic editor (#guttenbergsucks)
@@ -48,12 +49,16 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
+# serve with hot reload Storybook at localhost:3003
+$ npx nuxt storybook
+
 # build for production and launch server
 $ npm run build
 $ npm start
 
 # generate static project
 $ npm run generate
+
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
@@ -79,6 +84,14 @@ ACF Pro is used for Site Options, which by default is how we store the Google An
 
     1.  In `~/gql/queries/SiteSettings.gql` delete the entire `acfSettings` block.
     1.  To get Google Analytics tracking working, change line 5 of `~/plugins/google-gtag.client.js` to pull the codes from your preferred place. I recommend you put them in the Vuex store someplace.
+
+## Storybook
+
+This theme ships with the Nuxt Storybook module installed and configured. Stories should live in `/stories`, we even included some examples for you.
+
+You can run Storybook in dev mode by using: `npx nuxt stroybook`
+
+If you want to export Storybook (to deploy it to a static host): `yarn nuxt storybook build`
 
 ## Fonts
 
