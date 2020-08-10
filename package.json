@@ -29,9 +29,9 @@
         "sanitize-html": "^1.27.2"
     },
     "devDependencies": {
+        "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
         "@nuxtjs/storybook": "^1.2.0",
         "@nuxtjs/style-resources": "^1.0.0",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "eslint": "^7.6.0",
         "eslint-plugin-vue": "^6.2.2",
         "node-sass": "^4.14.1",

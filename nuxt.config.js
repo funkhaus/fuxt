@@ -125,7 +125,7 @@ export default {
     build: {
         // This and the transpile code below fix an issue with the spread operator in Safari 10.
         babel: {
-            plugins: ["transform-object-rest-spread"]
+            plugins: ["@babel/plugin-proposal-object-rest-spread"]
         },
         transpile: ["ky", "vuex"],
         extend(config, ctx) {
