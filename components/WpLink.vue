@@ -1,7 +1,7 @@
 <template>
     <nuxt-link
         v-if="isRelative || isInternal"
-        class="wp-link"
+        class="wp-link n-link"
         :to="parsedTo"
     >
         <slot />
@@ -31,16 +31,16 @@ export default {
     props: {
         to: {
             type: String,
-            default: ""
+            default: "",
         },
         target: {
             type: String,
-            default: "_self"
+            default: "_self",
         },
         element: {
             type: String,
-            default: "div"
-        }
+            default: "div",
+        },
     },
     computed: {
         frontendUrl() {
@@ -73,9 +73,9 @@ export default {
             const replaceThese = [
                 _get(this, "$store.state.siteMeta.frontendUrl", ""),
                 _get(this, "$store.state.siteMeta.backendUrl", ""),
-                _get(this, "$store.state.siteMeta.host", "")
+                _get(this, "$store.state.siteMeta.host", ""),
             ]
-            replaceThese.forEach(element => {
+            replaceThese.forEach((element) => {
                 url = url.replace(element, "")
             })
 
@@ -87,7 +87,7 @@ export default {
             } else {
                 return this.target
             }
-        }
-    }
+        },
+    },
 }
 </script>

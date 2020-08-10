@@ -10,7 +10,7 @@ export const state = () => ({
     winHeight: 0,
     winWidth: 0,
     isLoading: false,
-    referrer: false
+    referrer: false,
 })
 
 // Define mutations
@@ -36,7 +36,7 @@ export const mutations = {
     },
     SET_REFERRER(state, object) {
         state.referrer = object
-    }
+    },
 }
 
 // Define actions
@@ -49,7 +49,7 @@ export const actions = {
 
         // Make all requests in parallel
         const data = await Promise.all([
-            store.dispatch("QUERY_SETTINGS", context)
+            store.dispatch("QUERY_SETTINGS", context),
             //store.dispatch("ANOTHER_ACTION_EXAMPLE", context)
         ])
     },
@@ -59,6 +59,8 @@ export const actions = {
         try {
             const data = await this.$graphql.request(SITE_SETTINGS)
 
+            console.log("QUERY_SETTINGS: ", data)
+
             // Get and shape general settings
             const settings = _get(data, "wpSettings", {})
             let meta = {
@@ -67,13 +69,13 @@ export const actions = {
                 description: settings.description,
                 themeScreenshotUrl: settings.themeScreenshotUrl,
                 backendUrl: settings.url,
-                frontendUrl: settings.siteUrl
+                frontendUrl: settings.siteUrl,
             }
 
             // Get ACF site settings, shape them correctly
             const options = _get(data, "acfSettings.acfSiteOptions", {})
             if (options.googleAnalytics) {
-                meta.gaTrackingCodes = options.googleAnalytics.map(item => {
+                meta.gaTrackingCodes = options.googleAnalytics.map((item) => {
                     return item.code
                 })
                 delete options.googleAnalytics
@@ -85,5 +87,5 @@ export const actions = {
         } catch (e) {
             throw new Error(e)
         }
-    }
+    },
 }
