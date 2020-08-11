@@ -59,8 +59,6 @@ export const actions = {
         try {
             const data = await this.$graphql.request(SITE_SETTINGS)
 
-            console.log("QUERY_SETTINGS: ", data)
-
             // Get and shape general settings
             const settings = _get(data, "wpSettings", {})
             let meta = {

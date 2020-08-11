@@ -1,7 +1,7 @@
 <template>
     <nuxt-link
         v-if="isRelative || isInternal"
-        class="wp-link n-link"
+        class="wp-link"
         :to="parsedTo"
     >
         <slot />
@@ -40,6 +40,10 @@ export default {
         element: {
             type: String,
             default: "div",
+        },
+        meta: {
+            type: Object,
+            default: () => {},
         },
     },
     computed: {
