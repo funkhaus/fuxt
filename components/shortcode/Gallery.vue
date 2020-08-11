@@ -1,5 +1,6 @@
 <template>
     <div :class="classes">
+        <slot />
         <wp-image
             v-for="(image, i) in images"
             :key="i"

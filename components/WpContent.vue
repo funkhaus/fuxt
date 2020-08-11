@@ -1,10 +1,11 @@
 <script>
-// TODO Maybe include these in package by default? Perhaps don't need sanitizeHtml anymore?
 import cheerio from "cheerio"
 import _kebabCase from "lodash/kebabCase"
-import sanitizeHtml from "sanitize-html"
 
 export default {
+    components: {
+        shortcodeGallery: () => import("~/components/shortcode/Gallery")
+    },
     props: {
         html: {
             type: String,
@@ -72,13 +73,6 @@ export default {
 
             // Setup fitVids on the HTML
             output = this.initFitVids(output)
-
-            // Sanitize HTML (good for cleaning up WP's bad formatted p tag combinations)
-            output = sanitizeHtml(output, {
-                allowedTags: false,
-                allowedAttributes: false,
-                allowedIframeHostnames: false
-            })
 
             const $ = cheerio.load(output)
             output = $("body").html()
@@ -153,7 +147,6 @@ export default {
             const $ = cheerio.load(html)
 
             $(selector).each(function() {
-                var $p = $(this).parent()
                 $(this).insertAfter($(this).parent())
             })
 
@@ -196,32 +189,53 @@ export default {
 
 <style lang="scss" scoped>
 .wp-content {
-    .responsive-video {
-        position: relative;
+    /deep/ {
+        .responsive-video {
+            position: relative;
 
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
         }
     }
 
     &.has-styles {
-        .embed,
-        .tiktok-embed,
-        .twitter-tweet,
-        .instagram-media,
-        .fb_iframe_widget,
-        .fit-vid {
-            margin: 2em auto !important; // Wish we didn't have to do this, but some provides use inline margins
-            max-width: 1280px;
-            display: block;
-            text-align: center;
-        }
-        p:empty {
-            display: none;
+        padding: 0 40px;
+
+        /deep/ {
+            .embed,
+            .tiktok-embed,
+            .twitter-tweet,
+            .instagram-media,
+            .fb_iframe_widget,
+            .fit-vid {
+                margin: 2em auto !important; // Wish we didn't have to do this, but some provides use inline margins
+                max-width: 1280px;
+                display: block;
+                text-align: center;
+            }
+            p {
+                max-width: 640px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            p:empty {
+                display: none;
+            }
+            .fit-vid {
+                max-width: 1800px;
+                margin: 2em auto;
+            }
+            img {
+                height: auto;
+                width: 100%;
+                max-width: 1800px;
+                margin: 2em auto;
+            }
         }
     }
 }
