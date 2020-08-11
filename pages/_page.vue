@@ -11,7 +11,10 @@
             :image="page.featuredImage"
         />
 
-        <wp-content :html="page.content" />
+        <wp-content
+            :html="page.content"
+            :enable-styles="true"
+        />
     </section>
 </template>
 
