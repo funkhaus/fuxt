@@ -20,6 +20,10 @@
             :html="page.content"
             :enable-styles="true"
         />
+
+        <wp-link to="/contact">
+            This is an internal wp-link
+        </wp-link>
     </section>
 </template>
 
