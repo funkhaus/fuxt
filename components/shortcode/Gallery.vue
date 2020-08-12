@@ -35,7 +35,7 @@ export default {
 .shortcode-gallery {
     font-size: 0;
     letter-spacing: 0;
-    margin: 50px 0;
+    margin: 2em 0;
 
     // Default 2 columns
     .gallery-block {

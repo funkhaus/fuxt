@@ -5,7 +5,7 @@ import _kebabCase from "lodash/kebabCase"
 export default {
     components: {
         shortcodeGallery: () => import("~/components/shortcode/Gallery"),
-        shortcodeSvg: () => import("~/components/shortcode/Svg"
+        shortcodeSvg: () => import("~/components/shortcode/Svg")
     },
     props: {
         html: {

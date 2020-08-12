@@ -2,7 +2,7 @@ import WpImage from "@/components/WpImage"
 import API from "@/static/db.json"
 
 export default {
-    title: "@WpComponents / WpImage",
+    title: "WpComponents / WpImage",
 }
 
 export const Default = () => ({

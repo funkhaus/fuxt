@@ -1,7 +1,7 @@
 import WpLink from "@/components/WpLink"
 
 export default {
-    title: "@WpComponents / WpLink",
+    title: "WpComponents / WpLink",
 }
 
 export const Default = () => ({
