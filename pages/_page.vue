@@ -11,6 +11,11 @@
             :image="page.featuredImage"
         />
 
+        <shortcode-svg
+            class="shortcode-svg"
+            url="http://fuxt-backend.flywheelsites.com/wp-content/uploads/2020/06/logo-wsj.svg"
+        />
+
         <wp-content
             :html="page.content"
             :enable-styles="true"
@@ -25,11 +30,21 @@ import { getStripped } from "~/utils/tools"
 
 // Queries
 import HOME from "~/gql/queries/Home"
+import ShortcodeSvg from "@/components/shortcode/Svg"
 
 export default {
+    components: {
+        ShortcodeSvg,
+    },
+    async fetch() {
+        const data = await this.$graphql.request(HOME, {
+            uri: this.path,
+        })
+        this.page = _get(data, "nodeByUri", {})
+    },
     data() {
         return {
-            page: {}
+            page: {},
         }
     },
     computed: {
@@ -43,14 +58,8 @@ export default {
                 path = "/featured"
             }
             return path
-        }
+        },
     },
-    async fetch() {
-        const data = await this.$graphql.request(HOME, {
-            uri: this.path
-        })
-        this.page = _get(data, "nodeByUri", {})
-    }
 }
 </script>
 

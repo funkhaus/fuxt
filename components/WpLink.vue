@@ -27,6 +27,7 @@
 
 <script>
 import _get from "lodash/get"
+
 export default {
     props: {
         to: {
@@ -40,10 +41,6 @@ export default {
         element: {
             type: String,
             default: "div",
-        },
-        meta: {
-            type: Object,
-            default: () => {},
         },
     },
     computed: {
