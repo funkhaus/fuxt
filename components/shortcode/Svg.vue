@@ -3,28 +3,28 @@ export default {
     props: {
         url: {
             type: String,
-            default: ""
-        }
+            default: "",
+        },
+    },
+    async fetch() {
+        const response = await fetch(this.url)
+        this.svgData = await response.text()
     },
     data() {
         return {
-            svgData: ""
+            svgData: "",
         }
     },
     computed: {
         parsedSvg() {
             // TODO Run through SVGO, maybe add a class for styling, preserve viewBox
             return this.svgData || ""
-        }
-    },
-    async fetch() {
-        const response = await fetch(this.url)
-        this.svgData = await response.text()
+        },
     },
     render(h) {
         return h({
-            template: this.parsedSvg
+            template: this.parsedSvg,
         })
-    }
+    },
 }
 </script>

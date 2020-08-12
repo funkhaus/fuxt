@@ -31,67 +31,13 @@ import svgLogoFunkhaus from "~/assets/svgs/logo-funkhaus"
 export default {
     components: {
         siteHamburger,
-        svgLogoFunkhaus
-    },
-    head() {
-        return {
-            htmlAttrs: {
-                lang: "en"
-            },
-            bodyAttrs: {
-                class: `default-theme route-${_kebabCase(
-                    this.$route.name || "error"
-                )} ${process.server ? "is-ssr" : ""}`
-            },
-            titleTemplate: titleChunk => {
-                let title = decodeHtmlEntities(titleChunk)
-                let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
-                let output = site
-
-                switch (true) {
-                    case site == title:
-                        output = site
-                        break
-
-                    case title:
-                        output = `${site} - ${title}`
-                        break
-                }
-
-                return output
-            },
-            meta: [
-                {
-                    hid: "description",
-                    name: "description",
-                    property: "og:description",
-                    content: this.$store.state.siteMeta.description
-                },
-                {
-                    hid: "og:image",
-                    property: "og:image",
-                    content: this.$store.state.siteMeta.themeScreenshotUrl
-                },
-                {
-                    property: "og:url",
-                    content: `${this.$store.state.siteMeta.frontendUrl}${this.$route.path}`
-                },
-                {
-                    property: "og:site_name",
-                    content: this.$store.state.siteMeta.title
-                },
-                {
-                    property: "og:type",
-                    content: "website"
-                }
-            ]
-        }
+        svgLogoFunkhaus,
     },
     data() {
         let output = {
             winHeight: 0,
             winWidth: 0,
-            sTop: 0
+            sTop: 0,
         }
 
         // On client side, we have window so set the height/width
@@ -109,7 +55,7 @@ export default {
                 `breakpoint-${this.breakpoint}`,
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.sTop > 0 },
-                { "is-loading": this.$store.state.isLoading }
+                { "is-loading": this.$store.state.isLoading },
             ]
         },
         breakpoint() {
@@ -132,7 +78,7 @@ export default {
                 this.$store.commit("SET_BREAKPOINT", breakpoint)
             }
             return breakpoint
-        }
+        },
     },
     mounted() {
         // Throttle common events
@@ -143,7 +89,7 @@ export default {
         this.onResize()
 
         // Monitor keydown
-        window.addEventListener("keydown", e => {
+        window.addEventListener("keydown", (e) => {
             switch (e && e.key) {
                 case "Escape":
                     // Close menu on ESC press
@@ -159,7 +105,7 @@ export default {
             this.winHeight = window.innerHeight
             let dimensions = {
                 height: this.winHeight,
-                width: this.winWidth
+                width: this.winWidth,
             }
             this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
             this.set100vhVar()
@@ -177,8 +123,62 @@ export default {
                 value = `${window.innerHeight}px`
             }
             document.documentElement.style.setProperty("--unit-100vh", value)
+        },
+    },
+    head() {
+        return {
+            htmlAttrs: {
+                lang: "en",
+            },
+            bodyAttrs: {
+                class: `default-theme route-${_kebabCase(
+                    this.$route.name || "error"
+                )} ${process.server ? "is-ssr" : ""}`,
+            },
+            titleTemplate: (titleChunk) => {
+                let title = decodeHtmlEntities(titleChunk)
+                let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
+                let output = site
+
+                switch (true) {
+                    case site == title:
+                        output = site
+                        break
+
+                    case title:
+                        output = `${site} - ${title}`
+                        break
+                }
+
+                return output
+            },
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: this.$store.state.siteMeta.description,
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: this.$store.state.siteMeta.themeScreenshotUrl,
+                },
+                {
+                    property: "og:url",
+                    content: `${this.$store.state.siteMeta.frontendUrl}${this.$route.path}`,
+                },
+                {
+                    property: "og:site_name",
+                    content: this.$store.state.siteMeta.title,
+                },
+                {
+                    property: "og:type",
+                    content: "website",
+                },
+            ],
         }
-    }
+    },
 }
 </script>
 

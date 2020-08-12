@@ -11,6 +11,7 @@
         "dev": "nuxt",
         "build": "nuxt build",
         "start": "nuxt start",
+        "storybook": "nuxt storybook",
         "generate": "nuxt generate",
         "heroku-postbuild": "npm run build"
     },
@@ -21,7 +22,7 @@
         "graphql": "^15.3.0",
         "graphql-tag": "^2.11.0",
         "lodash": "^4.17.19",
-        "node-fetch": "^2.4.1",
+        "node-fetch": "^2.6.0",
         "nuxt": "^2.14.1",
         "nuxt-basic-auth-module": "^1.3.2",
         "nuxt-graphql-request": "^3.0.0",
@@ -29,7 +30,7 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
-        "@nuxtjs/storybook": "^1.2.0",
+        "@nuxtjs/storybook": "^2.0.1-rc.1",
         "@nuxtjs/style-resources": "^1.0.0",
         "eslint": "^7.6.0",
         "eslint-plugin-vue": "^6.2.2",

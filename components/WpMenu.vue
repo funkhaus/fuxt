@@ -27,22 +27,12 @@ export default {
     props: {
         location: {
             type: String,
-            default: ""
+            default: "",
         },
         items: {
             type: Array,
-            default: () => []
-        }
-    },
-    data() {
-        return {
-            menuItems: this.items
-        }
-    },
-    computed: {
-        classes() {
-            return ["wp-menu", `location-${_kebabCase(this.location)}`]
-        }
+            default: () => [],
+        },
     },
     async fetch() {
         // Don't fetch if WordPress menu items provided, use them.
@@ -55,17 +45,27 @@ export default {
         const locationName = _upperCase(this.location).replace(/ /g, "_")
         try {
             const data = await this.$graphql.request(MENU_BY_LOCATION, {
-                location: locationName
+                location: locationName,
             })
             this.menuItems = _get(data, "menuItems.nodes", [])
         } catch (error) {
             console.log("Fetch error in <wp-menu>: ", error)
         }
     },
+    data() {
+        return {
+            menuItems: this.items,
+        }
+    },
+    computed: {
+        classes() {
+            return ["wp-menu", `location-${_kebabCase(this.location)}`]
+        },
+    },
     methods: {
         menuInteracted(event) {
             this.$emit("menu-interacted", event)
-        }
-    }
+        },
+    },
 }
 </script>
