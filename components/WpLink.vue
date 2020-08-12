@@ -44,14 +44,14 @@ export default {
     },
     computed: {
         frontendUrl() {
-            return this.$store.state.siteMeta.frontendUrl || ""
+            return this.$store.state.siteMeta.frontendUrl || false
         },
         isInternal() {
             // wp-content in url means probably a download link, so open in new window
             if (this.to.includes("wp-content")) {
                 return false
             }
-            return this.to.includes(this.frontendUrl)
+            return this.to.startsWith(this.frontendUrl)
         },
         isRelative() {
             let result = false
