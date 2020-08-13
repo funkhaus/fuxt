@@ -53,23 +53,3 @@
 .slide-down-leave-active {
     transition: transform 0.6s;
 }
-
-// Slide open animation
-.slide-leave-to,
-.slide-enter {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-    transition: transform 0.6s, opacity 0.4s;
-}
-
-.slide-enter-active .menu {
-    /* transition-delay: 0.4s; */
-}
-
-.slide-enter .menu {
-    opacity: 0;
-}
