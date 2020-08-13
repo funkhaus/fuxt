@@ -85,8 +85,9 @@ export default {
         window.addEventListener("resize", _throttle(this.onResize, 30))
         window.addEventListener("scroll", _throttle(this.onScroll, 10))
 
-        // Trigger a resize to start
+        // Trigger a resize and scroll to start, so data is correct on load
         this.onResize()
+        this.onScroll()
 
         // Monitor keydown
         window.addEventListener("keydown", (e) => {
