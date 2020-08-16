@@ -185,10 +185,6 @@ export default {
 
 <style lang="scss">
 .container {
-    #site-title,
-    #tagline {
-        display: none;
-    }
     .logo {
         position: absolute;
         top: 20px;
