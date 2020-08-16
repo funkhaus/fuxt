@@ -2,22 +2,17 @@
 
 query Seo($uri: String!) {
     nodeByUri(uri: $uri) {
-        ... on Post {
-            id
+        id
+        ... on NodeWithTitle {
             title
-            content
-            excerpt
-            featuredImage {
-                node {
-                    ...MediaImage
-                }
-            }
         }
-        ... on Page {
-            id
-            title
+        ... on NodeWithContentEditor {
             content
+        }
+        ... on NodeWithExcerpt {
             excerpt
+        }
+        ... on NodeWithFeaturedImage {
             featuredImage {
                 node {
                     ...MediaImage
