@@ -43,78 +43,78 @@ export default {
     props: {
         image: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         height: {
             type: Number,
-            default: 0
+            default: 0,
         },
         width: {
             type: Number,
-            default: 0
+            default: 0,
         },
         src: {
             type: String,
-            default: ""
+            default: "",
         },
         srcset: {
             type: String,
-            default: ""
+            default: "",
         },
         sizes: {
             type: String,
-            default: ""
+            default: "",
         },
         aspectRatio: {
             type: Number,
-            default: 0
+            default: 0,
         },
         objectFit: {
             type: String,
-            default: "cover"
+            default: "cover",
         },
         mode: {
             type: String,
-            default: "intrinsic-ratio"
+            default: "intrinsic-ratio",
         },
         backgroundColor: {
             type: String,
-            default: ""
+            default: "",
         },
         videoUrl: {
             type: String,
-            default: ""
+            default: "",
         },
         loop: {
             type: Boolean,
-            default: true
+            default: true,
         },
         autoplay: {
             type: Boolean,
-            default: true
+            default: true,
         },
         muted: {
             type: Boolean,
-            default: true
+            default: true,
         },
         playsinline: {
             type: Boolean,
-            default: true
+            default: true,
         },
         focalPoint: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
     data() {
         return {
             loadedStatus: {
-                booted: false
+                booted: false,
             },
             errorStatus: {
                 image: false,
-                video: false
-            }
+                video: false,
+            },
         }
     },
     computed: {
@@ -127,7 +127,7 @@ export default {
                 { "has-error": this.hasError },
                 { "has-image-error": this.hasError.image },
                 { "has-video-error": this.hasError.video },
-                `is-orientation-${this.orientation}`
+                `is-orientation-${this.orientation}`,
             ]
         },
         aspectPadding() {
@@ -183,7 +183,7 @@ export default {
                     _get(this.image, "acfImageMeta.focalPointX", ""),
                 y:
                     _get(this, "focalPoint.y", false) ||
-                    _get(this.image, "acfImageMeta.focalPointY", "")
+                    _get(this.image, "acfImageMeta.focalPointY", ""),
             }
         },
         sizerStyles() {
@@ -200,7 +200,7 @@ export default {
         },
         mediaStyles() {
             let styles = {
-                objectFit: this.objectFit
+                objectFit: this.objectFit,
             }
             if (
                 this.parsedFocalPoint.x !== "" &&
@@ -216,7 +216,7 @@ export default {
         },
         hasError() {
             return Object.values(this.errorStatus).every(Boolean)
-        }
+        },
     },
     watch: {
         // Update loaded state if new src set
@@ -232,7 +232,7 @@ export default {
                 Vue.set(this.loadedStatus, "image", false)
                 Vue.set(this.errorStatus, "image", false)
             }
-        }
+        },
     },
     mounted() {
         // Setup loaded state tracking
@@ -269,8 +269,8 @@ export default {
             if (this.$refs.video) {
                 this.$refs.video.pause()
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -296,6 +296,7 @@ export default {
     &.mode-intrinsic-ratio {
         position: relative;
     }
+    &.mode-cover,
     &.mode-fullbleed {
         .sizer {
             width: 100%;

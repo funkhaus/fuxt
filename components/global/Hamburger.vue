@@ -1,6 +1,6 @@
 <template>
     <div
-        class="site-hamburger"
+        class="global-hamburger"
         @click="toggleMenu()"
     >
         <div class="line line-1" />
@@ -18,13 +18,13 @@ export default {
             } else {
                 this.$store.commit("SET_MENU", true)
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
-.site-hamburger {
+.global-hamburger {
     background-color: red;
     height: 20px;
     width: 20px;
