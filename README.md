@@ -56,6 +56,9 @@ $ npm run storybook
 $ npm run build
 $ npm start
 
+# build Stroybook for production
+$ npx nuxt storybook build
+
 # generate static project
 $ npm run generate
 
