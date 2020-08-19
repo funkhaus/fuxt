@@ -4,7 +4,7 @@ import pkg from "./package"
 export default {
     mode: "universal",
     env: {
-        ...process.env
+        ...process.env,
     },
 
     /*
@@ -15,17 +15,17 @@ export default {
             { charset: "utf-8" },
             {
                 name: "viewport",
-                content: "width=device-width, initial-scale=1"
-            }
+                content: "width=device-width, initial-scale=1",
+            },
         ],
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
         script: [
             {
                 src:
                     "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver,smoothscroll&flags=gated",
-                body: true
-            }
-        ]
+                body: true,
+            },
+        ],
     },
 
     /*
@@ -33,7 +33,7 @@ export default {
      */
     pageTransition: {
         name: "fade",
-        mode: "out-in"
+        mode: "out-in",
     },
 
     /*
@@ -47,7 +47,7 @@ export default {
      */
     css: [
         "~/styles/global.scss",
-        "~/styles/transitions.scss"
+        "~/styles/transitions.scss",
         //'~/styles/fonts.css'
     ],
 
@@ -57,7 +57,7 @@ export default {
     plugins: [
         { src: "~/plugins/global-component-loader.js" },
         { src: "~/plugins/global-directive-loader.js" },
-        { src: "~/plugins/google-gtag.client.js", mode: "client" }
+        { src: "~/plugins/google-gtag.client.js", mode: "client" },
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" }
     ],
 
@@ -68,7 +68,7 @@ export default {
         "nuxt-graphql-request",
         "@nuxtjs/style-resources",
         "nuxt-basic-auth-module",
-        "@nuxtjs/device"
+        "@nuxtjs/device",
     ],
 
     /*
@@ -80,7 +80,7 @@ export default {
      ** Load SCSS into each component
      */
     styleResources: {
-        scss: ["~/styles/variables.scss", "~/styles/mixins.scss"]
+        scss: ["~/styles/variables.scss", "~/styles/mixins.scss"],
     },
 
     /*
@@ -94,9 +94,9 @@ export default {
             credentials: "include",
             mode: "cors",
             headers: {
-                authorization: `Bearer ${process.env.BASIC_API_TOKEN || ""}`
-            }
-        }
+                authorization: `Bearer ${process.env.BASIC_API_TOKEN || ""}`,
+            },
+        },
     },
 
     /*
@@ -108,7 +108,7 @@ export default {
         middleware: ["referrer", "preview-redirect"],
         prefetchLinks: true,
         linkPrefetchedClass: "link-prefetched",
-        trailingSlash: true
+        trailingSlash: true,
     },
 
     /*
@@ -116,7 +116,7 @@ export default {
      */
     serverMiddleware: [
         "~/middleware/preview-spa-mode.server.js",
-        "~/middleware/redirect-trailing-slash.server.js"
+        "~/middleware/redirect-trailing-slash.server.js",
     ],
 
     /*
@@ -125,7 +125,7 @@ export default {
     build: {
         // This and the transpile code below fix an issue with the spread operator in Safari 10.
         babel: {
-            plugins: ["@babel/plugin-proposal-object-rest-spread"]
+            plugins: ["@babel/plugin-proposal-object-rest-spread"],
         },
         transpile: ["ky", "vuex"],
         extend(config, ctx) {
@@ -137,7 +137,7 @@ export default {
             config.node = { fs: "empty" }
 
             // Remove SVG from default Nuxt webpack rules
-            const svgRule = config.module.rules.find(rule =>
+            const svgRule = config.module.rules.find((rule) =>
                 rule.test.test(".svg")
             )
             svgRule.test = /\.(png|jpe?g|gif|webp)$/i
@@ -152,13 +152,13 @@ export default {
                         loader: "vue-svg-loader",
                         options: {
                             svgo: {
-                                plugins: [{ removeViewBox: false }]
-                            }
-                        }
-                    }
-                ]
+                                plugins: [{ removeViewBox: false }],
+                            },
+                        },
+                    },
+                ],
             })
-        }
+        },
     },
 
     /*
@@ -167,14 +167,14 @@ export default {
     basic: {
         name: "funkhaus",
         pass: "12345", // https://youtu.be/a6iW-8xPw3k
-        enabled: process.env.BASIC_AUTH_ENABLED === "true"
+        enabled: process.env.BASIC_AUTH_ENABLED === "true",
     },
 
     /*
      ** Allow devices on local network to view the site at {your IP}:3000
      */
     server: {
-        host: process.env.HOST || "0.0.0.0"
+        host: process.env.HOST || "0.0.0.0",
     },
 
     /*
@@ -188,6 +188,6 @@ export default {
             config.resolve.extensions.push(".gql")
 
             return config
-        }
-    }
+        },
+    },
 }

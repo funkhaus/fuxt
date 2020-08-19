@@ -26,7 +26,7 @@ import { decodeHtmlEntities } from "~/utils/tools"
 
 // Components
 import siteHamburger from "~/components/global/Hamburger"
-import svgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
+import svgLogoFunkhaus from "~/assets/svg/logo-funkhaus.svg"
 
 export default {
     components: {

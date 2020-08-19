@@ -15,15 +15,7 @@ export const Default = () => ({
     template: `<wp-menu :items="items" />`,
 })
 
-/*
-TODO: Get $fetch() working with storybook
 export const Fetch = () => ({
     components: { WpMenu },
-    data() {
-        return {
-            items: API.menuItems.nodes,
-        }
-    },
     template: `<wp-menu location="MAIN_MENU" />`,
 })
-*/
