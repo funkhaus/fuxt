@@ -94,7 +94,7 @@ export default {
             switch (e && e.key) {
                 case "Escape":
                     // Close menu on ESC press
-                    this.$store.commit("SET_MENU", FALSE)
+                    this.$store.commit("SET_MENU", false)
                     break
             }
         })
