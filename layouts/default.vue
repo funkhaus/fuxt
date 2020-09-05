@@ -82,8 +82,8 @@ export default {
     },
     mounted() {
         // Throttle common events
-        window.addEventListener("resize", _throttle(this.onResize, 30))
-        window.addEventListener("scroll", _throttle(this.onScroll, 10))
+        window.addEventListener("resize", _throttle(this.onResize, 32))
+        window.addEventListener("scroll", _throttle(this.onScroll, 16))
 
         // Trigger a resize and scroll to start, so data is correct on load
         this.onResize()
@@ -132,13 +132,15 @@ export default {
                 lang: "en",
             },
             bodyAttrs: {
-                class: `default-theme route-${_kebabCase(
+                class: `body default-theme route-${_kebabCase(
                     this.$route.name || "error"
                 )} ${process.server ? "is-ssr" : ""}`,
             },
             titleTemplate: (titleChunk) => {
-                let title = decodeHtmlEntities(titleChunk)
-                let site = decodeHtmlEntities(this.$store.state.siteMeta.title)
+                const title = decodeHtmlEntities(titleChunk)
+                const site = decodeHtmlEntities(
+                    this.$store.state.siteMeta.title
+                )
                 let output = site
 
                 switch (true) {
@@ -146,7 +148,7 @@ export default {
                         output = site
                         break
 
-                    case title:
+                    case Boolean(title):
                         output = `${site} - ${title}`
                         break
                 }

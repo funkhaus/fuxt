@@ -1,0 +1,23 @@
+/*
+ * This file is included once, for the entire sute.
+ * It's useful for CSS vars
+ */
+
+// CSS vars
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --unit-100vh: 100vh;
+    //--unit-gap: 40px;
+
+    --font-primary: sans-serif;
+    //--font-secondary: serif;
+}
+
+// Breakpoints
+// @media #{$lt-tablet} {
+//     :root {
+//         --unit-gap: 20px;
+//     }
+// }

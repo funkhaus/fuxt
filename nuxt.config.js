@@ -46,6 +46,7 @@ export default {
      ** Global CSS
      */
     css: [
+        "~/styles/css-variables.scss",
         "~/styles/global.scss",
         "~/styles/transitions.scss",
         //"~/styles/fonts.css" // Be sure to turn on the font loader plugin and config it
@@ -55,7 +56,7 @@ export default {
      ** Load SCSS into each component
      */
     styleResources: {
-        scss: ["~/styles/variables.scss", "~/styles/mixins.scss"],
+        scss: ["~/styles/scss-variables.scss", "~/styles/mixins.scss"],
     },
 
     /*
