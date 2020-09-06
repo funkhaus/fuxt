@@ -16,7 +16,7 @@ export default {
     },
     destroyed() {
         this.$store.commit("SET_LOADING", false)
-    }
+    },
 }
 </script>
 
@@ -41,10 +41,10 @@ export default {
         width: 51px;
         height: 51px;
         margin: 6px;
-        border: 6px solid #999999;
+        border: 6px solid var(--color-loading);
         border-radius: 50%;
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #999999 transparent transparent transparent;
+        border-color: var(--color-loading) transparent transparent transparent;
     }
     .lds-ring div:nth-child(1) {
         animation-delay: -0.45s;

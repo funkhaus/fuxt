@@ -59,7 +59,10 @@ export default {
     },
     computed: {
         classes() {
-            return ["wp-menu", `location-${_kebabCase(this.location)}`]
+            return [
+                "wp-menu",
+                `location-${_kebabCase(this.location) || "unknown"}`,
+            ]
         },
     },
     methods: {
