@@ -4,6 +4,7 @@
             v-if="!isRelative || isMailTo"
             target="_blank"
             :href="item.url"
+            class="menu-link link-external"
             @click="menuInteracted"
             v-html="item.label"
         />
@@ -11,12 +12,14 @@
         <nuxt-link
             v-if="isRelative && !isHash"
             :to="relativeUrl"
+            class="menu-link link-internal"
             @click.native="menuInteracted"
             v-html="item.label"
         />
 
         <span
             v-if="isHash"
+            class="menu-label"
             v-html="item.label"
         />
 
@@ -43,18 +46,18 @@ export default {
     props: {
         item: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
     computed: {
         classes() {
             return [
                 "wp-menu-item menu-item",
                 {
-                    "is-realtive": this.isRelative
+                    "is-realtive": this.isRelative,
                 },
                 { "has-sub-menu": this.hasSubMenu },
-                { "is-disabled": this.isHash }
+                { "is-disabled": this.isHash },
             ]
         },
         getChildren() {
@@ -78,18 +81,18 @@ export default {
             const replaceThese = [
                 _get(this, "$store.state.siteMeta.frontendUrl", ""),
                 _get(this, "$store.state.siteMeta.backendUrl", ""),
-                _get(this, "$store.state.siteMeta.host", "")
+                _get(this, "$store.state.siteMeta.host", ""),
             ]
-            replaceThese.forEach(element => {
+            replaceThese.forEach((element) => {
                 url = url.replace(element, "")
             })
             return url
-        }
+        },
     },
     methods: {
         menuInteracted(event) {
             this.$emit("menu-interacted", event)
-        }
-    }
+        },
+    },
 }
 </script>
