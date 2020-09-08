@@ -305,6 +305,25 @@ You are simply deploying a Nuxt project, so any way you can deploy Nuxt will wor
 
 **We recommended using CloudFlare for your DNS, it's free plan is enough to do everything you need.**
 
+#### Deploying to Netlify
+
+[More instructions here if needed](https://nuxtjs.org/faq/netlify-deployment#for-a-statically-generated-site).
+
+##### Adding site
+
+1.  Add a Site
+1.  Connect the GitHub repo (use the funkhaus account as the "owner", not your personal account)
+1.  Set "Build command" to `npm run generate`
+1.  Set "Publish directory" to `dist`
+1.  Under "Advanced build settings" you'll need to define any `.env` variables that are needed. Normally this is `DEFAULT_ENDPOINT` and `HOST`.
+    1.  Be sure to have your API URL be `https://` otherwise Netlify will error.
+
+##### Settings
+
+1.  Go to "Domain Settings" and change temporary domain to `https://{CLIENT_NAME}-funkhaus.netlify.app` or `https://{CLIENT_NAME}-storybook-funkhaus.netlify.app`
+    1.  If the site is going live, then you should connect a real domain
+1.  If the site is in development, go to "Visitor access" and set password on the site.
+
 #### Creating Heroku Pipeline
 
 When you have your app set up, you'll want to add it to a project specific pipeline.
