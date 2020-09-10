@@ -1,6 +1,6 @@
 import _get from "lodash/get"
 
-export default async ({ store, req }) => {
+export default async ({ store, req, query }) => {
     let location = {
         ip: "",
         detectedCountry: _get(store, "state.geolocation.detectedCountry", ""),
@@ -30,6 +30,12 @@ export default async ({ store, req }) => {
 
         // Replace endpoint with IP, and make sure to get first IP in case given multiples
         endpoint = location.ip.split(",")[0]
+    }
+
+    // Allow manual IP override for testing
+    // 93.37.80.33 is in Italy and 72.229.28.185 is in US
+    if (query.ip) {
+        endpoint = query.ip
     }
 
     // Hit the IP Stack API if no country known yet
