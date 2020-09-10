@@ -1,0 +1,30 @@
+/*
+ * Often times you'll want to remeber IP detects locally for the user.
+ * Use this to do that: https://github.com/rubystarashe/nuxt-vuex-localstorage
+ */
+
+// Define state default
+export const state = () => ({
+    geolocation: {
+        ip: "",
+        detectedCountry: "",
+        userCountry: "",
+        version: 1, // Used by nuxt-vuex-localstorage
+    },
+})
+
+// Define mutations
+export const mutations = {
+    SET_GEOLOCATION(state, data) {
+        // If a contry code provided, then just set the user defined contry
+        if (typeof data === "string") {
+            state.geolocation = {
+                ...state.geolocation,
+                userCountry: data,
+            }
+        } else {
+            // Else set entire geolocation object
+            state.geolocation = data
+        }
+    },
+}
