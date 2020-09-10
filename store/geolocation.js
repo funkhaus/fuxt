@@ -5,12 +5,10 @@
 
 // Define state default
 export const state = () => ({
-    geolocation: {
-        ip: "",
-        detectedCountry: "",
-        userCountry: "",
-        version: 1, // Used by nuxt-vuex-localstorage
-    },
+    ip: "",
+    detectedCountry: "",
+    userCountry: "",
+    //version: 1, // Used by nuxt-vuex-localstorage
 })
 
 // Define mutations
@@ -18,13 +16,16 @@ export const mutations = {
     SET_GEOLOCATION(state, data) {
         // If a contry code provided, then just set the user defined contry
         if (typeof data === "string") {
-            state.geolocation = {
-                ...state.geolocation,
+            state = {
+                ...state,
                 userCountry: data,
             }
         } else {
             // Else set entire geolocation object
-            state.geolocation = data
+            state.ip = data.ip || state.ip
+            state.detectedCountry =
+                data.detectedCountry || state.detectedCountry
+            state.userCountry = data.userCountry || state.userCountry
         }
     },
 }
