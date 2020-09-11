@@ -34,46 +34,53 @@ export default {
     props: {
         title: {
             type: String,
-            default: ""
+            default: "",
         },
         imageUrl: {
             type: String,
-            default: ""
+            default: "",
         },
         description: {
             type: String,
-            default: ""
+            default: "",
         },
         path: {
             type: String,
-            default: ""
+            default: "",
         },
         stripFromPath: {
             type: String,
-            default: "/news/"
+            default: "/news/",
+        },
+    },
+    async fetch() {
+        // Abort if no path supplied (often because used on homepage)
+        if (!this.parsedUri || this.parsedUri == "/") {
+            this.data = {}
+            return
+        }
+
+        // Get data from API
+        try {
+            const data = await this.$graphql.request(SEO, {
+                uri: this.parsedUri,
+            })
+            this.data = _get(data, "nodeByUri", {})
+        } catch (e) {
+            console.warn("<wp-seo> Fetch Error:", this.parsedUri, e)
+        }
+
+        // Log a warning if nothing returned from server for this route
+        if (!this.data.id) {
+            console.warn(
+                "WpSeo fetch came back empty. The path prop probably needs to be set manually for this route.",
+                this.parsedUri
+            )
         }
     },
     data() {
         return {
-            data: {}
-        }
-    },
-    head() {
-        return {
-            title: this.parsedTitle,
-            meta: [
-                {
-                    hid: "description",
-                    name: "description",
-                    property: "og:description",
-                    content: this.parsedDescription
-                },
-                {
-                    hid: "og:image",
-                    property: "og:image",
-                    content: this.parsedImageUrl
-                }
-            ]
+            data: {},
         }
     },
     computed: {
@@ -139,28 +146,29 @@ export default {
 
             // Use supplied image URL, or image from server, fallback to theme screenshot
             return output
-        }
+        },
     },
     watch: {
-        "$route.path": "$fetch"
+        "$route.path": "$fetch",
     },
-    async fetch() {
-        // Abort if no path supplied (often because used on homepage)
-        if (!this.parsedUri || this.parsedUri == "/") {
-            this.data = {}
-            return
+    head() {
+        return {
+            title: this.parsedTitle,
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: this.parsedDescription,
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: this.parsedImageUrl,
+                },
+            ],
         }
-
-        // Get data from API
-        try {
-            const data = await this.$graphql.request(SEO, {
-                uri: this.parsedUri
-            })
-            this.data = _get(data, "nodeByUri", {})
-        } catch (e) {
-            console.warn("<wp-seo> Fetch Error:", this.parsedUri, e)
-        }
-    }
+    },
 }
 </script>
 
