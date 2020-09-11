@@ -165,6 +165,13 @@ export default {
     },
 
     /*
+     ** Nuxt generate configuration. Used when generating a static site.
+     */
+    generate: {
+        fallback: "404.html",
+    },
+
+    /*
      ** Basic (htaccess) authentication configuration
      */
     basic: {
