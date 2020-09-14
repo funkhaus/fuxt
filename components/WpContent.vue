@@ -3,14 +3,10 @@ import cheerio from "cheerio"
 import _kebabCase from "lodash/kebabCase"
 
 export default {
-    components: {
-        shortcodeGallery: () => import("~/components/shortcode/Gallery"),
-        shortcodeSvg: () => import("~/components/shortcode/Svg")
-    },
     props: {
         html: {
             type: String,
-            default: ""
+            default: "",
         },
         fitVidsPlayers: {
             type: Array,
@@ -18,31 +14,26 @@ export default {
                 'iframe[src*="vimeo.com"]',
                 'iframe[src*="youtube.com"]',
                 'iframe[src*="soundcloud.com"]',
-                "iframe.fit-vid"
-            ]
+                "iframe.fit-vid",
+            ],
         },
         unwrapSelector: {
             type: String,
-            default: "p > iframe, p > img, p > .shortcode"
+            default: "p > iframe, p > img, p > .shortcode",
         },
         removeSelector: {
             type: String,
-            default: "link, script, p:empty"
+            default: "link, script, p:empty, style",
         },
         enableStyles: {
             type: Boolean,
-            default: false
-        }
-    },
-    head() {
-        return {
-            script: this.scripts
-        }
+            default: false,
+        },
     },
     data() {
         return {
             scripts: [],
-            loadedScripts: []
+            loadedScripts: [],
         }
     },
     computed: {
@@ -69,6 +60,9 @@ export default {
             // Unwrap any elements
             output = this.unwrapElements(output, this.unwrapSelector)
 
+            // Unwrap any elements
+            output = this.formatColumnShortcodes(output)
+
             // Strip tags again (the unwrap method maybe left empty P tags)
             output = this.removeElements(output, this.removeSelector)
 
@@ -79,7 +73,7 @@ export default {
             output = $("body").html()
 
             return output
-        }
+        },
     },
     mounted() {
         this.$nextTick(() => {
@@ -131,7 +125,7 @@ export default {
                         this.loadedScripts.push(
                             _kebabCase(`embed-loaded-${domain}`)
                         )
-                    }
+                    },
                 }
             })
 
@@ -147,9 +141,32 @@ export default {
             // This will unwrap all elements selected from it's parent
             const $ = cheerio.load(html)
 
-            $(selector).each(function() {
+            $(selector).each(function () {
                 $(this).insertAfter($(this).parent())
             })
+
+            return $("body").html()
+        },
+        formatColumnShortcodes(html) {
+            const $ = cheerio.load(html)
+
+            // Wrap columns into groups
+            $(".shortcode-column + .shortcode-column:not(.new-column)").each(
+                function (i) {
+                    // Get the two columns
+                    let $group = $(this).add($(this).prev(".shortcode-column"))
+
+                    // Build markup for wrapping DIV
+                    $(this)
+                        .prev()
+                        .before(
+                            `<div class='shortcode-columns group-${i}'></div>`
+                        )
+
+                    // Move columns into wrapping DIV
+                    $(`.group-${i}`).append($group)
+                }
+            )
 
             return $("body").html()
         },
@@ -165,26 +182,31 @@ export default {
             // Use intrinsic-ratio scaling of iFrame
             $(this.fitVidsPlayers)
                 .not(".ignore-fit-vids")
-                .each(function() {
+                .each(function () {
                     const height = $(this).attr("height") || 9
                     const width = $(this).attr("width") || 16
 
-                    // Wrap to allow better styling
+                    //Wrap to allow better styling
                     $(this).wrap(
-                        `<div class="fit-vid"><div class="responsive-video" style="padding-bottom: ${(height /
-                            width) *
-                            100}%"></div></div>`
+                        `<div class="fit-vid"><div class="responsive-video" style="padding-bottom: ${
+                            (height / width) * 100
+                        }%"></div></div>`
                     )
                 })
 
             return $("body").html()
+        },
+    },
+    head() {
+        return {
+            script: this.scripts,
         }
     },
     render(h) {
         return h({
-            template: `<div class="${this.classes}">${this.htmlTemplate}</div>`
+            template: `<div class="${this.classes}">${this.htmlTemplate}</div>`,
         })
-    }
+    },
 }
 </script>
 
@@ -205,8 +227,6 @@ export default {
     }
 
     &.has-styles {
-        padding: 0 40px;
-
         /deep/ {
             .embed,
             .tiktok-embed,
