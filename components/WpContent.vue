@@ -150,11 +150,25 @@ export default {
         formatColumnShortcodes(html) {
             const $ = cheerio.load(html)
 
+            // TODO Make this not repetitive.
+            // Do this twice to catch nested shortcodes. No idea why it needs to run twice.
+            $(".shortcode-wrap > .shortcode").each(function () {
+                $(this).insertAfter($(this).parent())
+            })
+            $(".shortcode-wrap > .shortcode").each(function () {
+                $(this).insertAfter($(this).parent())
+            })
+
+            // Remove empty parents now
+            $(".shortcode-wrap").remove()
+
             // Wrap columns into groups
             $(".shortcode-column + .shortcode-column:not(.new-column)").each(
                 function (i) {
                     // Get the two columns
-                    let $group = $(this).add($(this).prev(".shortcode-column"))
+                    const $group = $(this).add(
+                        $(this).prev(".shortcode-column")
+                    )
 
                     // Build markup for wrapping DIV
                     $(this)
