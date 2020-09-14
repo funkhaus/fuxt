@@ -160,7 +160,7 @@ export default {
                     $(this)
                         .prev()
                         .before(
-                            `<div class='shortcode-columns group-${i}'></div>`
+                            `<shortcode-columns class='shortcode-columns group-${i}'></shortcode-columns>`
                         )
 
                     // Move columns into wrapping DIV
