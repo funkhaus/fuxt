@@ -162,6 +162,11 @@ export default {
             // Remove empty parents now
             $(".shortcode-wrap").remove()
 
+            // Remove empty lines between shortcodes
+            $(".shortcode-column + br + .shortcode-column").each(function () {
+                $(this).prev("br").remove()
+            })
+
             // Wrap columns into groups
             $(".shortcode-column + .shortcode-column:not(.new-column)").each(
                 function (i) {
