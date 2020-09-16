@@ -71,7 +71,7 @@ export default {
         }
 
         // Log a warning if nothing returned from server for this route
-        if (!this.data.id) {
+        if (!this.data || !this.data.id) {
             console.warn(
                 "WpSeo fetch came back empty. The path prop probably needs to be set manually for this route.",
                 this.parsedUri
