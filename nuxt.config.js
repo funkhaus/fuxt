@@ -169,6 +169,8 @@ export default {
      */
     generate: {
         fallback: "404.html",
+        interval: 500,
+        concurrency: 300,
     },
 
     /*
