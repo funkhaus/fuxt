@@ -6,6 +6,10 @@ query Seo($uri: String!) {
         ... on NodeWithTitle {
             title
         }
+        ... on Category {
+            name
+            description
+        }
         ... on NodeWithContentEditor {
             content
         }

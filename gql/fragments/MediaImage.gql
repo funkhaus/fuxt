@@ -4,7 +4,7 @@ fragment MediaImage on MediaItem {
     srcSet(size: FULLSCREEN)
     id
     caption(format: RAW)
-    mediaItemId
+    databaseId
     title
     mediaDetails {
         height

@@ -1,20 +1,22 @@
 <template>
-    <ul
-        :key="location"
-        :class="classes"
-    >
-        <slot name="before" />
+    <keep-alive>
+        <ul
+            :key="location"
+            :class="classes"
+        >
+            <slot name="before" />
 
-        <wp-menu-item
-            v-for="(item, i) in menuItems"
-            :key="i"
-            class="menu-item"
-            :item="item"
-            @menu-interacted="menuInteracted"
-        />
+            <wp-menu-item
+                v-for="(item, i) in menuItems"
+                :key="i"
+                class="menu-item"
+                :item="item"
+                @menu-interacted="menuInteracted"
+            />
 
-        <slot name="after" />
-    </ul>
+            <slot name="after" />
+        </ul>
+    </keep-alive>
 </template>
 
 <script>
@@ -78,6 +80,12 @@ export default {
                 { "has-loaded": this.hasLoaded },
             ]
         },
+    },
+    activated() {
+        // This is a cache of fetch. Will call fetch again if last fetch more than 60 sec ago.
+        if (this.$fetchState.timestamp <= Date.now() - 60000) {
+            this.$fetch()
+        }
     },
     methods: {
         menuInteracted(event) {

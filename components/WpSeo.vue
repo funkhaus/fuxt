@@ -9,17 +9,22 @@
     may want to use it on pages templates as well to have more control over the SEO tags set.
 -->
 <template lang="html">
-    <div class="wp-seo">
-        <!-- Print content to page for SEO gain -->
-        <h1
-            v-if="parsedTitle"
-            v-html="parsedTitle"
-        />
+    <keep-alive>
         <div
-            v-if="parsedDescription"
-            v-html="parsedDescription"
-        />
-    </div>
+            :key="parsedUri"
+            class="wp-seo"
+        >
+            <!-- Print content to page for SEO gain -->
+            <h1
+                v-if="parsedTitle"
+                v-html="parsedTitle"
+            />
+            <div
+                v-if="parsedDescription"
+                v-html="parsedDescription"
+            />
+        </div>
+    </keep-alive>
 </template>
 
 <script>
@@ -47,10 +52,6 @@ export default {
         path: {
             type: String,
             default: "",
-        },
-        stripFromPath: {
-            type: String,
-            default: "/news/",
         },
     },
     async fetch() {
@@ -89,12 +90,6 @@ export default {
             if (!output) {
                 output = this.$route.path
             }
-
-            // Strip /news/ from path, as often that is a blog post.
-            if (this.stripFromPath) {
-                output = output.replace(this.stripFromPath, "")
-            }
-
             return output
         },
         parsedTitle() {
@@ -103,6 +98,9 @@ export default {
             // Try to set title from data, fallback to site title
             if (!output) {
                 output = _get(this, "data.title", "")
+            }
+            if (!output) {
+                output = _get(this, "data.name", "")
             }
             if (!output) {
                 output = _get(this, "$store.state.siteMeta.title", undefined)
@@ -119,6 +117,9 @@ export default {
             }
             if (!output) {
                 output = getStripped(this, "data.content", "")
+            }
+            if (!output) {
+                output = getStripped(this, "data.description", "")
             }
             if (!output) {
                 output = getStripped(
@@ -150,6 +151,12 @@ export default {
     },
     watch: {
         "$route.path": "$fetch",
+    },
+    activated() {
+        // This is a cache for Fetch. Will call fetch again if last fetch more than 60 sec ago
+        if (this.$fetchState.timestamp <= Date.now() - 60000) {
+            this.$fetch()
+        }
     },
     head() {
         return {
