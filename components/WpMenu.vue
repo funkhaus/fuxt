@@ -1,22 +1,20 @@
 <template>
-    <keep-alive>
-        <ul
-            :key="location"
-            :class="classes"
-        >
-            <slot name="before" />
+    <ul
+        :key="location"
+        :class="classes"
+    >
+        <slot name="before" />
 
-            <wp-menu-item
-                v-for="(item, i) in menuItems"
-                :key="i"
-                class="menu-item"
-                :item="item"
-                @menu-interacted="menuInteracted"
-            />
+        <wp-menu-item
+            v-for="(item, i) in menuItems"
+            :key="i"
+            class="menu-item"
+            :item="item"
+            @menu-interacted="menuInteracted"
+        />
 
-            <slot name="after" />
-        </ul>
-    </keep-alive>
+        <slot name="after" />
+    </ul>
 </template>
 
 <script>
