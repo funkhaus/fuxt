@@ -1,0 +1,22 @@
+#import "~/gql/fragments/NewsListFields.gql"
+
+query NEWS_LIST($categoryName: String = null) {
+    posts(where: { categoryName: $categoryName }, first: 20) {
+        nodes {
+            id
+            uri
+            title
+            encodedContent
+            date
+            featuredImage {
+                node {
+                    ...MediaImage
+                }
+            }
+        }
+    }
+    # page(idType: URI, id: "/news") {
+    #     id
+    #     content
+    # }
+}
