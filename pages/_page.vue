@@ -6,18 +6,13 @@
         :class="classes"
     >
         <wp-image
-            v-if="page.featuredImage"
+            v-if="parsedPage.featuredImage && parsedPage.featuredImage.id"
             class="image"
-            :image="page.featuredImage"
-        />
-
-        <shortcode-svg
-            class="shortcode-svg"
-            url="http://fuxt-backend.flywheelsites.com/wp-content/uploads/2020/06/logo-wsj.svg"
+            :image="parsedPage.featuredImage"
         />
 
         <wp-content
-            :html="page.content"
+            :html="parsedPage.encodedContent"
             :enable-styles="true"
         />
     </section>
@@ -58,6 +53,14 @@ export default {
                 path = "/featured"
             }
             return path
+        },
+        parsedPage() {
+            // Shape data from WP-GQL to work with template
+
+            return {
+                ...this.page,
+                featuredImage: _get(this, "page.featuredImage.node", {}),
+            }
         },
     },
 }

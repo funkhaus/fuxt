@@ -6,6 +6,8 @@
 
 <style lang="scss" scoped>
 .shortcode-column {
+    width: 50%;
+
     img {
         max-width: 100%;
         height: auto;

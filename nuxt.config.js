@@ -3,7 +3,6 @@ import pkg from "./package"
 
 export default {
     target: "static",
-    mode: "universal",
     env: {
         ...process.env,
     },

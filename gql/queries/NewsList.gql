@@ -1,4 +1,4 @@
-#import "~/gql/fragments/NewsListFields.gql"
+#import "~/gql/fragments/MediaImage.gql"
 
 query NEWS_LIST($categoryName: String = null) {
     posts(where: { categoryName: $categoryName }, first: 20) {
@@ -15,8 +15,4 @@ query NEWS_LIST($categoryName: String = null) {
             }
         }
     }
-    # page(idType: URI, id: "/news") {
-    #     id
-    #     content
-    # }
 }
