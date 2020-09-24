@@ -211,7 +211,7 @@ By default page views are tracked, but you can track anything you want using `th
 
 ## Store tracking breakpoint size
 
-By default, on nuxtServerInit a user agent detect will happen and set the `state.breakpoint` to equal mobile or desktop. This is also set in `Default.vue` as well. We do this to try to make sure that SSR is at least close to the client as possible. We use a combination of `@nuxtjs/device` and window width to do this.
+`Default.vue` will do some basic width detection and set `state.breakpoint`. You can customize this if needed.
 
 ## Shortcodes
 

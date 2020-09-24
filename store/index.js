@@ -42,11 +42,6 @@ export const mutations = {
 // Define actions
 export const actions = {
     async nuxtServerInit(store, context) {
-        // Set default breakpoint
-        if (context.isMobileOrTablet) {
-            store.commit("SET_BREAKPOINT", "mobile")
-        }
-
         // Make all requests in parallel
         const data = await Promise.all([
             store.dispatch("QUERY_SETTINGS", context),

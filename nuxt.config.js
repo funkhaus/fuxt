@@ -77,7 +77,6 @@ export default {
         "nuxt-graphql-request",
         "@nuxtjs/style-resources",
         "nuxt-basic-auth-module",
-        "@nuxtjs/device",
     ],
 
     /*
