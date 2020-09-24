@@ -74,7 +74,6 @@ export default {
             const replaceThese = [
                 _get(this, "$store.state.siteMeta.frontendUrl", ""),
                 _get(this, "$store.state.siteMeta.backendUrl", ""),
-                _get(this, "$store.state.siteMeta.host", ""),
             ]
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")

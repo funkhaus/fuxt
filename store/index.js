@@ -61,10 +61,8 @@ export const actions = {
 
             // Get and shape general settings
             const settings = _get(data, "wpSettings", {})
-            const host = _get(context, "req.headers.host", "")
             let meta = {
                 title: settings.title,
-                host: host,
                 description: settings.description,
                 themeScreenshotUrl: settings.themeScreenshotUrl,
                 backendUrl: settings.url,
