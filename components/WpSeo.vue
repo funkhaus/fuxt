@@ -54,7 +54,11 @@ export default {
     },
     async fetch() {
         // Abort if no path supplied (often because used on homepage)
-        if (!this.parsedUri || this.parsedUri == "/") {
+        if (
+            !this.parsedUri ||
+            this.parsedUri == "/" ||
+            this.parsedUri == "/wp-admin/"
+        ) {
             this.data = {}
             return
         }

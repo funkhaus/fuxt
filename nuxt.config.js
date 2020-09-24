@@ -95,9 +95,9 @@ export default {
         options: {
             credentials: "include",
             mode: "cors",
-            headers: {
-                authorization: `Bearer ${process.env.BASIC_API_TOKEN || ""}`,
-            },
+            // headers: {
+            //     authorization: `Bearer ${process.env.BASIC_API_TOKEN || ""}`,
+            // },
         },
     },
 
