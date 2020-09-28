@@ -42,6 +42,8 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 
 Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme as the backend.
 
+**First step:** Duplicate and rename `.example.env` to `.env`. Define any vars enviroment needed there.
+
 ```bash
 # install dependencies
 $ npm install
