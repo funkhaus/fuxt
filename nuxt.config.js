@@ -106,7 +106,7 @@ export default {
     router: {
         linkExactActiveClass: "exact-active-link",
         linkActiveClass: "active-link",
-        //middleware: ["referrer", "preview-redirect"],
+        middleware: ["referrer", "preview-redirect"],
         prefetchLinks: true,
         linkPrefetchedClass: "link-prefetched",
         trailingSlash: true,
@@ -115,10 +115,10 @@ export default {
     /*
      ** Server side middleware
      */
-    // serverMiddleware: [
-    //     "~/middleware/preview-spa-mode.server.js",
-    //     "~/middleware/redirect-trailing-slash.server.js",
-    // ],
+    serverMiddleware: [
+        "~/middleware/preview-spa-mode.server.js",
+        "~/middleware/redirect-trailing-slash.server.js",
+    ],
 
     /*
      ** Build configuration
