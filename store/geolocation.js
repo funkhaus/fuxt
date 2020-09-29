@@ -7,7 +7,7 @@
 export const state = () => ({
     ip: "",
     detectedCountry: "",
-    userCountry: "",
+    userCountry: "", // This is where you would set the user defined country (like on button click)
     //version: 1, // Used by nuxt-vuex-localstorage
 })
 

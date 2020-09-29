@@ -73,6 +73,6 @@ export default async ({ store, req, query }) => {
     store.commit("geolocation/SET_GEOLOCATION", {
         ip: location.ip || "",
         detectedCountry: location.detectedCountry || "",
-        userCountry: "", // This is where you would set the user defined country (like on button click)
+        userCountry: "",
     })
 }
