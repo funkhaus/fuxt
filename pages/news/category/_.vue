@@ -3,7 +3,7 @@
 
     <section
         v-else
-        class="page-news-list"
+        class="page page-news-list"
     >
         Loop {{ posts }} here!
 

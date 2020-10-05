@@ -21,7 +21,6 @@
 <script>
 // Helpers
 import _get from "lodash/get"
-import { getStripped } from "~/utils/tools"
 
 // Queries
 import HOME from "~/gql/queries/Home"
@@ -44,7 +43,7 @@ export default {
     },
     computed: {
         classes() {
-            return ["section", "section-home"]
+            return ["page", "page-home"]
         },
         path() {
             // FYI you can't query home by just using '/'
@@ -67,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section-home {
+.page-home {
     color: var(--color-black);
     margin: 0 auto;
     min-height: var(--unit-100vh);
