@@ -198,8 +198,9 @@ export default {
     storybook: {
         stories: ["~/stories/**/*.stories.js"],
         webpackFinal(config, { configDir }) {
-            // Allow webpack to auto-load .gql files
+            // Allow webpack to auto-load .gql and .svg files
             config.resolve.extensions.push(".gql")
+            config.resolve.extensions.push(".svg")
 
             return config
         },
