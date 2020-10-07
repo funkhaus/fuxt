@@ -32,6 +32,8 @@ export default {
             categoryName: this.lastCategory,
         })
         this.posts = _get(data, "posts.nodes", [])
+
+        return data
     },
     data() {
         return {

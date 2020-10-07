@@ -35,6 +35,7 @@ export default {
             uri: this.path,
         })
         this.page = _get(data, "nodeByUri", {})
+        return data
     },
     data() {
         return {
