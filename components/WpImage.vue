@@ -1,5 +1,5 @@
 <template>
-    <div :class="classes">
+    <figure :class="classes">
         <div
             class="sizer"
             :style="sizerStyles"
@@ -12,6 +12,7 @@
                 :srcset="parsedSrcset"
                 :sizes="parsedSizes"
                 :style="mediaStyles"
+                :alt="parsedAlt"
                 @load="setLoaded('image')"
                 @error="setError('image')"
             >
@@ -31,8 +32,13 @@
                 @error="setError('video')"
             />
         </div>
+        <figcaption
+            v-if="parsedCaption"
+            class="caption"
+            v-html="parsedCaption"
+        />
         <slot />
-    </div>
+    </figure>
 </template>
 
 <script>
@@ -62,6 +68,14 @@ export default {
             default: "",
         },
         sizes: {
+            type: String,
+            default: "",
+        },
+        alt: {
+            type: String,
+            default: "",
+        },
+        caption: {
             type: String,
             default: "",
         },
@@ -186,6 +200,12 @@ export default {
                     _get(this.image, "acfImageMeta.focalPointY", ""),
             }
         },
+        parsedAlt() {
+            return this.alt || _get(this, "image.altText", "")
+        },
+        parsedCaption() {
+            return this.caption || _get(this, "image.caption", "")
+        },
         sizerStyles() {
             let styles = {}
             // Set padding for size
@@ -292,6 +312,10 @@ export default {
     .video {
         z-index: 20;
     }
+    .caption {
+        display: none;
+    }
+
     // Modes
     &.mode-intrinsic-ratio {
         position: relative;

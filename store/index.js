@@ -53,6 +53,7 @@ export const actions = {
         // Get site settings from WordPress and save them to store
         try {
             const data = await this.$graphql.request(SITE_SETTINGS)
+            const options = _get(data, "acfSettings.acfSiteOptions", {})
 
             // Get and shape general settings
             const settings = _get(data, "wpSettings", {})
@@ -60,12 +61,11 @@ export const actions = {
                 title: settings.title,
                 description: settings.description,
                 themeScreenshotUrl: settings.themeScreenshotUrl,
-                backendUrl: settings.url,
-                frontendUrl: settings.siteUrl,
+                backendUrl: settings.backendUrl,
+                frontendUrl: _get(options, "frontendUrl", ""),
             }
 
             // Get ACF site settings, shape them correctly
-            const options = _get(data, "acfSettings.acfSiteOptions", {})
             if (options.googleAnalytics) {
                 meta.gaTrackingCodes = options.googleAnalytics.map((item) => {
                     return item.code

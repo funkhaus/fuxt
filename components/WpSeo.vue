@@ -175,6 +175,11 @@ export default {
                     property: "og:image",
                     content: this.parsedImageUrl,
                 },
+                {
+                    hid: "og:title",
+                    property: "og:title",
+                    content: this.parsedTitle,
+                },
             ],
         }
     },

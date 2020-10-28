@@ -6,6 +6,8 @@ fragment MediaImage on MediaItem {
     caption(format: RAW)
     databaseId
     title
+    altText
+    caption
     mediaDetails {
         height
         width

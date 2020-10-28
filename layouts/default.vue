@@ -53,7 +53,8 @@ export default {
     computed: {
         classes() {
             return [
-                "container",
+                "layout",
+                "layout-default",
                 "main",
                 `breakpoint-${this.breakpoint}`,
                 { "menu-opened": this.$store.state.menuOpened },
@@ -182,6 +183,11 @@ export default {
                     property: "og:type",
                     content: "website",
                 },
+                {
+                    hid: "og:title",
+                    property: "og:title",
+                    content: this.$store.state.siteMeta.title,
+                },
             ],
         }
     },
@@ -189,7 +195,7 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
+.layout-default {
     .logo {
         position: absolute;
         top: 20px;
