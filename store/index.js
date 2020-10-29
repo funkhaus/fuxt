@@ -62,7 +62,7 @@ export const actions = {
                 description: settings.description,
                 themeScreenshotUrl: settings.themeScreenshotUrl,
                 backendUrl: settings.backendUrl,
-                frontendUrl: _get(options, "frontendUrl", ""),
+                frontendUrl: settings.frontendUrl,
             }
 
             // Get ACF site settings, shape them correctly

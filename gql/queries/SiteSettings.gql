@@ -3,13 +3,13 @@ query SiteSettings {
     wpSettings: generalSettings {
         title
         description
-        apiUrl
+        backendUrl
+        frontendUrl: url
         themeScreenshotUrl
     }
     # NOTE You need ACF Pro installed to use Site Options
     acfSettings: siteOptions {
         acfSiteOptions {
-            frontendUrl
             socialMedia {
                 platform
                 url
