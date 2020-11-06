@@ -24,7 +24,7 @@ import _get from "lodash/get"
 
 // Queries
 import HOME from "~/gql/queries/Home"
-import ShortcodeSvg from "@/components/shortcode/Svg"
+import ShortcodeSvg from "~/components/shortcode/Svg"
 
 export default {
     components: {

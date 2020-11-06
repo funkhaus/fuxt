@@ -1,4 +1,4 @@
-import WpLink from "@/components/WpLink"
+import WpLink from "~/components/WpLink"
 
 export default {
     title: "WpComponents / WpLink",

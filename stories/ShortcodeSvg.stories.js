@@ -1,4 +1,4 @@
-import ShortcodeSvg from "@/components/shortcode/Svg"
+import ShortcodeSvg from "~/components/shortcode/Svg"
 
 export default {
     title: "WpComponents / ShortcodeSvg",

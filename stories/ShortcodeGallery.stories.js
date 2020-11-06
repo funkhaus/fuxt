@@ -1,5 +1,5 @@
-import ShortcodeGallery from "@/components/shortcode/Gallery"
-import API from "@/static/db.json"
+import ShortcodeGallery from "~/components/shortcode/Gallery"
+import API from "~/static/db.json"
 
 export default {
     title: "WpComponents / ShortcodeGallery"

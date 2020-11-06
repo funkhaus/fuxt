@@ -1,5 +1,5 @@
-import WpImage from "@/components/WpImage"
-import API from "@/static/db.json"
+import WpImage from "~/components/WpImage"
+import API from "~/static/db.json"
 
 export default {
     title: "WpComponents / WpImage",

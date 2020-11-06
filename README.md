@@ -26,7 +26,7 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
     -   wp-image (uses WordPress generated src-sets and much more!)
     -   wp-link (handles parsing WordPress permalinks)
 -   Built in webfontloader for fast font loading
--   Auto imports root components from `@/components`
+-   Auto imports root components from `~/components`
 -   Includes GQL email mutation to send email from frontend
 -   Lots of common functions to save you time!
     -   Mobile swipe events baked in

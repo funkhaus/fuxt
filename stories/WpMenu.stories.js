@@ -1,5 +1,5 @@
-import WpMenu from "@/components/WpMenu"
-import API from "@/static/db.json"
+import WpMenu from "~/components/WpMenu"
+import API from "~/static/db.json"
 
 export default {
     title: "WpComponents / WpMenu",
