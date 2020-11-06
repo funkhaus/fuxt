@@ -3,7 +3,6 @@ fragment MediaImage on MediaItem {
     sizes(size: FULLSCREEN)
     srcSet(size: FULLSCREEN)
     id
-    caption(format: RAW)
     databaseId
     title
     altText
