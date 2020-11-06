@@ -2,7 +2,7 @@ require("dotenv").config()
 import pkg from "./package"
 
 export default {
-    target: "static",
+    target: "server",
     env: {
         ...process.env,
     },
