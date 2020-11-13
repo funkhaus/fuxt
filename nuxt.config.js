@@ -181,27 +181,19 @@ export default {
      ** You can see output at /sitemap.xml
      ** SEE https://github.com/nuxt-community/sitemap-module
      */
-    sitemap() {
-        // If you are deploying to Netlify then `process.env.URL` is set automatically
-        let hostname = process.env.URL
+    sitemap: {
+        // If you are NOT using Netlify to host, you need to set the hostname
+        hostname: process.env.URL || "http://localhost:3000",
+        filter({ routes }) {
+            // Don't allow these paths to show in sitemap.
+            // Add anything you want to hide from the sitemap
+            const excludedPaths = ["/wp-admin/"]
 
-        // Abort early if no hostname
-        if (!hostname) {
-            return false
-        }
-
-        // Return sitemap config options
-        return {
-            hostname,
-            filter({ routes }) {
-                return routes.filter((route) => {
-                    // Don't allow these paths to show in sitemap.
-                    // Add anything you want to hide from the sitemap
-                    const excludedPaths = ["/wp-admin/"]
-                    return !excludedPaths.includes(route.url)
-                })
-            },
-        }
+            return routes.filter((route) => {
+                console.log(route)
+                return !excludedPaths.includes(route.url)
+            })
+        },
     },
 
     /*
