@@ -3,7 +3,6 @@ export default {
     target: "static",
     env: {
         ...process.env,
-        FRONTEND_URL: process.env.URL || "https://fuxt.funkhaus.us",
     },
 
     /*
@@ -182,7 +181,7 @@ export default {
      ** SEE https://github.com/nuxt-community/sitemap-module
      */
     sitemap: {
-        hostname: process.env.FRONTEND_URL,
+        hostname: process.env.FRONTEND_URL || "http://funkhaus.us",
         filter({ routes }) {
             // Don't allow these paths to show in sitemap
             return routes.filter((route) => {
