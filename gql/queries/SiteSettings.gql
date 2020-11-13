@@ -4,7 +4,7 @@ query SiteSettings {
         title
         description
         backendUrl
-        frontendUrl: url
+        frontendUrl
         themeScreenshotUrl
     }
     # NOTE You need ACF Pro installed to use Site Options
