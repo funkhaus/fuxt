@@ -81,13 +81,13 @@ export default {
     modules: [
         "nuxt-graphql-request",
         "@nuxtjs/style-resources",
-        "nuxt-basic-auth-module",
+        "@nuxtjs/sitemap",
     ],
 
     /*
      * Build modules
      */
-    buildModules: ["@nuxtjs/dotenv"],
+    buildModules: ["@nuxtjs/dotenv", "~/modules/sitemapRouteGenerator"],
 
     /*
      ** GraphQL Request options.
@@ -177,12 +177,18 @@ export default {
     },
 
     /*
-     ** Basic (htaccess) authentication configuration
+     ** Setup for the Sitemap module
+     ** SEE https://github.com/nuxt-community/sitemap-module
      */
-    basic: {
-        name: "funkhaus",
-        pass: "12345", // https://youtu.be/a6iW-8xPw3k
-        enabled: process.env.BASIC_AUTH_ENABLED === "true",
+    sitemap: {
+        hostname: "https://fuxt.funkhaus.us",
+        filter({ routes }) {
+            // Don't allow these paths to show in sitemap
+            return routes.filter((route) => {
+                const excludedPaths = ["/wp-admin/", "/featured/"]
+                return !excludedPaths.includes(route.url)
+            })
+        },
     },
 
     /*
