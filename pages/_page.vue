@@ -24,7 +24,7 @@ export default {
     components: {
         ShortcodeSvg,
     },
-    async asyncData({ $graphql, route, params }) {
+    async asyncData({ $graphql, route }) {
         const data = await $graphql.request(HOME, {
             uri: route.path,
         })
