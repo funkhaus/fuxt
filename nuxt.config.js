@@ -95,7 +95,7 @@ export default {
      */
     graphql: {
         AST: true,
-        endpoint: process.env.DEFAULT_ENDPOINT,
+        endpoint: process.env.GQL_ENDPOINT,
         options: {
             // credentials: "include",
             // mode: "cors",

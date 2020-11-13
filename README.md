@@ -80,7 +80,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
     1.  If you want to use ACF, there are some default fields we recommend, you can find the file to import from the theme directory `/acf/` or [here](https://github.com/funkhaus/fuxt-backend/tree/master/acf).
         1.  One of these field groups is Site Options, which allows Google Analytics to work. You need ACF Pro installed for this to work.
         1.  See below for instructions on how to remove the ACF Pro requirement.
-1.  Rename your `.env.example` to `.env` and config `DEFAULT_ENDPOINT` to be the GraphQL endpoint from the WordPress you installed above.
+1.  Rename your `.env.example` to `.env` and config `GQL_ENDPOINT` to be the GraphQL endpoint from the WordPress you installed above.
     1.  If you are using an endpoint that is protected by Basic Authentication, like the Flywheel staging sites, then you should set the `BASIC_API_TOKEN` var in the `.env` file too. You can find out what your token should be by just going to the endpoint in your browser, successfully entering the username/password combination, then use your browsers Network Inspector to see what the Request headers are, and find the `Authorization` one. That is the token you need.
 
 ### How to use without ACF Pro
@@ -317,7 +317,7 @@ You are simply deploying a Nuxt project, so any way you can deploy Nuxt will wor
 1.  Connect the GitHub repo (use the funkhaus account as the "owner", not your personal account)
 1.  Set "Build command" to `npm run generate`
 1.  Set "Publish directory" to `dist`
-1.  Under "Advanced build settings" you'll need to define any `.env` variables that are needed. Normally this is `DEFAULT_ENDPOINT` and `HOST`.
+1.  Under "Advanced build settings" you'll need to define any `.env` variables that are needed. Normally this is `GQL_ENDPOINT` and `HOST`.
     1.  Be sure to have your API URL be `https://` otherwise Netlify will error.
 
 ##### Settings
