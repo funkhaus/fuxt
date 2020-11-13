@@ -61,7 +61,7 @@ export default {
             this.hasLoaded = true
             this.$emit("loaded")
         } catch (error) {
-            console.log("Fetch error in <wp-menu>: ", error)
+            console.error("Fetch error in <wp-menu>: ", error)
         }
     },
     data() {

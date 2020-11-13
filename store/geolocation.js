@@ -8,7 +8,7 @@ export const state = () => ({
     ip: "",
     detectedCountry: "",
     userCountry: "", // This is where you would set the user defined country (like on button click)
-    //version: 1, // Used by nuxt-vuex-localstorage
+    version: 1, // Used by nuxt-vuex-localstorage
 })
 
 // Define mutations

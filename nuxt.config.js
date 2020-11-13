@@ -1,6 +1,4 @@
 require("dotenv").config()
-import pkg from "./package"
-
 export default {
     target: "server",
     env: {
@@ -38,9 +36,12 @@ export default {
 
     /*
      ** Customize the progress-bar color
-     ** See: https://nuxtjs.org/api/configuration-loading#use-a-custom-loading-component
+     ** See: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-loading
      */
-    loading: {},
+    loading: {
+        color: "#000000",
+        height: "3px",
+    },
 
     /*
      ** Global CSS
@@ -96,8 +97,8 @@ export default {
         AST: true,
         endpoint: process.env.DEFAULT_ENDPOINT,
         options: {
-            credentials: "include",
-            mode: "cors",
+            // credentials: "include",
+            // mode: "cors",
             // headers: {
             //     authorization: `Bearer ${process.env.BASIC_API_TOKEN || ""}`,
             // },
@@ -199,8 +200,7 @@ export default {
         stories: ["~/stories/**/*.stories.js"],
         webpackFinal(config, { configDir }) {
             // Allow webpack to auto-load .gql and .svg files
-            config.resolve.extensions.push(".gql")
-            config.resolve.extensions.push(".svg")
+            config.resolve.extensions.push(".gql", ".svg")
 
             return config
         },
