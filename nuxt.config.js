@@ -177,18 +177,31 @@ export default {
     },
 
     /*
-     ** Setup for the Sitemap module
+     ** Setup for the Sitemap module.
+     ** You can see output at /sitemap.xml
      ** SEE https://github.com/nuxt-community/sitemap-module
      */
-    sitemap: {
-        hostname: process.env.URL || "http://funkhaus.us",
-        filter({ routes }) {
-            // Don't allow these paths to show in sitemap
-            return routes.filter((route) => {
-                const excludedPaths = ["/wp-admin/", "/featured/"]
-                return !excludedPaths.includes(route.url)
-            })
-        },
+    sitemap() {
+        // If you are deploying to Netlify then `process.env.URL` is set automatically
+        let hostname = process.env.URL
+
+        // Abort early if no hostname
+        if (!hostname) {
+            return false
+        }
+
+        // Return sitemap config options
+        return {
+            hostname,
+            filter({ routes }) {
+                return routes.filter((route) => {
+                    // Don't allow these paths to show in sitemap.
+                    // Add anything you want to hide from the sitemap
+                    const excludedPaths = ["/wp-admin/"]
+                    return !excludedPaths.includes(route.url)
+                })
+            },
+        }
     },
 
     /*
