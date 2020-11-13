@@ -161,14 +161,14 @@ export default {
             if (this.height) {
                 return parseInt(this.height)
             }
-            return this.image.mediaDetails.height
+            return _get(this, "image.mediaDetails.height")
         },
         parsedWidth() {
             // default to defined width
             if (this.width) {
                 return parseInt(this.width)
             }
-            return this.image.mediaDetails.width
+            return _get(this, "image.mediaDetails.width")
         },
         parsedSrc() {
             return this.src || _get(this, "image.sourceUrl", "")

@@ -1,6 +1,6 @@
 require("dotenv").config()
 export default {
-    target: "server",
+    target: "static",
     env: {
         ...process.env,
     },

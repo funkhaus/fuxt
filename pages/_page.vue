@@ -1,7 +1,6 @@
 <template>
     <section :class="classes">
         <wp-image
-            v-if="parsedPage.featuredImage && parsedPage.featuredImage.id"
             class="image"
             :image="parsedPage.featuredImage"
         />
