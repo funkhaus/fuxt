@@ -4,7 +4,7 @@
 // import intersectionObserver from "~/directives/IntersectionObserver"
 // let hasLoadedDirectives = false
 
-// if (!hasLoadedComponents) {
+// if (!hasLoadedDirectives) {
 //     Vue.directive("in-view", inView)
 //     Vue.directive("intersection-observer", intersectionObserver)
 //     hasLoadedDirectives = true
