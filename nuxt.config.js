@@ -87,7 +87,7 @@ export default {
     /*
      * Build modules
      */
-    buildModules: ["@nuxtjs/dotenv", "~/modules/sitemapRouteGenerator"],
+    buildModules: ["@nuxtjs/dotenv", "~/modules/sitemap-route-generator"],
 
     /*
      ** GraphQL Request options.
