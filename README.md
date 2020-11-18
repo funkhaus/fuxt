@@ -42,7 +42,7 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 
 Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme as the backend.
 
-**First step:** Duplicate and rename `.example.env` to `.env`. Define any vars enviroment needed there.
+**First step:** Duplicate and rename `.example.env` to `.env`. Define any vars environment needed there.
 
 ```bash
 # install dependencies
@@ -314,6 +314,7 @@ You are simply deploying a Nuxt project, so any way you can deploy Nuxt will wor
 1.  Go to "Domain Settings" and change temporary domain to `https://{CLIENT_NAME}-funkhaus.netlify.app` or `https://{CLIENT_NAME}-storybook-funkhaus.netlify.app`
     1.  If the site is going live, then you should connect a real domain.
 1.  If the site is in development, go to "Visitor access" and set password on the site.
+1.  Make sure the "Netlify Deploy" WordPress plugin is installed and configured. For new sites, leave auto-deploy turned off. Once the site is live, enable auto deploys.
 
 ##### Deploying a Storybook
 
@@ -393,8 +394,7 @@ Boilerplate improvements:
 
 -   Document the included WordPress components
 -   Document the fuxt-backend theme auto-installs
--   Get this working using generated routes: https://github.com/nuxt-community/sitemap-module
-    -   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
+-   Perhaps add this for better SEO: https://developers.google.com/search/docs/guides/intro-structured-data or https://www.npmjs.com/package/nuxt-jsonld
 -   Make the backend URL be protocol agnostic, this requires fixing wp-link and maybe wp-menu-item?
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/fuxt/issues/1
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
