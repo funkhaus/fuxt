@@ -96,7 +96,7 @@ This theme ships with the Nuxt Storybook module installed and configured. Storie
 
 You can run Storybook in dev mode by using: `npm run stroybook`
 
-If you want to export Storybook (to deploy it to a static host): `yarn nuxt storybook build`
+If you want to export Storybook (to deploy it to a static host): `npm run storybook-build`
 
 ## Fonts
 
@@ -124,10 +124,10 @@ The theme includes and [SVG as component loader](https://vue-svg-loader.js.org/)
 
 ```
 // In script
-import svgLogoFunkhaus from "~/assets/svgs/logo-funkhaus"
+import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
 export default {
     components: {
-        svgLogoFunkhaus
+        SvgLogoFunkhaus
     }
 }
 
@@ -190,12 +190,6 @@ mutation MyMutation {
   }
 }
 ```
-
-## Basic authentication
-
-This theme has built in basic authentication (.htaccess) protection. It is disabled by default, you can config this under the `basic` section of `nuxt.config.js`. The default username is `funkhaus` and the default password is `12345`. It's highly recommended that you change these defaults. Behind the scenes we use the [nuxt-basic-auth-module](https://www.npmjs.com/package/nuxt-basic-auth-module).
-
-Note: If you start getting this error after enabling basic auth "Cannot read property toLowerCase of undefined" clear local storage. See [https://github.com/nuxt/nuxt.js/issues/6116](https://github.com/nuxt/nuxt.js/issues/6116)
 
 ## Google Analytics using `this.$gtag()`
 
@@ -299,7 +293,7 @@ The frontend theme repo should be name based on the URL of the site it's for, dr
 
 ### Basic Auth
 
-All Funkhaus sites that under development and accessible to the internet need to have `BASIC_AUTH_ENABLED` set to `"true"`.
+All Funkhaus sites that under development and accessible to the internet need to be password protected. In Netlify admin area go to "Visitor access" and set a password on the site.
 
 ### Deploying
 
@@ -309,24 +303,28 @@ You are simply deploying a Nuxt project, so any way you can deploy Nuxt will wor
 
 #### Deploying to Netlify
 
-[More instructions here if needed](https://nuxtjs.org/faq/netlify-deployment#for-a-statically-generated-site).
-
-##### Adding site
+##### Deploying a website
 
 1.  Add a Site
-1.  Connect the GitHub repo (use the funkhaus account as the "owner", not your personal account)
+1.  Connect the GitHub repo (use the Funkhaus account as the "owner", not your personal account)
 1.  Set "Build command" to `npm run generate`
 1.  Set "Publish directory" to `dist`
-1.  Under "Advanced build settings" you'll need to define any `.env` variables that are needed. Normally this is `GQL_ENDPOINT` and `HOST`.
+1.  Under "Advanced build settings" you'll need to define any `.env` variables that are needed. Normally this is just `GQL_ENDPOINT`.
     1.  Be sure to have your API URL be `https://` otherwise Netlify will error.
-
-##### Settings
-
 1.  Go to "Domain Settings" and change temporary domain to `https://{CLIENT_NAME}-funkhaus.netlify.app` or `https://{CLIENT_NAME}-storybook-funkhaus.netlify.app`
-    1.  If the site is going live, then you should connect a real domain
+    1.  If the site is going live, then you should connect a real domain.
 1.  If the site is in development, go to "Visitor access" and set password on the site.
 
+##### Deploying a Storybook
+
+1. Add a Site
+1. Connect the GitHub repo (use the Funkhaus account as the "owner", not your personal account)
+1. Set "Build command" to `npm run storybook-build`
+1. Set "Publish directory" to `storybook-static`
+
 #### Creating Heroku Pipeline
+
+1.  Connect the GitHub repo (use the Funkhaus account as the "owner", not your personal account)
 
 When you have your app set up, you'll want to add it to a project specific pipeline.
 
