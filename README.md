@@ -13,12 +13,12 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 ## Features
 
 -   Auto installs any WordPress plugin dependencies
+-   Optimzed for Netlify deployment. Includes custom WordPress plugin for manual and auto deploys.
 -   WordPress Previews and Drafts work with regular WordPress logins
 -   Includes [Nuxt Storybook module](https://storybook.nuxtjs.org/)!
--   GraphQL powered API (using Nuxt GraphQL Request)
+-   GraphQL powered API using [Nuxt GraphQL Request](https://www.npmjs.com/package/nuxt-graphql-request)
 -   [ACF](https://www.advancedcustomfields.com/) first class citizen
 -   Supports only the classic editor (#guttenbergsucks)
--   Works with shortcodes and oEmbeds
 -   Google Analytics plugin baked in, pulls from WordPress dashboard (requires [ACF Pro](https://www.advancedcustomfields.com/pro/))
 -   Includes lots of components for common WordPress needs
     -   wp-content (supports oEmbed and shortcodes)
@@ -27,14 +27,14 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
     -   wp-link (handles parsing WordPress permalinks)
 -   Built in webfontloader for fast font loading
 -   Auto imports root components from `~/components`
--   Includes GQL email mutation to send email from frontend
+-   Includes GQL email mutation to send email from frontend via backend
 -   Lots of common functions to save you time!
     -   Mobile swipe events baked in
-    -   Device detection baked in
     -   Solve for [100vh on mobile](https://stackoverflow.com/questions/58886797/how-to-access-the-real-100vh-on-ios-in-css) baked in
-    -   Tracks window dimensions and scroll top position
+    -   Tracks window dimensions and scroll top position into Vuex
+    -   IP Stack region detection built in (requires API key)
+    -   Lodash baked in
 -   Prettier and ESLint built in for nice looking code
--   Lodash baked in
 
 ## Build Setup
 
