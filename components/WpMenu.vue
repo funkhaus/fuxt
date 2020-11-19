@@ -45,7 +45,7 @@ export default {
 
         try {
             const data = await this.$graphql.request(MENU_BY_NAME, {
-                name: name,
+                name: this.name,
             })
             this.menuItems = _get(data, "menuItems.nodes", [])
             this.hasLoaded = true
