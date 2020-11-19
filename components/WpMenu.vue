@@ -1,6 +1,6 @@
 <template>
     <ul
-        :key="location"
+        :key="name"
         :class="classes"
     >
         <slot name="before" />
@@ -20,15 +20,14 @@
 <script>
 // Helpers
 import _kebabCase from "lodash/kebabCase"
-import _upperCase from "lodash/upperCase"
 import _get from "lodash/get"
 
 // GQL
-import MENU_BY_LOCATION from "~/gql/queries/MenuByLocation"
+import MENU_BY_NAME from "~/gql/queries/MenuByName"
 
 export default {
     props: {
-        location: {
+        name: {
             type: String,
             default: "",
         },
@@ -44,18 +43,9 @@ export default {
             return
         }
 
-        // WordPress expects menu locations to be SNAKE_CASE.
-        // So if an uppercase location name is given, we use that
-        // so a use can manually do `A24_MENU` which would otherwise
-        // Be converted to `A_24_MENU` if set as  "a24 - Menu"
-        let locationName = this.location
-        if (locationName !== this.location.toUpperCase()) {
-            locationName = _upperCase(this.location).replace(/ /g, "_")
-        }
-
         try {
-            const data = await this.$graphql.request(MENU_BY_LOCATION, {
-                location: locationName,
+            const data = await this.$graphql.request(MENU_BY_NAME, {
+                name: name,
             })
             this.menuItems = _get(data, "menuItems.nodes", [])
             this.hasLoaded = true
@@ -74,7 +64,7 @@ export default {
         classes() {
             return [
                 "wp-menu",
-                `location-${_kebabCase(this.location) || "unknown"}`,
+                `name-${_kebabCase(this.name) || "unknown"}`,
                 { "has-loaded": this.hasLoaded },
             ]
         },

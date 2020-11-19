@@ -1,0 +1,24 @@
+query MenuByName($name: ID!) {
+    menu(id: $name, idType: NAME) {
+        id
+        name
+        menuItems {
+            nodes {
+                ...LocationMenuItem
+                childItems {
+                    nodes {
+                        ...LocationMenuItem
+                    }
+                }
+            }
+        }
+    }
+}
+
+fragment LocationMenuItem on MenuItem {
+    label
+    cssClasses
+    target
+    url
+    id
+}
