@@ -13,8 +13,8 @@
                 :sizes="parsedSizes"
                 :style="mediaStyles"
                 :alt="parsedAlt"
-                @load="setLoaded('image')"
-                @error="setError('image')"
+                @load="onLoaded('image')"
+                @error="onError('image')"
             >
 
             <video
@@ -28,8 +28,9 @@
                 :autoplay="autoplay"
                 :muted="muted"
                 :playsinline="playsinline"
-                @loadeddata="setLoaded('video')"
-                @error="setError('video')"
+                @loadeddata="onLoaded('video')"
+                @error="onError('video')"
+                @ended="onEnded"
             />
         </div>
         <figcaption
@@ -270,23 +271,35 @@ export default {
         Vue.set(this.loadedStatus, "booted", true)
     },
     methods: {
-        setLoaded(type) {
+        onLoaded(type) {
             Vue.set(this.loadedStatus, type, true)
             this.$emit(`loaded-${type}`)
         },
-        setError(type) {
+        onError(type) {
             Vue.set(this.errorStatus, type, true)
             this.$emit(`error-${type}`)
         },
+        onEnded() {
+            this.$emit(`ended`)
+        },
         play() {
-            // HTML5 video methods
             if (this.$refs.video) {
-                this.$refs.video.play()
+                // HTML5 video method
+                return this.$refs.video.play()
+            }
+        },
+        volume(amount = false) {
+            if (this.$refs.video) {
+                // HTML5 video method
+                if (amount === false) {
+                    this.$refs.video.volume = amount
+                }
+                return this.$refs.video.volume
             }
         },
         pause() {
-            // HTML5 video methods
             if (this.$refs.video) {
+                // HTML5 video method
                 this.$refs.video.pause()
             }
         },
