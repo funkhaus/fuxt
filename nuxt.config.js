@@ -57,11 +57,7 @@ export default {
      ** Load SCSS into each component
      */
     styleResources: {
-        scss: [
-            "~/styles/scss-variables.scss",
-            "~/styles/mixins.scss",
-            "~/styles/easings.scss",
-        ],
+        scss: ["~/styles/scss-variables.scss", "~/styles/mixins.scss"],
     },
 
     /*

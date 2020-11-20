@@ -7,13 +7,14 @@
 :root {
     --color-white: #ffffff;
     --color-black: #000000;
-    --color-loading: var(--color-black);
 
     --unit-100vh: 100vh;
     //--unit-gap: 40px;
 
     --font-primary: sans-serif;
     //--font-secondary: serif;
+
+    --easing-authentic-motion: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 // Breakpoints
