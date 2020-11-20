@@ -31,6 +31,7 @@
                 @loadeddata="onLoaded('video')"
                 @error="onError('video')"
                 @ended="onEnded"
+                @playing="onPlaying"
             />
         </div>
         <figcaption
@@ -279,8 +280,11 @@ export default {
             Vue.set(this.errorStatus, type, true)
             this.$emit(`error-${type}`)
         },
-        onEnded() {
-            this.$emit(`ended`)
+        onEnded($event) {
+            this.$emit(`ended`, $event)
+        },
+        onPlaying($event) {
+            this.$emit(`playing`, $event)
         },
         play() {
             if (this.$refs.video) {

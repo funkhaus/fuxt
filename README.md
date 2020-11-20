@@ -242,6 +242,31 @@ Common shortcodes we've included:
 [svg name="arrow-icon"]
 ```
 
+### <wp-image>
+
+```
+<wp-image ref=“wpImage” :image=“image” @ended=“videoEnded” @playing=“onPlaying"/>
+
+this.$refs.wpImage.play() // Will play the video, returns a Promise if play started or didn’t (low power mode will prevent it for example)
+this.$refs.wpImage.pause() // Will pause the video, no return value
+
+this.$refs.wpImage.volume() // Will return the current volume setting
+this.$refs.wpImage.volume(0.75) // Will set the current volume to 75%, returning the confirmed amount.
+
+```
+
+Note the ended and playing events too. Those include the underlying browser events if you wanted them for something.
+
+This is how you’d use the Play event to handle it not playing (like for an intro video):
+
+```
+try{
+	this.$refs.wpImage.play()
+} catch(e) {
+	// Didn’t play for some reason
+}
+```
+
 ## Swipe Events
 
 To enable swipe event listeners on a given element use the function `initSwipeEvents` located in `utils/tools.js`.
