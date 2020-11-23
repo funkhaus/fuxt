@@ -12,7 +12,7 @@
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
-        <wp-menu location="MAIN_MENU" />
+        <wp-menu name="Main Menu" />
 
         <nuxt
             keep-alive

@@ -74,16 +74,16 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: [
-        "nuxt-graphql-request",
-        "@nuxtjs/style-resources",
-        "@nuxtjs/sitemap",
-    ],
+    modules: ["@nuxtjs/style-resources", "@nuxtjs/sitemap"],
 
     /*
      * Build modules
      */
-    buildModules: ["@nuxtjs/dotenv", "~/modules/sitemap-route-generator"],
+    buildModules: [
+        "@nuxtjs/dotenv",
+        "nuxt-graphql-request",
+        "~/modules/sitemap-route-generator",
+    ],
 
     /*
      ** GraphQL Request options.
