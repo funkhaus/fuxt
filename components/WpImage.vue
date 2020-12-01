@@ -313,6 +313,8 @@ export default {
 
 <style lang="scss">
 .wp-image {
+    margin: 0;
+    
     .sizer {
         position: relative;
     }
