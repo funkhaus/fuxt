@@ -4,10 +4,10 @@ query MenuByName($name: ID!) {
         name
         menuItems(where: { parentDatabaseId: 0 }) {
             nodes {
-                ...LocationMenuItem
+                ...MenuItem
                 childItems {
                     nodes {
-                        ...LocationMenuItem
+                        ...MenuItem
                     }
                 }
             }
@@ -15,7 +15,7 @@ query MenuByName($name: ID!) {
     }
 }
 
-fragment LocationMenuItem on MenuItem {
+fragment MenuItem on MenuItem {
     label
     cssClasses
     target
