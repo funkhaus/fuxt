@@ -184,9 +184,7 @@ export default {
             // Don't allow these paths to show in sitemap.
             // Add anything you want to hide from the sitemap
             const excludedPaths = ["/wp-admin/"]
-
             return routes.filter((route) => {
-                console.log(route)
                 return !excludedPaths.includes(route.url)
             })
         },

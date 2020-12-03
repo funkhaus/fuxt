@@ -189,3 +189,13 @@ export const getCookie = (name) => {
     }
     return null
 }
+
+/*
+ * Add a trailing slash to end of a string always
+ */
+export const trailingSlash = (string = "") => {
+    if (!string) {
+        return ""
+    }
+    return (string += string.endsWith("/") ? "" : "/")
+}
