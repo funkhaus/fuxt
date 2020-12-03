@@ -137,7 +137,7 @@ export default {
             let output = this.image
 
             if (!output) {
-                output = _get(this, "data.featuredImage.sourceUrl", undefined)
+                output = _get(this, "data.featuredImage.node.sourceUrl", undefined)
             }
             if (!output) {
                 output = _get(
