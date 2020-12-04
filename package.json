@@ -21,7 +21,6 @@
         "cheerio": "^1.0.0-rc.3",
         "core-js": "^3.6.5",
         "lodash": "^4.17.20",
-        "node-fetch": "^2.6.1",
         "nuxt": "^2.14.7"
     },
     "devDependencies": {
