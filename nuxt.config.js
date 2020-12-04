@@ -90,7 +90,6 @@ export default {
      ** See: https://github.com/Gomah/nuxt-graphql-request
      */
     graphql: {
-        AST: true,
         endpoint: process.env.GQL_ENDPOINT,
         options: {
             // credentials: "include",
