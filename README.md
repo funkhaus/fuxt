@@ -6,7 +6,7 @@ Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) Wor
 
 We also have some [Shopify components under development here](https://github.com/funkhaus/shophaus). Headless Shopify and WordPress together finally!
 
-Built by [Funkhaus](http://funkhaus.us/).
+Built by [Funkhaus](http://funkhaus.us/). We normally host on [Flywheel](https://share.getf.ly/n02x5z).
 
 PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's provocative](https://www.youtube.com/watch?v=_eRRab36XLI).
 

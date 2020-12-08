@@ -16,12 +16,12 @@ export default function ({ query, enablePreview, redirect, error }) {
             return error({
                 statusCode: 404,
                 message:
-                    "For WordPress preview's to work, you need to publish the post/page first, then re-save it as a draft.",
+                    "For WordPress preview's to work, you first need to save the post/page as a draft.",
             })
             break
 
         case Boolean(query.preview) && Boolean(query.uri):
-            let uri = query.uri
+            //let uri = decodeURI(query.uri)
 
             // Custom Preview routing here if you want
             // switch (query.type) {
@@ -30,7 +30,7 @@ export default function ({ query, enablePreview, redirect, error }) {
             //         break
             // }
 
-            // redirect(`${uri}?preview=true`)
+            //redirect(`${uri}?preview=true`)
             break
     }
 }
