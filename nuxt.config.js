@@ -155,6 +155,20 @@ export default {
                 ],
             })
         },
+        html: {
+            // SEE https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build#htmlminify
+            minify: {
+                collapseBooleanAttributes: true,
+                decodeEntities: true,
+                minifyCSS: false,
+                minifyJS: false,
+                processConditionalComments: true,
+                removeEmptyAttributes: true,
+                removeRedundantAttributes: true,
+                trimCustomFragments: true,
+                useShortDoctype: true,
+            },
+        },
     },
 
     /*
@@ -162,8 +176,8 @@ export default {
      */
     generate: {
         fallback: "404.html",
-        interval: 500,
-        concurrency: 300,
+        interval: 300,
+        concurrency: 500,
     },
 
     /*

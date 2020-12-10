@@ -339,6 +339,7 @@ You are simply deploying a Nuxt project, so any way you can deploy Nuxt will wor
     1.  If the site is going live, then you should connect a real domain.
 1.  If the site is in development, go to "Visitor access" and set password on the site.
 1.  Make sure the "Netlify Deploy" WordPress plugin is installed and configured. For new sites, leave auto-deploy turned off. Once the site is live, enable auto deploys.
+1.  In Netlify dashboard, go to "Deploy Settings > Build & Deploy > Post Processing" and disable "Form detection". This will decrease build time by 30 seconds.
 
 ##### Deploying a Storybook
 
