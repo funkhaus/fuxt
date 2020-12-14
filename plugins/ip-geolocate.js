@@ -38,18 +38,10 @@ export default async ({ store, req, query, isDev }) => {
         endpoint = query.ip
     }
 
-    // If you are in development mode (localhost gives no IP), then pretend we are in USA.
-    if (isDev) {
-        console.log(
-            "As you are in Dev mode, you are hardcoded as in the USA for IP detection"
-        )
-        endpoint = "72.229.28.185"
-    }
-
     // Hit the IP Stack API if no country known yet
     // If we get client side, and still no country, then try again
     // This logic is to protect agaisnt running during static generation build
-    if (!location.detectedCountry && process.target !== "static") {
+    if (isDev || (!location.detectedCountry && process.target !== "static")) {
         // SEE for more options: https://ipstack.com/documentation/#requester
         const res = await fetch(
             `https://api.ipstack.com/${endpoint}?access_key=${process.env.IPSTACK_KEY}&fields=country_code,ip`,
