@@ -1,6 +1,6 @@
 import _get from "lodash/get"
 
-export default async ({ store, req, query }) => {
+export default async ({ store, req, query, isDev }) => {
     let location = {
         ip: "",
         detectedCountry: _get(store, "state.geolocation.detectedCountry", ""),
@@ -38,6 +38,14 @@ export default async ({ store, req, query }) => {
         endpoint = query.ip
     }
 
+    // If you are in development mode (localhost gives no IP), then pretend we are in USA.
+    if (isDev) {
+        console.log(
+            "As you are in Dev mode, you are hardcoded as in the USA for IP detection"
+        )
+        endpoint = "72.229.28.185"
+    }
+
     // Hit the IP Stack API if no country known yet
     // If we get client side, and still no country, then try again
     // This logic is to protect agaisnt running during static generation build
@@ -52,6 +60,7 @@ export default async ({ store, req, query }) => {
                 if (data.error) {
                     console.error("IP Stack error:", data.error.info)
                 }
+
                 return {
                     detectedCountry: data.country_code || "",
                     ip: data.ip || "",

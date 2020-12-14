@@ -75,7 +75,17 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: ["@nuxtjs/style-resources", "@nuxtjs/sitemap"],
+    modules: [
+        "@nuxtjs/style-resources",
+        "@nuxtjs/sitemap",
+        // [
+        //     "nuxt-vuex-localstorage",
+        //     {
+        //         localStorage: ["geolocate"],
+        //         mode: "debug",
+        //     },
+        // ],
+    ],
 
     /*
      * Build modules
