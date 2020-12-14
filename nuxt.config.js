@@ -81,7 +81,7 @@ export default {
         // [
         //     "nuxt-vuex-localstorage",
         //     {
-        //         localStorage: ["geolocate"],
+        //         localStorage: ["geolocation"],
         //         mode: "debug",
         //     },
         // ],
