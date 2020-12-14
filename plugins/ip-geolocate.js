@@ -1,6 +1,14 @@
 import _get from "lodash/get"
 
 export default async ({ store, req, query, isDev }) => {
+    // Abort if no API key set
+    if (!process.env.IPSTACK_KEY) {
+        console.error(
+            "You must set IPSTACK_KEY as an environment variable to use IP detection."
+        )
+        return
+    }
+
     let location = {
         ip: "",
         detectedCountry: _get(store, "state.geolocation.detectedCountry", ""),
