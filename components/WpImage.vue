@@ -144,6 +144,7 @@ export default {
                 { "has-image-error": this.hasError.image },
                 { "has-video-error": this.hasError.video },
                 `is-orientation-${this.orientation}`,
+                `object-fit-${this.objectFit}`,
             ]
         },
         aspectPadding() {
@@ -221,9 +222,7 @@ export default {
             return styles
         },
         mediaStyles() {
-            let styles = {
-                objectFit: this.objectFit,
-            }
+            let styles = {}
             if (
                 this.parsedFocalPoint.x !== "" &&
                 this.parsedFocalPoint.y !== ""
@@ -314,7 +313,7 @@ export default {
 <style lang="scss">
 .wp-image {
     margin: 0;
-    
+
     .sizer {
         position: relative;
     }
@@ -349,10 +348,22 @@ export default {
             position: absolute;
         }
     }
+
+    // Object fit modes
+    .media {
+        .object-fit-cover & {
+            object-fit: cover;
+        }
+        .object-fit-contain & {
+            object-fit: contain;
+        }
+    }
+
     // Loaded state
     &.has-loaded .media {
         opacity: 1;
     }
+
     // Error state (only show the media that is working)
     &.has-error {
         .media {
