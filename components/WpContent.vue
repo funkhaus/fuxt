@@ -79,6 +79,7 @@ export default {
         this.$nextTick(() => {
             this.scripts = this.getScripts()
         })
+        this.$emit("loaded")
     },
     updated() {
         this.$nextTick(() => {
