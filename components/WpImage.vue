@@ -350,13 +350,11 @@ export default {
     }
 
     // Object fit modes
-    .media {
-        .object-fit-cover & {
-            object-fit: cover;
-        }
-        .object-fit-contain & {
-            object-fit: contain;
-        }
+    &.object-fit-cover .media {
+        object-fit: cover;
+    }
+    &.object-fit-contain .media {
+        object-fit: contain;
     }
 
     // Loaded state
