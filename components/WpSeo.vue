@@ -137,7 +137,11 @@ export default {
             let output = this.image
 
             if (!output) {
-                output = _get(this, "data.featuredImage.node.sourceUrl", undefined)
+                output = _get(
+                    this,
+                    "data.featuredImage.node.sourceUrl",
+                    undefined
+                )
             }
             if (!output) {
                 output = _get(
@@ -152,7 +156,9 @@ export default {
         },
     },
     watch: {
-        "$route.path": "$fetch",
+        "$route.path"() {
+            this.$fetch()
+        },
     },
     activated() {
         // This is a cache for Fetch. Will call fetch again if last fetch more than 60 sec ago

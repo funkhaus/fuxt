@@ -166,6 +166,7 @@ export default {
             })
         },
         html: {
+            // These settings make Netlify build times much faster.
             // SEE https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build#htmlminify
             minify: {
                 collapseBooleanAttributes: true,
@@ -186,8 +187,8 @@ export default {
      */
     generate: {
         fallback: "404.html",
-        interval: 300,
-        concurrency: 500,
+        interval: 500,
+        concurrency: 100,
     },
 
     /*

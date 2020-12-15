@@ -16,10 +16,7 @@ export const mutations = {
     SET_GEOLOCATION(state, data) {
         // If a contry code provided, then just set the user defined country
         if (typeof data === "string") {
-            state = {
-                ...state,
-                userCountry: data,
-            }
+            state.userCountry = data
         } else {
             // Else set entire geolocation object
             state.ip = data.ip || state.ip
