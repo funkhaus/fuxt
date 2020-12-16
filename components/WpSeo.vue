@@ -60,7 +60,7 @@ export default {
             this.parsedUri == "/wp-admin/"
         ) {
             this.data = {}
-            return
+            return this.data
         }
 
         // Get data from API
