@@ -40,7 +40,7 @@ export default {
         // Don't fetch if WordPress menu items provided, use them.
         if (this.items.length) {
             this.menuItems = this.items
-            return
+            return this.menuItems
         }
 
         try {
