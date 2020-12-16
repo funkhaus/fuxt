@@ -200,7 +200,7 @@ export default {
             const $ = cheerio.load(html)
 
             // Use intrinsic-ratio scaling of iFrame
-            $(this.fitVidsPlayers)
+            $(this.fitVidsPlayers.join(", "))
                 .not(".ignore-fit-vids")
                 .each(function () {
                     const height = $(this).attr("height") || 9
