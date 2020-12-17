@@ -101,7 +101,7 @@ If you want to export Storybook (to deploy it to a static host): `npm run storyb
 
 This theme uses [webfontloader](https://github.com/typekit/webfontloader) for font loading.
 
-1.  If you are using a `@font-face` font, then you will need to put the font files in `/static/fonts`
+1.  If you are using a `@font-face` font, then you will need to put the font files in `/assets/fonts/`
 1.  Then define the CSS in `/styles/fonts.css`
 1.  Set the names of the font families in `/web-font-loader.js`
 1.  Uncomment the `fonts.css` CSS line in `nuxt.config.js`
@@ -111,11 +111,10 @@ For Typekit or google fonts, please see the [webfontloader](https://github.com/t
 
 ## Menus
 
-Fuxt has built in SSR friendly menus. To use them, you first need to define menu locations in WordPress. This can be done in the `/functions/theme-config.php` file in the `fuxt-backend` WordPress theme. We have some boilerplate code in the `register_custom_nav_menus()` function.
+Fuxt has built in SSR friendly WordPress menus.
 
-1. Define menu locations in your WordPress theme in `functions/theme-config.php`.
-1. Assign menus to those menu-locations in the WordPress dashboard.
-1. Use the `<wp-menu>` component like so: `<wp-menu location="Location Name"/>`.
+1. Setup your menu in "Appearance > Menus" in WordPress
+1. Use the `<wp-menu>` component like so: `<wp-menu name="Menu Name"/>`.
 
 ## SVGs
 

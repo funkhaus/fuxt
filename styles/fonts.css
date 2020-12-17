@@ -1,17 +1,17 @@
 /*
     Load fonts in this file using @font-face.
 
-    Fonts should go in: /static/fonts/
+    Fonts should go in: ~/assets/fonts/
 
     Example:
 
         @font-face {
            font-family: 'My Font';
-           src: url('~/static/fonts/MyFont.eot');
-           src: url('~/static/fonts/MyFont.eot?#iefix') format('embedded-opentype'),
-                 url('~/static/fonts/MyFont.woff2') format('woff2'),
-                 url('~/static/fonts/MyFont.woff') format('woff'),
-                 url('~/static/fonts/MyFont.ttf') format('truetype');
+           src: url('~/assets/fonts/MyFont.eot');
+           src: url('~/assets/fonts/MyFont.eot?#iefix') format('embedded-opentype'),
+                 url('~/assets/fonts/MyFont.woff2') format('woff2'),
+                 url('~/assets/fonts/MyFont.woff') format('woff'),
+                 url('~/assets/fonts/MyFont.ttf') format('truetype');
             font-style: normal;
             font-weight: 400;
         }
