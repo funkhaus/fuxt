@@ -7,11 +7,11 @@
 
         @font-face {
            font-family: 'My Font';
-           src: url('/fonts/MyFont.eot');
-           src: url('/fonts/MyFont.eot?#iefix') format('embedded-opentype'),
-                 url('/fonts/MyFont.woff2') format('woff2'),
-                 url('/fonts/MyFont.woff') format('woff'),
-                 url('/fonts/MyFont.ttf') format('truetype');
+           src: url('~/fonts/MyFont.eot');
+           src: url('~/fonts/MyFont.eot?#iefix') format('embedded-opentype'),
+                 url('~/fonts/MyFont.woff2') format('woff2'),
+                 url('~/fonts/MyFont.woff') format('woff'),
+                 url('~/fonts/MyFont.ttf') format('truetype');
             font-style: normal;
             font-weight: 400;
         }
