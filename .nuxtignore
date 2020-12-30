@@ -2,5 +2,5 @@
 **/*.stories.js
 
 # Static files
-static/db.json
+stories/db.json
 db.json

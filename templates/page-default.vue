@@ -1,5 +1,8 @@
 <template>
-    <section :class="classes">
+    <section
+        v-if="page"
+        :class="classes"
+    >
         <wp-image
             class="image"
             :image="parsedPage.featuredImage"
