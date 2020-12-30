@@ -2,5 +2,5 @@
 **/*.stories.js
 
 # Static files
-stories/db.json
-db.json
+stories/mock-api.json
+mock-api.json
