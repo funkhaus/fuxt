@@ -1,5 +1,5 @@
 import WpImage from "~/components/WpImage"
-import API from "~/stories/mock-api.json"
+import { data as API } from "~/stories/mock-api.json"
 
 export default {
     title: "WpComponents / WpImage",
