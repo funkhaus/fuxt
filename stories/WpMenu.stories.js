@@ -9,7 +9,7 @@ export const Default = () => ({
     components: { WpMenu },
     data() {
         return {
-            items: API.menuItems.nodes,
+            items: API.menu.menuItems.nodes,
         }
     },
     template: `<wp-menu :items="items" />`,
@@ -17,5 +17,5 @@ export const Default = () => ({
 
 export const Fetch = () => ({
     components: { WpMenu },
-    template: `<wp-menu location="MAIN_MENU" />`,
+    template: `<wp-menu name="Main Menu" />`,
 })

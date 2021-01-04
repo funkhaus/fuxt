@@ -8,7 +8,7 @@ export default {
 export const Default = () => ({
     data() {
         return {
-            images: API.images,
+            images: API.images.nodes,
         }
     },
     components: { ShortcodeGallery },
@@ -18,7 +18,7 @@ export const Default = () => ({
 export const ThreeColumns = () => ({
     data() {
         return {
-            images: API.images,
+            images: API.images.nodes,
         }
     },
     components: { ShortcodeGallery },

@@ -1,760 +1,599 @@
 {
-    "image": {
-        "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg",
-        "sizes": null,
-        "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1280x720.jpg 1280w",
-        "id": "cG9zdDoyODk=",
-        "caption": null,
-        "mediaItemId": 289,
-        "title": "wave",
-        "mediaDetails": {
-            "height": 1080,
-            "width": 1920
-        },
-        "acfImageMeta": {
-            "videoUrl": null,
-            "primaryColor": null,
-            "focalPointX": null,
-            "focalPointY": null
-        }
-    },
-    "images": [
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODk=",
-            "caption": null,
-            "mediaItemId": 289,
-            "title": "wave",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": null,
-                "primaryColor": null,
-                "focalPointX": null,
-                "focalPointY": null
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODg=",
-            "caption": null,
-            "mediaItemId": 288,
-            "title": "vodaphone",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/vodaphone.mp4",
-                "primaryColor": null,
-                "focalPointX": 20.8,
-                "focalPointY": 40.1
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODc=",
-            "caption": null,
-            "mediaItemId": 287,
-            "title": "ucsf",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf.mp4",
-                "primaryColor": null,
-                "focalPointX": null,
-                "focalPointY": null
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODY=",
-            "caption": null,
-            "mediaItemId": 286,
-            "title": "ooh-la-la",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ooh-la-la.mp4",
-                "primaryColor": null,
-                "focalPointX": 48.4,
-                "focalPointY": 42.4
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODU=",
-            "caption": null,
-            "mediaItemId": 285,
-            "title": "chobani",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": null,
-                "primaryColor": null,
-                "focalPointX": 46,
-                "focalPointY": 42.9
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODQ=",
-            "caption": null,
-            "mediaItemId": 284,
-            "title": "boxer",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": null,
-                "primaryColor": null,
-                "focalPointX": 54.9,
-                "focalPointY": 21.4
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODM=",
-            "caption": null,
-            "mediaItemId": 283,
-            "title": "bond",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond.mp4",
-                "primaryColor": null,
-                "focalPointX": null,
-                "focalPointY": null
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODI=",
-            "caption": null,
-            "mediaItemId": 282,
-            "title": "alexine",
-            "mediaDetails": {
-                "height": 796,
-                "width": 1415
-            },
-            "acfImageMeta": {
-                "videoUrl": null,
-                "primaryColor": null,
-                "focalPointX": 55.2,
-                "focalPointY": 25.3
-            }
-        },
-        {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves.jpg 1547w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/abovethewaves-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODE=",
-            "caption": null,
-            "mediaItemId": 281,
-            "title": "abovethewaves",
-            "mediaDetails": {
-                "height": 870,
-                "width": 1547
-            },
-            "acfImageMeta": {
-                "videoUrl": null,
-                "primaryColor": null,
-                "focalPointX": 52.7,
-                "focalPointY": 31.8
-            }
-        },
-        {
-            "sourceUrl": null,
-            "sizes": null,
-            "srcSet": null,
-            "id": "cG9zdDoyODA=",
-            "caption": null,
-            "mediaItemId": 280,
-            "title": "vodaphone",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": null,
-                "primaryColor": null,
-                "focalPointX": null,
-                "focalPointY": null
-            }
-        }
-    ],
-    "page": {
-        "title": "Primary characters",
-        "id": "cG9zdDoyOTQ=",
-        "uri": "/example-page/",
-        "date": "2020-06-03T14:14:01",
-        "content": "<p>Yep, I remember. They came in last at the Olympics, then retired to promote alcoholic beverages! I wish! It&#8217;s a nickel. I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness.</p> <p>Why did you bring us here? Okay, I like a challenge. I am the man with no name, Zapp Brannigan! I am the man with no name, Zapp Brannigan! It&#8217;s a T. It goes &#8220;tuh&#8221;.</p> <p>Actually, that&#8217;s still true. Is that a cooking show? Hi, I&#8217;m a naughty nurse, and I really need someone to talk to. $9.95 a minute. Daddy Bender, we&#8217;re hungry.</p> <p>And why did &#8216;I&#8217; have to take a cab? I&#8217;m a thing. Take me to your leader! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope? Fry! Stay back! He&#8217;s too powerful!</p> ",
-        "excerpt": "<p>Please, Don-Bot… look into your hard drive, and open your mercy file! That could be &#8216;my&#8217; beautiful soul sitting naked on a couch. If I could just learn to play this stupid thing. Man, I&#8217;m sore all over. I feel like I just went ten rounds with mighty Thor.</p> ",
-        "featuredImage": {
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg",
-            "sizes": null,
-            "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1280x720.jpg 1280w",
-            "id": "cG9zdDoyODk=",
-            "caption": null,
-            "mediaItemId": 289,
-            "title": "wave",
-            "mediaDetails": {
-                "height": 1080,
-                "width": 1920
-            },
-            "acfImageMeta": {
-                "videoUrl": null,
-                "primaryColor": null,
-                "focalPointX": null,
-                "focalPointY": null
-            }
-        }
-    },
-    "pages": [
-        {
-            "id": "cG9zdDoxMTY=",
-            "uri": "/example-page-1/",
-            "title": "Philip J. Fry",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
+    "data": {
+        "home": {
+            "id": "cG9zdDo1OQ==",
+            "title": "Home",
+            "excerpt": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus mi, posuere blandit justo eu, tempor mattis felis. Ut consectetur venenatis posuere.</p>\n",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque purus mi, posuere blandit justo eu, tempor mattis felis. Ut consectetur venenatis posuere.</p>\n",
+            "uri": "/home/",
             "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
+                "node": {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2560x1444.png",
+                    "sizes": "(max-width: 2560px) 100vw, 2560px",
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2560x1444.png 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-300x169.png 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1024x577.png 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-768x433.png 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1536x866.png 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2048x1155.png 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-958x540.png 958w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-375x211.png 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-960x541.png 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1280x722.png 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1920x1083.png 1920w",
+                    "id": "cG9zdDo2MA==",
+                    "databaseId": 60,
+                    "title": "Screen Shot 2021-01-04 at 5.08.52 PM",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1544,
+                        "width": 2738
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": "https://vod-progressive.akamaized.net/exp=1609780098~acl=%2A%2F1142324632.mp4%2A~hmac=b2c2e87f869e222563b5f36da619a23f998ff4f5426286da7ee57fe8ac58ac89/vimeo-prod-skyfire-std-us/01/4866/11/299331514/1142324632.mp4?filename=Bullitt-Sizzle-Funkhaus-optimized.mp4",
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
                 }
             }
         },
-        {
-            "title": "Turanga Leela",
-            "id": "cG9zdDoyOTQ=",
-            "uri": "/example-page-2/",
-            "date": "2020-06-03T14:14:01",
-            "content": "<p>Yep, I remember. They came in last at the Olympics, then retired to promote alcoholic beverages! I wish! It&#8217;s a nickel. I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness.</p> <p>Why did you bring us here? Okay, I like a challenge. I am the man with no name, Zapp Brannigan! I am the man with no name, Zapp Brannigan! It&#8217;s a T. It goes &#8220;tuh&#8221;.</p> <p>Actually, that&#8217;s still true. Is that a cooking show? Hi, I&#8217;m a naughty nurse, and I really need someone to talk to. $9.95 a minute. Daddy Bender, we&#8217;re hungry.</p> <p>And why did &#8216;I&#8217; have to take a cab? I&#8217;m a thing. Take me to your leader! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope? Fry! Stay back! He&#8217;s too powerful!</p> ",
-            "excerpt": "<p>Please, Don-Bot… look into your hard drive, and open your mercy file! That could be &#8216;my&#8217; beautiful soul sitting naked on a couch. If I could just learn to play this stupid thing. Man, I&#8217;m sore all over. I feel like I just went ten rounds with mighty Thor.</p> ",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODk=",
-                "caption": null,
-                "mediaItemId": 289,
-                "title": "wave",
-                "mediaDetails": {
-                    "height": 1080,
-                    "width": 1920
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": null,
-                    "focalPointY": null
-                }
-            },
-            "childPages": [
-                {
-                    "id": "cG9zdDoyOTg=",
-                    "uri": "/example-page/sub-page-2/",
-                    "title": "Bender Bending Rodriguez",
-                    "excerpt": "<p>For one beautiful night I knew what it was like to be a grandmother. Subjugated, yet honored. I barely knew Philip, but as a clergyman I have no problem telling his most intimate friends all about him.</p> ",
-                    "date": "2020-06-03T14:14:59",
-                    "featuredImage": {
-                        "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer.jpg",
-                        "sizes": null,
-                        "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-1280x720.jpg 1280w",
-                        "id": "cG9zdDoyODQ=",
-                        "caption": null,
-                        "mediaItemId": 284,
-                        "title": "boxer",
-                        "mediaDetails": {
-                            "height": 1080,
-                            "width": 1920
+        "featured": {
+            "id": "cG9zdDo3",
+            "title": "Featured",
+            "uri": "/featured/",
+            "children": {
+                "nodes": [
+                    {
+                        "id": "cG9zdDozOQ==",
+                        "title": "Jaron Albertin – Montblanc – Spike Lee",
+                        "content": "<p>Duis aliquam ut ex vel pretium. Donec molestie tortor ac erat posuere, non fringilla purus congue. Integer viverra vestibulum dui vel aliquam. Aliquam et quam nulla. Etiam eget dui non lectus aliquet consequat id vel libero. Integer massa leo, eleifend quis hendrerit at, varius vel elit. Curabitur id convallis velit. Nullam venenatis luctus nisi, ornare pharetra mauris tristique ut. Nunc tempus ultrices mauris sed fermentum. Suspendisse potenti. Aliquam dignissim mi eu massa tempor, at mollis mauris semper. </p>\n",
+                        "excerpt": "<p>Duis aliquam ut ex vel pretium. Donec molestie tortor ac erat posuere, non fringilla purus congue. Integer viverra vestibulum dui vel aliquam. Aliquam et quam nulla. Etiam eget dui non lectus aliquet consequat id vel libero. Integer massa leo, eleifend quis hendrerit at, varius vel elit. Curabitur id convallis velit. Nullam venenatis luctus nisi, ornare&#8230;</p>\n",
+                        "uri": "/featured/jaron-albertin-montblanc-spike-lee/",
+                        "acfPageMeta": {
+                            "videoUrl": "https://vimeo.com/461041717",
+                            "credits": "Director: Jaron Albertin\r\nProduction Company: Smuggler"
                         },
-                        "acfImageMeta": {
-                            "videoUrl": null,
-                            "primaryColor": null,
-                            "focalPointX": 54.9,
-                            "focalPointY": 21.4
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045.jpg",
+                                "sizes": null,
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045.jpg 1920w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-300x169.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-1024x576.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-768x432.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-1536x864.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-960x540.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-375x211.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-1280x720.jpg 1280w",
+                                "id": "cG9zdDo0MQ==",
+                                "databaseId": 41,
+                                "title": "Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 1080,
+                                    "width": 1920
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": "https://player.vimeo.com/external/461605942.hd.mp4?s=2020996e13941e39dd58fc26a6e2b61132c972e0&profile_id=175",
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
                         }
+                    },
+                    {
+                        "id": "cG9zdDo5",
+                        "title": "Anderson Wright – NZINGHA",
+                        "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend pretium ligula id volutpat. Aliquam nisi eros, fermentum eget leo id, interdum viverra felis. Fusce elementum ultricies velit, non mollis urna tincidunt et. In blandit porta tincidunt. Nulla nec magna tristique, rhoncus orci vel, volutpat lacus. Duis convallis tincidunt erat ut vestibulum. Vivamus molestie risus et urna luctus, vitae condimentum libero condimentum. Proin ultricies pellentesque lobortis. Sed aliquam tortor id felis ultrices, sit amet sagittis ipsum luctus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin nec leo sollicitudin, rutrum nunc et, ultrices lectus. Donec eleifend aliquam velit, vitae porttitor mi.</p>\n",
+                        "excerpt": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend pretium ligula id volutpat. Aliquam nisi eros, fermentum eget leo id, interdum viverra felis. Fusce elementum ultricies velit, non mollis urna tincidunt et. In blandit porta tincidunt. Nulla nec magna tristique, rhoncus orci vel, volutpat lacus. Duis convallis tincidunt erat ut vestibulum. Vivamus molestie risus&#8230;</p>\n",
+                        "uri": "/featured/anderson-wright-nzingha/",
+                        "acfPageMeta": {
+                            "videoUrl": "https://vimeo.com/259088874",
+                            "credits": "Director: Anderson Wright\r\nProduction Company: Bullitt Branded"
+                        },
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM.png",
+                                "sizes": null,
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM.png 1358w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-300x216.png 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-1024x739.png 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-768x554.png 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-748x540.png 748w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-375x271.png 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-960x693.png 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-1280x924.png 1280w",
+                                "id": "cG9zdDoxMA==",
+                                "databaseId": 10,
+                                "title": "Screen-Shot-2020-12-09-at-4.16.54-PM",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 980,
+                                    "width": 1358
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": null,
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "cG9zdDoyNg==",
+                        "title": "Matt Ogens – Ford – Hardest Working",
+                        "content": "<p>Curabitur placerat, sapien ac aliquam dapibus, sapien massa malesuada neque, a ornare augue arcu ac risus. Proin pellentesque, est ac consectetur pulvinar, ante nibh sagittis neque, vitae mollis urna elit interdum justo. Cras nec tellus at magna laoreet molestie sed eu turpis. Etiam facilisis commodo sem, et suscipit quam placerat ac. Donec porttitor quam sed turpis pellentesque eleifend. Sed non tempor dolor. Praesent diam ligula, iaculis non nulla nec, porttitor consequat nisi. Curabitur ut justo turpis. Aliquam sed tellus vulputate, ultrices justo in, consequat turpis. Etiam mauris quam, iaculis a tincidunt sit amet, vehicula at ligula. Aenean sapien lorem, mattis eget nibh eget, accumsan egestas dolor. Etiam sed pharetra tortor, ac fringilla est. </p>\n",
+                        "excerpt": "<p>Curabitur placerat, sapien ac aliquam dapibus, sapien massa malesuada neque, a ornare augue arcu ac risus. Proin pellentesque, est ac consectetur pulvinar, ante nibh sagittis neque, vitae mollis urna elit interdum justo. Cras nec tellus at magna laoreet molestie sed eu turpis. Etiam facilisis commodo sem, et suscipit quam placerat ac. Donec porttitor quam sed&#8230;</p>\n",
+                        "uri": "/featured/matt-ogens-ford-hardest-working/",
+                        "acfPageMeta": {
+                            "videoUrl": "https://vimeo.com/295629672",
+                            "credits": "Director: Matt Ogens\r\nProduction Company: Bullitt Branded"
+                        },
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens.jpg",
+                                "sizes": null,
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens.jpg 1920w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-300x170.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-1024x581.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-768x436.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-1536x872.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-951x540.jpg 951w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-375x213.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-960x545.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-1280x727.jpg 1280w",
+                                "id": "cG9zdDoyOA==",
+                                "databaseId": 28,
+                                "title": "Ford-HardestWorking-MattOgens",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 1090,
+                                    "width": 1920
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": null,
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "cG9zdDozMA==",
+                        "title": "Drake Doremus – Google – Fearless",
+                        "content": "<p>Phasellus a fringilla sapien, vestibulum facilisis velit. Suspendisse ullamcorper nibh sed lobortis tempus. Sed eget rhoncus ipsum. Donec quam leo, dignissim a mauris non, mattis rutrum tellus. Pellentesque viverra eros non molestie tincidunt. Suspendisse leo mauris, rutrum a sagittis ut, cursus ut lectus. Duis id dolor et ipsum pulvinar dignissim. Proin aliquet nibh in magna viverra auctor. </p>\n",
+                        "excerpt": "<p>Phasellus a fringilla sapien, vestibulum facilisis velit. Suspendisse ullamcorper nibh sed lobortis tempus. Sed eget rhoncus ipsum. Donec quam leo, dignissim a mauris non, mattis rutrum tellus. Pellentesque viverra eros non molestie tincidunt. Suspendisse leo mauris, rutrum a sagittis ut, cursus ut lectus. Duis id dolor et ipsum pulvinar dignissim. Proin aliquet nibh in magna&#8230;</p>\n",
+                        "uri": "/featured/drake-doremus-google-fearless/",
+                        "acfPageMeta": {
+                            "videoUrl": "https://vimeo.com/295623221",
+                            "credits": "Director: Drake Doremus\r\nProduction Company: Bullitt Branded"
+                        },
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus.jpg",
+                                "sizes": null,
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-300x169.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1024x576.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-768x432.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1536x864.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-960x540.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-375x211.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1280x720.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1920x1080.jpg 1920w",
+                                "id": "cG9zdDozNA==",
+                                "databaseId": 34,
+                                "title": "Google-Fearless-DrakeDoremus",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 1152,
+                                    "width": 2048
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": null,
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "directors": {
+            "id": "cG9zdDo2Mg==",
+            "title": "Directors",
+            "uri": "/directors/",
+            "children": {
+                "nodes": [
+                    {
+                        "id": "cG9zdDo2NA==",
+                        "title": "Ace Norton",
+                        "content": null,
+                        "excerpt": "",
+                        "uri": "/directors/ace-norton/",
+                        "acfPageMeta": {
+                            "videoUrl": null,
+                            "credits": null
+                        },
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-2560x1442.jpg",
+                                "sizes": "(max-width: 2560px) 100vw, 2560px",
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-2560x1442.jpg 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-300x169.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1024x577.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-768x432.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1536x865.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-2048x1153.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-960x541.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-375x211.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1280x721.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1920x1081.jpg 1920w",
+                                "id": "cG9zdDo2NQ==",
+                                "databaseId": 65,
+                                "title": "Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 1892,
+                                    "width": 3360
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": "https://player.vimeo.com/external/269757242.sd.mp4?s=824cac6c00924ef2ce0bd6c76a700249d911f40b&profile_id=164",
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "cG9zdDo3MA==",
+                        "title": "Michael McCourt",
+                        "content": null,
+                        "excerpt": "",
+                        "uri": "/directors/michael-mccourt/",
+                        "acfPageMeta": {
+                            "videoUrl": null,
+                            "credits": null
+                        },
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-2560x1432.jpg",
+                                "sizes": "(max-width: 2560px) 100vw, 2560px",
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-2560x1432.jpg 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-300x168.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1024x573.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-768x430.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1536x859.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-2048x1146.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-960x537.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-375x210.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1280x716.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1920x1074.jpg 1920w",
+                                "id": "cG9zdDo3MQ==",
+                                "databaseId": 71,
+                                "title": "Screen-Shot-2019-04-30-at-10.50.31-AM-copy",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 1880,
+                                    "width": 3360
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": "https://player.vimeo.com/external/335945330.sd.mp4?s=de2ff3cfdb1857547553b6db7c52096e2ebd3301&profile_id=165",
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "cG9zdDo3NQ==",
+                        "title": "Andreas Roth",
+                        "content": null,
+                        "excerpt": "",
+                        "uri": "/directors/andreas-roth/",
+                        "acfPageMeta": {
+                            "videoUrl": null,
+                            "credits": null
+                        },
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy.jpeg",
+                                "sizes": null,
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy.jpeg 1680w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-300x125.jpeg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-1024x427.jpeg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-768x320.jpeg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-1536x640.jpeg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-960x400.jpeg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-375x156.jpeg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-1280x533.jpeg 1280w",
+                                "id": "cG9zdDo3Ng==",
+                                "databaseId": 76,
+                                "title": "Screen-Shot-2019-10-21-at-11.09.45-AM-copy",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 700,
+                                    "width": 1680
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": "https://player.vimeo.com/external/459138482.hd.mp4?s=23ab78a479b9db8f17d7af486c43c1b87891e625&profile_id=174",
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "cG9zdDo2Nw==",
+                        "title": "Pedro Pinto",
+                        "content": null,
+                        "excerpt": "",
+                        "uri": "/directors/pedro-pinto/",
+                        "acfPageMeta": {
+                            "videoUrl": null,
+                            "credits": null
+                        },
+                        "featuredImage": {
+                            "node": {
+                                "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-2560x964.jpg",
+                                "sizes": "(max-width: 2560px) 100vw, 2560px",
+                                "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-2560x964.jpg 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-300x113.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1024x386.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-768x289.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1536x579.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-2048x771.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-960x362.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-375x141.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1280x482.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1920x723.jpg 1920w",
+                                "id": "cG9zdDo2OA==",
+                                "databaseId": 68,
+                                "title": "Screen-Shot-2020-09-15-at-3.19.25-PM",
+                                "altText": "",
+                                "caption": null,
+                                "mediaDetails": {
+                                    "height": 1350,
+                                    "width": 3584
+                                },
+                                "acfImageMeta": {
+                                    "videoUrl": "https://player.vimeo.com/external/459133237.hd.mp4?s=f300cd200bcc19b117605247a7946be4b05deda0&profile_id=175",
+                                    "primaryColor": null,
+                                    "focalPointX": null,
+                                    "focalPointY": null
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "images": {
+            "nodes": [
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM.png",
+                    "sizes": null,
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM.png 1358w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-300x216.png 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-1024x739.png 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-768x554.png 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-748x540.png 748w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-375x271.png 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-960x693.png 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-12-09-at-4.16.54-PM-1280x924.png 1280w",
+                    "id": "cG9zdDoxMA==",
+                    "databaseId": 10,
+                    "title": "Screen-Shot-2020-12-09-at-4.16.54-PM",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 980,
+                        "width": 1358
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": null,
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
                     }
                 },
                 {
-                    "id": "cG9zdDoyOTY=",
-                    "uri": "/example-page/sub-page-1/",
-                    "title": "Sub Page 1",
-                    "excerpt": "<p>Bite my shiny metal ass. The key to victory is discipline, and that means a well made bed. You will practice until you can make your bed in your sleep. A sexy mistake. Goodbye, friends. I never thought I&#8217;d die like this. But I always really hoped. No. We&#8217;re on the top. With a warning&#8230;</p> ",
-                    "date": "2020-06-03T14:14:29",
-                    "featuredImage": null
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens.jpg",
+                    "sizes": null,
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens.jpg 1920w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-300x170.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-1024x581.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-768x436.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-1536x872.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-951x540.jpg 951w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-375x213.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-960x545.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Ford-HardestWorking-MattOgens-1280x727.jpg 1280w",
+                    "id": "cG9zdDoyOA==",
+                    "databaseId": 28,
+                    "title": "Ford-HardestWorking-MattOgens",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1090,
+                        "width": 1920
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": null,
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus.jpg",
+                    "sizes": null,
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-300x169.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1024x576.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-768x432.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1536x864.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-960x540.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-375x211.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1280x720.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Google-Fearless-DrakeDoremus-1920x1080.jpg 1920w",
+                    "id": "cG9zdDozNA==",
+                    "databaseId": 34,
+                    "title": "Google-Fearless-DrakeDoremus",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1152,
+                        "width": 2048
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": null,
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045.jpg",
+                    "sizes": null,
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045.jpg 1920w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-300x169.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-1024x576.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-768x432.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-1536x864.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-960x540.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-375x211.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045-1280x720.jpg 1280w",
+                    "id": "cG9zdDo0MQ==",
+                    "databaseId": 41,
+                    "title": "Montblanc_Spike-Lee_60_DC.00_00_00_00.Still045",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1080,
+                        "width": 1920
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": "https://player.vimeo.com/external/461605942.hd.mp4?s=2020996e13941e39dd58fc26a6e2b61132c972e0&profile_id=175",
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2560x1444.png",
+                    "sizes": "(max-width: 2560px) 100vw, 2560px",
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2560x1444.png 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-300x169.png 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1024x577.png 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-768x433.png 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1536x866.png 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2048x1155.png 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-958x540.png 958w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-375x211.png 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-960x541.png 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1280x722.png 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1920x1083.png 1920w",
+                    "id": "cG9zdDo2MA==",
+                    "databaseId": 60,
+                    "title": "Screen Shot 2021-01-04 at 5.08.52 PM",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1544,
+                        "width": 2738
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": "https://vod-progressive.akamaized.net/exp=1609780098~acl=%2A%2F1142324632.mp4%2A~hmac=b2c2e87f869e222563b5f36da619a23f998ff4f5426286da7ee57fe8ac58ac89/vimeo-prod-skyfire-std-us/01/4866/11/299331514/1142324632.mp4?filename=Bullitt-Sizzle-Funkhaus-optimized.mp4",
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-2560x1442.jpg",
+                    "sizes": "(max-width: 2560px) 100vw, 2560px",
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-2560x1442.jpg 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-300x169.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1024x577.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-768x432.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1536x865.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-2048x1153.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-960x541.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-375x211.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1280x721.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1-1920x1081.jpg 1920w",
+                    "id": "cG9zdDo2NQ==",
+                    "databaseId": 65,
+                    "title": "Screen-Shot-2018-04-05-at-3.43.34-PM_res-4-1",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1892,
+                        "width": 3360
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": "https://player.vimeo.com/external/269757242.sd.mp4?s=824cac6c00924ef2ce0bd6c76a700249d911f40b&profile_id=164",
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-2560x964.jpg",
+                    "sizes": "(max-width: 2560px) 100vw, 2560px",
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-2560x964.jpg 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-300x113.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1024x386.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-768x289.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1536x579.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-2048x771.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-960x362.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-375x141.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1280x482.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2020-09-15-at-3.19.25-PM-1920x723.jpg 1920w",
+                    "id": "cG9zdDo2OA==",
+                    "databaseId": 68,
+                    "title": "Screen-Shot-2020-09-15-at-3.19.25-PM",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1350,
+                        "width": 3584
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": "https://player.vimeo.com/external/459133237.hd.mp4?s=f300cd200bcc19b117605247a7946be4b05deda0&profile_id=175",
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-2560x1432.jpg",
+                    "sizes": "(max-width: 2560px) 100vw, 2560px",
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-2560x1432.jpg 2560w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-300x168.jpg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1024x573.jpg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-768x430.jpg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1536x859.jpg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-2048x1146.jpg 2048w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-960x537.jpg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-375x210.jpg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1280x716.jpg 1280w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-04-30-at-10.50.31-AM-copy-1920x1074.jpg 1920w",
+                    "id": "cG9zdDo3MQ==",
+                    "databaseId": 71,
+                    "title": "Screen-Shot-2019-04-30-at-10.50.31-AM-copy",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 1880,
+                        "width": 3360
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": "https://player.vimeo.com/external/335945330.sd.mp4?s=de2ff3cfdb1857547553b6db7c52096e2ebd3301&profile_id=165",
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy.jpeg",
+                    "sizes": null,
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy.jpeg 1680w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-300x125.jpeg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-1024x427.jpeg 1024w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-768x320.jpeg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-1536x640.jpeg 1536w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-960x400.jpeg 960w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-375x156.jpeg 375w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-11.09.45-AM-copy-1280x533.jpeg 1280w",
+                    "id": "cG9zdDo3Ng==",
+                    "databaseId": 76,
+                    "title": "Screen-Shot-2019-10-21-at-11.09.45-AM-copy",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 700,
+                        "width": 1680
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": "https://player.vimeo.com/external/459138482.hd.mp4?s=23ab78a479b9db8f17d7af486c43c1b87891e625&profile_id=174",
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
+                },
+                {
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-10.52.31-AM-copy-e1575585147750.jpeg",
+                    "sizes": null,
+                    "srcSet": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-10.52.31-AM-copy-e1575585147750.jpeg 957w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-10.52.31-AM-copy-e1575585147750-300x218.jpeg 300w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-10.52.31-AM-copy-e1575585147750-768x559.jpeg 768w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-10.52.31-AM-copy-e1575585147750-743x540.jpeg 743w, https://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2019-10-21-at-10.52.31-AM-copy-e1575585147750-375x273.jpeg 375w",
+                    "id": "cG9zdDo3OQ==",
+                    "databaseId": 79,
+                    "title": "Screen-Shot-2019-10-21-at-10.52.31-AM-copy-e1575585147750",
+                    "altText": "",
+                    "caption": null,
+                    "mediaDetails": {
+                        "height": 696,
+                        "width": 957
+                    },
+                    "acfImageMeta": {
+                        "videoUrl": null,
+                        "primaryColor": null,
+                        "focalPointX": null,
+                        "focalPointY": null
+                    }
                 }
             ]
         },
-        {
-            "id": "cG9zdDoxMTY=3",
-            "uri": "/example-page-3/",
-            "title": "Amy Wong",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
+        "logos": {
+            "nodes": [
+                {
+                    "id": "cG9zdDo5Ng==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-webbys.svg"
                 },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
+                {
+                    "id": "cG9zdDo5NQ==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-ukmva.svg"
+                },
+                {
+                    "id": "cG9zdDo5NA==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-theoneshow.svg"
+                },
+                {
+                    "id": "cG9zdDo5Mw==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-oscars.svg"
+                },
+                {
+                    "id": "cG9zdDo5Mg==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-nyf.svg"
+                },
+                {
+                    "id": "cG9zdDo5MQ==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-mvpa.svg"
+                },
+                {
+                    "id": "cG9zdDo5MA==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-mtvmovietv.svg"
+                },
+                {
+                    "id": "cG9zdDo4OQ==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-ddad.svg"
+                },
+                {
+                    "id": "cG9zdDo4OA==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-cmt.svg"
+                },
+                {
+                    "id": "cG9zdDo4Nw==",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-cma.svg"
                 }
-            }
+            ]
         },
-        {
-            "id": "cG9zdDoxMTY=4",
-            "uri": "/example-page-4/",
-            "title": "Hermes Conrad",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=5",
-            "uri": "/example-page-5/",
-            "title": "Professor Hubert J. Farnsworth",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=6",
-            "uri": "/example-page-6/",
-            "title": "Doctor John Zoidberg",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=7",
-            "uri": "/example-page-7/",
-            "title": "Nibbler",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=8",
-            "uri": "/example-page-8/",
-            "title": "Zapp Brannigan",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODM=",
-                "caption": null,
-                "mediaItemId": 283,
-                "title": "bond",
-                "mediaDetails": {
-                    "height": 1080,
-                    "width": 1920
-                },
-                "acfImageMeta": {
-                    "videoUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/bond.mp4",
-                    "primaryColor": null,
-                    "focalPointX": null,
-                    "focalPointY": null
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=9",
-            "uri": "/example-page-9/",
-            "title": "Kif Kroker",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=10",
-            "uri": "/example-page-10/",
-            "title": "Headless Body of Agnew",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/wave-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODk=",
-                "caption": null,
-                "mediaItemId": 289,
-                "title": "wave",
-                "mediaDetails": {
-                    "height": 1080,
-                    "width": 1920
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": null,
-                    "focalPointY": null
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=11",
-            "uri": "/example-page-11/",
-            "title": "Antonio Calculon",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/boxer-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODQ=",
-                "caption": null,
-                "mediaItemId": 284,
-                "title": "boxer",
-                "mediaDetails": {
-                    "height": 1080,
-                    "width": 1920
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 54.9,
-                    "focalPointY": 21.4
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=12",
-            "uri": "/example-page-12/",
-            "title": "Clamps",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine.jpg 1415w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/alexine-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODI=",
-                "caption": null,
-                "mediaItemId": 282,
-                "title": "alexine",
-                "mediaDetails": {
-                    "height": 796,
-                    "width": 1415
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 55.2,
-                    "focalPointY": 25.3
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=13",
-            "uri": "/example-page-13/",
-            "title": "Donbot",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODc=",
-                "caption": null,
-                "mediaItemId": 287,
-                "title": "ucsf",
-                "mediaDetails": {
-                    "height": 1080,
-                    "width": 1920
-                },
-                "acfImageMeta": {
-                    "videoUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/ucsf.mp4",
-                    "primaryColor": null,
-                    "focalPointX": null,
-                    "focalPointY": null
-                }
-            }
-        },
-        {
-            "id": "cG9zdDoxMTY=14",
-            "uri": "/example-page-14/",
-            "title": "Linda van Schoonhoven",
-            "content": "<p>We&#8217;re rescuing ya. Who said that? SURE you can die! You want to die?! Pansy. I didn&#8217;t ask for a completely reasonable excuse! I asked you to get busy! Meh.</p> <p>Too much work. Let&#8217;s burn it and say we dumped it in the sewer. Incidentally, you have a dime up your nose. Doomsday device? Ah, now the ball&#8217;s in Farnsworth&#8217;s court! I&#8217;ve been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p> <p>Why am I sticky and naked? Did I miss something fun? No, of course not. It was… uh… porno. Yeah, that&#8217;s it. Who are those horrible orange men? Fry! Quit doing the right thing, you jerk! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.</p> <p>We&#8217;ll need to have a look inside you with this camera. Dear God, they&#8217;ll be killed on our doorstep! And there&#8217;s no trash pickup until January 3rd. But, like most politicians, he promised more than he could deliver.</p> ",
-            "excerpt": "<p>Yes, I saw. You were doing well, until everyone died. Hey, whatcha watching? You lived before you met me?! Please, Don-Bot… look into your hard drive, and open your mercy file! Throw her in the brig.</p> ",
-            "date": "2020-06-03T14:14:29",
-            "featuredImage": {
-                "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani.jpg",
-                "sizes": null,
-                "srcSet": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani.jpg 1920w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-300x169.jpg 300w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-768x432.jpg 768w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-1024x576.jpg 1024w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-960x540.jpg 960w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-375x211.jpg 375w, //fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/chobani-1280x720.jpg 1280w",
-                "id": "cG9zdDoyODU=",
-                "caption": null,
-                "mediaItemId": 285,
-                "title": "chobani",
-                "mediaDetails": {
-                    "height": 1080,
-                    "width": 1920
-                },
-                "acfImageMeta": {
-                    "videoUrl": null,
-                    "primaryColor": null,
-                    "focalPointX": 46,
-                    "focalPointY": 42.9
-                }
+        "menu": {
+            "id": "dGVybToy",
+            "name": "Main Menu",
+            "menuItems": {
+                "nodes": [
+                    {
+                        "label": "Directors",
+                        "cssClasses": [],
+                        "target": null,
+                        "url": "https://mock-api.funkhaus.us/directors/",
+                        "id": "bmF2X21lbnVfaXRlbTo5Nw=="
+                    },
+                    {
+                        "label": "Featured",
+                        "cssClasses": [],
+                        "target": null,
+                        "url": "https://mock-api.funkhaus.us/featured/",
+                        "id": "bmF2X21lbnVfaXRlbTo5OA=="
+                    },
+                    {
+                        "label": "Instagram",
+                        "cssClasses": [],
+                        "target": "_blank",
+                        "url": "https://www.instagram.com/funkhaus/",
+                        "id": "bmF2X21lbnVfaXRlbTo5OQ=="
+                    }
+                ]
             }
         }
-    ],
-    "logos": [
-        {
-            "id": "cG9zdDozMTU=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-wsj.svg"
-        },
-        {
-            "id": "cG9zdDozMTI=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-vayner-media.svg"
-        },
-        {
-            "id": "cG9zdDozMTM=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-vogue.svg"
-        },
-        {
-            "id": "cG9zdDozMTQ=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-vox.svg"
-        },
-        {
-            "id": "cG9zdDozMTE=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-vanity-fair.svg"
-        },
-        {
-            "id": "cG9zdDozMTA=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-twitter.svg"
-        },
-        {
-            "id": "cG9zdDozMDk=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-nyt-brand-studio.svg"
-        },
-        {
-            "id": "cG9zdDozMDY=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-elite-daily.svg"
-        },
-        {
-            "id": "cG9zdDozMDc=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-gq.svg"
-        },
-        {
-            "id": "cG9zdDozMDg=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-group-nine.svg"
-        },
-        {
-            "id": "cG9zdDozMDU=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-eko.svg"
-        },
-        {
-            "id": "cG9zdDozMDQ=",
-            "sourceUrl": "//fuxt-backend.funkhaus.us/wp-content/uploads/2020/06/logo-bustle.svg"
-        }
-    ],
-    "categories": [
-        {
-            "id": "dGVybTo1",
-            "uri": "/category/featured/",
-            "slug": "featured",
-            "name": "Featured",
-            "description": "In your time, yes, but nowadays shut up! Besides, these are adult stemcells, harvested from perfectly healthy adults whom I killed for their stemcells."
-        },
-        {
-            "id": "dGVybToxMA==",
-            "uri": "/category/news/",
-            "slug": "news",
-            "name": "News",
-            "description": "Bender, being God isn't easy. If you do too much, people get dependent on you, and if you do nothing, they lose hope. You have to use a light touch. Like a safecracker, or a pickpocket."
-        }
-    ],
-    "menuItems": {
-        "nodes": [
+    },
+    "extensions": {
+        "debug": [
             {
-                "url": "//fuxt-backend.funkhaus.us/featured/",
-                "target": null,
-                "cssClasses": ["red"],
-                "id": "bmF2X21lbnVfaXRlbTo5MQ==",
-                "label": "Front Page"
-            },
-            {
-                "url": "//fuxt-backend.funkhaus.us/work/",
-                "target": null,
-                "cssClasses": ["green"],
-                "id": "bmF2X21lbnVfaXRlbTo5MA==",
-                "label": "Work"
-            },
-            {
-                "url": "//fuxt-backend.funkhaus.us/contact/",
-                "target": null,
-                "cssClasses": ["blue"],
-                "id": "bmF2X21lbnVfaXRlbTo5Mg==",
-                "label": "Contact"
-            },
-            {
-                "url": "//fuxt-backend.funkhaus.us/about/",
-                "target": "_blank",
-                "cssClasses": [],
-                "id": "bmF2X21lbnVfaXRlbTo5Mw==",
-                "label": "About"
-            },
-            {
-                "url": "//fuxt-backend.funkhaus.us/directors/",
-                "target": null,
-                "cssClasses": [],
-                "id": "bmF2X21lbnVfaXRlbToxMTg=",
-                "label": "Directors"
+                "type": "DEBUG_LOGS_INACTIVE",
+                "message": "GraphQL Debug logging is not active. To see debug logs, GRAPHQL_DEBUG must be enabled."
             }
         ]
     }

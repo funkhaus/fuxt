@@ -9,7 +9,7 @@ export const Default = () => ({
     components: { WpImage },
     data() {
         return {
-            image: API.image,
+            image: API.images.nodes[0],
         }
     },
     template: `<wp-image :image="image" />`,
@@ -19,7 +19,7 @@ export const ImageWithVideo = () => ({
     components: { WpImage },
     data() {
         return {
-            image: API.images[1],
+            image: API.images.nodes[1],
         }
     },
     template: `<wp-image :image="image" />`,
@@ -29,7 +29,7 @@ export const ImageFullBleed = () => ({
     components: { WpImage },
     data() {
         return {
-            image: API.images[1],
+            image: API.images.nodes[1],
         }
     },
     template: `<wp-image :image="image" mode="fullbleed"/>`,
