@@ -1,4 +1,5 @@
 import ShortcodeSvg from "~/components/shortcode/Svg"
+import { data as API } from "~/stories/mock-api.json"
 
 export default {
     title: "WpComponents / ShortcodeSvg",
@@ -6,5 +7,10 @@ export default {
 
 export const Default = () => ({
     components: { ShortcodeSvg },
-    template: `<shortcode-svg url="https://mock-api.funkhaus.us/wp-content/uploads/2021/01/award-oscars.svg" />`,
+    data() {
+        return {
+            logos: API.logos.nodes,
+        }
+    },
+    template: `<shortcode-svg :url="logos[0].sourceUrl" />`,
 })
