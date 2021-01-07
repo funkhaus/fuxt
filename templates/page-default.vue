@@ -21,6 +21,8 @@ import _get from "lodash/get"
 
 // Queries
 import HOME from "~/gql/queries/Home"
+
+// This is only included beuase we are using it in wp-content for demo's sake
 import ShortcodeSvg from "~/components/shortcode/Svg"
 
 export default {
