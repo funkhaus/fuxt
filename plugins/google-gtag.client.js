@@ -48,7 +48,7 @@ export default ({ store, app: { router, context } }, inject) => {
 
         // After each router transition, log page event to Google for each code
         router.afterEach(to => {
-            gtag("config", code, { page_path: to.fullPath })
+            gtag("event", "page_view", { page_path: to.fullPath })
         })
     })
 }
