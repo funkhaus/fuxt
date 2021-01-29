@@ -3,7 +3,7 @@
         <slot />
         <wp-image
             v-for="(image, i) in images"
-            :key="i"
+            :key="image.id"
             :image="image"
             :aspect-ratio="56.25"
             class="gallery-block"
