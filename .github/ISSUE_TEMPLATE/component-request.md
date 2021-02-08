@@ -1,7 +1,7 @@
 ---
 name: Component Request
 about: Use this to define a component that a developer can build.
-title: Component Request - {componentName} - {x}hrs
+title: Component Request - {ComponentName} - {x}hrs
 labels: ""
 assignees: ""
 ---
