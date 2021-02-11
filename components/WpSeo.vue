@@ -81,6 +81,9 @@ export default {
             )
         }
     },
+    fetchKey(getCounter) {
+        return `${this.parsedUri}-${getCounter(this.parsedUri)}`
+    },
     data() {
         return {
             data: {},

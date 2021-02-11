@@ -10,6 +10,9 @@ export default {
         const response = await fetch(this.url)
         this.svgData = await response.text()
     },
+    fetchKey(getCounter) {
+        return `${this.url}-${getCounter(this.url)}`
+    },
     data() {
         return {
             svgData: "",

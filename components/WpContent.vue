@@ -276,6 +276,10 @@ export default {
                 width: 100%;
                 max-width: 1800px;
                 margin: 2em auto;
+                display: block;
+            }
+            > *:first-child {
+                margin-top: 0;
             }
         }
     }

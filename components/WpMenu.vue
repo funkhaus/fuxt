@@ -1,5 +1,6 @@
 <template>
     <ul
+        v-if="menuItems.length"
         :key="name"
         :class="classes"
     >
@@ -53,6 +54,9 @@ export default {
         } catch (error) {
             console.error("Fetch error in <wp-menu>: ", error)
         }
+    },
+    fetchKey(getCounter) {
+        return `${this.name}-${getCounter(this.name)}`
     },
     data() {
         return {
