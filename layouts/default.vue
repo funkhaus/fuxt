@@ -28,13 +28,13 @@ import _kebabCase from "lodash/kebabCase"
 import { decodeHtmlEntities } from "~/utils/tools"
 
 // Components
-import siteHamburger from "~/components/global/Hamburger"
-import svgLogoFunkhaus from "~/assets/svg/logo-funkhaus.svg"
+import SiteHamburger from "~/components/global/Hamburger"
+import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus.svg"
 
 export default {
     components: {
-        siteHamburger,
-        svgLogoFunkhaus,
+        SiteHamburger,
+        SvgLogoFunkhaus,
     },
     data() {
         let output = {
