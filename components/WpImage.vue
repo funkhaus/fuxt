@@ -273,10 +273,12 @@ export default {
     methods: {
         onLoaded(type) {
             Vue.set(this.loadedStatus, type, true)
+            this.$emit("loaded", type)
             this.$emit(`loaded-${type}`)
         },
         onError(type) {
             Vue.set(this.errorStatus, type, true)
+            this.$emit("error", type)            
             this.$emit(`error-${type}`)
         },
         onEnded($event) {
