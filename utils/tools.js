@@ -199,3 +199,19 @@ export const trailingSlash = (string = "") => {
     }
     return (string += string.endsWith("/") ? "" : "/")
 }
+
+/*
+ * Split by newline and run each line through emdashed.
+ * Used mostly for credit loops.
+ */
+export const splitAndEmdash = (value = "") => {
+    // Abort if nothing passed in
+    if (!value) {
+        return []
+    }
+
+    let output = emdashed(value)
+
+    // Now split and remove anything empty
+    return output.split(/(?:\r\n|\r|\n)/g).filter((item) => item)
+}
