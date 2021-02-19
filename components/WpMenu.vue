@@ -37,6 +37,12 @@ export default {
             default: () => [],
         },
     },
+    data() {
+        return {
+            menuItems: this.items,
+            hasLoaded: false,
+        }
+    },
     async fetch() {
         // Don't fetch if WordPress menu items provided, use them.
         if (this.items.length) {
@@ -55,15 +61,6 @@ export default {
             console.error("Fetch error in <wp-menu>: ", error)
         }
     },
-    fetchKey(getCounter) {
-        return `${this.name}-${getCounter(this.name)}`
-    },
-    data() {
-        return {
-            menuItems: this.items,
-            hasLoaded: false,
-        }
-    },
     computed: {
         classes() {
             return [
@@ -72,6 +69,14 @@ export default {
                 { "has-loaded": this.hasLoaded },
             ]
         },
+    },
+    watch: {
+        name() {
+            this.$fetch()
+        },
+    },
+    fetchKey(getCounter) {
+        return `${this.name}-${getCounter(this.name)}`
     },
     activated() {
         // This is a cache of fetch. Will call fetch again if last fetch more than 60 sec ago.
