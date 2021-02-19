@@ -197,10 +197,10 @@ export default {
             return {
                 x:
                     _get(this, "focalPoint.x", false) ||
-                    _get(this.image, "acfImageMeta.focalPointX", ""),
+                    _get(this.image, "acfImageMeta.focalPointX", "50"),
                 y:
                     _get(this, "focalPoint.y", false) ||
-                    _get(this.image, "acfImageMeta.focalPointY", ""),
+                    _get(this.image, "acfImageMeta.focalPointY", "50"),
             }
         },
         parsedAlt() {
@@ -223,10 +223,7 @@ export default {
         },
         mediaStyles() {
             let styles = {}
-            if (
-                this.parsedFocalPoint.x !== "" &&
-                this.parsedFocalPoint.y !== ""
-            ) {
+            if (this.parsedFocalPoint.x && this.parsedFocalPoint.y) {
                 styles.objectPosition = `${this.parsedFocalPoint.x}% ${this.parsedFocalPoint.y}%`
             }
             return styles
@@ -278,7 +275,7 @@ export default {
         },
         onError(type) {
             Vue.set(this.errorStatus, type, true)
-            this.$emit("error", type)            
+            this.$emit("error", type)
             this.$emit(`error-${type}`)
         },
         onEnded($event) {
@@ -306,6 +303,12 @@ export default {
             if (this.$refs.video) {
                 // HTML5 video method
                 this.$refs.video.pause()
+            }
+        },
+        seekTo(seconds = 0) {
+            if (this.$refs.video) {
+                // HTML5 video method
+                this.$refs.video.currentTime = seconds
             }
         },
     },
