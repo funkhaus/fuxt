@@ -152,8 +152,11 @@ export default {
             config.resolve.extensions.push(".svg")
             config.module.rules.push({
                 test: /\.svg$/,
-                use: [
-                    "babel-loader",
+                oneOf: [
+                    {
+                        resourceQuery: /url/,
+                        use: ["babel-loader", "vue-svg-loader"],
+                    },
                     {
                         loader: "vue-svg-loader",
                         options: {
