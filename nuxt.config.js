@@ -222,6 +222,9 @@ export default {
      */
     storybook: {
         stories: ["~/stories/**/*.stories.js"],
+        parameters: {
+            layout: "fullscreen",
+        },
         webpackFinal(config, { configDir }) {
             // Allow webpack to auto-load .gql and .svg files
             config.resolve.extensions.push(".gql", ".svg")
