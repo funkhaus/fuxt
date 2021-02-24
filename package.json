@@ -18,12 +18,12 @@
     },
     "dependencies": {
         "cheerio": "^1.0.0-rc.5",
-        "core-js": "^3.8.3",
-        "lodash": "^4.17.20",
-        "nuxt": "^2.15"
+        "core-js": "^3.9.0",
+        "lodash": "^4.17.21",
+        "nuxt": "^2.15.2"
     },
     "devDependencies": {
-        "@babel/plugin-proposal-object-rest-spread": "^7.12.13",
+        "@babel/plugin-proposal-object-rest-spread": "^7.13.0",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/sitemap": "^2.4.0",
         "@nuxtjs/storybook": "^3.3.1",
