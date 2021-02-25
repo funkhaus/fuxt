@@ -227,6 +227,19 @@ export default {
         stories: ["~/stories/**/*.stories.js"],
         parameters: {
             layout: "fullscreen",
+            backgrounds: {
+                default: "default",
+                values: [
+                    {
+                        name: "default",
+                        value: "#ffffff",
+                    },
+                    {
+                        name: "black",
+                        value: "#000000",
+                    },
+                ],
+            },
         },
         webpackFinal(config, { configDir }) {
             // Allow webpack to auto-load .gql and .svg files
