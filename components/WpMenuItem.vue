@@ -58,6 +58,7 @@ export default {
                 },
                 { "has-sub-menu": this.hasSubMenu },
                 { "is-disabled": this.isHash },
+                ...this.item.cssClasses,
             ]
         },
         getChildren() {
