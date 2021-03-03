@@ -154,10 +154,27 @@ export default {
                 test: /\.svg$/,
                 oneOf: [
                     {
-                        resourceQuery: /url/,
-                        use: ["babel-loader", "vue-svg-loader"],
+                        // ?raw on import will give raw SVG with no optimizations.
+                        // Good if you need unaltered SVGs for animations.
+                        resourceQuery: /raw/,
+                        use: [
+                            "babel-loader",
+                            {
+                                loader: "vue-svg-loader",
+                                options: {
+                                    svgo: false,
+                                },
+                            },
+                        ],
                     },
                     {
+                        // ?url on import will give base64 encode SVG.
+                        // Good for use in CSS.
+                        resourceQuery: /url/,
+                        use: ["url-loader"],
+                    },
+                    {
+                        // Default SVG loader.
                         loader: "vue-svg-loader",
                         options: {
                             svgo: {
