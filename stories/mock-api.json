@@ -1,5 +1,57 @@
 {
     "data": {
+        "posts": {
+            "nodes": [
+                {
+                    "id": "cG9zdDox",
+                    "uri": "/news/p/hello-world/",
+                    "content": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+                    "date": "2021-01-04T13:06:42",
+                    "title": "Hello world!",
+                    "featuredImage": {
+                        "node": {
+                            "sourceUrl": "http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2560x1444.png",
+                            "sizes": "(max-width: 2560px) 100vw, 2560px",
+                            "srcSet": "http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2560x1444.png 2560w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-300x169.png 300w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1024x577.png 1024w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-768x433.png 768w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1536x866.png 1536w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-2048x1155.png 2048w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-958x540.png 958w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-375x211.png 375w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-960x541.png 960w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1280x722.png 1280w, http://mock-api.funkhaus.us/wp-content/uploads/2021/01/Screen-Shot-2021-01-04-at-5.08.52-PM-1920x1083.png 1920w",
+                            "id": "cG9zdDo2MA==",
+                            "databaseId": 60,
+                            "title": "Screen Shot 2021-01-04 at 5.08.52 PM",
+                            "altText": "",
+                            "caption": null,
+                            "mediaDetails": {
+                                "height": 1544,
+                                "width": 2738
+                            },
+                            "acfImageMeta": {
+                                "videoUrl": "https://vod-progressive.akamaized.net/exp=1609780098~acl=%2A%2F1142324632.mp4%2A~hmac=b2c2e87f869e222563b5f36da619a23f998ff4f5426286da7ee57fe8ac58ac89/vimeo-prod-skyfire-std-us/01/4866/11/299331514/1142324632.mp4?filename=Bullitt-Sizzle-Funkhaus-optimized.mp4",
+                                "primaryColor": null,
+                                "focalPointX": null,
+                                "focalPointY": null
+                            }
+                        }
+                    },
+                    "categories": {
+                        "nodes": [
+                            {
+                                "name": "Featured",
+                                "uri": "/news/c/featured/",
+                                "id": "dGVybTo0"
+                            },
+                            {
+                                "name": "News",
+                                "uri": "/news/c/news/",
+                                "id": "dGVybToz"
+                            },
+                            {
+                                "name": "Uncategorized",
+                                "uri": "/news/c/uncategorized/",
+                                "id": "dGVybTox"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "home": {
             "id": "cG9zdDo1OQ==",
             "title": "Home",
@@ -582,7 +634,7 @@
                         "label": "Instagram",
                         "cssClasses": [],
                         "target": "_blank",
-                        "url": "https://www.instagram.com/funkhaus/",
+                        "url": "https://mock-api.funkhaus.us/funkhaus/",
                         "id": "bmF2X21lbnVfaXRlbTo5OQ=="
                     }
                 ]
