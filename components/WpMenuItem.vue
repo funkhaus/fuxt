@@ -2,7 +2,7 @@
     <li :class="classes">
         <a
             v-if="!isRelative || isMailTo"
-            target="_blank"
+            :target="isTargetBlank"
             :href="item.url"
             class="menu-link link-external"
             @click="menuInteracted"
@@ -68,7 +68,18 @@ export default {
             return this.getChildren.length
         },
         isRelative() {
-            return this.item.target !== "_blank" && !this.isMailTo
+            return (
+                this.item.target !== "_blank" &&
+                !this.isMailTo &&
+                this.relativeUrl.startsWith("/")
+            )
+        },
+        isTargetBlank() {
+            let target = "_blank"
+            if (this.item.target !== "_blank") {
+                target = "_self"
+            }
+            return target
         },
         isHash() {
             return this.item.label == "#"
