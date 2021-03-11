@@ -50,6 +50,67 @@ export default {
         }
         return output
     },
+    head() {
+        return {
+            htmlAttrs: {
+                lang: "en",
+            },
+            bodyAttrs: {
+                class: `body default-theme route-${_kebabCase(
+                    this.$route.name || "error"
+                )} ${process.server ? "is-ssr" : ""}`,
+            },
+            titleTemplate: (titleChunk) => {
+                const title = decodeHtmlEntities(titleChunk)
+                const site = decodeHtmlEntities(
+                    this.$store.state.siteMeta.title
+                )
+                let output = site
+
+                switch (true) {
+                    case site == title:
+                        output = site
+                        break
+
+                    case Boolean(title):
+                        output = `${site} - ${title}`
+                        break
+                }
+
+                return output
+            },
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: this.$store.state.siteMeta.description,
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: this.$store.state.siteMeta.themeScreenshotUrl,
+                },
+                {
+                    property: "og:url",
+                    content: `${this.$store.state.siteMeta.frontendUrl}${this.$route.path}`,
+                },
+                {
+                    property: "og:site_name",
+                    content: this.$store.state.siteMeta.title,
+                },
+                {
+                    property: "og:type",
+                    content: "website",
+                },
+                {
+                    hid: "og:title",
+                    property: "og:title",
+                    content: this.$store.state.siteMeta.title,
+                },
+            ],
+        }
+    },
     computed: {
         classes() {
             return [
@@ -129,67 +190,6 @@ export default {
             }
             document.documentElement.style.setProperty("--unit-100vh", value)
         },
-    },
-    head() {
-        return {
-            htmlAttrs: {
-                lang: "en",
-            },
-            bodyAttrs: {
-                class: `body default-theme route-${_kebabCase(
-                    this.$route.name || "error"
-                )} ${process.server ? "is-ssr" : ""}`,
-            },
-            titleTemplate: (titleChunk) => {
-                const title = decodeHtmlEntities(titleChunk)
-                const site = decodeHtmlEntities(
-                    this.$store.state.siteMeta.title
-                )
-                let output = site
-
-                switch (true) {
-                    case site == title:
-                        output = site
-                        break
-
-                    case Boolean(title):
-                        output = `${site} - ${title}`
-                        break
-                }
-
-                return output
-            },
-            meta: [
-                {
-                    hid: "description",
-                    name: "description",
-                    property: "og:description",
-                    content: this.$store.state.siteMeta.description,
-                },
-                {
-                    hid: "og:image",
-                    property: "og:image",
-                    content: this.$store.state.siteMeta.themeScreenshotUrl,
-                },
-                {
-                    property: "og:url",
-                    content: `${this.$store.state.siteMeta.frontendUrl}${this.$route.path}`,
-                },
-                {
-                    property: "og:site_name",
-                    content: this.$store.state.siteMeta.title,
-                },
-                {
-                    property: "og:type",
-                    content: "website",
-                },
-                {
-                    hid: "og:title",
-                    property: "og:title",
-                    content: this.$store.state.siteMeta.title,
-                },
-            ],
-        }
     },
 }
 </script>

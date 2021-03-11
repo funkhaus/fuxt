@@ -118,22 +118,32 @@ Fuxt has built in SSR friendly WordPress menus.
 
 ## SVGs
 
-The theme includes and [SVG as component loader](https://vue-svg-loader.js.org/). This means you can use any SVG as you would a regular component. For example:
+The theme includes an [SVG as component loader](https://vue-svg-loader.js.org/). This means you can use any SVG as you would a regular component. For example:
 
 ```
 // In script
-import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
+import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus" // By default, this is optimized with SVGO
+import SvgLogoFunkhausRaw from "~/assets/svg/logo-funkhaus?raw" // Note the ?raw. This will not be optimized.
+
 export default {
     components: {
-        SvgLogoFunkhaus
+        SvgLogoFunkhaus,
+        SvgLogoFunkhausRaw
     }
 }
 
 // In template
 <svg-logo-funkhaus class="svg" />
+<svg-logo-funkhaus-raw class="svg" />
 ```
 
-If you want to use an SVG in your CSS file, you can't place it in `/assets/svgs/`, you should put it in `/assets` like this `/assets/filename.svg` and use it like this in your CSS: `background-image: url("~assets/filename.svg")`.
+If you want to use an SVG in your CSS file, you can do it like below. Note you don't have to import the SVG, and you need `?url` on the end of the path.
+
+```
+.foo {
+    background-image: url(~/assets/svg/logo-funkhaus.svg?url);
+}
+```
 
 ## 100vh on iOS
 
@@ -205,7 +215,7 @@ By default page views are tracked, but you can track anything you want using `th
 
 ## Store tracking breakpoint size
 
-`Default.vue` will do some basic width detection and set `state.breakpoint`. You can customize this if needed.
+`Default.vue` will do some basic width detection and set `$store.state.breakpoint`. You can customize this if needed.
 
 ## Shortcodes
 
@@ -245,11 +255,17 @@ Common shortcodes we've included:
 ```
 <wp-image ref=“wpImage” :image=“image” @ended=“videoEnded” @playing=“onPlaying"/>
 
-this.$refs.wpImage.play() // Will play the video, returns a Promise if play started or didn’t (low power mode will prevent it for example)
-this.$refs.wpImage.pause() // Will pause the video, no return value
+// Will play the video, returns a Promise if play started or didn’t (low power mode will prevent it for example)
+this.$refs.wpImage.play()
 
-this.$refs.wpImage.volume() // Will return the current volume setting
-this.$refs.wpImage.volume(0.75) // Will set the current volume to 75%, returning the confirmed amount.
+ // Will pause the video, no return value
+this.$refs.wpImage.pause()
+
+// Will return the current volume setting
+this.$refs.wpImage.volume()
+
+// Will set the current volume to 75%, returning the confirmed amount.
+this.$refs.wpImage.volume(0.75)
 
 ```
 
