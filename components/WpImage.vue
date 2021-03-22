@@ -51,86 +51,86 @@ export default {
     props: {
         image: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         height: {
             type: Number,
-            default: 0
+            default: 0,
         },
         width: {
             type: Number,
-            default: 0
+            default: 0,
         },
         src: {
             type: String,
-            default: ""
+            default: "",
         },
         srcset: {
             type: String,
-            default: ""
+            default: "",
         },
         sizes: {
             type: String,
-            default: ""
+            default: "",
         },
         alt: {
             type: String,
-            default: ""
+            default: "",
         },
         caption: {
             type: String,
-            default: ""
+            default: "",
         },
         aspectRatio: {
             type: Number,
-            default: 0
+            default: 0,
         },
         objectFit: {
             type: String,
-            default: "cover"
+            default: "cover",
         },
         mode: {
             type: String,
-            default: "intrinsic-ratio"
+            default: "intrinsic-ratio",
         },
         backgroundColor: {
             type: String,
-            default: ""
+            default: "",
         },
         videoUrl: {
             type: String,
-            default: ""
+            default: "",
         },
         loop: {
             type: Boolean,
-            default: true
+            default: true,
         },
         autoplay: {
             type: Boolean,
-            default: true
+            default: true,
         },
         muted: {
             type: Boolean,
-            default: true
+            default: true,
         },
         playsinline: {
             type: Boolean,
-            default: true
+            default: true,
         },
         focalPoint: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
     data() {
         return {
             loadedStatus: {
-                booted: false
+                booted: false,
             },
             errorStatus: {
                 image: false,
-                video: false
-            }
+                video: false,
+            },
         }
     },
     computed: {
@@ -144,7 +144,7 @@ export default {
                 { "has-image-error": this.errorStatus.image },
                 { "has-video-error": this.errorStatus.video },
                 `is-orientation-${this.orientation}`,
-                `object-fit-${this.objectFit}`
+                `object-fit-${this.objectFit}`,
             ]
         },
         aspectPadding() {
@@ -197,10 +197,10 @@ export default {
             return {
                 x:
                     _get(this, "focalPoint.x", false) ||
-                    _get(this.image, "acfImageMeta.focalPointX", "50"),
+                    _get(this.image, "acfImageMeta.focalPointX", ""),
                 y:
                     _get(this, "focalPoint.y", false) ||
-                    _get(this.image, "acfImageMeta.focalPointY", "50")
+                    _get(this.image, "acfImageMeta.focalPointY", ""),
             }
         },
         parsedAlt() {
@@ -223,7 +223,10 @@ export default {
         },
         mediaStyles() {
             let styles = {}
-            if (this.parsedFocalPoint.x && this.parsedFocalPoint.y) {
+            if (
+                this.parsedFocalPoint.x !== "" &&
+                this.parsedFocalPoint.y !== ""
+            ) {
                 styles.objectPosition = `${this.parsedFocalPoint.x}% ${this.parsedFocalPoint.y}%`
             }
             return styles
@@ -234,7 +237,7 @@ export default {
         },
         hasError() {
             return Object.values(this.errorStatus).includes(true)
-        }
+        },
     },
     watch: {
         // Update loaded state if new src set
@@ -250,7 +253,7 @@ export default {
                 Vue.set(this.loadedStatus, "image", false)
                 Vue.set(this.errorStatus, "image", false)
             }
-        }
+        },
     },
     mounted() {
         // Setup loaded state tracking
@@ -312,8 +315,8 @@ export default {
                 // HTML5 video method
                 this.$refs.video.currentTime = seconds
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
