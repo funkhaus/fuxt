@@ -217,6 +217,18 @@ By default page views are tracked, but you can track anything you want using `th
 
 `Default.vue` will do some basic width detection and set `$store.state.breakpoint`. You can customize this if needed.
 
+## Bundle size analyzer
+
+Run the following command to be given a visualization of your sites bundle file:
+
+```
+npx nuxt build --analyze
+```
+
+This allows you to see if you're accidentally including a large JS import.
+
+There are other ways to generate the visualization, you can [read about it here](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build#analyze).
+
 ## Shortcodes
 
 This theme unpacks WordPress shortcods into Vue components. You need to register the shortcodes in your WordPress theme in the `/functions/shortcods.php` file [here](https://github.com/funkhaus/fuxt-backend/blob/master/functions/shortcodes.php). There are a few common ones we have built, that you can uncomment the `//add_shortcode` lines to turn on.
