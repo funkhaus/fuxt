@@ -7,7 +7,7 @@
             <img
                 v-if="parsedSrc"
                 ref="img"
-                class="media image"
+                class="media media-image"
                 :src="parsedSrc"
                 :srcset="parsedSrcset"
                 :sizes="parsedSizes"
@@ -20,7 +20,7 @@
             <video
                 v-if="parsedVideoUrl"
                 ref="video"
-                class="media video"
+                class="media media-video"
                 :src="parsedVideoUrl"
                 :style="mediaStyles"
                 :poster="parsedSrc"
@@ -320,7 +320,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .wp-image {
     margin: 0;
 
@@ -337,7 +337,7 @@ export default {
         transition: opacity 0.4s ease-in-out;
         z-index: 10;
     }
-    .video {
+    .media-video {
         z-index: 20;
     }
     .caption {
@@ -377,10 +377,10 @@ export default {
         .media {
             opacity: 1;
         }
-        &.has-image-error .image {
+        &.has-image-error .media-image {
             opacity: 0;
         }
-        &.has-video-error .video {
+        &.has-video-error .media-video {
             opacity: 0;
         }
     }
