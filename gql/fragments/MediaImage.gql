@@ -1,7 +1,7 @@
 fragment MediaImage on MediaItem {
-    sourceUrl(size: FULLSCREEN)
-    sizes(size: FULLSCREEN)
-    srcSet(size: FULLSCREEN)
+    sourceUrl(size: FULLSCREEN_XLARGE)
+    sizes(size: FULLSCREEN_XLARGE)
+    srcSet(size: FULLSCREEN_XLARGE)
     id
     databaseId
     title
