@@ -1,0 +1,80 @@
+#import "~/gql/fragments/MediaImage.gql"
+
+fragment GuttenbergBlocks on BlockEditorContentNode {
+    blocks {
+        name
+
+        # Paragraph
+        ... on CoreParagraphBlock {
+            attributes {
+                ... on CoreParagraphBlockAttributes {
+                    className
+                    content
+                    align
+                    fontSize
+                    textColor
+                }
+            }
+        }
+
+        # Image
+        ... on CoreImageBlock {
+            attributes {
+                ... on CoreImageBlockAttributes {
+                    caption
+                }
+            }
+            mediaItem {
+                nodes {
+                    ...MediaImage
+                }
+            }
+        }
+
+        # Embed
+        ... on CoreEmbedBlock {
+            attributes {
+                ... on CoreEmbedBlockAttributes {
+                    provider: providerNameSlug
+                    url
+                    caption
+                }
+            }
+        }
+
+        # Gallery
+        ... on CoreGalleryBlock {
+            attributes {
+                ... on CoreGalleryBlockAttributes {
+                    caption
+                    columns
+                    images {
+                        id
+                        fullUrl
+                    }
+                }
+            }
+        }
+
+        # Heading
+        ... on CoreHeadingBlock {
+            attributes {
+                ... on CoreHeadingBlockAttributes {
+                    content
+                    level
+                    textAlign
+                }
+            }
+        }
+
+        # Blockquote
+        ... on CoreQuoteBlock {
+            attributes {
+                ... on CoreQuoteBlockAttributes {
+                    content: value
+                    citation
+                }
+            }
+        }
+    }
+}
