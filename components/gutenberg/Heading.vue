@@ -48,7 +48,7 @@ export default {
             }
         },
         classes() {
-            return ["gutenberg-heading", `h${this.level}`]
+            return ["gutenberg-heading", `is-h${this.level}`]
         },
     },
 }
