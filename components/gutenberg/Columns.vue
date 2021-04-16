@@ -42,6 +42,7 @@ export default {
     display: flex;
     margin: 2em auto;
     width: 100%;
+    max-width: var(--unit-max-width);
 
     .gutenberg-column {
         margin-right: 2em;

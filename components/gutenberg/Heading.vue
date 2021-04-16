@@ -1,6 +1,7 @@
 <template lang="html">
     <component
         :is="element"
+        :id="wpId"
         :class="classes"
         :style="styles"
         v-html="content"
@@ -34,6 +35,14 @@ export default {
             type: String,
             default: "",
         },
+        wpId: {
+            type: String,
+            default: "",
+        },
+        wpClasses: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         element() {
@@ -48,7 +57,7 @@ export default {
             }
         },
         classes() {
-            return ["gutenberg-heading", `is-h${this.level}`]
+            return ["gutenberg-heading", `is-h${this.level}`, this.wpClasses]
         },
     },
 }

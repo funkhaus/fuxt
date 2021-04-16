@@ -9,11 +9,14 @@ fragment GutenbergBlocks on BlockEditorContentNode {
         ... on CoreParagraphBlock {
             attributes {
                 ... on CoreParagraphBlockAttributes {
-                    className
                     content
                     align
                     fontSize
                     textColor
+                    backgroundColor
+                    anchor
+                    wpId: anchor
+                    wpClasses: className
                 }
             }
         }
@@ -23,6 +26,8 @@ fragment GutenbergBlocks on BlockEditorContentNode {
             attributes {
                 ... on CoreImageBlockAttributes {
                     caption
+                    wpId: anchor
+                    wpClasses: className
                 }
             }
             mediaItem {
@@ -68,6 +73,8 @@ fragment GutenbergBlocks on BlockEditorContentNode {
                     textColor
                     className
                     backgroundColor
+                    wpClasses: className
+                    wpId: anchor
                 }
             }
         }

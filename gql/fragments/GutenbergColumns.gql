@@ -39,8 +39,9 @@ fragment GutenbergColumn on CoreColumnBlock {
                     textAlign
                     fontSize
                     textColor
-                    className
                     backgroundColor
+                    wpClasses: className
+                    wpId: anchor
                 }
             }
         }
@@ -49,11 +50,13 @@ fragment GutenbergColumn on CoreColumnBlock {
         ... on CoreParagraphBlock {
             attributes {
                 ... on CoreParagraphBlockAttributes {
-                    className
                     content
                     align
                     fontSize
                     textColor
+                    backgroundColor
+                    wpId: anchor
+                    wpClasses: className
                 }
             }
         }

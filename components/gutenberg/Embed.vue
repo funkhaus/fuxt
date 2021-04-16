@@ -123,9 +123,10 @@ export default {
 
 <style lang="scss" scoped>
 .gutenberg-embed {
-    margin: 2em 0;
+    margin: 2em auto;
     position: relative;
     z-index: 0;
+    max-width: var(--unit-max-width);
 
     .iframe {
         position: absolute;

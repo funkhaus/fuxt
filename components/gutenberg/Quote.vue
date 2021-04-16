@@ -38,8 +38,8 @@ export default {
 
 <style lang="scss" scoped>
 .gutenberg-quote {
-    margin: 2em 0;
-    padding: 0;
+    margin: 2em auto;
+    max-width: var(--unit-max-width);
 
     &.align-right {
         text-align: right;
