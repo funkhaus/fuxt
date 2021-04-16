@@ -1,7 +1,8 @@
 <template lang="html">
     <component
         :is="element"
-        class="gutenberg-heading"
+        :class="classes"
+        :style="styles"
         v-html="content"
     />
 </template>
@@ -11,19 +12,49 @@ export default {
     props: {
         level: {
             type: Number,
-            default: 2
+            default: 2,
         },
         content: {
             type: String,
-            default: ""
-        }
+            default: "",
+        },
+        textColor: {
+            type: String,
+            default: "",
+        },
+        textAlign: {
+            type: String,
+            default: "",
+        },
+        backgroundColor: {
+            type: String,
+            default: "",
+        },
+        fontSize: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         element() {
             return `h${this.level}`
-        }
-    }
+        },
+        styles() {
+            return {
+                color: this.textColor,
+                "text-align": this.textAlign,
+                "background-color": this.backgroundColor,
+                "font-size": this.fontSize,
+            }
+        },
+        classes() {
+            return ["gutenberg-heading", `h${this.level}`]
+        },
+    },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.gutenberg-heading {
+}
+</style>
