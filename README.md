@@ -451,8 +451,9 @@ Boilerplate improvements:
 -   Get SCSS functions for type settings working: https://github.com/funkhaus/fuxt/issues/1
 -   Maybe at some point, update Google Tracking with this. Waiting on it to get better: https://github.com/nuxt-community/gtm-module
 -   Get this working (and playing nicely with Prettier). Should have --fix set to true. https://github.com/nuxt-community/stylelint-module
--   Audit packages. Do we still need core-js and node-fetch?
--   Update to work with new Nuxt auto component importer
 -   Get 404 page and Drafts/Previews working with Netlify: https://nuxtjs.org/api/configuration-generate/
     -   I think the move is to have /preview route that imports the needed page component? Something like this: https://forum.vuejs.org/t/getting-component-name-giving-a-route/51271
 -   Document how new IP geolocation plugin works. Include example for organizing around regions.
+-   Update to work with new Nuxt auto component importer
+-   Move utils/tools.js into individual files.
+-   Update docs to reflect Gutenberg support.
