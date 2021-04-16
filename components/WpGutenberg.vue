@@ -16,17 +16,17 @@ import _get from "lodash/get"
 
 // Components
 // TODO figure out how to make these all work as dynamic imports (gives async errors when i tried )
-import GuttenbergHeading from "~/components/guttenberg/Heading"
-import GuttenbergParagraph from "~/components/guttenberg/Paragraph"
-import GuttenbergImage from "~/components/guttenberg/Image"
-import GuttenbergQuote from "~/components/guttenberg/Quote"
+import GutenbergHeading from "~/components/gutenberg/Heading"
+import GutenbergParagraph from "~/components/gutenberg/Paragraph"
+import GutenbergImage from "~/components/gutenberg/Image"
+import GutenbergQuote from "~/components/gutenberg/Quote"
 
 export default {
     components: {
-        GuttenbergHeading,
-        GuttenbergParagraph,
-        GuttenbergImage,
-        GuttenbergQuote
+        GutenbergHeading,
+        GutenbergParagraph,
+        GutenbergImage,
+        GutenbergQuote
     },
     props: {
         blocks: {

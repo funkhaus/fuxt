@@ -1,6 +1,6 @@
 #import "~/gql/fragments/MediaImage.gql"
 
-fragment GuttenbergBlocks on BlockEditorContentNode {
+fragment GutenbergBlocks on BlockEditorContentNode {
     blocks {
         name
 
