@@ -16,6 +16,7 @@ import _get from "lodash/get"
 
 // Components
 // TODO figure out how to make these all work as dynamic imports (gives async errors when i tried )
+// TODO Move to Nuxt auto components 
 import GutenbergHeading from "~/components/gutenberg/Heading"
 import GutenbergParagraph from "~/components/gutenberg/Paragraph"
 import GutenbergImage from "~/components/gutenberg/Image"
