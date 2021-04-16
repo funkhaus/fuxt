@@ -1,6 +1,6 @@
 <template lang="html">
     <wp-image
-        class="guttenberg-image"
+        class="gutenberg-image"
         :image="image"
     />
 </template>
@@ -17,6 +17,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.guttenberg-image {
+.gutenberg-image {
 }
 </style>

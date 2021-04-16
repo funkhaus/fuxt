@@ -18,9 +18,10 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 -   Includes [Nuxt Storybook module](https://storybook.nuxtjs.org/)!
 -   GraphQL powered API using [Nuxt GraphQL Request](https://www.npmjs.com/package/nuxt-graphql-request)
 -   [ACF](https://www.advancedcustomfields.com/) first class citizen
--   Supports only the classic editor (#guttenbergsucks)
+-   Supports gutenberg components!
 -   Google Analytics plugin baked in, pulls from WordPress dashboard (requires [ACF Pro](https://www.advancedcustomfields.com/pro/))
 -   Includes lots of components for common WordPress needs
+    -   wp-gutenberg (supports custom frontend gutenberg components)
     -   wp-content (supports oEmbed and shortcodes)
     -   wp-menu and wp-menu-item (supports sub-menus!)
     -   wp-image (uses WordPress generated src-sets and much more!)

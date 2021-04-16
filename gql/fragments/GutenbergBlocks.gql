@@ -1,4 +1,5 @@
 #import "~/gql/fragments/MediaImage.gql"
+#import "~/gql/fragments/GutenbergColumns.gql"
 
 fragment GutenbergBlocks on BlockEditorContentNode {
     blocks {
@@ -63,6 +64,10 @@ fragment GutenbergBlocks on BlockEditorContentNode {
                     content
                     level
                     textAlign
+                    fontSize
+                    textColor
+                    className
+                    backgroundColor
                 }
             }
         }
@@ -75,6 +80,20 @@ fragment GutenbergBlocks on BlockEditorContentNode {
                     citation
                 }
             }
+        }
+
+        # List
+        ... on CoreListBlock {
+            attributes {
+                ... on CoreListBlockAttributes {
+                    content: values
+                }
+            }
+        }
+
+        # Columns (and column)
+        ... on CoreColumnsBlock {
+            ...GutenbergColumns
         }
     }
 }

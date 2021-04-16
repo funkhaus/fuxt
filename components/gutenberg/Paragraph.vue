@@ -1,6 +1,6 @@
 <template lang="html">
     <p
-        class="guttenberg-paragraph"
+        class="gutenberg-paragraph"
         v-html="content"
     />
 </template>
@@ -17,6 +17,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.guttenberg-paragraph {
+.gutenberg-paragraph {
 }
 </style>

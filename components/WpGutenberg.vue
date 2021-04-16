@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="wp-guttenberg">
+    <div class="wp-gutenberg">
         <component
             :is="block.componentName"
             v-for="(block, i) in parsedBlocks"
@@ -14,26 +14,22 @@
 // Helpers
 import _get from "lodash/get"
 
-// Components
-// TODO figure out how to make these all work as dynamic imports (gives async errors when i tried )
-// TODO Move to Nuxt auto components 
-import GutenbergHeading from "~/components/gutenberg/Heading"
-import GutenbergParagraph from "~/components/gutenberg/Paragraph"
-import GutenbergImage from "~/components/gutenberg/Image"
-import GutenbergQuote from "~/components/gutenberg/Quote"
-
 export default {
     components: {
-        GutenbergHeading,
-        GutenbergParagraph,
-        GutenbergImage,
-        GutenbergQuote
+        GutenbergHeading: () => import("~/components/gutenberg/Heading"),
+        GutenbergParagraph: () => import("~/components/gutenberg/Paragraph"),
+        GutenbergImage: () => import("~/components/gutenberg/Image"),
+        GutenbergQuote: () => import("~/components/gutenberg/Quote"),
+        GutenbergList: () => import("~/components/gutenberg/List"),
+        GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
+        GutenbergEmbed: () => import("~/components/gutenberg/Embed"),
+        GutenbergColumns: () => import("~/components/gutenberg/Columns"),
     },
     props: {
         blocks: {
             type: Array,
-            default: []
-        }
+            default: [],
+        },
     },
     computed: {
         lowerCaseComponents() {
@@ -41,7 +37,7 @@ export default {
             let lowerCaseComponents = Object.keys(
                 this.$options.components || {}
             )
-            return lowerCaseComponents.map(str => {
+            return lowerCaseComponents.map((str) => {
                 return str.toLowerCase()
             })
         },
@@ -49,11 +45,11 @@ export default {
             // This function is used to shape the data coming out of WP-GQL
             // to better match the basic prop inputs of each component
 
-            return this.blocks.map(obj => {
+            return this.blocks.map((obj) => {
                 // Start by flatterning the "attributes"
                 let output = {
                     ...obj,
-                    ...obj.attributes
+                    ...obj.attributes,
                 }
 
                 // Make name fit with Vue component syntax
@@ -61,14 +57,14 @@ export default {
 
                 // Shape any props as needed
                 switch (output.componentName) {
-                    case "guttenberg-image":
+                    case "gutenberg-image":
                         output.image = _get(output, "mediaItem.nodes[0]", {})
                         break
                 }
 
                 return output
             })
-        }
+        },
     },
     methods: {
         componentIsRegistered(name = "") {
@@ -81,14 +77,14 @@ export default {
             return this.lowerCaseComponents.includes(componentName)
         },
         getBlockName(name = "") {
-            return `guttenberg-${name.replace("core/", "").toLowerCase()}`
-        }
-    }
+            return `gutenberg-${name.replace("core/", "").toLowerCase()}`
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
-.wp-guttenberg {
+.wp-gutenberg {
     // TODO Default styles here
 }
 </style>

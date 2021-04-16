@@ -1,7 +1,7 @@
 <template lang="html">
     <component
         :is="element"
-        class="guttenberg-heading"
+        class="gutenberg-heading"
         v-html="content"
     />
 </template>

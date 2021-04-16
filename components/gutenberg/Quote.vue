@@ -1,6 +1,6 @@
 <template lang="html">
     <blockquote
-        class="guttenberg-quote"
+        class="gutenberg-quote"
         v-html="parsedContent"
     />
 </template>
@@ -30,6 +30,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.guttenberg-quote {
+.gutenberg-quote {
 }
 </style>
