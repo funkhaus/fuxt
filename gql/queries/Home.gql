@@ -1,4 +1,5 @@
 #import "~/gql/fragments/MediaImage.gql"
+#import "~/gql/fragments/GutenbergBlocks.gql"
 
 # Query to get all the sub pages of the homepage
 query Home($uri: String!) {
@@ -15,6 +16,7 @@ query Home($uri: String!) {
                     ...MediaImage
                 }
             }
+            ...GutenbergBlocks
         }
     }
 }

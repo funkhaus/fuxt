@@ -28,7 +28,7 @@
 <script>
 // Helpers
 import _get from "lodash/get"
-import { getStripped } from "~/utils/tools"
+import getStripped from "~/utils/getStripped"
 
 // Queries
 import SEO from "~/gql/queries/Seo.gql"
@@ -52,6 +52,11 @@ export default {
             default: "",
         },
     },
+    data() {
+        return {
+            data: {},
+        }
+    },
     async fetch() {
         // Abort if no path supplied (often because used on homepage)
         if (
@@ -65,7 +70,7 @@ export default {
 
         // Get data from API
         try {
-            const data = await this.$graphql.request(SEO, {
+            const data = await this.$graphql.default.request(SEO, {
                 uri: this.parsedUri,
             })
             this.data = _get(data, "nodeByUri", {})
@@ -84,9 +89,27 @@ export default {
     fetchKey(getCounter) {
         return `${this.parsedUri}-${getCounter(this.parsedUri)}`
     },
-    data() {
+    head() {
         return {
-            data: {},
+            title: this.parsedTitle,
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    property: "og:description",
+                    content: this.parsedDescription,
+                },
+                {
+                    hid: "og:image",
+                    property: "og:image",
+                    content: this.parsedImageUrl,
+                },
+                {
+                    hid: "og:title",
+                    property: "og:title",
+                    content: this.parsedTitle,
+                },
+            ],
         }
     },
     computed: {
@@ -167,29 +190,6 @@ export default {
         // This is a cache for Fetch. Will call fetch again if last fetch more than 60 sec ago
         if (this.$fetchState.timestamp <= Date.now() - 60000) {
             this.$fetch()
-        }
-    },
-    head() {
-        return {
-            title: this.parsedTitle,
-            meta: [
-                {
-                    hid: "description",
-                    name: "description",
-                    property: "og:description",
-                    content: this.parsedDescription,
-                },
-                {
-                    hid: "og:image",
-                    property: "og:image",
-                    content: this.parsedImageUrl,
-                },
-                {
-                    hid: "og:title",
-                    property: "og:title",
-                    content: this.parsedTitle,
-                },
-            ],
         }
     },
 }

@@ -52,7 +52,7 @@ export const actions = {
     async QUERY_SETTINGS({ dispatch, commit }, context) {
         // Get site settings from WordPress and save them to store
         try {
-            const data = await this.$graphql.request(SITE_SETTINGS)
+            const data = await this.$graphql.default.request(SITE_SETTINGS)
             const options = _get(data, "acfSettings.acfSiteOptions", {})
 
             // Get and shape general settings

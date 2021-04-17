@@ -22,7 +22,6 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 -   Google Analytics plugin baked in, pulls from WordPress dashboard (requires [ACF Pro](https://www.advancedcustomfields.com/pro/))
 -   Includes lots of components for common WordPress needs
     -   wp-gutenberg (supports custom frontend gutenberg components)
-    -   wp-content (supports oEmbed and shortcodes)
     -   wp-menu and wp-menu-item (supports sub-menus!)
     -   wp-image (uses WordPress generated src-sets and much more!)
     -   wp-link (handles parsing WordPress permalinks)
@@ -305,7 +304,7 @@ The events emitted by this function are `swipeUp`, `swipeDown`, `swipeRight`, `s
 An example of a component:
 
 ```
-import { initSwipeEvents } from "~/utils/tools"
+import initSwipeEvents from "~/utils/initSwipeEvents"
 
 <template>
     <div
@@ -455,6 +454,4 @@ Boilerplate improvements:
 -   Get 404 page and Drafts/Previews working with Netlify: https://nuxtjs.org/api/configuration-generate/
     -   I think the move is to have /preview route that imports the needed page component? Something like this: https://forum.vuejs.org/t/getting-component-name-giving-a-route/51271
 -   Document how new IP geolocation plugin works. Include example for organizing around regions.
--   Update to work with new Nuxt auto component importer
--   Move utils/tools.js into individual files.
--   Update docs to reflect Gutenberg support.
+-   Move a lot of this file into the Wiki for the repo

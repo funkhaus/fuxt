@@ -5,6 +5,15 @@ fragment GutenbergBlocks on BlockEditorContentNode {
     blocks {
         name
 
+        # Legacy content
+        ... on CoreFreeformBlock {
+            attributes {
+                ... on CoreFreeformBlockAttributes {
+                    html: content
+                }
+            }
+        }
+
         # Paragraph
         ... on CoreParagraphBlock {
             attributes {

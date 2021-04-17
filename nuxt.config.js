@@ -1,6 +1,7 @@
 require("dotenv").config()
 export default {
     target: "static",
+    components: true,
     env: {
         ...process.env,
     },
@@ -64,7 +65,6 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: "~/plugins/global-component-loader.js" },
         { src: "~/plugins/global-directive-loader.js" },
         { src: "~/plugins/google-gtag.client.js", mode: "client" },
         { src: "~plugins/preview.client.js", mode: "client" },
@@ -101,10 +101,14 @@ export default {
      ** See: https://github.com/Gomah/nuxt-graphql-request
      */
     graphql: {
-        endpoint: process.env.GQL_ENDPOINT,
-        options: {
-            credentials: "include",
-            mode: "cors",
+        clients: {
+            default: {
+                endpoint: process.env.GQL_ENDPOINT,
+                options: {
+                    credentials: "include",
+                    mode: "cors",
+                },
+            },
         },
     },
 

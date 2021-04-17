@@ -21,9 +21,10 @@ export default {
         GutenbergImage: () => import("~/components/gutenberg/Image"),
         GutenbergQuote: () => import("~/components/gutenberg/Quote"),
         GutenbergList: () => import("~/components/gutenberg/List"),
-        GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
         GutenbergEmbed: () => import("~/components/gutenberg/Embed"),
         GutenbergColumns: () => import("~/components/gutenberg/Columns"),
+        GutenbergColumns: () => import("~/components/gutenberg/Column"),
+        GutenbergFreeform: () => import("~/components/gutenberg/Freeform"),
     },
     props: {
         blocks: {
@@ -53,7 +54,7 @@ export default {
                 }
 
                 // Make name fit with Vue component syntax
-                output.componentName = this.getBlockName(obj.name)
+                output.componentName = `${this.getBlockName(obj.name)}`
 
                 // Shape any props as needed
                 switch (output.componentName) {

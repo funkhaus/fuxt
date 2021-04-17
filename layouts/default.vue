@@ -3,7 +3,7 @@
         <!-- This helps with SEO -->
         <wp-seo />
 
-        <site-hamburger />
+        <global-hamburger />
 
         <nuxt-link
             to="/"
@@ -25,15 +25,13 @@
 // Helpers
 import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
-import { decodeHtmlEntities } from "~/utils/tools"
+import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
 
 // Components
-import SiteHamburger from "~/components/global/Hamburger"
-import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus.svg"
+import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
 
 export default {
     components: {
-        SiteHamburger,
         SvgLogoFunkhaus,
     },
     data() {
@@ -56,9 +54,7 @@ export default {
                 lang: "en",
             },
             bodyAttrs: {
-                class: `body default-theme route-${_kebabCase(
-                    this.$route.name || "error"
-                )} ${process.server ? "is-ssr" : ""}`,
+                class: this.bodyClasses,
             },
             titleTemplate: (titleChunk) => {
                 const title = decodeHtmlEntities(titleChunk)
@@ -112,6 +108,15 @@ export default {
         }
     },
     computed: {
+        bodyClasses() {
+            const classes = ["body", "default-theme"]
+            classes.push(`route-${_kebabCase(this.$route.name || "error")}`)
+
+            // This is how you add a class conditionally
+            process.server && classes.push("is-ssr")
+
+            return classes.join(" ")
+        },
         classes() {
             return [
                 "layout",
@@ -147,8 +152,8 @@ export default {
     },
     mounted() {
         // Throttle common events
-        window.addEventListener("resize", _throttle(this.onResize, 32))
-        window.addEventListener("scroll", _throttle(this.onScroll, 16))
+        window.addEventListener("resize", _throttle(this.onResize, 16))
+        window.addEventListener("scroll", _throttle(this.onScroll, 8))
 
         // Trigger a resize and scroll to start, so data is correct on load
         this.onResize()

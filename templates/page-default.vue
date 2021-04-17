@@ -8,10 +8,7 @@
             :image="parsedPage.featuredImage"
         />
 
-        <wp-content
-            :html="parsedPage.encodedContent"
-            :enable-styles="true"
-        />
+        <wp-gutenberg :blocks="parsedPage.blocks" />
     </section>
 </template>
 
@@ -22,15 +19,9 @@ import _get from "lodash/get"
 // Queries
 import HOME from "~/gql/queries/Home"
 
-// This is only included beuase we are using it in wp-content for demo's sake
-import ShortcodeSvg from "~/components/shortcode/Svg"
-
 export default {
-    components: {
-        ShortcodeSvg,
-    },
     async asyncData({ $graphql, route }) {
-        const data = await $graphql.request(HOME, {
+        const data = await $graphql.default.request(HOME, {
             uri: route.path,
         })
         return {
