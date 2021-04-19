@@ -1,78 +1,92 @@
 #import "~/gql/fragments/MediaImage.gql"
 
 fragment GutenbergColumns on CoreColumnsBlock {
-    blocks: innerBlocks {
-        # Columns will always have a direct column block child, but this handles nested columns
-        ... on CoreColumnBlock {
-            ...GutenbergColumn
-            blocks: innerBlocks {
-                name
-                ... on CoreColumnsBlock {
-                    blocks: innerBlocks {
-                        ... on CoreColumnBlock {
-                            ...GutenbergColumn
-                        }
-                    }
-                }
+  blocks: innerBlocks {
+    # Columns will always have a direct column block child, but this handles nested columns
+    ... on CoreColumnBlock {
+      ...GutenbergColumn
+      blocks: innerBlocks {
+        name
+        ... on CoreColumnsBlock {
+          blocks: innerBlocks {
+            ... on CoreColumnBlock {
+              ...GutenbergColumn
             }
+          }
         }
+      }
     }
+  }
 }
 
 fragment GutenbergColumn on CoreColumnBlock {
+  name
+  attributes {
+    ... on CoreColumnBlockAttributes {
+      width
+      verticalAlignment
+    }
+  }
+  blocks: innerBlocks {
     name
-    attributes {
-        ... on CoreColumnBlockAttributes {
-            width
-            verticalAlignment
+
+    # Heading
+    ... on CoreHeadingBlock {
+      attributes {
+        ... on CoreHeadingBlockAttributes {
+          content
+          level
+          textAlign
+          fontSize
+          textColor
+          backgroundColor
+          wpClasses: className
+          wpId: anchor
         }
+      }
     }
-    blocks: innerBlocks {
-        name
 
-        # Heading
-        ... on CoreHeadingBlock {
-            attributes {
-                ... on CoreHeadingBlockAttributes {
-                    content
-                    level
-                    textAlign
-                    fontSize
-                    textColor
-                    backgroundColor
-                    wpClasses: className
-                    wpId: anchor
-                }
-            }
+    # Paragraph
+    ... on CoreParagraphBlock {
+      attributes {
+        ... on CoreParagraphBlockAttributes {
+          content
+          align
+          fontSize
+          textColor
+          backgroundColor
+          wpId: anchor
+          wpClasses: className
         }
-
-        # Paragraph
-        ... on CoreParagraphBlock {
-            attributes {
-                ... on CoreParagraphBlockAttributes {
-                    content
-                    align
-                    fontSize
-                    textColor
-                    backgroundColor
-                    wpId: anchor
-                    wpClasses: className
-                }
-            }
-        }
-
-        # Image
-        ... on CoreImageBlock {
-            attributes {
-                ... on CoreImageBlockAttributes {
-                    caption
-                }
-            }
-            mediaItem {
-                nodes {
-                    ...MediaImage
-                }
-            }
-        }
+      }
     }
+
+    # Image
+    ... on CoreImageBlock {
+      attributes {
+        ... on CoreImageBlockAttributes {
+          caption
+        }
+      }
+      mediaItem {
+        nodes {
+          ...MediaImage
+        }
+      }
+    }
+
+    # Gallery
+    ... on CoreGalleryBlock {
+      attributes {
+        ... on CoreGalleryBlockAttributes {
+          caption
+          columns
+          images {
+            id
+            fullUrl
+          }
+        }
+      }
+    }
+  }
 }
