@@ -38,8 +38,11 @@ fragment GutenbergColumn on CoreColumnBlock {
           level
           textAlign
           fontSize
+          fontSizeValue
           textColor
+          textColorCode
           backgroundColor
+          backgroundColorCode
           wpClasses: className
           wpId: anchor
         }
@@ -53,8 +56,11 @@ fragment GutenbergColumn on CoreColumnBlock {
           content
           align
           fontSize
+          fontSizeValue
           textColor
+          textColorCode
           backgroundColor
+          backgroundColorCode
           wpId: anchor
           wpClasses: className
         }

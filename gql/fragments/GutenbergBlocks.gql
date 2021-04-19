@@ -2,114 +2,120 @@
 #import "~/gql/fragments/GutenbergColumns.gql"
 
 fragment GutenbergBlocks on BlockEditorContentNode {
-    blocks {
-        name
+  blocks {
+    name
 
-        # Legacy content
-        ... on CoreFreeformBlock {
-            attributes {
-                ... on CoreFreeformBlockAttributes {
-                    html: content
-                }
-            }
+    # Legacy content
+    ... on CoreFreeformBlock {
+      attributes {
+        ... on CoreFreeformBlockAttributes {
+          html: content
         }
-
-        # Paragraph
-        ... on CoreParagraphBlock {
-            attributes {
-                ... on CoreParagraphBlockAttributes {
-                    content
-                    align
-                    fontSize
-                    textColor
-                    backgroundColor
-                    anchor
-                    wpId: anchor
-                    wpClasses: className
-                }
-            }
-        }
-
-        # Image
-        ... on CoreImageBlock {
-            attributes {
-                ... on CoreImageBlockAttributes {
-                    caption
-                    wpId: anchor
-                    wpClasses: className
-                }
-            }
-            mediaItem {
-                nodes {
-                    ...MediaImage
-                }
-            }
-        }
-
-        # Embed
-        ... on CoreEmbedBlock {
-            attributes {
-                ... on CoreEmbedBlockAttributes {
-                    provider: providerNameSlug
-                    url
-                    caption
-                }
-            }
-        }
-
-        # Gallery
-        ... on CoreGalleryBlock {
-            attributes {
-                ... on CoreGalleryBlockAttributes {
-                    caption
-                    columns
-                    images {
-                        id
-                        fullUrl
-                    }
-                }
-            }
-        }
-
-        # Heading
-        ... on CoreHeadingBlock {
-            attributes {
-                ... on CoreHeadingBlockAttributes {
-                    content
-                    level
-                    textAlign
-                    fontSize
-                    textColor
-                    className
-                    backgroundColor
-                    wpClasses: className
-                    wpId: anchor
-                }
-            }
-        }
-
-        # Blockquote
-        ... on CoreQuoteBlock {
-            attributes {
-                ... on CoreQuoteBlockAttributes {
-                    content: value
-                    citation
-                }
-            }
-        }
-
-        # List
-        ... on CoreListBlock {
-            attributes {
-                ... on CoreListBlockAttributes {
-                    content: values
-                }
-            }
-        }
-
-        # Columns (and column)
-        ... on CoreColumnsBlock {
-            ...GutenbergColumns
-        }
+      }
     }
+
+    # Paragraph
+    ... on CoreParagraphBlock {
+      attributes {
+        ... on CoreParagraphBlockAttributes {
+          content
+          align
+          fontSize
+          fontSizeValue
+          textColor
+          textColorCode
+          backgroundColor
+          backgroundColorCode
+          anchor
+          wpId: anchor
+          wpClasses: className
+        }
+      }
+    }
+
+    # Image
+    ... on CoreImageBlock {
+      attributes {
+        ... on CoreImageBlockAttributes {
+          caption
+          wpId: anchor
+          wpClasses: className
+        }
+      }
+      mediaItem {
+        nodes {
+          ...MediaImage
+        }
+      }
+    }
+
+    # Embed
+    ... on CoreEmbedBlock {
+      attributes {
+        ... on CoreEmbedBlockAttributes {
+          provider: providerNameSlug
+          url
+          caption
+        }
+      }
+    }
+
+    # Gallery
+    ... on CoreGalleryBlock {
+      attributes {
+        ... on CoreGalleryBlockAttributes {
+          caption
+          columns
+          images {
+            id
+            fullUrl
+          }
+        }
+      }
+    }
+
+    # Heading
+    ... on CoreHeadingBlock {
+      attributes {
+        ... on CoreHeadingBlockAttributes {
+          content
+          level
+          textAlign
+          fontSize
+          fontSizeValue
+          textColor
+          textColorCode
+          backgroundColor
+          backgroundColorCode
+          className
+          wpClasses: className
+          wpId: anchor
+        }
+      }
+    }
+
+    # Blockquote
+    ... on CoreQuoteBlock {
+      attributes {
+        ... on CoreQuoteBlockAttributes {
+          content: value
+          citation
+        }
+      }
+    }
+
+    # List
+    ... on CoreListBlock {
+      attributes {
+        ... on CoreListBlockAttributes {
+          content: values
+        }
+      }
+    }
+
+    # Columns (and column)
+    ... on CoreColumnsBlock {
+      ...GutenbergColumns
+    }
+  }
 }
