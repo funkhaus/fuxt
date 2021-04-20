@@ -25,6 +25,7 @@ export default {
     GutenbergColumns: () => import("~/components/gutenberg/Columns"),
     GutenbergColumns: () => import("~/components/gutenberg/Column"),
     GutenbergFreeform: () => import("~/components/gutenberg/Freeform")
+    GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
   },
   props: {
     blocks: {
