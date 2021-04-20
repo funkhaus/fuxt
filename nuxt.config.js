@@ -139,10 +139,6 @@ export default {
         },
         transpile: ["ky", "vuex"],
         extend(config, ctx) {
-            // Includes the Compiler version of Vue.
-            // If you don't use the <wp-content> component, then you can delete this safely.
-            config.resolve.alias["vue$"] = "vue/dist/vue.esm.js"
-
             // This stops a @nuxtjs/dotenv error.
             config.node = { fs: "empty" }
 
