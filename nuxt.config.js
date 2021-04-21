@@ -1,10 +1,10 @@
 require("dotenv").config()
 export default {
-    target: "static",
-    components: true,
     env: {
         ...process.env,
     },
+    target: "static",
+    components: true,
 
     /*
      ** Headers of the page
