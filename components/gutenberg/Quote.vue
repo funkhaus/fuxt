@@ -10,20 +10,24 @@ export default {
     props: {
         content: {
             type: String,
-            default: "",
+            default: ""
         },
         citation: {
             type: String,
-            default: "",
+            default: ""
         },
         textAlign: {
             type: String,
-            default: "center",
-        },
+            default: "default"
+        }
     },
     computed: {
         classes() {
-            return ["gutenberg-quote", `align-${this.textAlign}`]
+            return [
+                "gutenberg-quote",
+                "gutenberg-block",
+                `align-${this.textAlign || "default"}`
+            ]
         },
         parsedContent() {
             let output = this.content
@@ -31,24 +35,33 @@ export default {
                 output = `${output} <cite class="citation">${this.citation}</cite>`
             }
             return output
-        },
-    },
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .gutenberg-quote {
-    margin: 2em auto;
-    max-width: var(--unit-max-width);
+    font-weight: normal;
 
-    &.align-right {
-        text-align: right;
+    /deep/ .citation {
+        font-style: normal;
+        font-size: 20px;
+        display: block;
     }
+
+    // Alignment
     &.align-left {
         text-align: left;
     }
     &.align-center {
         text-align: center;
+    }
+    &.align-right {
+        text-align: right;
+    }
+    &.is-style-large {
+        // TODO Bigger text option here
     }
 }
 </style>

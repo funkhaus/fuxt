@@ -23,14 +23,14 @@ export default {
         GutenbergList: () => import("~/components/gutenberg/List"),
         GutenbergEmbed: () => import("~/components/gutenberg/Embed"),
         GutenbergColumns: () => import("~/components/gutenberg/Columns"),
-        GutenbergColumns: () => import("~/components/gutenberg/Column"),
-        GutenbergFreeform: () => import("~/components/gutenberg/Freeform"),
+        GutenbergColumn: () => import("~/components/gutenberg/Column"),
+        GutenbergFreeform: () => import("~/components/gutenberg/Freeform")
     },
     props: {
         blocks: {
             type: Array,
-            default: [],
-        },
+            default: []
+        }
     },
     computed: {
         lowerCaseComponents() {
@@ -38,7 +38,7 @@ export default {
             let lowerCaseComponents = Object.keys(
                 this.$options.components || {}
             )
-            return lowerCaseComponents.map((str) => {
+            return lowerCaseComponents.map(str => {
                 return str.toLowerCase()
             })
         },
@@ -46,11 +46,17 @@ export default {
             // This function is used to shape the data coming out of WP-GQL
             // to better match the basic prop inputs of each component
 
-            return this.blocks.map((obj) => {
+            return this.blocks.map(obj => {
                 // Start by flatterning the "attributes"
                 let output = {
                     ...obj,
                     ...obj.attributes,
+                    id: _get(obj, "attributes.wpId", ""),
+                    class: `gutenberg-block ${_get(
+                        obj,
+                        "attributes.wpClasses",
+                        ""
+                    )}`
                 }
 
                 // Make name fit with Vue component syntax
@@ -63,9 +69,12 @@ export default {
                         break
                 }
 
+                // Remove un-needed elements from object and return
+                delete output.attributes
+                delete output.wpId
                 return output
             })
-        },
+        }
     },
     methods: {
         componentIsRegistered(name = "") {
@@ -79,13 +88,112 @@ export default {
         },
         getBlockName(name = "") {
             return `gutenberg-${name.replace("core/", "").toLowerCase()}`
-        },
-    },
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .wp-gutenberg {
-    // TODO Default styles here
+    // Margins above/below main section blocks and text blocks
+    --unit-margin-large: 100px;
+    --unit-margin-small: 20px;
+
+    // Used on two consecutive blocks to have them close the margin
+    --unit-margin-negative: -80px;
+
+    // Gaps on the side of a block (between browser edge)
+    --unit-gap: var(var(--unit-gap), 40px);
+
+    // Max width of blocks: Section, headings/quotes, paragraph/lists.
+    --unit-max-width-large: var(var(--unit-max-width), 1600px);
+    --unit-max-width-medium: var(var(--unit-max-width), 1000px);
+    --unit-max-width-small: var(var(--unit-max-width), 700px);
+
+    > .gutenberg-block {
+        margin: var(--unit-margin-large) auto;
+        max-width: var(--unit-max-width-large);
+        padding: 0 var(--unit-gap);
+
+        box-sizing: border-box;
+
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Sections - These elements get a large margin between them
+    .gutenberg-columns {
+        + .gutenberg-columns {
+            margin-top: var(--unit-margin-negative);
+        }
+        .gutenberg-column {
+            margin: 0 var(--unit-margin-small);
+        }
+        .gutenberg-heading,
+        .gutenberg-paragraph {
+            max-width: 370px;
+            padding: 0;
+            margin-top: unset;
+            margin-bottom: unset;
+        }
+    }
+    .gutenberg-image {
+        padding: 0;
+
+        + .gutenberg-image {
+            margin-top: var(--unit-margin-negative);
+        }
+    }
+    .gutenberg-quote {
+        max-width: var(--unit-max-width-medium);
+        text-align: center;
+        font-size: 40px;
+
+        /deep/ {
+            p {
+                margin: var(--unit-margin-small) auto;
+                font-weight: 300;
+            }
+            .citation {
+                font-size: 50%;
+                font-weight: 500;
+            }
+        }
+    }
+
+    // Text elements - these have smaller margins between them
+    .gutenberg-heading {
+        max-width: var(--unit-max-width-medium);
+
+        // Size
+        &.is-h1 {
+            font-size: 40px;
+        }
+        &.is-h2 {
+            font-size: 30px;
+        }
+        &.is-h3 {
+            font-size: 20px;
+        }
+        &.is-h4 {
+            font-size: 10px;
+        }
+
+        + .gutenberg-heading {
+            margin-top: var(--unit-margin-negative);
+        }
+        + .gutenberg-paragraph {
+            margin-top: var(--unit-margin-negative);
+        }
+    }
+    .gutenberg-paragraph,
+    .gutenberg-list {
+        max-width: var(--unit-max-width-small);
+        margin: var(--unit-margin-small) auto;
+    }
 }
 </style>

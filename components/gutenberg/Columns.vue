@@ -6,47 +6,41 @@
             :blocks="column.blocks"
             :vertical-alignment="column.verticalAlignment"
             :width="column.width"
-            class="gutenberg-column"
+            class="gutenberg-column gutenberg-block"
         />
     </div>
 </template>
 <script>
-import GutenbergColumn from "~/components/gutenberg/Column"
-
 export default {
-    components: {
-        GutenbergColumn,
-    },
     props: {
         blocks: {
             type: Array,
-            default: () => [],
-        },
+            default: () => []
+        }
     },
     computed: {
         parsedBlocks() {
-            return this.blocks.map((obj) => {
+            return this.blocks.map(obj => {
                 // Flatten the "attributes"
                 return {
                     ...obj,
-                    ...obj.attributes,
+                    ...obj.attributes
                 }
             })
-        },
-    },
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .gutenberg-columns {
     display: flex;
-    margin: 2em auto;
     width: 100%;
-    max-width: var(--unit-max-width);
 
     .gutenberg-column {
-        margin-right: 2em;
-
+        &:first-child {
+            margin-left: 0;
+        }
         &:last-child {
             margin-right: 0;
         }

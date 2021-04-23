@@ -1,19 +1,23 @@
 <template lang="html">
     <div :class="classes">
-        <iframe
-            class="iframe"
-            :src="iFrameSrc"
-            :title="caption"
-            frameborder="0"
-            allow="autoplay; fullscreen; accelerometer; encrypted-media; gyroscope; picture-in-picture;"
-            playsinline
-            :height="dimensions.height"
-            :width="dimensions.width"
-        />
-        <div
-            class="sizer"
-            :style="sizerStyles"
-        />
+        <div class="container">
+            <!-- .container allows for paddings to work with ratio sizing-->
+
+            <iframe
+                class="iframe"
+                :src="iFrameSrc"
+                :title="caption"
+                frameborder="0"
+                allow="autoplay; fullscreen; accelerometer; encrypted-media; gyroscope; picture-in-picture;"
+                playsinline
+                :height="dimensions.height"
+                :width="dimensions.width"
+            />
+            <div
+                class="sizer"
+                :style="sizerStyles"
+            />
+        </div>
     </div>
 </template>
 
@@ -24,32 +28,36 @@ export default {
     props: {
         url: {
             type: String,
-            default: "",
+            default: ""
         },
         provider: {
             type: String,
-            default: "",
+            default: ""
         },
         caption: {
             type: String,
-            default: "",
+            default: ""
         },
         color: {
             type: String,
-            default: "",
+            default: ""
         },
         wpClasses: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         classes() {
-            return ["gutenberg-embed", this.wpClasses]
+            return [
+                "gutenberg-embed",
+                { "is-vimeo": this.isVimeo },
+                { "is-youtube": this.isYouTube }
+            ]
         },
         sizerStyles() {
             return {
-                "padding-top": `${this.aspectRatio}%`,
+                "padding-top": `${this.aspectRatio}%`
             }
         },
         isVimeo() {
@@ -98,11 +106,11 @@ export default {
         dimensions() {
             let output = {
                 height: 720,
-                width: 1280,
+                width: 1280
             }
 
             // Go through each class, and figure out the ratio from this: "wp-embed-aspect-16-9"
-            this.wpClasses.split(" ").forEach((str) => {
+            this.wpClasses.split(" ").forEach(str => {
                 if (str.includes("wp-embed-aspect-")) {
                     let ratio = str.replace("wp-embed-aspect-", "")
                     ratio = ratio.split("-")
@@ -116,18 +124,17 @@ export default {
         },
         aspectRatio() {
             return (this.dimensions.height / this.dimensions.width) * 100
-        },
-    },
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .gutenberg-embed {
-    margin: 2em auto;
-    position: relative;
-    z-index: 0;
-    max-width: var(--unit-max-width);
-
+    .container {
+        position: relative;
+        z-index: 0;
+    }
     .iframe {
         position: absolute;
         top: 0;

@@ -11,39 +11,49 @@ export default {
     props: {
         blocks: {
             type: Array,
-            default: () => [],
+            default: () => []
         },
         verticalAlignment: {
             type: String,
-            default: "default",
+            default: "default"
         },
         width: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         styles() {
             return {
-                "flex-basis": this.width || "auto",
+                "flex-basis": this.width
             }
         },
         classes() {
             return [
                 "gutenberg-column",
-                `vertical-alignment-${this.verticalAlignment}`,
+                "gutenberg-block",
+                `vertical-alignment-${this.verticalAlignment}`
             ]
-        },
-    },
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .gutenberg-column {
-    flex: 1;
+    flex-basis: 0;
+    flex-grow: 1;
 
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+
+    /deep/ > * {
+        width: 100%;
+    }
 
     // Vertical alignment opations
     &.vertical-alignment-top {

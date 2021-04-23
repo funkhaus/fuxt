@@ -1,6 +1,6 @@
 <template lang="html">
     <div
-        class="gutenberg-freeform"
+        class="gutenberg-freeform gutenberg-block"
         v-html="html"
     />
 </template>
@@ -10,9 +10,9 @@ export default {
     props: {
         html: {
             type: String,
-            default: "",
-        },
-    },
+            default: ""
+        }
+    }
 }
 </script>
 

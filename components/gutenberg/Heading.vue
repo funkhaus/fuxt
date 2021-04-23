@@ -1,7 +1,6 @@
 <template lang="html">
     <component
         :is="element"
-        :id="wpId"
         :class="classes"
         :style="styles"
         v-html="content"
@@ -13,36 +12,28 @@ export default {
     props: {
         level: {
             type: Number,
-            default: 2,
+            default: 2
         },
         content: {
             type: String,
-            default: "",
+            default: ""
         },
         textColor: {
             type: String,
-            default: "",
+            default: ""
         },
         textAlign: {
             type: String,
-            default: "",
+            default: "default"
         },
         backgroundColor: {
             type: String,
-            default: "",
+            default: ""
         },
         fontSize: {
             type: String,
-            default: "",
-        },
-        wpId: {
-            type: String,
-            default: "",
-        },
-        wpClasses: {
-            type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         element() {
@@ -51,19 +42,35 @@ export default {
         styles() {
             return {
                 color: this.textColor,
-                "text-align": this.textAlign,
                 "background-color": this.backgroundColor,
-                "font-size": this.fontSize,
+                "font-size": this.fontSize
             }
         },
         classes() {
-            return ["gutenberg-heading", `is-h${this.level}`, this.wpClasses]
-        },
-    },
+            return [
+                "gutenberg-heading",
+                "gutenberg-block",
+                `is-h${this.level}`,
+                `align-${this.textAlign || "default"}`
+            ]
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .gutenberg-heading {
+    font-weight: normal;
+
+    // Alignment
+    &.align-left {
+        text-align: left;
+    }
+    &.align-center {
+        text-align: center;
+    }
+    &.align-right {
+        text-align: right;
+    }
 }
 </style>

@@ -1,6 +1,6 @@
 <template lang="html">
     <wp-image
-        class="gutenberg-image"
+        class="gutenberg-image gutenberg-block"
         :image="image"
     />
 </template>
@@ -10,15 +10,14 @@ export default {
     props: {
         image: {
             type: Object,
-            default: () => {},
-        },
-    },
+            default: () => {}
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .gutenberg-image {
-    max-width: var(--unit-max-width);
-    margin: 2em auto;
+    width: 100%;
 }
 </style>

@@ -1,6 +1,8 @@
 <template lang="html">
-    <ul
-        class="gutenberg-list"
+    <component
+        :is="listType"
+        :class="classes"
+        :style="styles"
         v-html="content"
     />
 </template>
@@ -10,9 +12,44 @@ export default {
     props: {
         content: {
             type: String,
-            default: "",
+            default: ""
         },
+        ordered: {
+            type: Boolean,
+            default: false
+        },
+        textColor: {
+            type: String,
+            default: ""
+        },
+        backgroundColor: {
+            type: String,
+            default: ""
+        },
+        fontSize: {
+            type: String,
+            default: ""
+        }
     },
+    computed: {
+        classes() {
+            return ["gutenberg-list"]
+        },
+        styles() {
+            return {
+                color: this.textColor,
+                "background-color": this.backgroundColor,
+                "font-size": this.fontSize
+            }
+        },
+        listType() {
+            let output = "ul"
+            if (this.ordered) {
+                output = "ol"
+            }
+            return output
+        }
+    }
 }
 </script>
 
