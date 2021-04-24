@@ -29,10 +29,10 @@ export const mutations = {
 
 // Getters
 export const getters = {
-    // Convert conutry to a custom region
+    // Convert country code to a custom region
     // NOTE You can access this getter using this syntax: this.$store.getters["geolocation/region"]
     region(state) {
-        // If we have user set a contry, assum it is the region and then use that.
+        // If we have user set a country, assume it is the region and then use that.
         if (state.userCountry) {
             return state.userCountry
         }
