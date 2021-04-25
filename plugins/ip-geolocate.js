@@ -1,6 +1,17 @@
 import _get from "lodash/get"
 
 export default async ({ store, req, query, isDev }) => {
+    // Set to true to check all users IPs. This is useful for debugging.
+    const forceCheck = query.ip || false // DO NOT LEAVE TRUE AS IT WILL COST MONEY
+    let endpoint = "check"
+
+    // Give warning if forcing check to IP stack
+    if (forceCheck) {
+        console.warn(
+            "IP Geolocate forceCheck is true. Please set to false once you finish testing."
+        )
+    }
+
     // Abort if no API key set
     if (!process.env.IPSTACK_KEY) {
         console.error(
@@ -13,7 +24,6 @@ export default async ({ store, req, query, isDev }) => {
         ip: "",
         detectedCountry: _get(store, "state.geolocation.detectedCountry", ""),
     }
-    let endpoint = "check"
 
     // Abort if we already have a country
     if (location.detectedCountry) {
@@ -49,7 +59,8 @@ export default async ({ store, req, query, isDev }) => {
     // Hit the IP Stack API if no country known yet
     // If we get client side, and still no country, then try again
     // This logic is to protect agaisnt running during static generation build
-    if (isDev || (!location.detectedCountry && process.target !== "static")) {
+    const runCheck = process.client && !location.detectedCountry
+    if (forceCheck || runCheck) {
         // SEE for more options: https://ipstack.com/documentation/#requester
         const res = await fetch(
             `https://api.ipstack.com/${endpoint}?access_key=${process.env.IPSTACK_KEY}&fields=country_code,ip`,
