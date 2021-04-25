@@ -93,6 +93,6 @@ export default async ({ store, req, query, isDev }) => {
     store.commit("geolocation/SET_GEOLOCATION", {
         ip: location.ip || "",
         detectedCountry: location.detectedCountry || "",
-        userCountry: "",
+        userRegion: "",
     })
 }
