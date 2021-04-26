@@ -1,39 +1,37 @@
 <template>
     <figure :class="classes">
-        <div
-            class="sizer"
-            :style="sizerStyles"
-        >
-            <img
-                v-if="parsedSrc"
-                ref="img"
-                class="media media-image"
-                :src="parsedSrc"
-                :srcset="parsedSrcset"
-                :sizes="parsedSizes"
-                :style="mediaStyles"
-                :alt="parsedAlt"
-                @load="onLoaded('image')"
-                @error="onError('image')"
-            >
+        <img
+            v-if="parsedSrc"
+            ref="img"
+            class="media media-image"
+            :src="parsedSrc"
+            :srcset="parsedSrcset"
+            :sizes="parsedSizes"
+            :style="mediaStyles"
+            :alt="parsedAlt"
+            @load="onLoaded('image')"
+            @error="onError('image')"
+        />
 
-            <video
-                v-if="parsedVideoUrl"
-                ref="video"
-                class="media media-video"
-                :src="parsedVideoUrl"
-                :style="mediaStyles"
-                :poster="parsedSrc"
-                :loop="loop"
-                :autoplay="autoplay"
-                :muted="muted"
-                :playsinline="playsinline"
-                @loadeddata="onLoaded('video')"
-                @error="onError('video')"
-                @ended="onEnded"
-                @playing="onPlaying"
-            />
-        </div>
+        <video
+            v-if="parsedVideoUrl"
+            ref="video"
+            class="media media-video"
+            :src="parsedVideoUrl"
+            :style="mediaStyles"
+            :poster="parsedSrc"
+            :loop="loop"
+            :autoplay="autoplay"
+            :muted="muted"
+            :playsinline="playsinline"
+            @loadeddata="onLoaded('video')"
+            @error="onError('video')"
+            @ended="onEnded"
+            @playing="onPlaying"
+        />
+
+        <div class="sizer" :style="sizerStyles" />
+
         <figcaption
             v-if="parsedCaption"
             class="caption"
@@ -324,6 +322,8 @@ export default {
 
     .sizer {
         position: relative;
+        opacity: 0.25;
+        z-index: 0;
     }
     .media {
         width: 100%;
