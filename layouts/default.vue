@@ -26,6 +26,7 @@
 import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
 import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
+import setupScrollManager from "~/utils/setupScrollManager"
 
 // Components
 import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
@@ -39,6 +40,7 @@ export default {
             winHeight: 0,
             winWidth: 0,
             sTop: 0,
+            scrollManager: null,
         }
 
         // On client side, we have window so set the height/width
@@ -152,8 +154,9 @@ export default {
     },
     mounted() {
         // Throttle common events
-        window.addEventListener("resize", _throttle(this.onResize, 16))
-        window.addEventListener("scroll", _throttle(this.onScroll, 8))
+        this.scrollManager = setupScrollManager()
+        this.scrollManager.add(this.onScroll)
+        window.addEventListener("resize", _throttle(this.onResize, 8))
 
         // Trigger a resize and scroll to start, so data is correct on load
         this.onResize()
@@ -168,6 +171,9 @@ export default {
                     break
             }
         })
+    },
+    destroyed() {
+        this.scrollManager.remove(this.onScroll)
     },
     methods: {
         onResize() {
