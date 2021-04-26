@@ -19,11 +19,10 @@ fragment GutenbergBlocks on BlockEditorContentNode {
             attributes {
                 ... on CoreParagraphBlockAttributes {
                     content
-                    align
-                    fontSize
-                    textColor
-                    backgroundColor
-                    anchor
+                    textAlign: align
+                    fontSize: fontSizeValue
+                    textColor: textColorCode
+                    backgroundColor: backgroundColorCode
                     wpId: anchor
                     wpClasses: className
                 }
@@ -78,12 +77,12 @@ fragment GutenbergBlocks on BlockEditorContentNode {
                     content
                     level
                     textAlign
-                    fontSize
-                    textColor
                     className
-                    backgroundColor
-                    wpClasses: className
+                    fontSize: fontSizeValue
+                    textColor: textColorCode
+                    backgroundColor: backgroundColorCode
                     wpId: anchor
+                    wpClasses: className
                 }
             }
         }
@@ -94,6 +93,8 @@ fragment GutenbergBlocks on BlockEditorContentNode {
                 ... on CoreQuoteBlockAttributes {
                     content: value
                     citation
+                    wpId: anchor
+                    wpClasses: className
                 }
             }
         }
@@ -102,7 +103,40 @@ fragment GutenbergBlocks on BlockEditorContentNode {
         ... on CoreListBlock {
             attributes {
                 ... on CoreListBlockAttributes {
+                    ordered
                     content: values
+                    fontSize: fontSizeValue
+                    textColor: textColorCode
+                    backgroundColor: backgroundColorCode
+                }
+            }
+        }
+
+        # Spacer
+        ... on CoreSpacerBlock {
+            attributes {
+                ... on CoreSpacerBlockAttributes {
+                    height
+                    wpId: anchor
+                    wpClasses: className
+                }
+            }
+        }
+
+        # Gallery
+        ... on CoreGalleryBlock {
+            mediaItems {
+                nodes {
+                    ...MediaImage
+                }
+            }
+            attributes {
+                ... on CoreGalleryBlockAttributes {
+                    columns
+                    imageCrop
+                    caption
+                    wpId: anchor
+                    wpClasses: className
                 }
             }
         }

@@ -16,6 +16,7 @@ import _get from "lodash/get"
 
 export default {
     components: {
+        // TODO Is it possible to lazy load the entire ~/components/gutenberg directory?
         GutenbergHeading: () => import("~/components/gutenberg/Heading"),
         GutenbergParagraph: () => import("~/components/gutenberg/Paragraph"),
         GutenbergImage: () => import("~/components/gutenberg/Image"),
@@ -24,7 +25,9 @@ export default {
         GutenbergEmbed: () => import("~/components/gutenberg/Embed"),
         GutenbergColumns: () => import("~/components/gutenberg/Columns"),
         GutenbergColumn: () => import("~/components/gutenberg/Column"),
-        GutenbergFreeform: () => import("~/components/gutenberg/Freeform")
+        GutenbergFreeform: () => import("~/components/gutenberg/Freeform"),
+        GutenbergSpacer: () => import("~/components/gutenberg/Spacer"),
+        GutenbergGallery: () => import("~/components/gutenberg/Gallery")
     },
     props: {
         blocks: {
@@ -67,6 +70,10 @@ export default {
                     case "gutenberg-image":
                         output.image = _get(output, "mediaItem.nodes[0]", {})
                         break
+
+                    case "gutenberg-gallery":
+                        output.images = _get(output, "mediaItems.nodes", [])
+                        break
                 }
 
                 // Remove un-needed elements from object and return
@@ -94,7 +101,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wp-gutenberg {
+:where(.wp-gutenberg) {
     // Margins above/below main section blocks and text blocks
     --unit-margin-large: 100px;
     --unit-margin-small: 20px;
@@ -103,17 +110,17 @@ export default {
     --unit-margin-negative: -80px;
 
     // Gaps on the side of a block (between browser edge)
-    --unit-gap: var(var(--unit-gap), 40px);
+    --unit-gutter: var(--unit-gap, 40px);
 
     // Max width of blocks: Section, headings/quotes, paragraph/lists.
-    --unit-max-width-large: var(var(--unit-max-width), 1600px);
-    --unit-max-width-medium: var(var(--unit-max-width), 1000px);
-    --unit-max-width-small: var(var(--unit-max-width), 700px);
+    --unit-max-width-large: var(--unit-max-width, 1600px);
+    --unit-max-width-medium: 1000px;
+    --unit-max-width-small: 700px;
 
     > .gutenberg-block {
         margin: var(--unit-margin-large) auto;
         max-width: var(--unit-max-width-large);
-        padding: 0 var(--unit-gap);
+        padding: 0 var(--unit-gutter);
 
         box-sizing: border-box;
 
@@ -137,8 +144,23 @@ export default {
         .gutenberg-paragraph {
             max-width: 370px;
             padding: 0;
-            margin-top: unset;
-            margin-bottom: unset;
+            margin: var(--unit-margin-small) auto;
+
+            + .gutenberg-heading {
+                margin-top: 0;
+            }
+            + .gutenberg-paragraph {
+                margin-top: 0;
+            }
+        }
+    }
+    .gutenberg-gallery {
+        padding: 0 calc(var(--unit-margin-small) / 2);
+        box-sizing: border-box;
+
+        /deep/ .image {
+            padding: 0 calc(var(--unit-margin-small) / 2);
+            margin: calc(var(--unit-margin-small) / 2) 0;
         }
     }
     .gutenberg-image {

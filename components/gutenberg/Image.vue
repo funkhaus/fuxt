@@ -1,6 +1,6 @@
 <template lang="html">
     <wp-image
-        class="gutenberg-image gutenberg-block"
+        class="gutenberg-image"
         :image="image"
     />
 </template>
