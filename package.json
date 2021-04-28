@@ -24,7 +24,7 @@
         "lodash": "^4.17.21",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/sitemap": "^2.4.0",
-        "@nuxtjs/storybook": "^4.0.2",
+        "@nuxtjs/storybook": "^3.3.2",
         "@nuxtjs/style-resources": "^1.0.0",
         "eslint": "^7.21.0",
         "eslint-plugin-vue": "^7.7.0",
