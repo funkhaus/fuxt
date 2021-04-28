@@ -16,11 +16,13 @@ function performantEvent(type, obj = window) {
                 detail = {
                     scrollTop: obj.pageYOffset,
                 }
+                break
             case "resize":
                 detail = {
                     winWidth: obj.innerWidth,
                     winHeight: obj.innerHeight,
                 }
+                break
         }
 
         obj.dispatchEvent(new CustomEvent(`performant-${type}`, { detail }))
