@@ -122,7 +122,7 @@ export default {
                 "main",
                 `breakpoint-${this.breakpoint}`,
                 { "menu-opened": this.$store.state.menuOpened },
-                { "is-scrolled": this.$store.state.stop > 0 },
+                { "is-scrolled": this.$store.state.sTop > 0 },
                 { "is-loading": this.$store.state.isLoading },
             ]
         },
