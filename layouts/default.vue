@@ -35,21 +35,6 @@ export default {
     components: {
         SvgLogoFunkhaus,
     },
-    data() {
-        let output = {
-            winHeight: 0,
-            winWidth: 0,
-            sTop: 0,
-            scrollManager: null,
-        }
-
-        // On client side, we have window so set the height/width
-        if (process.client) {
-            output.winHeight = window.innerHeight
-            output.winWidth = window.innerWidth
-        }
-        return output
-    },
     head() {
         return {
             htmlAttrs: {
@@ -57,6 +42,7 @@ export default {
             },
             bodyAttrs: {
                 class: this.bodyClasses,
+                style: this.bodyStyles,
             },
             titleTemplate: (titleChunk) => {
                 const title = decodeHtmlEntities(titleChunk)
@@ -119,6 +105,16 @@ export default {
 
             return classes.join(" ")
         },
+        bodyStyles() {
+            // This fixes the 100vh iOS bug/feature.
+            // If less than most tablets, set var to window height.
+            const winWidth = this.$store.state.winWidth
+            let value = "100vh"
+            if (winWidth <= 1024) {
+                value = `${this.$store.state.winHeight}px`
+            }
+            return `--unit-100vh: ${value};`
+        },
         classes() {
             return [
                 "layout",
@@ -126,19 +122,20 @@ export default {
                 "main",
                 `breakpoint-${this.breakpoint}`,
                 { "menu-opened": this.$store.state.menuOpened },
-                { "is-scrolled": this.sTop > 0 },
+                { "is-scrolled": this.$store.state.stop > 0 },
                 { "is-loading": this.$store.state.isLoading },
             ]
         },
         breakpoint() {
+            const winWidth = this.$store.state.winWidth
             let breakpoint = "desktop"
 
             switch (true) {
-                case this.winWidth == 0:
+                case winWidth == 0:
                     breakpoint = "desktop"
                     break
 
-                case this.winWidth <= 1024:
+                case winWidth <= 1024:
                     breakpoint = "mobile"
                     break
 
@@ -146,21 +143,26 @@ export default {
                     breakpoint = "desktop"
             }
 
-            if (this.$store.state.breakpoint != breakpoint) {
-                this.$store.commit("SET_BREAKPOINT", breakpoint)
-            }
             return breakpoint
+        },
+    },
+    watch: {
+        breakpoint(newVal, oldVal) {
+            if (newVal != oldVal) {
+                this.$store.commit("SET_BREAKPOINT", newVal)
+            }
         },
     },
     mounted() {
         // Throttle common events
-        this.scrollManager = setupScrollManager()
-        this.scrollManager.add(this.onScroll)
-        window.addEventListener("resize", _throttle(this.onResize, 8))
+        performantEvent("scroll").add()
+        performantEvent("resize").add()
+        window.addEventListener("performant-scroll", this.onScroll)
+        window.addEventListener("performant-resize", this.onResize)
 
         // Trigger a resize and scroll to start, so data is correct on load
-        this.onResize()
         this.onScroll()
+        this.onResize()
 
         // Monitor keydown
         window.addEventListener("keydown", (e) => {
@@ -173,33 +175,23 @@ export default {
         })
     },
     destroyed() {
-        this.scrollManager.remove(this.onScroll)
+        performantEvent("scroll").remove()
+        performantEvent("resize").remove()
+        window.removeEventListener("performant-scroll", this.onScroll)
+        window.removeEventListener("performant-resize", this.onResize)
     },
     methods: {
-        onResize() {
-            // Save window dimensions to store
-            this.winWidth = window.innerWidth
-            this.winHeight = window.innerHeight
-            let dimensions = {
-                height: this.winHeight,
-                width: this.winWidth,
+        onResize(event = {}) {
+            const dimensions = {
+                height: _get(event, "detail.winHeight", window.innerHeight),
+                width: _get(event, "detail.winWidth", window.innerWidth),
             }
             this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
-            this.set100vhVar()
         },
-        onScroll() {
+        onScroll(event = {}) {
             // Save window scroll position to store
-            this.sTop = window.pageYOffset || document.documentElement.scrollTop
-            this.$store.commit("SET_S_TOP", this.sTop)
-        },
-        set100vhVar() {
-            // This fixes the 100vh iOS bug/feature.
-            // If less than most tablets, set var to window height.
-            let value = ""
-            if (this.winWidth <= 1024) {
-                value = `${window.innerHeight}px`
-            }
-            document.documentElement.style.setProperty("--unit-100vh", value)
+            const sTop = _get(event, "detail.scrollTop", window.pageYOffset)
+            this.$store.commit("SET_S_TOP", sTop)
         },
     },
 }
