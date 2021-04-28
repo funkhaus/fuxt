@@ -20,20 +20,20 @@ export default {
     props: {
         images: {
             type: Array,
-            default: []
+            default: () => [],
         },
         caption: {
             type: String,
-            default: ""
+            default: "",
         },
         columns: {
             type: Number,
-            default: 2
+            default: 2,
         },
         imageCrop: {
             type: Boolean,
-            default: true
-        }
+            default: true,
+        },
     },
     computed: {
         classes() {
@@ -54,8 +54,8 @@ export default {
                     100
             }
             return output
-        }
-    }
+        },
+    },
 }
 </script>
 

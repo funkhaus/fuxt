@@ -27,13 +27,13 @@ export default {
         GutenbergColumn: () => import("~/components/gutenberg/Column"),
         GutenbergFreeform: () => import("~/components/gutenberg/Freeform"),
         GutenbergSpacer: () => import("~/components/gutenberg/Spacer"),
-        GutenbergGallery: () => import("~/components/gutenberg/Gallery")
+        GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
     },
     props: {
         blocks: {
             type: Array,
-            default: []
-        }
+            default: () => [],
+        },
     },
     computed: {
         lowerCaseComponents() {
@@ -41,7 +41,7 @@ export default {
             let lowerCaseComponents = Object.keys(
                 this.$options.components || {}
             )
-            return lowerCaseComponents.map(str => {
+            return lowerCaseComponents.map((str) => {
                 return str.toLowerCase()
             })
         },
@@ -49,7 +49,7 @@ export default {
             // This function is used to shape the data coming out of WP-GQL
             // to better match the basic prop inputs of each component
 
-            return this.blocks.map(obj => {
+            return this.blocks.map((obj) => {
                 // Start by flatterning the "attributes"
                 let output = {
                     ...obj,
@@ -59,7 +59,7 @@ export default {
                         obj,
                         "attributes.wpClasses",
                         ""
-                    )}`
+                    )}`,
                 }
 
                 // Make name fit with Vue component syntax
@@ -81,7 +81,7 @@ export default {
                 delete output.wpId
                 return output
             })
-        }
+        },
     },
     methods: {
         componentIsRegistered(name = "") {
@@ -95,8 +95,8 @@ export default {
         },
         getBlockName(name = "") {
             return `gutenberg-${name.replace("core/", "").toLowerCase()}`
-        }
-    }
+        },
+    },
 }
 </script>
 

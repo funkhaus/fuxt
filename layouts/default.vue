@@ -26,7 +26,7 @@
 import _throttle from "lodash/throttle"
 import _kebabCase from "lodash/kebabCase"
 import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
-import setupScrollManager from "~/utils/setupScrollManager"
+import performantEvent from "~/utils/performantEvent"
 
 // Components
 import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
