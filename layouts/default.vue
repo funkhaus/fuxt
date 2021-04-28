@@ -24,6 +24,7 @@
 <script>
 // Helpers
 import _throttle from "lodash/throttle"
+import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
 import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
 import performantEvent from "~/utils/performantEvent"
