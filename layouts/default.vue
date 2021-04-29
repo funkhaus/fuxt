@@ -5,25 +5,18 @@
 
         <global-hamburger />
 
-        <nuxt-link
-            to="/"
-            class="logo"
-        >
+        <nuxt-link to="/" class="logo">
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
         <wp-menu name="Main Menu" />
 
-        <nuxt
-            keep-alive
-            :keep-alive-props="{ include: ['WpMenu', 'WpSeo'] }"
-        />
+        <nuxt keep-alive :keep-alive-props="{ include: ['WpMenu', 'WpSeo'] }" />
     </main>
 </template>
 
 <script>
 // Helpers
-import _throttle from "lodash/throttle"
 import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
 import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
