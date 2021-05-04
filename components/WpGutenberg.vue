@@ -28,6 +28,7 @@ export default {
         GutenbergFreeform: () => import("~/components/gutenberg/Freeform"),
         GutenbergSpacer: () => import("~/components/gutenberg/Spacer"),
         GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
+        GutenbergCover: () => import("~/components/gutenberg/Cover"),
     },
     props: {
         blocks: {

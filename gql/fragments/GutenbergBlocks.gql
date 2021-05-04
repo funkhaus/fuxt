@@ -1,149 +1,244 @@
 #import "~/gql/fragments/MediaImage.gql"
-#import "~/gql/fragments/GutenbergColumns.gql"
 
 fragment GutenbergBlocks on BlockEditorContentNode {
     blocks {
         name
 
-        # Legacy content
-        ... on CoreFreeformBlock {
-            attributes {
-                ... on CoreFreeformBlockAttributes {
-                    html: content
-                }
+        ...FreeformBlock
+        ...ParagraphBlock
+        ...ImageBlock
+        ...EmbedBlock
+        ...GalleryBlock
+        ...HeadingBlock
+        ...QuoteBlock
+        ...ListBlock
+        ...SpacerBlock
+        ...CoverBlock
+
+        # Columns (and column)
+        ...ColumnsBlock
+    }
+}
+
+# Legacy content
+fragment FreeformBlock on Block {
+    ... on CoreFreeformBlock {
+        attributes {
+            ... on CoreFreeformBlockAttributes {
+                html: content
             }
         }
+    }
+}
 
-        # Paragraph
-        ... on CoreParagraphBlock {
-            attributes {
-                ... on CoreParagraphBlockAttributes {
-                    content
-                    textAlign: align
-                    fontSize: fontSizeValue
-                    textColor: textColorCode
-                    backgroundColor: backgroundColorCode
-                    wpId: anchor
-                    wpClasses: className
-                }
+# Image
+fragment ImageBlock on Block {
+    ... on CoreImageBlock {
+        attributes {
+            ... on CoreImageBlockAttributes {
+                caption
+                wpId: anchor
+                wpClasses: className
             }
         }
-
-        # Image
-        ... on CoreImageBlock {
-            attributes {
-                ... on CoreImageBlockAttributes {
-                    caption
-                    wpId: anchor
-                    wpClasses: className
-                }
-            }
-            mediaItem {
-                nodes {
-                    ...MediaImage
-                }
+        mediaItem {
+            nodes {
+                ...MediaImage
             }
         }
+    }
+}
 
-        # Embed
-        ... on CoreEmbedBlock {
-            attributes {
-                ... on CoreEmbedBlockAttributes {
-                    provider: providerNameSlug
-                    url
-                    caption
-                }
+# Paragraph
+fragment ParagraphBlock on Block {
+    ... on CoreParagraphBlock {
+        attributes {
+            ... on CoreParagraphBlockAttributes {
+                content
+                textAlign: align
+                fontSize: fontSizeValue
+                textColor: textColorCode
+                backgroundColor: backgroundColorCode
+                wpId: anchor
+                wpClasses: className
             }
         }
+    }
+}
 
-        # Gallery
-        ... on CoreGalleryBlock {
-            attributes {
-                ... on CoreGalleryBlockAttributes {
-                    caption
-                    columns
-                    images {
-                        id
-                        fullUrl
+# Embeds (YouTube and Vimeo)
+fragment EmbedBlock on Block {
+    ... on CoreEmbedBlock {
+        attributes {
+            ... on CoreEmbedBlockAttributes {
+                provider: providerNameSlug
+                url
+                caption
+            }
+        }
+    }
+}
+
+# Galleries
+fragment GalleryBlock on Block {
+    ... on CoreGalleryBlock {
+        mediaItems {
+            nodes {
+                ...MediaImage
+            }
+        }
+        attributes {
+            ... on CoreGalleryBlockAttributes {
+                columns
+                imageCrop
+                caption
+                wpId: anchor
+                wpClasses: className
+            }
+        }
+    }
+}
+
+# Headings
+fragment HeadingBlock on Block {
+    ... on CoreHeadingBlock {
+        attributes {
+            ... on CoreHeadingBlockAttributes {
+                content
+                level
+                textAlign
+                className
+                fontSize: fontSizeValue
+                textColor: textColorCode
+                backgroundColor: backgroundColorCode
+                wpId: anchor
+                wpClasses: className
+            }
+        }
+    }
+}
+
+# Blockquotes
+fragment QuoteBlock on Block {
+    ... on CoreQuoteBlock {
+        attributes {
+            ... on CoreQuoteBlockAttributes {
+                content: value
+                citation
+                wpId: anchor
+                wpClasses: className
+            }
+        }
+    }
+}
+
+# UL and OL lists
+fragment ListBlock on Block {
+    ... on CoreListBlock {
+        attributes {
+            ... on CoreListBlockAttributes {
+                ordered
+                content: values
+                fontSize: fontSizeValue
+                textColor: textColorCode
+                backgroundColor: backgroundColorCode
+            }
+        }
+    }
+}
+
+# Spacer block
+fragment SpacerBlock on Block {
+    ... on CoreSpacerBlock {
+        attributes {
+            ... on CoreSpacerBlockAttributes {
+                height
+                wpId: anchor
+                wpClasses: className
+            }
+        }
+    }
+}
+
+# Columns
+fragment ColumnsBlock on Block {
+    ... on CoreColumnsBlock {
+        attributes {
+            ... on CoreColumnsBlockAttributes {
+                wpId: anchor
+                wpClasses: className
+            }
+        }
+        blocks: innerBlocks {
+            # Columns will always have a direct column block child, but this handles nested columns
+            ...ColumnBlock
+
+            ... on CoreColumnBlock {
+                blocks: innerBlocks {
+                    name
+                    ... on CoreColumnsBlock {
+                        attributes {
+                            ... on CoreColumnsBlockAttributes {
+                                wpId: anchor
+                                wpClasses: className
+                            }
+                        }
+                        blocks: innerBlocks {
+                            ...ColumnBlock
+                        }
                     }
                 }
             }
         }
+    }
+}
 
-        # Heading
-        ... on CoreHeadingBlock {
-            attributes {
-                ... on CoreHeadingBlockAttributes {
-                    content
-                    level
-                    textAlign
-                    className
-                    fontSize: fontSizeValue
-                    textColor: textColorCode
-                    backgroundColor: backgroundColorCode
-                    wpId: anchor
-                    wpClasses: className
-                }
+# Column (used inside Columns)
+fragment ColumnBlock on Block {
+    ... on CoreColumnBlock {
+        name
+        attributes {
+            ... on CoreColumnBlockAttributes {
+                width
+                verticalAlignment
             }
         }
-
-        # Blockquote
-        ... on CoreQuoteBlock {
-            attributes {
-                ... on CoreQuoteBlockAttributes {
-                    content: value
-                    citation
-                    wpId: anchor
-                    wpClasses: className
-                }
-            }
+        blocks: innerBlocks {
+            name
+            ...HeadingBlock
+            ...ParagraphBlock
+            ...ImageBlock
         }
+    }
+}
 
-        # List
-        ... on CoreListBlock {
-            attributes {
-                ... on CoreListBlockAttributes {
-                    ordered
-                    content: values
-                    fontSize: fontSizeValue
-                    textColor: textColorCode
-                    backgroundColor: backgroundColorCode
-                }
-            }
+# Cover
+fragment CoverBlock on Block {
+    ... on CoreCoverBlock {
+        blocks: innerBlocks {
+            name
+            ...HeadingBlock
+            ...ParagraphBlock
+            ...ImageBlock
+            ...ColumnsBlock
         }
-
-        # Spacer
-        ... on CoreSpacerBlock {
-            attributes {
-                ... on CoreSpacerBlockAttributes {
-                    height
-                    wpId: anchor
-                    wpClasses: className
-                }
+        attributes {
+            ... on CoreCoverBlockAttributes {
+                align
+                backgroundType
+                contentPosition
+                customGradient
+                customOverlayColor
+                opacity: dimRatio
+                gradient
+                minHeight
+                minHeightUnit
+                overlayColor
+                url
+                isFixed: hasParallax
+                wpId: anchor
+                wpClasses: className
             }
-        }
-
-        # Gallery
-        ... on CoreGalleryBlock {
-            mediaItems {
-                nodes {
-                    ...MediaImage
-                }
-            }
-            attributes {
-                ... on CoreGalleryBlockAttributes {
-                    columns
-                    imageCrop
-                    caption
-                    wpId: anchor
-                    wpClasses: className
-                }
-            }
-        }
-
-        # Columns (and column)
-        ... on CoreColumnsBlock {
-            ...GutenbergColumns
         }
     }
 }
