@@ -11,6 +11,8 @@
             :alt="parsedAlt"
             @load="onLoaded('image')"
             @error="onError('image')"
+            :height="parsedHeight"
+            :width="parsedWidth"
         />
 
         <video
@@ -143,12 +145,16 @@ export default {
                 { "has-video-error": this.errorStatus.video },
                 `is-orientation-${this.orientation}`,
                 `object-fit-${this.objectFit}`,
+                { "is-svg": this.isSvg },
             ]
         },
         aspectPadding() {
-            return (
+            let output =
                 this.aspectRatio || (this.parsedHeight / this.parsedWidth) * 100
-            )
+            if (!output) {
+                output = 0
+            }
+            return output
         },
         orientation() {
             let output = "landscape"
@@ -162,14 +168,14 @@ export default {
             if (this.height) {
                 return parseInt(this.height)
             }
-            return _get(this, "image.mediaDetails.height")
+            return _get(this, "image.mediaDetails.height", "auto")
         },
         parsedWidth() {
             // default to defined width
             if (this.width) {
                 return parseInt(this.width)
             }
-            return _get(this, "image.mediaDetails.width")
+            return _get(this, "image.mediaDetails.width", "auto")
         },
         parsedSrc() {
             return this.src || _get(this, "image.sourceUrl", "")
@@ -235,6 +241,9 @@ export default {
         },
         hasError() {
             return Object.values(this.errorStatus).includes(true)
+        },
+        isSvg() {
+            return this.parsedSrc.includes(".svg")
         },
     },
     watch: {
@@ -319,10 +328,11 @@ export default {
 <style lang="scss" scoped>
 .wp-image {
     margin: 0;
+    width: 100%;
 
     .sizer {
         position: relative;
-        opacity: 0.25;
+        opacity: 0.1;
         z-index: 0;
     }
     .media {
@@ -368,6 +378,16 @@ export default {
     // Loaded state
     &.has-loaded .media {
         opacity: 1;
+    }
+
+    // SVG overides as we won't have a height/width for intrinsic ratio.
+    &.is-svg {
+        .media {
+            object-fit: contain;
+            position: relative;
+            height: auto;
+            width: 100%;
+        }
     }
 
     // Error state (only show the media that is working)
