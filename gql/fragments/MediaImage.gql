@@ -12,7 +12,7 @@ fragment MediaImage on MediaItem {
         height
         width
     }
-    acfImageMeta {
+    imageMeta {
         videoUrl
         primaryColor
         focalPointX
