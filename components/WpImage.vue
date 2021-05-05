@@ -1,44 +1,47 @@
 <template>
     <figure :class="classes">
-        <img
-            v-if="parsedSrc"
-            ref="img"
-            class="media media-image"
-            :src="parsedSrc"
-            :srcset="parsedSrcset"
-            :sizes="parsedSizes"
-            :style="mediaStyles"
-            :alt="parsedAlt"
-            @load="onLoaded('image')"
-            @error="onError('image')"
-            :height="parsedHeight"
-            :width="parsedWidth"
-        />
+        <div class="sizer" :style="sizerStyles">
+            <img
+                v-if="parsedSrc"
+                ref="img"
+                class="media media-image"
+                :src="parsedSrc"
+                :srcset="parsedSrcset"
+                :sizes="parsedSizes"
+                :style="mediaStyles"
+                :alt="parsedAlt"
+                @load="onLoaded('image')"
+                @error="onError('image')"
+                :height="parsedHeight"
+                :width="parsedWidth"
+            />
 
-        <video
-            v-if="parsedVideoUrl"
-            ref="video"
-            class="media media-video"
-            :src="parsedVideoUrl"
-            :style="mediaStyles"
-            :poster="parsedSrc"
-            :loop="loop"
-            :autoplay="autoplay"
-            :muted="muted"
-            :playsinline="playsinline"
-            @loadeddata="onLoaded('video')"
-            @error="onError('video')"
-            @ended="onEnded"
-            @playing="onPlaying"
-        />
+            <video
+                v-if="parsedVideoUrl"
+                ref="video"
+                class="media media-video"
+                :src="parsedVideoUrl"
+                :style="mediaStyles"
+                :poster="parsedSrc"
+                :loop="loop"
+                :autoplay="autoplay"
+                :muted="muted"
+                :playsinline="playsinline"
+                @loadeddata="onLoaded('video')"
+                @error="onError('video')"
+                @ended="onEnded"
+                @playing="onPlaying"
+            />
 
-        <div class="sizer" :style="sizerStyles" />
+            <div class="background-color" :style="backgroundStyles" />
+        </div>
 
         <figcaption
             v-if="parsedCaption"
             class="caption"
             v-html="parsedCaption"
         />
+
         <slot />
     </figure>
 </template>
@@ -193,9 +196,7 @@ export default {
             )
         },
         parsedVideoUrl() {
-            return (
-                this.videoUrl || _get(this, "image.imageMeta.videoUrl", "")
-            )
+            return this.videoUrl || _get(this, "image.imageMeta.videoUrl", "")
         },
         parsedFocalPoint() {
             return {
@@ -219,6 +220,10 @@ export default {
             if (this.mode == "intrinsic-ratio") {
                 styles.paddingBottom = `${this.aspectPadding}%`
             }
+            return styles
+        },
+        backgroundStyles() {
+            let styles = {}
             // Set background color
             if (this.parsedColor) {
                 styles.backgroundColor = `${this.parsedColor}`
@@ -332,8 +337,17 @@ export default {
 
     .sizer {
         position: relative;
+
+        z-index: 0;
+    }
+    .background-color {
         opacity: 0.1;
         z-index: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     .media {
         width: 100%;
