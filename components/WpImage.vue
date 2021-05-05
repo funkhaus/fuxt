@@ -189,22 +189,22 @@ export default {
         parsedColor() {
             return (
                 this.backgroundColor ||
-                _get(this, "image.acfImageMeta.primaryColor", "")
+                _get(this, "image.imageMeta.primaryColor", "")
             )
         },
         parsedVideoUrl() {
             return (
-                this.videoUrl || _get(this, "image.acfImageMeta.videoUrl", "")
+                this.videoUrl || _get(this, "image.imageMeta.videoUrl", "")
             )
         },
         parsedFocalPoint() {
             return {
                 x:
                     _get(this, "focalPoint.x", false) ||
-                    _get(this.image, "acfImageMeta.focalPointX", ""),
+                    _get(this.image, "imageMeta.focalPointX", ""),
                 y:
                     _get(this, "focalPoint.y", false) ||
-                    _get(this.image, "acfImageMeta.focalPointY", ""),
+                    _get(this.image, "imageMeta.focalPointY", ""),
             }
         },
         parsedAlt() {
