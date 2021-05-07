@@ -10,7 +10,7 @@ export default {
     props: {
         image: {
             type: Object,
-            default: () => {}
+            default: () => ({})
         }
     }
 }

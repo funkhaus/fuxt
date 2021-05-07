@@ -11,7 +11,11 @@
 
         <wp-menu name="Main Menu" />
 
-        <nuxt keep-alive :keep-alive-props="{ include: ['WpMenu', 'WpSeo'] }" />
+        <nuxt
+            class="page"
+            keep-alive
+            :keep-alive-props="{ include: ['WpMenu', 'WpSeo'] }"
+        />
     </main>
 </template>
 

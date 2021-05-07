@@ -30,7 +30,7 @@ props: {
     exampleObject: {
         // Mock: api.page
         type: Object,
-        default: () => {}
+        default: () => ({})
     },
     exampleArray: {
         // Mock: api.pages

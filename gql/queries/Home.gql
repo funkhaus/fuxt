@@ -6,9 +6,8 @@ query Home($uri: String!) {
     nodeByUri(uri: $uri) {
         ... on Page {
             title
-            encodedContent # Use this instead of content when using <wp-content>
             id
-            # acfMeta {
+            # workMeta {
             #     videoUrl
             # }
             featuredImage {

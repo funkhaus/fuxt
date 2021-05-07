@@ -54,7 +54,7 @@ export default {
     props: {
         image: {
             type: Object,
-            default: () => {},
+            default: () => ({}),
         },
         height: {
             type: Number,
@@ -122,7 +122,7 @@ export default {
         },
         focalPoint: {
             type: Object,
-            default: () => {},
+            default: () => ({}),
         },
     },
     data() {
