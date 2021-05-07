@@ -17,5 +17,6 @@ fragment MediaImage on MediaItem {
         primaryColor
         focalPointX
         focalPointY
+        blurhash
     }
 }
