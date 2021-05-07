@@ -1,8 +1,5 @@
 <template>
-    <section
-        v-if="page"
-        :class="classes"
-    >
+    <section class="page-home">
         <wp-image
             class="image"
             :image="parsedPage.featuredImage"
@@ -29,9 +26,6 @@ export default {
         }
     },
     computed: {
-        classes() {
-            return ["page", "page-home"]
-        },
         parsedPage() {
             // Shape data from WP-GQL to work with template
             return {
