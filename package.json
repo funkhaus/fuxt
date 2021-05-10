@@ -17,23 +17,23 @@
         "heroku-postbuild": "npm run build"
     },
     "dependencies": {
-        "nuxt": "^2.15.3"
+        "nuxt": "^2.15.5"
     },
     "devDependencies": {
-        "core-js": "^3.9.1",
-        "lodash": "^4.17.21",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/sitemap": "^2.4.0",
         "@nuxtjs/storybook": "^3.3.2",
         "@nuxtjs/style-resources": "^1.0.0",
-        "eslint": "^7.21.0",
+        "core-js": "^3.12.1",
+        "eslint": "^7.26.0",
         "eslint-plugin-vue": "^7.7.0",
         "graphql": "^15.5.0",
-        "graphql-tag": "^2.11.0",
+        "graphql-tag": "^2.12.4",
+        "lodash": "^4.17.21",
         "node-sass": "^5.0.0",
         "nodemon": "^2.0.7",
         "nuxt-graphql-request": "^4.0.0",
-        "prettier": "^2.2.0",
+        "prettier": "^2.3.0",
         "prettier-eslint": "^12.0.0",
         "sass-loader": "^10.1.1",
         "vue-svg-loader": "^0.16.0",
