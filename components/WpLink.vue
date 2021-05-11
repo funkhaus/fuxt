@@ -49,14 +49,20 @@ export default {
         },
         isInternal() {
             // wp-content in url means probably a download link, so open in new window
-            if (!this.to || this.to.includes("wp-content")) {
+            if (!this.to || this.to.includes("wp-content") || this.isEmail) {
                 return false
             }
             return this.to.startsWith(this.frontendUrl)
         },
+        isEmail() {
+            return this.to.includes("mailto:")
+        },
         isRelative() {
             let result = false
             switch (true) {
+                case this.isEmail:
+                    result = false
+                    break
                 case this.target == "_blank":
                     // If open in new window, then render an a-tag
                     result = false
