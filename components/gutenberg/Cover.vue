@@ -1,7 +1,16 @@
 <template lang="html">
-    <div :class="classes" :style="styles">
-        <wp-gutenberg :blocks="blocks" class="content" />
-        <div class="overlay" :style="overlayStyles" />
+    <div
+        :class="classes"
+        :style="styles"
+    >
+        <wp-gutenberg
+            :blocks="blocks"
+            class="content"
+        />
+        <div
+            class="overlay"
+            :style="overlayStyles"
+        />
     </div>
 </template>
 
@@ -51,12 +60,21 @@ export default {
     },
     computed: {
         classes() {
-            return ["gutenberg-cover", { "is-fixed": this.isFixed }]
+            return [
+                "gutenberg-cover",
+                { "is-fixed": this.isFixed },
+                "margin-section",
+            ]
         },
         styles() {
+            let minHeight = `${this.minHeight}${this.minHeightUnit || "px"}`
+            if (!this.minHeight) {
+                minHeight = "none"
+            }
+
             return {
                 "background-image": `url(${this.url})`,
-                "min-height": `${this.minHeight}${this.minHeightUnit || "px"}`,
+                "min-height": minHeight,
             }
         },
         overlayStyles() {

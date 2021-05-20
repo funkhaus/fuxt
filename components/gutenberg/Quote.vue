@@ -10,23 +10,23 @@ export default {
     props: {
         content: {
             type: String,
-            default: ""
+            default: "",
         },
         citation: {
             type: String,
-            default: ""
+            default: "",
         },
         textAlign: {
             type: String,
-            default: "default"
-        }
+            default: "default",
+        },
     },
     computed: {
         classes() {
             return [
                 "gutenberg-quote",
-                "gutenberg-block",
-                `align-${this.textAlign || "default"}`
+                "margin-text",
+                `align-${this.textAlign || "default"}`,
             ]
         },
         parsedContent() {
@@ -35,8 +35,8 @@ export default {
                 output = `${output} <cite class="citation">${this.citation}</cite>`
             }
             return output
-        }
-    }
+        },
+    },
 }
 </script>
 

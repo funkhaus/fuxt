@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="gutenberg-columns">
+    <div class="gutenberg-columns margin-section">
         <gutenberg-column
             v-for="(column, i) in parsedBlocks"
             :key="i"
@@ -15,20 +15,20 @@ export default {
     props: {
         blocks: {
             type: Array,
-            default: () => []
-        }
+            default: () => [],
+        },
     },
     computed: {
         parsedBlocks() {
-            return this.blocks.map(obj => {
+            return this.blocks.map((obj) => {
                 // Flatten the "attributes"
                 return {
                     ...obj,
-                    ...obj.attributes
+                    ...obj.attributes,
                 }
             })
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -39,10 +39,20 @@ export default {
 
     .gutenberg-column {
         &:first-child {
-            margin-left: 0;
+            padding-left: 0;
         }
         &:last-child {
-            margin-right: 0;
+            padding-right: 0;
+        }
+    }
+
+    // Breakpoints
+    @media #{$lt-phone} {
+        display: block;
+
+        .gutenberg-column {
+            flex-basis: 1;
+            padding: 0;
         }
     }
 }

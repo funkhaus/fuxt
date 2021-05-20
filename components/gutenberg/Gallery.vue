@@ -1,20 +1,31 @@
 <template lang="html">
     <div :class="classes">
         <div
-            v-for="image in images"
-            :key="image.id"
-            class="image"
+            v-for="column in parsedImages"
+            class="column item"
         >
             <wp-image
+                v-for="image in column"
+                :key="image.id"
                 :image="image"
-                :aspect-ratio="isCropped"
+                class="image"
             />
         </div>
+
+        <!-- This is show on mobile, or used when cropped is true -->
+        <wp-image
+            v-for="image in images"
+            :key="image.id"
+            class="single-column item image"
+            :image="image"
+            :aspect-ratio="croppedRatio"
+        />
     </div>
 </template>
 
 <script>
 import _get from "lodash/get"
+import sortColumns from "~/utils/sortColumns"
 
 export default {
     props: {
@@ -37,9 +48,15 @@ export default {
     },
     computed: {
         classes() {
-            return ["gutenberg-gallery", `is-${this.columns}-columns`]
+            return [
+                "gutenberg-gallery",
+                "margin-section",
+                `is-${this.parsedColumns}-columns`,
+                { "mode-cropped": this.imageCrop },
+                { "mode-masonry": !this.imageCrop },
+            ]
         },
-        isCropped() {
+        croppedRatio() {
             let output = null
             const firstImageDimensions = _get(
                 this,
@@ -55,6 +72,17 @@ export default {
             }
             return output
         },
+        parsedColumns() {
+            return this.columns || 2
+        },
+        parsedImages() {
+            // Sort images into columns for a masonry style layout
+            let output = []
+            if (this.images.length) {
+                output = sortColumns(this.images, this.parsedColumns)
+            }
+            return output
+        },
     },
 }
 </script>
@@ -64,51 +92,76 @@ export default {
     display: flex;
     flex-wrap: wrap;
 
-    .image {
-        box-sizing: border-box;
-
-        &:first-child {
-            margin-left: 0;
+    // Modes
+    &.mode-masonry {
+        .column {
+            display: block;
         }
-        &:last-child {
-            margin-right: 0;
+        .single-column {
+            display: none;
+        }
+    }
+    &.mode-cropped {
+        .column {
+            display: none;
+        }
+        .single-column {
+            display: block;
         }
     }
 
-    // Columns
+    // Columns Mode
+    .column {
+        box-sizing: border-box;
+    }
     &.is-1-columns {
-        .image {
+        .item {
             width: 100%;
         }
     }
     &.is-2-columns {
-        .image {
+        .item {
             width: 50%;
         }
     }
     &.is-3-columns {
-        .image {
+        .item {
             width: 33.33%;
         }
     }
     &.is-4-columns {
-        .image {
+        .item {
             width: 25%;
         }
     }
     &.is-5-columns {
-        .image {
+        .item {
             width: 20%;
         }
     }
     &.is-7-columns {
-        .image {
+        .item {
             width: 14.2857142857%;
         }
     }
     &.is-8-columns {
-        .image {
+        .item {
             width: 12.5%;
+        }
+    }
+
+    // Breakpoints
+    @media #{$lt-phone} {
+        &.is-2-columns,
+        &.is-3-columns,
+        &.is-4-columns,
+        &.is-5-columns,
+        &.is-6-columns,
+        &.is-7-columns,
+        &.is-8-columns {
+            .item {
+                width: 100%;
+            }
         }
     }
 }

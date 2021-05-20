@@ -1,9 +1,13 @@
 <template lang="html">
-    <wp-gutenberg
-        :blocks="blocks"
+    <div
         :class="classes"
         :style="styles"
-    />
+    >
+        <wp-gutenberg
+            class="wp-gutenberg"
+            :blocks="blocks"
+        />
+    </div>
 </template>
 
 <script>
@@ -11,37 +15,37 @@ export default {
     props: {
         blocks: {
             type: Array,
-            default: () => []
+            default: () => [],
         },
         verticalAlignment: {
             type: String,
-            default: "default"
+            default: "default",
         },
         width: {
             type: String,
-            default: ""
-        }
+            default: "",
+        },
     },
     computed: {
         styles() {
             return {
-                "flex-basis": this.width
+                "--flex-basis": this.width,
             }
         },
         classes() {
             return [
                 "gutenberg-column",
                 "gutenberg-block",
-                `vertical-alignment-${this.verticalAlignment}`
+                `vertical-alignment-${this.verticalAlignment || "default"}`,
             ]
-        }
-    }
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .gutenberg-column {
-    flex-basis: 0;
+    flex-basis: var(--flex-basis, 0);
     flex-grow: 1;
 
     display: flex;
@@ -70,6 +74,9 @@ export default {
     // to be consistent with columns in regular content flow
     .gutenberg-columns + .gutenberg-columns {
         margin-top: 0;
+    }
+    > .wp-gutenberg {
+        margin: 0;
     }
 }
 </style>

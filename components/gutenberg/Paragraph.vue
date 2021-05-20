@@ -11,40 +11,41 @@ export default {
     props: {
         content: {
             type: String,
-            default: ""
+            default: "",
         },
         textAlign: {
             type: String,
-            default: "default"
+            default: "default",
         },
         fontSize: {
             type: String,
-            default: ""
+            default: "",
         },
         textColor: {
             type: String,
-            default: ""
+            default: "",
         },
         backgroundColor: {
             type: String,
-            default: ""
-        }
+            default: "",
+        },
     },
     computed: {
         classes() {
             return [
                 "gutenberg-paragraph",
-                `align-${this.textAlign || "default"}`
+                `align-${this.textAlign || "default"}`,
+                "margin-text",
             ]
         },
         styles() {
             return {
                 color: this.textColor,
                 "background-color": this.backgroundColor,
-                "font-size": this.fontSize
+                "font-size": this.fontSize,
             }
-        }
-    }
+        },
+    },
 }
 </script>
 

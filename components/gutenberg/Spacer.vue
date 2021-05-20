@@ -1,6 +1,6 @@
 <template lang="html">
     <div
-        class="gutenberg-spacer"
+        class="gutenberg-spacer gutenberg-block"
         :style="styles"
     />
 </template>
@@ -10,16 +10,16 @@ export default {
     props: {
         height: {
             type: Number,
-            default: 0
-        }
+            default: 0,
+        },
     },
     computed: {
         styles() {
             return {
-                margin: `0 0 ${this.height}px 0`
+                margin: `0 0 ${this.height}px 0`,
             }
-        }
-    }
+        },
+    },
 }
 </script>
 
