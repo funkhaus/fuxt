@@ -5,7 +5,10 @@
             :image="parsedPage.featuredImage"
         />
 
-        <wp-gutenberg :blocks="parsedPage.blocks" />
+        <wp-gutenberg
+            class="content"
+            :blocks="parsedPage.blocks"
+        />
     </section>
 </template>
 
