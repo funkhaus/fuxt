@@ -20,9 +20,8 @@
         "nuxt": "^2.15.5"
     },
     "devDependencies": {
-        "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/sitemap": "^2.4.0",
-        "@nuxtjs/storybook": "^3.3.2",
+        "@nuxtjs/storybook": "^4.0.2",
         "@nuxtjs/style-resources": "^1.0.0",
         "core-js": "^3.12.1",
         "eslint": "^7.26.0",
@@ -38,6 +37,7 @@
         "sass-loader": "^10.1.1",
         "vue-svg-loader": "^0.16.0",
         "vue-template-compiler": "^2.6.12",
-        "webfontloader": "^1.6.28"
+        "webfontloader": "^1.6.28",
+        "@wordpress/autop": "^3.1.0"
     }
 }
