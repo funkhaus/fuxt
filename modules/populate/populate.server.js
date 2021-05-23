@@ -8,6 +8,7 @@ export default async (context) => {
         return
     }
     if (store._actions.nuxtGenerateInit) {
+        console.log("populate", context.$graphql)
         await store.dispatch("nuxtGenerateInit", context)
     }
     if (isGenerate) {

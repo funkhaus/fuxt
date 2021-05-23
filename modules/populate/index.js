@@ -1,5 +1,4 @@
-import { existsSync } from "fs"
-import { resolve, join } from "path"
+import { resolve } from "path"
 
 const empty = {}
 
@@ -9,7 +8,7 @@ export default function () {
         fileName: "populate.server.js",
     })
     this.nuxt.hook("generate:before", ({ setPayload }) => {
-        // Use an empty object as payload just to server as
+        // Use an empty object as payload just so server has
         // a hint that generate is being used
         setPayload(empty)
     })
