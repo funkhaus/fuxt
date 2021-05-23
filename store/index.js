@@ -41,22 +41,12 @@ export const mutations = {
 
 // Define actions
 export const actions = {
-    async nuxtServerInit(store, { $graphql }) {
-        //console.log("nuxtServerInit running", this.$graphql, $graphql)
-    },
+    async nuxtServerInit(store, { $graphql }) {},
 
-    async nuxtGenerateInit({ dispatch }, { $graphql, app }) {
-        // NOTE Trying to get $graphql some way
-        console.log(
-            "nuxtGenerateInit running",
-            this.$graphql,
-            $graphql,
-            app.$graphql
-        )
-
+    async nuxtGenerateInit({ dispatch }, context) {
         // Make all requests in parallel
         const data = await Promise.all([
-            //dispatch("QUERY_SETTINGS", context),
+            dispatch("QUERY_SETTINGS", context),
             //dispatch("ANOTHER_ACTION_EXAMPLE", context)
         ])
     },
