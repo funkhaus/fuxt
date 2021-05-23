@@ -42,10 +42,16 @@ export const mutations = {
 // Define actions
 export const actions = {
     async nuxtServerInit(store, context) {
+        console.log("nuxtServerInit running")
+    },
+
+    async nuxtGenerateInit({ dispatch }, context) {
+        console.log("nuxtGenerateInit running", store)
+
         // Make all requests in parallel
         const data = await Promise.all([
-            store.dispatch("QUERY_SETTINGS", context),
-            //store.dispatch("ANOTHER_ACTION_EXAMPLE", context)
+            //dispatch("QUERY_SETTINGS", context),
+            //dispatch("ANOTHER_ACTION_EXAMPLE", context)
         ])
     },
 
