@@ -1,8 +1,4 @@
-require("dotenv").config()
 export default {
-    env: {
-        ...process.env,
-    },
     target: "static",
     components: true,
 
@@ -20,8 +16,7 @@ export default {
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
         script: [
             {
-                src:
-                    "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver,smoothscroll&flags=gated",
+                src: "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver,smoothscroll&flags=gated",
                 body: true,
             },
         ],
@@ -68,6 +63,8 @@ export default {
         { src: "~/plugins/global-directive-loader.js" },
         { src: "~/plugins/google-gtag.client.js", mode: "client" },
         { src: "~plugins/preview.client.js", mode: "client" },
+        { src: "~plugins/preview.client.js", mode: "client" },
+        { src: "~plugins/performant-events.client.js", mode: "client" },
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" },
         //{ src: "~/plugins/ip-geolocate.js" },
     ],
@@ -90,11 +87,7 @@ export default {
     /*
      * Build modules
      */
-    buildModules: [
-        "@nuxtjs/dotenv",
-        "nuxt-graphql-request",
-        "~/modules/sitemap-route-generator",
-    ],
+    buildModules: ["nuxt-graphql-request", "~/modules/sitemap-route-generator"],
 
     /*
      ** GraphQL Request options.
