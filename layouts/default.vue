@@ -27,7 +27,8 @@
 import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
 import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
-import performantEvent from "~/utils/performantEvent"
+import metaDefaults from "~/utils/metaDefaults"
+import titleTemplate from "~/utils/titleTemplate"
 
 // Components
 import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
@@ -46,54 +47,9 @@ export default {
                 style: this.bodyStyles,
             },
             titleTemplate: (titleChunk) => {
-                const title = decodeHtmlEntities(titleChunk)
-                const site = decodeHtmlEntities(
-                    this.$store.state.siteMeta.title
-                )
-                let output = site
-
-                switch (true) {
-                    case site == title:
-                        output = site
-                        break
-
-                    case Boolean(title):
-                        output = `${site} - ${title}`
-                        break
-                }
-
-                return output
+                titleTemplate(this, titleChunk)
             },
-            meta: [
-                {
-                    hid: "description",
-                    name: "description",
-                    property: "og:description",
-                    content: this.$store.state.siteMeta.description,
-                },
-                {
-                    hid: "og:image",
-                    property: "og:image",
-                    content: this.$store.state.siteMeta.themeScreenshotUrl,
-                },
-                {
-                    property: "og:url",
-                    content: `${this.$store.state.siteMeta.frontendUrl}${this.$route.path}`,
-                },
-                {
-                    property: "og:site_name",
-                    content: this.$store.state.siteMeta.title,
-                },
-                {
-                    property: "og:type",
-                    content: "website",
-                },
-                {
-                    hid: "og:title",
-                    property: "og:title",
-                    content: this.$store.state.siteMeta.title,
-                },
-            ],
+            meta: metaDefaults(this),
         }
     },
     computed: {
