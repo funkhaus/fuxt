@@ -73,6 +73,7 @@ export default {
     modules: [
         "@nuxtjs/style-resources",
         "@nuxtjs/sitemap",
+        "~/modules/populate",
         // [
         //     "nuxt-vuex-localstorage",
         //     {
@@ -85,11 +86,7 @@ export default {
     /*
      * Build modules
      */
-    buildModules: [
-        "nuxt-graphql-request",
-        "~/modules/sitemap-route-generator",
-        "~/modules/populate",
-    ],
+    buildModules: ["nuxt-graphql-request", "~/modules/sitemap-route-generator"],
 
     /*
      ** GraphQL Request options.
