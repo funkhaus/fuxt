@@ -31,11 +31,16 @@ export default (context, inject) => {
         return
     }
 
-    // Setup events
+    // Setup new performant events
     performantEvent("scroll").add()
     performantEvent("resize").add()
 
-    // Bind events to window
+    // Don't do anything else if store doesn't exist (like in Storybook)
+    if (!context.store) {
+        return
+    }
+
+    // Bind to new events
     window.addEventListener("performant-scroll", (event) => {
         onScroll(context, event)
     })
