@@ -63,7 +63,6 @@ export default {
         { src: "~/plugins/global-directive-loader.js" },
         { src: "~/plugins/google-gtag.client.js", mode: "client" },
         { src: "~plugins/preview.client.js", mode: "client" },
-        { src: "~plugins/preview.client.js", mode: "client" },
         { src: "~plugins/performant-events.client.js", mode: "client" },
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" },
         //{ src: "~/plugins/ip-geolocate.js" },
