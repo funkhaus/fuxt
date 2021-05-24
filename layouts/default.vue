@@ -26,7 +26,6 @@
 // Helpers
 import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
-import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
 import metaDefaults from "~/utils/metaDefaults"
 import titleTemplate from "~/utils/titleTemplate"
 
@@ -46,8 +45,8 @@ export default {
                 class: this.bodyClasses,
                 style: this.bodyStyles,
             },
-            titleTemplate: (titleChunk) => {
-                titleTemplate(this, titleChunk)
+            titleTemplate(titleChunk) {
+                return titleTemplate(this, titleChunk)
             },
             meta: metaDefaults(this),
         }

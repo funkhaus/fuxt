@@ -1,3 +1,5 @@
+import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
+
 /*
  * This function is used generate the page title.
  */
