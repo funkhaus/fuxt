@@ -129,6 +129,7 @@ fragment QuoteBlock on Block {
                 citation
                 wpId: anchor
                 wpClasses: className
+                align
             }
         }
     }
