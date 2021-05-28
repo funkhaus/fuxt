@@ -119,21 +119,13 @@ export default {
     /*
      ** Server side middleware
      */
-    serverMiddleware: ["~/middleware/redirect-trailing-slash.server.js"],
+    serverMiddleware: ["~/server-middleware/redirect-trailing-slash.js"],
 
     /*
      ** Build configuration
      */
     build: {
-        // This and the transpile code below fix an issue with the spread operator in Safari 10.
-        babel: {
-            plugins: ["@babel/plugin-proposal-object-rest-spread"],
-        },
-        transpile: ["ky", "vuex"],
         extend(config, ctx) {
-            // This stops a @nuxtjs/dotenv error.
-            config.node = { fs: "empty" }
-
             // Remove SVG from default Nuxt webpack rules
             const svgRule = config.module.rules.find((rule) =>
                 rule.test.test(".svg")
