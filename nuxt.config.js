@@ -72,6 +72,7 @@ export default {
      ** Nuxt.js modules
      */
     modules: [
+        "~/modules/populate",
         "@nuxtjs/style-resources",
         "@nuxtjs/sitemap",
         // [

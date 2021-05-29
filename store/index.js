@@ -37,15 +37,20 @@ export const mutations = {
 
 // Define actions
 export const actions = {
-    async nuxtServerInit(store, context) {
-        // Make all requests in parallel
-        const data = await Promise.all([
-            store.dispatch("QUERY_SETTINGS", context),
-            //store.dispatch("ANOTHER_ACTION_EXAMPLE", context)
-        ])
+    //async nuxtServerInit(store, context) {},
+
+    async nuxtGenerateInit({ dispatch }, context) {
+        // NOTE context.generatePayload will be populated after first route is generated
+        return await dispatch("QUERY_SETTINGS", context)
     },
 
-    async QUERY_SETTINGS({ dispatch, commit }, context) {
+    async QUERY_SETTINGS({ commit }, context) {
+        // If we already have generatePayload, just store it and return
+        if (context.generatePayload) {
+            commit("SET_SITE_META", context.generatePayload)
+            return context.generatePayload
+        }
+
         // Get site settings from WordPress and save them to store
         try {
             const data = await this.$graphql.default.request(SITE_SETTINGS)
@@ -69,9 +74,9 @@ export const actions = {
                 delete options.googleAnalytics
             }
 
-            commit("SET_SITE_META", { ...meta, ...options })
-
-            return data
+            const siteMeta = { ...meta, ...options }
+            commit("SET_SITE_META", siteMeta)
+            return siteMeta
         } catch (e) {
             throw new Error(e)
         }
