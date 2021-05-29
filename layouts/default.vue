@@ -5,7 +5,10 @@
 
         <global-hamburger />
 
-        <nuxt-link to="/" class="logo">
+        <nuxt-link
+            to="/"
+            class="logo"
+        >
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
@@ -23,8 +26,8 @@
 // Helpers
 import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
-import decodeHtmlEntities from "~/utils/decodeHtmlEntities"
-import performantEvent from "~/utils/performantEvent"
+import metaDefaults from "~/utils/metaDefaults"
+import titleTemplate from "~/utils/titleTemplate"
 
 // Components
 import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
@@ -42,55 +45,10 @@ export default {
                 class: this.bodyClasses,
                 style: this.bodyStyles,
             },
-            titleTemplate: (titleChunk) => {
-                const title = decodeHtmlEntities(titleChunk)
-                const site = decodeHtmlEntities(
-                    this.$store.state.siteMeta.title
-                )
-                let output = site
-
-                switch (true) {
-                    case site == title:
-                        output = site
-                        break
-
-                    case Boolean(title):
-                        output = `${site} - ${title}`
-                        break
-                }
-
-                return output
+            titleTemplate(titleChunk) {
+                return titleTemplate(this, titleChunk)
             },
-            meta: [
-                {
-                    hid: "description",
-                    name: "description",
-                    property: "og:description",
-                    content: this.$store.state.siteMeta.description,
-                },
-                {
-                    hid: "og:image",
-                    property: "og:image",
-                    content: this.$store.state.siteMeta.themeScreenshotUrl,
-                },
-                {
-                    property: "og:url",
-                    content: `${this.$store.state.siteMeta.frontendUrl}${this.$route.path}`,
-                },
-                {
-                    property: "og:site_name",
-                    content: this.$store.state.siteMeta.title,
-                },
-                {
-                    property: "og:type",
-                    content: "website",
-                },
-                {
-                    hid: "og:title",
-                    property: "og:title",
-                    content: this.$store.state.siteMeta.title,
-                },
-            ],
+            meta: metaDefaults(this),
         }
     },
     computed: {
@@ -121,7 +79,6 @@ export default {
                 `breakpoint-${this.breakpoint}`,
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.$store.state.sTop > 0 },
-                { "is-loading": this.$store.state.isLoading },
             ]
         },
         breakpoint() {
@@ -149,47 +106,6 @@ export default {
             if (newVal != oldVal) {
                 this.$store.commit("SET_BREAKPOINT", newVal)
             }
-        },
-    },
-    mounted() {
-        // Throttle common events
-        performantEvent("scroll").add()
-        performantEvent("resize").add()
-        window.addEventListener("performant-scroll", this.onScroll)
-        window.addEventListener("performant-resize", this.onResize)
-
-        // Trigger a resize and scroll to start, so data is correct on load
-        this.onScroll()
-        this.onResize()
-
-        // Monitor keydown
-        window.addEventListener("keydown", (e) => {
-            switch (e && e.key) {
-                case "Escape":
-                    // Close menu on ESC press
-                    this.$store.commit("SET_MENU", false)
-                    break
-            }
-        })
-    },
-    destroyed() {
-        performantEvent("scroll").remove()
-        performantEvent("resize").remove()
-        window.removeEventListener("performant-scroll", this.onScroll)
-        window.removeEventListener("performant-resize", this.onResize)
-    },
-    methods: {
-        onResize(event = {}) {
-            const dimensions = {
-                height: _get(event, "detail.winHeight", window.innerHeight),
-                width: _get(event, "detail.winWidth", window.innerWidth),
-            }
-            this.$store.commit("SET_WIN_DIMENSIONS", dimensions)
-        },
-        onScroll(event = {}) {
-            // Save window scroll position to store
-            const sTop = _get(event, "detail.scrollTop", window.pageYOffset)
-            this.$store.commit("SET_S_TOP", sTop)
         },
     },
 }

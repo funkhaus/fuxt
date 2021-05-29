@@ -54,20 +54,20 @@ button {
 }
 
 // Z-Indexs
+.footer {
+    z-index: -100;
+}
 .page {
     z-index: 100;
 }
-.footer {
+.header {
     z-index: 200;
 }
-.header {
+.menu-panel {
     z-index: 300;
 }
-.menu-panel {
-    z-index: 400;
-}
 .global-hamburger {
-    z-index: 500;
+    z-index: 400;
 }
 
 // Gutenberg overrides

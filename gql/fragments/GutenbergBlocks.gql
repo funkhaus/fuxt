@@ -129,6 +129,7 @@ fragment QuoteBlock on Block {
                 citation
                 wpId: anchor
                 wpClasses: className
+                textAlign: align
             }
         }
     }
@@ -210,6 +211,7 @@ fragment ColumnBlock on Block {
             ...HeadingBlock
             ...ParagraphBlock
             ...ImageBlock
+            ...QuoteBlock
         }
     }
 }
