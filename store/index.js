@@ -44,20 +44,19 @@ export const actions = {
     async nuxtServerInit(store, { $graphql }) {},
 
     async nuxtGenerateInit({ dispatch }, context) {
-        // Make all requests in parallel
-        return await Promise.all([
-            dispatch("QUERY_SETTINGS", context),
-            //dispatch("ANOTHER_ACTION_EXAMPLE", context)
-        ])
+        // NOTE context.generatePayload will be populated after first route is generated
+        return await dispatch("QUERY_SETTINGS", context)
     },
 
     async QUERY_SETTINGS({ dispatch, commit }, context) {
+        // If we already have the data, just add it and return
+        if (context.generatePayload) {
+            commit("SET_SITE_META", context.generatePayload)
+            return context.generatePayload
+        }
+
         // Get site settings from WordPress and save them to store
         try {
-            if (context.generatePayload) {
-                commit("SET_SITE_META", context.generatePayload)
-                return context.generatePayload
-            }
             const data = await this.$graphql.default.request(SITE_SETTINGS)
             const options = _get(data, "acfSettings.siteOptions", {})
 
