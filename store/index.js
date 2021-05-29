@@ -49,7 +49,7 @@ export const actions = {
     },
 
     async QUERY_SETTINGS({ dispatch, commit }, context) {
-        // If we already have the data, just add it and return
+        // If we already have generatePayload, just add it and return
         if (context.generatePayload) {
             commit("SET_SITE_META", context.generatePayload)
             return context.generatePayload
