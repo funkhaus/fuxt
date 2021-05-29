@@ -16,6 +16,7 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 -   WordPress Previews and Drafts work with regular WordPress logins
 -   Supports Gutenberg blocks on frontend and backend!
 -   Includes [Nuxt Storybook module](https://storybook.nuxtjs.org/)!
+-   Includes custom module for nuxtGenerateInit. Populate the store once at the beginning of Generate!
 -   Optimized [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme:
     -   Auto installs any WordPress plugin dependencies
     -   GraphQL powered API using [Nuxt GraphQL Request](https://www.npmjs.com/package/nuxt-graphql-request)
