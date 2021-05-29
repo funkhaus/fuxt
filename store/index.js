@@ -45,7 +45,7 @@ export const actions = {
 
     async nuxtGenerateInit({ dispatch }, context) {
         // Make all requests in parallel
-        const data = await Promise.all([
+        return await Promise.all([
             dispatch("QUERY_SETTINGS", context),
             //dispatch("ANOTHER_ACTION_EXAMPLE", context)
         ])
@@ -54,6 +54,10 @@ export const actions = {
     async QUERY_SETTINGS({ dispatch, commit }, context) {
         // Get site settings from WordPress and save them to store
         try {
+            if (context.generatePayload) {
+                commit("SET_SITE_META", context.generatePayload)
+                return context.generatePayload
+            }
             const data = await this.$graphql.default.request(SITE_SETTINGS)
             const options = _get(data, "acfSettings.siteOptions", {})
 
@@ -75,9 +79,9 @@ export const actions = {
                 delete options.googleAnalytics
             }
 
-            commit("SET_SITE_META", { ...meta, ...options })
-
-            return data
+            const siteMeta = { ...meta, ...options }
+            commit("SET_SITE_META", siteMeta)
+            return siteMeta
         } catch (e) {
             throw new Error(e)
         }

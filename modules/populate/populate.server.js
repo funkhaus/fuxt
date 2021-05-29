@@ -6,12 +6,15 @@ export default async (context) => {
 
     // If isGenerate, populate once per server boot
     if (isGenerate && inMemory[kPopulated]) {
+        await store.dispatch("nuxtGenerateInit", {
+            generatePayload: inMemory[kPopulated],
+        })
         return
     }
     if (store._actions.nuxtGenerateInit) {
-        await store.dispatch("nuxtGenerateInit", context)
-    }
-    if (isGenerate) {
-        inMemory[kPopulated] = true
+        const [data] = await store.dispatch("nuxtGenerateInit", context)
+        if (isGenerate) {
+            inMemory[kPopulated] = data
+        }
     }
 }
