@@ -66,7 +66,7 @@ export default {
             // If less than most tablets, set var to window height.
             const winWidth = this.$store.state.winWidth
             let value = "100vh"
-            if (winWidth <= 1024) {
+            if (winWidth && winWidth <= 1024) {
                 value = `${this.$store.state.winHeight}px`
             }
             return `--unit-100vh: ${value};`
