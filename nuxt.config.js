@@ -120,7 +120,8 @@ export default {
     /*
      ** Server side middleware
      */
-    serverMiddleware: ["~/server-middleware/redirect-trailing-slash.js"],
+    // NOTE commented out until this is resolved: https://github.com/nuxt-community/storybook/issues/285
+    //serverMiddleware: ["~/server-middleware/redirect-trailing-slash.js"],
 
     /*
      ** Build configuration
