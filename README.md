@@ -68,4 +68,6 @@ $ npm run generate
 
 ```
 
+## Documentation
+
 For detailed explanation on how things work, checkout [the wiki](https://github.com/funkhaus/fuxt/wiki).
