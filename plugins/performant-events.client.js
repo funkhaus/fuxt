@@ -50,6 +50,12 @@ export default (context, inject) => {
     window.addEventListener("keydown", (event) => {
         onKeydown(context, event)
     })
+    window.addEventListener("deviceorientation", (event) => {
+        onResize(context)
+    })
+    window.addEventListener("orientationchange", (event) => {
+        onResize(context)
+    })
 
     // Kick off events to populate store with intial values
     onScroll(context)
