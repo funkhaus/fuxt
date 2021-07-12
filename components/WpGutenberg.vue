@@ -4,7 +4,7 @@
             :is="block.componentName"
             v-for="(block, i) in parsedBlocks"
             v-if="componentIsRegistered(block.name)"
-            :key="i"
+            :key="`gutenberg-block-${i}`"
             v-bind="block"
         />
     </div>
