@@ -45,6 +45,12 @@ export const actions = {
     },
 
     async QUERY_SETTINGS({ commit }, context) {
+        if (!process.env.GQL_ENDPOINT) {
+            throw new Error(
+                "No GQL endpoint found. You probably forgot to set the enviroment vars correctly."
+            )
+        }
+
         // If we already have generatePayload, just store it and return
         if (context.generatePayload) {
             commit("SET_SITE_META", context.generatePayload)
