@@ -17,6 +17,12 @@ fragment GutenbergBlocks on BlockEditorContentNode {
 
         # Columns (and column)
         ...ColumnsBlock
+
+        # Custom Blocks
+        ...LinksBlock
+        ...StatsBlock
+        ...CoverWithLogos
+        ...ScrollingGallery
     }
 }
 
@@ -242,6 +248,85 @@ fragment CoverBlock on Block {
                 isFixed: hasParallax
                 wpId: anchor
                 wpClasses: className
+            }
+        }
+    }
+}
+
+# Custom Blocks
+fragment LinksBlock on Block {
+    ... on FuxtLinksBlock {
+        attributes {
+            items {
+                credit
+                imageId
+                title: text
+                url
+            }
+        }
+        mediaItems {
+            nodes {
+                ...MediaImage
+            }
+        }
+    }
+}
+
+# StatsBlock
+fragment StatsBlock on Block {
+    ... on FuxtStatsBlock {
+        backgroundImg {
+            nodes {
+                ...MediaImage
+            }
+        }
+        attributes {
+            align
+            className
+            stats {
+                statCount
+                statText
+            }
+        }
+    }
+}
+
+fragment CoverWithLogos on Block {
+    ... on FuxtCoverWithLogosBlock {
+        attributes {
+            images {
+                alt
+                id
+                link
+                url
+            }
+            align
+            className
+        }
+        backgroundImg {
+            nodes {
+                ...MediaImage
+            }
+        }
+    }
+}
+
+fragment ScrollingGallery on Block {
+    ... on FuxtScrollingGalleryBlock {
+        attributes {
+            images {
+                alt
+                id
+                link
+                url
+            }
+            linkTo
+            className
+            align
+        }
+        mediaItems {
+            nodes {
+                ...MediaImage
             }
         }
     }
