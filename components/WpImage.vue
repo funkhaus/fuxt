@@ -161,8 +161,14 @@ export default {
         },
         orientation() {
             let output = "landscape"
-            if (this.parsedHeight > this.parsedWidth) {
-                output = "portrait"
+            switch (true) {
+                case this.parsedHeight > this.parsedWidth:
+                    output = "portrait"
+                    break
+
+                case this.parsedHeight == this.parsedWidth:
+                    output = "square"
+                    break
             }
             return output
         },

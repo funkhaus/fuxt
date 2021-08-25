@@ -45,7 +45,6 @@ export default {
     color: var(--color-black);
     margin: 0 auto;
     min-height: var(--unit-100vh);
-    text-align: center;
 
     .image {
         max-width: 50%;
