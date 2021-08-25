@@ -2,7 +2,8 @@
     "name": "fuxt",
     "version": "4.0.0",
     "engines": {
-        "node": "15.4.0"
+        "node": "16.8.0",
+        "npm": "7.21.0"
     },
     "description": "A Vue/Nuxt frontend boiler plate optimzed to work with the fuxt-backend WordPress theme.",
     "author": "Funkhaus",
