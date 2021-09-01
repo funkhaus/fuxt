@@ -18,24 +18,24 @@
         "generate": "nuxt generate"
     },
     "dependencies": {
-        "nuxt": "^2.15.7"
+        "nuxt": "^2.15.8"
     },
     "devDependencies": {
         "@nuxtjs/sitemap": "^2.4.0",
         "@nuxtjs/storybook": "^4.1.1",
-        "@nuxtjs/style-resources": "^1.2.0",
-        "@wordpress/autop": "^3.2.0",
-        "core-js": "^3.15.2",
-        "eslint": "^7.31.0",
-        "eslint-plugin-vue": "^7.14.0",
-        "graphql": "^15.5.1",
+        "@nuxtjs/style-resources": "^1.2.1",
+        "@wordpress/autop": "^3.2.1",
+        "core-js": "^3.17.1",
+        "eslint": "^7.32.0",
+        "eslint-plugin-vue": "^7.17.0",
+        "graphql": "^15.5.2",
         "graphql-tag": "^2.12.5",
         "lodash": "^4.17.21",
-        "node-sass": "^5.0.0",
+        "node-sass": "^6.0.1",
         "nodemon": "^2.0.12",
         "nuxt-graphql-request": "^4.1.0",
         "prettier": "^2.3.2",
-        "prettier-eslint": "^12.0.0",
+        "prettier-eslint": "^13.0.0",
         "sass-loader": "^10.1.1",
         "vue-svg-loader": "^0.16.0",
         "vue-template-compiler": "^2.6.12",
