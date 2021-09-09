@@ -42,8 +42,15 @@ export default {
             return {
                 color: this.textColor,
                 "background-color": this.backgroundColor,
-                "font-size": this.fontSize,
+                "font-size": this.parsedFontSize,
             }
+        },
+        parsedFontSize() {
+            let output = ""
+            if (this.fontSize) {
+                output = `${this.fontSize}px`
+            }
+            return output
         },
     },
 }

@@ -53,7 +53,7 @@ export default {
 <style lang="scss" scoped>
 .gutenberg-image {
     width: 100%;
-    max-width: var(--max-width, "100%");
+    max-width: var(--max-width, 100%);
     margin-right: auto;
     margin-left: auto;
 
