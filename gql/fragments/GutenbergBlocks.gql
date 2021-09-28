@@ -58,7 +58,7 @@ fragment ParagraphBlock on Block {
             ... on CoreParagraphBlockAttributes {
                 content
                 textAlign: align
-                fontSize: fontSizeValue
+                fontSize
                 textColor: textColorCode
                 backgroundColor: backgroundColorCode
                 wpId: anchor
