@@ -93,7 +93,11 @@ export default {
             return this.registeredComponents.includes(componentName)
         },
         getBlockName(name = "") {
-            name = name.replace("core/", "").replace("acf/", "").toLowerCase()
+            name = name
+                .replace("core/", "")
+                .replace("acf/", "")
+                .replace("fuxt/", "")
+                .toLowerCase()
             return `gutenberg-${name}`
         },
     },
