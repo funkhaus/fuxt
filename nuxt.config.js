@@ -121,7 +121,7 @@ export default {
      ** Server side middleware
      */
     serverMiddleware: [
-        { handler: '~/server-middleware/redirect-trailing-slash.js' },
+        // { handler: '~/server-middleware/redirect-trailing-slash.js' },
     ],
 
     /*
