@@ -102,10 +102,13 @@ export default {
         },
     },
     watch: {
-        breakpoint(newVal, oldVal) {
-            if (newVal != oldVal) {
-                this.$store.commit("SET_BREAKPOINT", newVal)
-            }
+        breakpoint: {
+            immediate: true,
+            handler(newVal, oldVal) {
+                if (newVal != oldVal) {
+                    this.$store.commit("SET_BREAKPOINT", newVal)
+                }
+            },
         },
     },
 }

@@ -378,6 +378,8 @@ export default {
     }
     &.mode-cover,
     &.mode-fullbleed {
+        position: relative;
+
         .sizer {
             width: 100%;
             height: 100%;

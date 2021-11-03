@@ -1,6 +1,6 @@
 **Component Created:** {path and filename}.vue from #{issue number}
 
-**Stories:** {story filename}.js
+**Stories:** {story filename}.stories.js
 
 **Imports:**
 
