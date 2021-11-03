@@ -30,6 +30,7 @@ export default {
         GutenbergSpacer: () => import("~/components/gutenberg/Spacer"),
         GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
         GutenbergCover: () => import("~/components/gutenberg/Cover"),
+        GutenbergHtml: () => import("~/components/gutenberg/Html"),
     },
     props: {
         blocks: {
