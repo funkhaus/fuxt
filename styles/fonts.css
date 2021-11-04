@@ -13,6 +13,7 @@
                 url('~assets/fonts/MyFont.woff') format('woff');
             font-style: normal;
             font-weight: 400;
+            font-display: swap;
         }
 
     Font Weights:
