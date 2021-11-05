@@ -1,6 +1,6 @@
 import _get from "lodash/get"
 
-export default async ({ store, req, query, isDev }) => {
+export default async ({ store, req, query, isDev, $config }) => {
     // Set to true to check all users IPs. This is useful for debugging.
     const forceCheck = query.ip || false // DO NOT LEAVE TRUE AS IT WILL COST MONEY
     let endpoint = "check"
@@ -13,7 +13,7 @@ export default async ({ store, req, query, isDev }) => {
     }
 
     // Abort if no API key set
-    if (!process.env.IPSTACK_KEY) {
+    if (!$config.ipStackKey) {
         console.error(
             "You must set IPSTACK_KEY as an environment variable to use IP detection."
         )
@@ -63,7 +63,7 @@ export default async ({ store, req, query, isDev }) => {
     if (forceCheck || runCheck) {
         // SEE for more options: https://ipstack.com/documentation/#requester
         const res = await fetch(
-            `https://api.ipstack.com/${endpoint}?access_key=${process.env.IPSTACK_KEY}&fields=country_code,ip`,
+            `https://api.ipstack.com/${endpoint}?access_key=${$config.ipStackKey}&fields=country_code,ip`,
             { credentials: "omit" }
         )
             .then((response) => response.json())

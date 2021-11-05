@@ -85,6 +85,13 @@ export default {
     ],
 
     /*
+     ** Enable to use ip-geolocate plugin
+     */
+    // publicRuntimeConfig: {
+    //     ipStackKey: process.env.IPSTACK_KEY,
+    // },
+
+    /*
      * Build modules
      */
     buildModules: ["nuxt-graphql-request", "~/modules/sitemap-route-generator"],
@@ -121,7 +128,7 @@ export default {
      ** Server side middleware
      */
     serverMiddleware: [
-        { handler: '~/server-middleware/redirect-trailing-slash.js' },
+        { handler: "~/server-middleware/redirect-trailing-slash.js" },
     ],
 
     /*
