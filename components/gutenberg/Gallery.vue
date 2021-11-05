@@ -12,7 +12,7 @@
             />
         </div>
 
-        <!-- This is show on mobile, or used when cropped is true -->
+        <!-- This is shown on mobile, or used when cropped is true -->
         <wp-image
             v-for="image in images"
             :key="image.id"
@@ -39,7 +39,7 @@ export default {
         },
         columns: {
             type: Number,
-            default: 2,
+            default: 1,
         },
         imageCrop: {
             type: Boolean,
@@ -73,7 +73,7 @@ export default {
             return output
         },
         parsedColumns() {
-            return this.columns || 2
+            return this.columns || 1
         },
         parsedImages() {
             // Sort images into columns for a masonry style layout
