@@ -51,7 +51,7 @@ export default async ({ store, req, query, isDev, $config }) => {
     }
 
     // Allow manual IP override for testing
-    // 93.37.80.33 is in Italy and 72.229.28.185 is in US and 101.0.10.25 is in the UK
+    // 93.37.80.33 is in Italy and 72.229.28.185 is in US and 101.167.187.25 is in the UK
     if (query.ip) {
         endpoint = query.ip
     }
