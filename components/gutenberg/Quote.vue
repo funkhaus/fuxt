@@ -44,7 +44,7 @@ export default {
 .gutenberg-quote {
     font-weight: normal;
 
-    /deep/ .citation {
+    ::v-deep .citation {
         font-style: normal;
         font-size: 20px;
         display: block;

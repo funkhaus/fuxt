@@ -154,7 +154,7 @@ export default {
             margin-top: var(--unit-margin-large);
         }
 
-        /deep/ {
+        ::v-deep {
             a {
                 text-decoration: underline;
                 transition: opacity 400ms
@@ -168,7 +168,7 @@ export default {
 
     // Specific block styling below.
     .gutenberg-columns {
-        /deep/ {
+        ::v-deep {
             .gutenberg-column {
                 padding: 0 var(--unit-margin-small);
                 box-sizing: border-box;
@@ -189,7 +189,7 @@ export default {
         }
 
         @media #{$lt-phone} {
-            /deep/ {
+            ::v-deep {
                 .gutenberg-column {
                     margin-bottom: var(--unit-margin-small);
 
@@ -205,7 +205,7 @@ export default {
         padding: 0 var(--half-margin);
 
         &.mode-masonry {
-            /deep/ {
+            ::v-deep {
                 .column {
                     box-sizing: border-box;
                     padding: 0 var(--half-margin);
@@ -225,7 +225,7 @@ export default {
         &.mode-cropped {
             margin-bottom: calc(-1 * var(--unit-margin-small));
 
-            /deep/ {
+            ::v-deep {
                 .image {
                     margin-bottom: var(--unit-margin-small);
                     padding: 0 var(--half-margin);
@@ -237,14 +237,14 @@ export default {
         // Breakpoints
         @media #{$lt-phone} {
             &.mode-masonry {
-                /deep/ {
+                ::v-deep {
                     .column {
                         padding: 0;
                     }
                 }
             }
             &.mode-cropped {
-                /deep/ {
+                ::v-deep {
                     .image {
                         padding: 0;
                     }
@@ -257,7 +257,7 @@ export default {
         text-align: center;
         font-size: 40px;
 
-        /deep/ {
+        ::v-deep {
             p {
                 margin: var(--unit-margin-small) auto;
                 font-weight: 300;
@@ -306,13 +306,13 @@ export default {
     .gutenberg-list {
         padding: 0 calc(var(--unit-gutter) * 2);
 
-        /deep/ li {
+        ::v-deep li {
             margin: 10px 0;
         }
 
         // Types
         &.is-ul {
-            /deep/ li {
+            ::v-deep li {
                 padding-left: 1ch;
                 &::marker {
                     content: "—";
@@ -327,7 +327,7 @@ export default {
 
     // This is mostly used for legacy blog posts
     .gutenberg-freeform {
-        /deep/ {
+        ::v-deep {
             img {
                 width: 100vw;
                 margin-left: 50%;

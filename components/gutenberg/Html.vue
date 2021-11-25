@@ -67,7 +67,7 @@ export default {
         position: relative;
         z-index: 0;
     }
-    /deep/ iframe {
+    ::v-deep iframe {
         position: absolute;
         top: 0;
         left: 0;
