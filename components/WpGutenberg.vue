@@ -102,7 +102,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-:where(.wp-gutenberg) {
+.wp-gutenberg {
     // Margins above/below main section blocks, text blocks, and between text and text.
     --unit-margin-large: 80px;
     --unit-margin-small: 40px;
