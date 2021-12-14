@@ -192,6 +192,7 @@ export default {
             ::v-deep {
                 .gutenberg-column {
                     margin-bottom: var(--unit-margin-small);
+                    padding: 0;
 
                     &:last-child {
                         margin-bottom: 0;

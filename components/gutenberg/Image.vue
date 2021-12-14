@@ -2,7 +2,6 @@
     <wp-image
         :class="classes"
         :image="image"
-        :style="styles"
     />
 </template>
 
@@ -15,9 +14,9 @@ export default {
             type: Object,
             default: () => {},
         },
-        wpWidth: {
-            type: Number,
-            default: 0,
+        size: {
+            type: String,
+            default: "large",
         },
         align: {
             type: String,
@@ -25,26 +24,13 @@ export default {
         },
     },
     computed: {
-        width() {
-            const imgWidth = _get(this, "image.mediaDetails.width", 0)
-
-            let output = 100
-            if (this.wpWidth && this.wpWidth < imgWidth) {
-                output = (this.wpWidth / imgWidth) * 100
-            }
-            return output
-        },
         classes() {
             return [
                 "gutenberg-image",
                 "margin-section",
                 `align-${this.align || "center"}`,
+                `size-${this.size || "large"}`,
             ]
-        },
-        styles() {
-            return {
-                "--max-width": `${this.width}%`,
-            }
         },
     },
 }
@@ -53,7 +39,6 @@ export default {
 <style lang="scss" scoped>
 .gutenberg-image {
     width: 100%;
-    max-width: var(--max-width, 100%);
     margin-right: auto;
     margin-left: auto;
 
@@ -71,9 +56,27 @@ export default {
         margin-right: 0;
     }
 
+    // Sizes
+    &.size-full {
+        max-width: 100%;
+    }
+    &.size-large {
+        max-width: 100%;
+    }
+    &.size-medium {
+        max-width: 50%;
+    }
+    &.size-thumbnail {
+        max-width: 25%;
+    }
+
     // Breakpoints
     @media #{$lt-phone} {
         max-width: 100%;
+        &.size-medium,
+        &.size-thumbnail {
+            max-width: 100%;
+        }
     }
 }
 </style>

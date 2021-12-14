@@ -40,8 +40,8 @@ fragment ImageBlock on Block {
                 caption
                 wpId: anchor
                 wpClasses: className
-                wpWidth: width
                 align
+                size: sizeSlug
             }
         }
         mediaItem {
