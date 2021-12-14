@@ -40,7 +40,7 @@ export default {
         },
         element: {
             type: String,
-            default: "div",
+            default: "span",
         },
     },
     computed: {
