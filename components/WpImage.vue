@@ -1,6 +1,9 @@
 <template>
     <figure :class="classes">
-        <div class="sizer" :style="sizerStyles">
+        <div
+            class="sizer"
+            :style="sizerStyles"
+        >
             <img
                 v-if="parsedSrc"
                 ref="img"
@@ -10,11 +13,11 @@
                 :sizes="parsedSizes"
                 :style="mediaStyles"
                 :alt="parsedAlt"
-                @load="onLoaded('image')"
-                @error="onError('image')"
                 :height="parsedHeight"
                 :width="parsedWidth"
-            />
+                @load="onLoaded('image')"
+                @error="onError('image')"
+            >
 
             <video
                 v-if="parsedVideoUrl"
@@ -33,7 +36,10 @@
                 @playing="onPlaying"
             />
 
-            <div class="background-color" :style="backgroundStyles" />
+            <div
+                class="background-color"
+                :style="backgroundStyles"
+            />
         </div>
 
         <figcaption
@@ -41,6 +47,8 @@
             class="caption"
             v-html="parsedCaption"
         />
+
+        <div class="scrim" />
 
         <slot />
     </figure>
@@ -370,6 +378,19 @@ export default {
     }
     .caption {
         display: none;
+    }
+
+    // Scrim
+    .scrim {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color: var(--color-black);
+        transition: opacity 0.4s ease-in-out;
+        z-index: 10;
     }
 
     // Modes
