@@ -3,7 +3,7 @@
         <component
             :is="block.componentName"
             v-for="(block, i) in parsedBlocks"
-            v-if="componentIsRegistered(block.name)"
+            v-if="block.isRegistered"
             :key="`gutenberg-block-${i}`"
             v-bind="block"
         />
@@ -15,8 +15,13 @@
 import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
 
+// Remove the block prefix's WordPress gives them
 function getBlockName(name = "") {
-    name = name.replace("core/", "").replace("acf/", "").replace("genesis-custom-blocks/", "").toLowerCase()
+    name = name
+        .replace("core/", "")
+        .replace("acf/", "")
+        .replace("genesis-custom-blocks/", "")
+        .toLowerCase()
     return `gutenberg-${name}`
 }
 
@@ -55,7 +60,6 @@ export default {
         parsedBlocks() {
             // This function is used to shape the data coming out of WP-GQL
             // to better match the basic prop inputs of each component
-
             return this.blocks.map((obj) => {
                 // Start by flatterning the "attributes"
                 let output = {
@@ -72,6 +76,11 @@ export default {
                 // Make name fit with Vue component syntax
                 output.componentName = `${getBlockName(obj.name)}`
 
+                // Store boolean that Block has a registered in Vue component
+                output.isRegistered = this.registeredComponents.includes(
+                    output.componentName
+                )
+
                 // Shape any props as needed
                 switch (output.componentName) {
                     case "gutenberg-image":
@@ -86,17 +95,9 @@ export default {
                 // Remove un-needed elements from object and return
                 delete output.attributes
                 delete output.wpId
+                delete output.wpClasses
                 return output
             })
-        },
-    },
-    methods: {
-        componentIsRegistered(name = "") {
-            // Get requested component name as all kebabCase
-            let componentName = _kebabCase(getBlockName(name))
-
-            // Check that component has been registered
-            return this.registeredComponents.includes(componentName)
         },
     },
 }
