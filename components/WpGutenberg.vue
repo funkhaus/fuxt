@@ -15,6 +15,11 @@
 import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
 
+function getBlockName(name = "") {
+    name = name.replace("core/", "").replace("acf/", "").replace("genesis-custom-blocks/", "").toLowerCase()
+    return `gutenberg-${name}`
+}
+
 export default {
     components: {
         // TODO Is it possible to lazy load the entire ~/components/gutenberg directory?
@@ -65,7 +70,7 @@ export default {
                 }
 
                 // Make name fit with Vue component syntax
-                output.componentName = `${this.getBlockName(obj.name)}`
+                output.componentName = `${getBlockName(obj.name)}`
 
                 // Shape any props as needed
                 switch (output.componentName) {
@@ -88,14 +93,10 @@ export default {
     methods: {
         componentIsRegistered(name = "") {
             // Get requested component name as all kebabCase
-            let componentName = _kebabCase(this.getBlockName(name))
+            let componentName = _kebabCase(getBlockName(name))
 
             // Check that component has been registered
             return this.registeredComponents.includes(componentName)
-        },
-        getBlockName(name = "") {
-            name = name.replace("core/", "").replace("acf/", "").toLowerCase()
-            return `gutenberg-${name}`
         },
     },
 }
