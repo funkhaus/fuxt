@@ -81,6 +81,11 @@ export default {
                     output.componentName
                 )
 
+                // Faltten any ACF fields to the object
+                if (obj.fields) {
+                    output = { ...output, ...obj.fields }
+                }
+
                 // Shape any props as needed
                 switch (output.componentName) {
                     case "gutenberg-image":
