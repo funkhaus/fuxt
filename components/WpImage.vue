@@ -1,40 +1,45 @@
 <template>
     <figure :class="classes">
-        <div class="sizer" :style="sizerStyles">
-            <img
-                v-if="parsedSrc"
-                ref="img"
-                class="media media-image"
-                :src="parsedSrc"
-                :srcset="parsedSrcset"
-                :sizes="parsedSizes"
-                :style="mediaStyles"
-                :alt="parsedAlt"
-                @load="onLoaded('image')"
-                @error="onError('image')"
-                :height="parsedHeight"
-                :width="parsedWidth"
-            />
+        <img
+            v-if="parsedSrc"
+            ref="img"
+            class="media media-image"
+            :src="parsedSrc"
+            :srcset="parsedSrcset"
+            :sizes="parsedSizes"
+            :style="mediaStyles"
+            :alt="parsedAlt"
+            :height="parsedHeight"
+            :width="parsedWidth"
+            @load="onLoaded('image')"
+            @error="onError('image')"
+        >
 
-            <video
-                v-if="parsedVideoUrl"
-                ref="video"
-                class="media media-video"
-                :src="parsedVideoUrl"
-                :style="mediaStyles"
-                :poster="parsedSrc"
-                :loop="loop"
-                :autoplay="autoplay"
-                :muted="muted"
-                :playsinline="playsinline"
-                @loadeddata="onLoaded('video')"
-                @error="onError('video')"
-                @ended="onEnded"
-                @playing="onPlaying"
-            />
+        <video
+            v-if="parsedVideoUrl"
+            ref="video"
+            class="media media-video"
+            :src="parsedVideoUrl"
+            :style="mediaStyles"
+            :poster="parsedSrc"
+            :loop="loop"
+            :autoplay="autoplay"
+            :muted="muted"
+            :playsinline="playsinline"
+            @loadeddata="onLoaded('video')"
+            @error="onError('video')"
+            @ended="onEnded"
+            @playing="onPlaying"
+        />
 
-            <div class="background-color" :style="backgroundStyles" />
-        </div>
+        <div
+            class="sizer"
+            :style="sizerStyles"
+        />
+        <div
+            class="background-color"
+            :style="backgroundStyles"
+        />
 
         <figcaption
             v-if="parsedCaption"
