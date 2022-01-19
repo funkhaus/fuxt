@@ -132,13 +132,6 @@ export default {
      ** Build configuration
      */
     build: {
-        postcss: {
-            plugins: {
-                "postcss-nested": {},
-                "postcss-custom-media": {},
-                "postcss-hexrgba": {},
-            },
-        },
         extend(config, ctx) {
             // Remove SVG from default Nuxt webpack rules
             const svgRule = config.module.rules.find((rule) =>
@@ -196,6 +189,13 @@ export default {
                 removeRedundantAttributes: true,
                 trimCustomFragments: true,
                 useShortDoctype: true,
+            },
+        },
+        postcss: {
+            plugins: {
+                "postcss-nested": {},
+                "postcss-custom-media": {},
+                "postcss-hexrgba": {},
             },
         },
     },
