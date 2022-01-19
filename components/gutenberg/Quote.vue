@@ -1,8 +1,5 @@
 <template lang="html">
-    <blockquote
-        :class="classes"
-        v-html="parsedContent"
-    />
+    <blockquote :class="classes" v-html="parsedContent" />
 </template>
 
 <script>
@@ -40,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .gutenberg-quote {
     font-weight: normal;
 
@@ -50,7 +47,7 @@ export default {
         display: block;
     }
 
-    // Alignment
+    /* Alignment */
     &.align-left {
         text-align: left;
     }
@@ -61,7 +58,7 @@ export default {
         text-align: right;
     }
     &.is-style-large {
-        // TODO Bigger text option here
+        /* TODO Bigger text option here */
     }
 }
 </style>

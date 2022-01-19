@@ -13,7 +13,7 @@
             :width="parsedWidth"
             @load="onLoaded('image')"
             @error="onError('image')"
-        >
+        />
 
         <video
             v-if="parsedVideoUrl"
@@ -32,14 +32,8 @@
             @playing="onPlaying"
         />
 
-        <div
-            class="sizer"
-            :style="sizerStyles"
-        />
-        <div
-            class="background-color"
-            :style="backgroundStyles"
-        />
+        <div class="sizer" :style="sizerStyles" />
+        <div class="background-color" :style="backgroundStyles" />
 
         <figcaption
             v-if="parsedCaption"
@@ -341,7 +335,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="pcss" scoped>
 .wp-image {
     margin: 0;
     width: 100%;
@@ -377,7 +371,7 @@ export default {
         display: none;
     }
 
-    // Modes
+    /* Modes */
     &.mode-intrinsic-ratio {
         position: relative;
     }
@@ -394,7 +388,7 @@ export default {
         }
     }
 
-    // Object fit modes
+    /* Object fit modes */
     &.object-fit-cover .media {
         object-fit: cover;
     }
@@ -402,12 +396,12 @@ export default {
         object-fit: contain;
     }
 
-    // Loaded state
+    /* Loaded state */
     &.has-loaded .media {
         opacity: 1;
     }
 
-    // SVG overides as we won't have a height/width for intrinsic ratio.
+    /* SVG overides as we won't have a height/width for intrinsic ratio. */
     &.is-svg {
         .media {
             object-fit: contain;
@@ -417,7 +411,7 @@ export default {
         }
     }
 
-    // Error state (only show the media that is working)
+    /* Error state (only show the media that is working) */
     &.has-error {
         .media {
             opacity: 1;

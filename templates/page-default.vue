@@ -1,14 +1,8 @@
 <template>
     <section class="page-home">
-        <wp-image
-            class="image"
-            :image="parsedPage.featuredImage"
-        />
+        <wp-image class="image" :image="parsedPage.featuredImage" />
 
-        <wp-gutenberg
-            class="content"
-            :blocks="parsedPage.blocks"
-        />
+        <wp-gutenberg id="content" :blocks="parsedPage.blocks" />
     </section>
 </template>
 
@@ -40,7 +34,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .page-home {
     color: var(--color-black);
     margin: 0 auto;
@@ -51,13 +45,13 @@ export default {
         margin: 0 auto;
     }
 
-    // Hover states
-    // @media #{$has-hover} {
-    // Hover styles would go here
-    // }
+    /* Hover states */
+    @media (--has-hover) {
+        /* Hover styles would go here */
+    }
 
-    // Breakpoints
-    // @media #{$lt-tablet} {
-    // }
+    /* Breakpoints */
+    @media (--lt-tablet) {
+    }
 }
 </style>

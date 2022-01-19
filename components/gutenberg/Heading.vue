@@ -59,11 +59,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .gutenberg-heading {
     font-weight: normal;
 
-    // Alignment
+    /* Alignment */
     &.align-left {
         text-align: left;
     }

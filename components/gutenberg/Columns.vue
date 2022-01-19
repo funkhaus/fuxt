@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .gutenberg-columns {
     display: flex;
     width: 100%;
@@ -46,8 +46,8 @@ export default {
         }
     }
 
-    // Breakpoints
-    @media #{$lt-phone} {
+    /* Breakpoints */
+    @media (--lt-phone) {
         display: block;
 
         .gutenberg-column {

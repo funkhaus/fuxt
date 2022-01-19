@@ -43,18 +43,12 @@ export default {
      ** Global CSS
      */
     css: [
-        "~/styles/variables-css.scss",
-        "~/styles/global.scss",
-        "~/styles/transitions.scss",
+        "~/styles/media-queries.css",
+        "~/styles/variables-css.css",
+        "~/styles/global.css",
+        "~/styles/transitions.css",
         //"~/styles/fonts.css" // Be sure to turn on the font loader plugin and config it
     ],
-
-    /*
-     ** Load SCSS into each component
-     */
-    styleResources: {
-        scss: ["~/styles/variables-scss.scss"],
-    },
 
     /*
      ** Plugins to load before mounting the App
@@ -73,7 +67,6 @@ export default {
      */
     modules: [
         "~/modules/populate",
-        "@nuxtjs/style-resources",
         "@nuxtjs/sitemap",
         // [
         //     "nuxt-vuex-localstorage",
@@ -94,7 +87,11 @@ export default {
     /*
      * Build modules
      */
-    buildModules: ["nuxt-graphql-request", "~/modules/sitemap-route-generator"],
+    buildModules: [
+        "@nuxt/postcss8",
+        "nuxt-graphql-request",
+        "~/modules/sitemap-route-generator",
+    ],
 
     /*
      ** GraphQL Request options.
@@ -135,6 +132,13 @@ export default {
      ** Build configuration
      */
     build: {
+        postcss: {
+            plugins: {
+                "postcss-nested": {},
+                "postcss-custom-media": {},
+                "postcss-hexrgba": {},
+            },
+        },
         extend(config, ctx) {
             // Remove SVG from default Nuxt webpack rules
             const svgRule = config.module.rules.find((rule) =>

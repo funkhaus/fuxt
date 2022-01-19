@@ -1,16 +1,10 @@
 <template lang="html">
     <article class="page-news-detail">
-        <h2
-            class="title"
-            v-html="page.title"
-        />
+        <h2 class="title" v-html="page.title" />
 
-        <wp-gutenberg
-            class="content"
-            :blocks="page.blocks"
-        />
+        <wp-gutenberg id="content" class="content" :blocks="page.blocks" />
 
-        Next: <br>
+        Next: <br />
         {{ next }}
     </article>
 </template>
@@ -46,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .page-news-detail {
 }
 </style>

@@ -108,17 +108,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .wp-gutenberg {
-    // Margins above/below main section blocks, text blocks, and between text and text.
+    /* Margins above/below main section blocks, text blocks, and between text and text. */
     --unit-margin-large: 80px;
     --unit-margin-small: 40px;
     --unit-margin-xsmall: 15px;
 
-    // Gaps on the side of a block (between browser edge)
+    /* Gaps on the side of a block (between browser edge) */
     --unit-gutter: var(--unit-gap, 40px);
 
-    // Max width of blocks: Section, headings/quotes, paragraph/lists.
+    /* Max width of blocks: Section, headings/quotes, paragraph/lists. */
     --unit-max-width-large: var(--unit-max-width, 1600px);
     --unit-max-width-medium: 1000px;
     --unit-max-width-small: 700px;
@@ -126,7 +126,7 @@ export default {
     margin: var(--unit-margin-large) auto;
     display: flow-root;
 
-    // Genric styles for all top level blocks
+    /* Genric styles for all top level blocks */
     > .gutenberg-block {
         margin: var(--unit-margin-small) auto;
         max-width: var(--unit-max-width-large);
@@ -141,8 +141,8 @@ export default {
         }
     }
 
-    // Margin type defined here.
-    // There are two main block types, "margin-section" and "margin-text".
+    /* Margin type defined here. */
+    /* There are two main block types, "margin-section" and "margin-text". */
     .margin-section {
         margin: var(--unit-margin-small) auto;
 
@@ -173,7 +173,7 @@ export default {
         }
     }
 
-    // Specific block styling below.
+    /* Specific block styling below. */
     .gutenberg-columns {
         ::v-deep {
             .gutenberg-column {
@@ -195,7 +195,7 @@ export default {
             margin-top: var(--unit-margin-large);
         }
 
-        @media #{$lt-phone} {
+        @media (--lt-phone) {
             ::v-deep {
                 .gutenberg-column {
                     margin-bottom: var(--unit-margin-small);
@@ -242,8 +242,8 @@ export default {
             }
         }
 
-        // Breakpoints
-        @media #{$lt-phone} {
+        /* Breakpoints */
+        @media (--lt-phone) {
             &.mode-masonry {
                 ::v-deep {
                     .column {
@@ -285,12 +285,12 @@ export default {
     .gutenberg-heading {
         max-width: var(--unit-max-width-small);
 
-        // Align
+        /* Align */
         &.align-center {
             max-width: var(--unit-max-width-medium);
         }
 
-        // Size
+        /* Size */
         &.is-h1 {
             font-size: 40px;
         }
@@ -318,7 +318,7 @@ export default {
             margin: 10px 0;
         }
 
-        // Types
+        /* Types */
         &.is-ul {
             ::v-deep li {
                 padding-left: 1ch;
@@ -333,7 +333,7 @@ export default {
         }
     }
 
-    // This is mostly used for legacy blog posts
+    /* This is mostly used for legacy blog posts */
     .gutenberg-freeform {
         ::v-deep {
             img {

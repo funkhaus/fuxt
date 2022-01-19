@@ -3,7 +3,7 @@
  * It's useful for global styles.
  */
 
-// Globals
+/* Globals */
 body {
     font-family: var(--font-primary);
     font-size: 16px;
@@ -53,7 +53,7 @@ button {
     background: rgba(0, 0, 0, 0.3);
 }
 
-// Z-Indexs
+/* Z-Indexs */
 .footer {
     z-index: -100;
 }
@@ -70,26 +70,26 @@ button {
     z-index: 400;
 }
 
-// Gutenberg overrides
-.content {
+/* Gutenberg overrides */
+#content {
 }
 
-// Animations
-// .bounce {
-//     animation: bounce 1.5s ease-in-out infinite;
-// }
-// @keyframes bounce {
-//     0%,
-//     20%,
-//     50%,
-//     80%,
-//     100% {
-//         transform: translateY(0) translateX(-50%);
-//     }
-//     40% {
-//         transform: translateY(-5px) translateX(-50%);
-//     }
-//     60% {
-//         transform: translateY(5px) translateX(-50%);
-//     }
-// }
+/* Animations */
+/* .bounce {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(5px) translateX(-50%);
+    }
+} */

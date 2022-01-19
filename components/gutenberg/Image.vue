@@ -1,8 +1,5 @@
 <template lang="html">
-    <wp-image
-        :class="classes"
-        :image="image"
-    />
+    <wp-image :class="classes" :image="image" />
 </template>
 
 <script>
@@ -36,13 +33,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .gutenberg-image {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
 
-    // Align
+    /* Align */
     &.align-center {
         margin-right: auto;
         margin-left: auto;
@@ -56,7 +53,7 @@ export default {
         margin-right: 0;
     }
 
-    // Sizes
+    /* Sizes */
     &.size-full {
         max-width: 100%;
     }
@@ -70,8 +67,8 @@ export default {
         max-width: 25%;
     }
 
-    // Breakpoints
-    @media #{$lt-phone} {
+    /* Breakpoints */
+    @media (--lt-phone) {
         max-width: 100%;
         &.size-medium,
         &.size-thumbnail {

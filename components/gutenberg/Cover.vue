@@ -95,7 +95,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .gutenberg-cover {
     position: relative;
     color: var(--color-white, #ffffff);

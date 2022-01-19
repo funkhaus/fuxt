@@ -1,12 +1,6 @@
 <template lang="html">
-    <div
-        :class="classes"
-        :style="styles"
-    >
-        <wp-gutenberg
-            class="wp-gutenberg"
-            :blocks="blocks"
-        />
+    <div :class="classes" :style="styles">
+        <wp-gutenberg class="wp-gutenberg" :blocks="blocks" />
     </div>
 </template>
 
@@ -43,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .gutenberg-column {
     flex-basis: var(--flex-basis, 0);
     flex-grow: 1;
@@ -59,7 +53,7 @@ export default {
         width: 100%;
     }
 
-    // Vertical alignment opations
+    /* Vertical alignment opations */
     &.vertical-alignment-top {
         justify-content: flex-start;
     }
@@ -70,8 +64,8 @@ export default {
         justify-content: flex-end;
     }
 
-    // Make a column containing more columns collapse margin
-    // to be consistent with columns in regular content flow
+    /* Make a column containing more columns collapse margin
+    to be consistent with columns in regular content flow */
     .gutenberg-columns + .gutenberg-columns {
         margin-top: 0;
     }

@@ -1,8 +1,5 @@
 <template>
-    <div
-        :class="classes"
-        @click="toggleMenu()"
-    >
+    <div :class="classes" @click="toggleMenu()">
         <div class="line line-1" />
         <div class="line line-2" />
         <div class="line line-3" />
@@ -31,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .global-hamburger {
     background-color: red;
     height: 20px;
@@ -41,11 +38,11 @@ export default {
     top: 20px;
     right: 20px;
 
-    // Breakpoints
-    // @media #{$lt-tablet} {
-    //     .hamburger {
-    //         display: block;
-    //     }
-    // }
+    /* Breakpoints */
+    @media (--lt-phone) {
+        /* .hamburger {
+            display: block;
+        } */
+    }
 }
 </style>
