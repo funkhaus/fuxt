@@ -1,0 +1,6 @@
+/*
+ * This file is useful for styling site wide themes. Like background colors etc.
+ * The theme names are set in the default layout bodyClasses() and themeName() computeds.
+ */
+.theme-default {
+}

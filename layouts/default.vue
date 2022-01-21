@@ -5,7 +5,10 @@
 
         <global-hamburger />
 
-        <nuxt-link to="/" class="logo">
+        <nuxt-link
+            to="/"
+            class="logo"
+        >
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
@@ -50,7 +53,7 @@ export default {
     },
     computed: {
         bodyClasses() {
-            const classes = ["body", "default-theme"]
+            const classes = ["body", `theme-${this.themeName}`]
             classes.push(`route-${_kebabCase(this.$route.name || "error")}`)
 
             // This is how you add a class conditionally
@@ -77,6 +80,15 @@ export default {
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.$store.state.sTop > 0 },
             ]
+        },
+        themeName() {
+            let output = "default"
+            switch (this.$route.name) {
+                case "index":
+                    output = "default"
+                    break
+            }
+            return output
         },
         breakpoint() {
             const winWidth = this.$store.state.winWidth
