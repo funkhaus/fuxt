@@ -335,7 +335,7 @@ export default {
 }
 </script>
 
-<style lang="pcss" scoped>
+<style lang="css" scoped>
 .wp-image {
     margin: 0;
     width: 100%;
