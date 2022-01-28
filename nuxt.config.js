@@ -126,6 +126,7 @@ export default {
      */
     serverMiddleware: [
         { handler: "~/server-middleware/redirect-trailing-slash.js" },
+        // { handler: "~/server-middleware/preview-ssr.js" },
     ],
 
     /*
