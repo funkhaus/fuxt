@@ -19,7 +19,7 @@ query Seo($uri: String!) {
         ... on NodeWithFeaturedImage {
             featuredImage {
                 node {
-                    ...MediaImage
+                    sourceUrl(size: FULLSCREEN_XLARGE)
                 }
             }
         }

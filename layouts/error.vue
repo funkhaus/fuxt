@@ -28,6 +28,7 @@ export default {
 <style lang="css">
 .section-404 {
     min-height: var(--unit-100vh);
+    text-align: center;
 
     display: flex;
     flex-direction: column;
