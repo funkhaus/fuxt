@@ -76,6 +76,7 @@ export default {
         },
         parsedTo() {
             let url = this.to
+
             // Replace all these things
             const replaceThese = [
                 _get(this, "$store.state.siteMeta.frontendUrl", ""),
@@ -85,7 +86,14 @@ export default {
                 url = url.replace(element, "")
             })
 
-            return url.startsWith("/") ? url : `/${url}`
+            if (url.startsWith("/")) {
+                return url
+            }
+            if (url.startsWith(".")) {
+                return url
+            }
+
+            return `/${url}`
         },
         parsedTarget() {
             if (!this.isInternal && !this.isRelative) {
