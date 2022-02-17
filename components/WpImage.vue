@@ -286,6 +286,7 @@ export default {
         }
         // Set the booted flag
         Vue.set(this.loadedStatus, "booted", true)
+        this.$emit("orientation", this.orientation)
     },
     methods: {
         onLoaded(type) {
