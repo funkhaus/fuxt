@@ -215,6 +215,7 @@ fragment ColumnBlock on Block {
             ...QuoteBlock
             ...SpacerBlock
             ...HtmlBlock
+            ...ListBlock
         }
     }
 }
