@@ -31,7 +31,7 @@ import _get from "lodash/get"
 import getStripped from "~/utils/getStripped"
 
 // Queries
-import SEO from "~/gql/queries/Seo.gql"
+import WP_SEO from "~/gql/queries/Seo.gql"
 
 export default {
     props: {
@@ -70,7 +70,7 @@ export default {
 
         // Get data from API
         try {
-            const data = await this.$graphql.default.request(SEO, {
+            const data = await this.$graphql.default.request(WP_SEO, {
                 uri: this.parsedUri,
             })
             this.data = _get(data, "nodeByUri", {})

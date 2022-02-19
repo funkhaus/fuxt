@@ -1,6 +1,6 @@
 #import "~/gql/fragments/MediaImage.gql"
 
-query Seo($uri: String!) {
+query WpSeo($uri: String!) {
     nodeByUri(uri: $uri) {
         id
         ... on NodeWithTitle {
