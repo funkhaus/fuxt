@@ -7,12 +7,15 @@
 export default function ({ query, enablePreview, redirect, error }) {
     // Enable Nuxt Preview mode
     if (query.preview) {
+        $graphql.default.setHeaders({ Preview: true })
         enablePreview()
+    } else {
+        $graphql.default.setHeaders({})
     }
 
     // Can handle some redirects here if Preview URLs are different than frontend.
     switch (true) {
-        case Boolean(query.preview) && query.id === "":
+        case Boolean(query.preview) && !query.id:
             return error({
                 statusCode: 404,
                 message:
