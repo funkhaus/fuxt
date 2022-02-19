@@ -31,7 +31,7 @@ import _get from "lodash/get"
 import getStripped from "~/utils/getStripped"
 
 // Queries
-import WP_SEO from "~/gql/queries/Seo.gql"
+import WP_SEO from "~/gql/queries/WpSeo.gql"
 
 export default {
     props: {

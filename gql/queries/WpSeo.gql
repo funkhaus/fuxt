@@ -1,5 +1,3 @@
-#import "~/gql/fragments/MediaImage.gql"
-
 query WpSeo($uri: String!) {
     nodeByUri(uri: $uri) {
         id

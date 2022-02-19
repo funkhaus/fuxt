@@ -19,6 +19,11 @@
             keep-alive
             :keep-alive-props="{ include: ['WpMenu', 'WpSeo'] }"
         />
+
+        <!-- WordPress editor controls shown on frontend when logged in -->
+        <client-only>
+            <wp-controls />
+        </client-only>
     </main>
 </template>
 
@@ -57,7 +62,7 @@ export default {
             classes.push(`route-${_kebabCase(this.$route.name || "error")}`)
 
             // This is how you add a class conditionally
-            process.server && classes.push("is-ssr")
+            // this.foo && classes.push("foo")
 
             return classes.join(" ")
         },

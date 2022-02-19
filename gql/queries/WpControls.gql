@@ -1,0 +1,13 @@
+query WpControls($uri: String!) {
+    nodeByUri(uri: $uri) {
+        id
+        __typename
+        ... on ContentNode {
+            databaseId
+        }
+    }
+    viewer {
+        id
+        nicename
+    }
+}
