@@ -73,7 +73,7 @@ export default {
             // This is used to style a gap at top of page.
             // Better than a class as it won't conflict with other head() html classes
             htmlAttrs: {
-                "data-logged-in": this.isLoggedIn,
+                "data-is-logged-in": this.isLoggedIn,
             },
         }
     },
@@ -129,7 +129,7 @@ export default {
 </script>
 
 <style lang="css">
-html[data-logged-in="true"] {
+html[data-is-logged-in="true"] {
     margin-top: 30px;
 }
 </style>
