@@ -4,7 +4,7 @@
  * And exmaple of a WordPress preview URL:
  *    https://example.com/news/p/post-slug-here/?preview=true&id=1234&type=post&status=publish&slug=post-slug-here&uri=/news/p/post-slug-here/
  */
-export default function ({ query, enablePreview, redirect, error }) {
+export default function ({ query, enablePreview, redirect, error, $graphql }) {
     // Enable Nuxt Preview mode
     if (query.preview) {
         $graphql.default.setHeaders({ Preview: true })
