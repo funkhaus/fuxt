@@ -59,9 +59,13 @@ export default {
     },
     async fetch() {
         try {
-            const data = await this.$graphql.default.request(WP_CONTROLS, {
-                uri: this.parsedUri,
-            })
+            const data = await this.$graphql.default.request(
+                WP_CONTROLS,
+                {
+                    uri: this.parsedUri,
+                },
+                { Preview: true }
+            )
             this.data = _get(data, "nodeByUri", {}) || {}
             this.user = _get(data, "viewer", {}) || {}
         } catch (e) {
