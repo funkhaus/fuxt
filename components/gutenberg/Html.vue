@@ -23,12 +23,13 @@ export default {
                 "gutenberg-html",
                 "margin-section",
                 { "is-iframe": this.isIframe },
+                { "has-aspect-ratio": this.aspectPadding },
             ]
         },
         sizerStyles() {
             let styles = {}
             // Set padding for size
-            if (this.isIframe) {
+            if (this.isIframe && this.aspectPadding) {
                 styles.paddingBottom = `${this.aspectPadding}%`
             }
             return styles
@@ -41,39 +42,54 @@ export default {
             const height = this.html.match(
                 /^<iframe[^>]*height\s*=\s*\"?(\d+)\"?[^>]*>/
             )
-            return Math.round(Number(_get(height, "[1]", 1080)))
+            return Math.round(Number(_get(height, "[1]", "")))
         },
         parsedWidth() {
             // Get the width from SVG attr
             const width = this.html.match(
                 /^<iframe[^>]*width\s*=\s*\"?(\d+)\"?[^>]*>/
             )
-            return Math.round(Number(_get(width, "[1]", 1920)))
+            return Math.round(Number(_get(width, "[1]", "")))
         },
         aspectPadding() {
             let output = (this.parsedHeight / this.parsedWidth) * 100
+
             if (!output) {
                 output = 0
             }
+
+            if (!this.parsedHeight || !this.parsedWidth) {
+                output = 0
+            }
+
             return output
         },
     },
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-html {
     .container {
         position: relative;
         z-index: 0;
     }
-    ::v-deep iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
+    &.has-aspect-ratio {
+        ::v-deep iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    &:not(.has-aspect-ratio) {
+        ::v-deep iframe {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
     }
 }
 </style>
