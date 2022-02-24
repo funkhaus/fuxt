@@ -62,6 +62,7 @@ fragment ParagraphBlock on Block {
                 fontSize
                 textColor: textColorCode
                 backgroundColor: backgroundColorCode
+                dropCap
                 wpId: anchor
                 wpClasses: className
             }

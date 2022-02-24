@@ -29,6 +29,10 @@ export default {
             type: String,
             default: "",
         },
+        dropCap: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         classes() {
@@ -36,6 +40,7 @@ export default {
                 "gutenberg-paragraph",
                 `align-${this.textAlign || "default"}`,
                 "margin-text",
+                { "has-drop-cap": this.dropCap },
             ]
         },
         styles() {
@@ -66,6 +71,12 @@ export default {
     }
     &.align-right {
         text-align: right;
+    }
+    &.has-drop-cap:first-letter {
+        float: left;
+        font-size: 3em;
+        padding-top: 0.15em;
+        padding-right: 0.15em;
     }
 }
 </style>
