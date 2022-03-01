@@ -89,6 +89,7 @@ export default {
             margin-left: auto;
             margin-right: auto;
             display: block;
+            max-width: 100%;
         }
     }
 }
