@@ -46,6 +46,7 @@ export default {
         "~/styles/media-queries.css",
         "~/styles/variables-css.css",
         "~/styles/global.css",
+        "~/styles/themes.css",
         "~/styles/transitions.css",
         //"~/styles/fonts.css" // Be sure to turn on the font loader plugin and config it
     ],
