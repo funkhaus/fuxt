@@ -94,9 +94,15 @@ export default {
             title: this.parsedTitle,
             meta: [
                 {
-                    hid: "description",
+                    hid: "og:description",
                     name: "description",
                     property: "og:description",
+                    content: this.parsedDescription,
+                },
+                {
+                    hid: "twitter:description",
+                    name: "twitter:description",
+                    property: "twitter:description",
                     content: this.parsedDescription,
                 },
                 {

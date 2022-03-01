@@ -5,7 +5,7 @@
 function metaDefaults({ $store, $route }) {
     return [
         {
-            hid: "description",
+            hid: "og:description",
             name: "description",
             property: "og:description",
             content: $store.state.siteMeta.description,
@@ -31,6 +31,11 @@ function metaDefaults({ $store, $route }) {
             hid: "og:title",
             property: "og:title",
             content: $store.state.siteMeta.title,
+        },
+        {
+            hid: "twitter:card",
+            property: "twitter:card",
+            content: "summary_large_image",
         },
     ]
 }
