@@ -1,6 +1,9 @@
 <template lang="html">
     <div :class="classes">
-        <div v-for="column in parsedImages" class="column item">
+        <div
+            v-for="column in parsedImages"
+            class="column item"
+        >
             <wp-image
                 v-for="image in column"
                 :key="image.id"
@@ -149,6 +152,18 @@ export default {
 
     /* Breakpoints */
     @media (--lt-phone) {
+        display: block;
+
+        &.mode-cropped,
+        &.mode-masonry {
+            .column {
+                display: none;
+            }
+            .single-column {
+                display: block;
+            }
+        }
+
         &.is-2-columns,
         &.is-3-columns,
         &.is-4-columns,
