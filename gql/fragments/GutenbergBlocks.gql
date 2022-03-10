@@ -87,9 +87,13 @@ fragment EmbedBlock on Block {
 # Galleries
 fragment GalleryBlock on Block {
     ... on CoreGalleryBlock {
-        mediaItems(first: 50) {
-            nodes {
-                ...MediaImage
+        innerBlocks {
+            ... on CoreImageBlock {
+                mediaItem {
+                    nodes {
+                        ...MediaImage
+                    }
+                }
             }
         }
         attributes {

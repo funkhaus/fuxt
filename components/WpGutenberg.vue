@@ -94,6 +94,15 @@ export default {
 
                     case "gutenberg-gallery":
                         output.images = _get(output, "mediaItems.nodes", [])
+
+                        // Use the new gallery inner blocks for images
+                        if (output.images) {
+                            const imageBlocks = _get(output, "innerBlocks", [])
+                            output.images = imageBlocks.map((obj) => {
+                                return _get(obj, "mediaItem.nodes[0]", {})
+                            })
+                        }
+
                         break
                 }
 
