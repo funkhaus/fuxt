@@ -78,6 +78,7 @@ fragment EmbedBlock on Block {
                 provider: providerNameSlug
                 url
                 caption
+                wpClasses: className
             }
         }
     }
@@ -217,6 +218,7 @@ fragment ColumnBlock on Block {
             ...SpacerBlock
             ...HtmlBlock
             ...ListBlock
+            ...EmbedBlock
         }
     }
 }

@@ -99,8 +99,6 @@ export default {
 
                 // Remove un-needed elements from object and return
                 delete output.attributes
-                delete output.wpId
-                delete output.wpClasses
                 return output
             })
         },
