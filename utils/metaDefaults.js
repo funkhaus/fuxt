@@ -3,6 +3,9 @@
  * It's overridden by the wp-seo component most of the time.
  */
 function metaDefaults({ $store, $route }) {
+    const imageUrl =
+        $store.state.siteMeta.socialSharedImage ||
+        $store.state.siteMeta.themeScreenshotUrl
     return [
         {
             hid: "og:description",
@@ -13,7 +16,7 @@ function metaDefaults({ $store, $route }) {
         {
             hid: "og:image",
             property: "og:image",
-            content: $store.state.siteMeta.themeScreenshotUrl,
+            content: imageUrl,
         },
         {
             property: "og:url",

@@ -17,6 +17,9 @@ query SiteSettings {
             googleAnalytics {
                 code
             }
+            socialSharedImage {
+                sourceUrl(size: SOCIAL_PREVIEW)
+            }
         }
     }
 }

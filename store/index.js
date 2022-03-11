@@ -79,6 +79,11 @@ export const actions = {
                 })
                 delete options.googleAnalytics
             }
+            options.socialSharedImage = _get(
+                options,
+                "socialSharedImage.sourceUrl",
+                ""
+            )
 
             const siteMeta = { ...meta, ...options }
             commit("SET_SITE_META", siteMeta)

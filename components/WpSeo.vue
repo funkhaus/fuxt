@@ -178,6 +178,13 @@ export default {
             if (!output) {
                 output = _get(
                     this,
+                    "$store.state.siteMeta.socialSharedImage",
+                    undefined
+                )
+            }
+            if (!output) {
+                output = _get(
+                    this,
                     "$store.state.siteMeta.themeScreenshotUrl",
                     undefined
                 )
