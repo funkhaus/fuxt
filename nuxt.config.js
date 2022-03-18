@@ -265,16 +265,5 @@ export default {
 
             return config
         },
-        // addons: [
-        //     "@storybook/addon-postcss",
-        //     {
-        //         name: "@storybook/addon-postcss",
-        //         plugins: {
-        //             "postcss-nested": {},
-        //             "postcss-custom-media": {},
-        //             "postcss-hexrgba": {},
-        //         },
-        //     },
-        // ],
     },
 }

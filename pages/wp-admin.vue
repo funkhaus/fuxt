@@ -1,5 +1,7 @@
 <template>
-    <div class="page-admin">Redirecting to admin...</div>
+    <div class="page-admin">
+        Redirecting to admin...
+    </div>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .page-admin {
     opacity: 0;
     min-height: var(--unit-100vh);
