@@ -1,32 +1,11 @@
 <template lang="html">
-    <header
-        v-if="isLoggedIn"
-        class="wp-controls"
-    >
-        <a
-            class="link"
-            :href="adminUrl"
-        >Dashboard</a>
-        <a
-            v-if="hasPost"
-            class="link"
-            :href="newPostUrl"
-        >+New Post</a>
-        <a
-            v-if="hasPage"
-            class="link"
-            :href="newPageUrl"
-        >+New Page</a>
-        <a
-            v-if="editUrl"
-            class="link"
-            :href="editUrl"
-        > Edit {{ postType }} </a>
+    <header v-if="isLoggedIn" class="wp-controls">
+        <a class="link" :href="adminUrl">Dashboard</a>
+        <a v-if="hasPost" class="link" :href="newPostUrl">+New Post</a>
+        <a v-if="hasPage" class="link" :href="newPageUrl">+New Page</a>
+        <a v-if="editUrl" class="link" :href="editUrl"> Edit {{ postType }} </a>
 
-        <a
-            class="user link"
-            :href="userUrl"
-        >
+        <a class="user link" :href="userUrl">
             <span class="greeting">Hello</span> {{ userDisplayName }}
         </a>
     </header>
@@ -132,13 +111,13 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
 html[data-is-logged-in="true"] {
     margin-top: 30px;
 }
 </style>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .wp-controls {
     position: fixed;
     z-index: 1000;
@@ -171,15 +150,15 @@ html[data-is-logged-in="true"] {
         margin-right: 0;
     }
 
-    /* Hovers */
-    @media (--has-hover) {
+    // Hovers
+    @media #{$has-hover} {
         .link:hover {
             opacity: 0.7;
         }
     }
 
-    /* Breakpoints */
-    @media (--lt-phone) {
+    // Breakpoints
+    @media #{$lt-phone} {
         padding: 10px;
 
         .greeting {

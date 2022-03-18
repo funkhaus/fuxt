@@ -43,13 +43,21 @@ export default {
      ** Global CSS
      */
     css: [
-        "~/styles/media-queries.css",
-        "~/styles/variables-css.css",
-        "~/styles/global.css",
-        "~/styles/themes.css",
         "~/styles/transitions.css",
         //"~/styles/fonts.css" // Be sure to turn on the font loader plugin and config it
     ],
+
+    /*
+     ** Global SCSS
+     */
+    styleResources: {
+        scss: [
+            "~/styles/global.scss",
+            "~/styles/media-queries.scss",
+            "~/styles/variables-css.scss",
+            "~/styles/themes.scss",
+        ],
+    },
 
     /*
      ** Plugins to load before mounting the App
@@ -89,7 +97,7 @@ export default {
      * Build modules
      */
     buildModules: [
-        "@nuxt/postcss8",
+        "@nuxtjs/style-resources",
         "nuxt-graphql-request",
         "~/modules/sitemap-route-generator",
     ],
@@ -191,13 +199,6 @@ export default {
                 removeRedundantAttributes: true,
                 trimCustomFragments: true,
                 useShortDoctype: true,
-            },
-        },
-        postcss: {
-            plugins: {
-                "postcss-nested": {},
-                "postcss-custom-media": {},
-                "postcss-hexrgba": {},
             },
         },
     },

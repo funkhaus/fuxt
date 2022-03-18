@@ -1,16 +1,7 @@
 <template lang="html">
-    <div
-        :class="classes"
-        :style="styles"
-    >
-        <wp-gutenberg
-            :blocks="blocks"
-            class="content"
-        />
-        <div
-            class="overlay"
-            :style="overlayStyles"
-        />
+    <div :class="classes" :style="styles">
+        <wp-gutenberg :blocks="blocks" class="content" />
+        <div class="overlay" :style="overlayStyles" />
     </div>
 </template>
 
@@ -95,7 +86,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-cover {
     position: relative;
     color: var(--color-white, #ffffff);

@@ -1,9 +1,5 @@
 <template lang="html">
-    <p
-        :class="classes"
-        :style="styles"
-        v-html="content"
-    />
+    <p :class="classes" :style="styles" v-html="content" />
 </template>
 
 <script>
@@ -61,7 +57,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-paragraph {
     &.align-left {
         text-align: left;

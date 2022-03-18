@@ -336,7 +336,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .wp-image {
     margin: 0;
     width: 100%;
@@ -372,7 +372,7 @@ export default {
         display: none;
     }
 
-    /* Modes */
+    // Modes
     &.mode-intrinsic-ratio {
         position: relative;
     }
@@ -389,7 +389,7 @@ export default {
         }
     }
 
-    /* Object fit modes */
+    // Object fit modes
     &.object-fit-cover .media {
         object-fit: cover;
     }
@@ -397,12 +397,12 @@ export default {
         object-fit: contain;
     }
 
-    /* Loaded state */
+    // Loaded state
     &.has-loaded .media {
         opacity: 1;
     }
 
-    /* SVG overides as we won't have a height/width for intrinsic ratio. */
+    // SVG overides as we won't have a height/width for intrinsic ratio.
     &.is-svg {
         .media {
             object-fit: contain;
@@ -412,7 +412,7 @@ export default {
         }
     }
 
-    /* Error state (only show the media that is working) */
+    // Error state (only show the media that is working)
     &.has-error {
         .media {
             opacity: 1;

@@ -1,8 +1,5 @@
 <template lang="html">
-    <div
-        class="gutenberg-spacer gutenberg-block"
-        :style="styles"
-    />
+    <div class="gutenberg-spacer gutenberg-block" :style="styles" />
 </template>
 
 <script>
@@ -23,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-spacer {
 }
 </style>

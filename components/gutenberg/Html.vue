@@ -1,10 +1,6 @@
 <template>
     <div :class="classes">
-        <div
-            class="container"
-            :style="sizerStyles"
-            v-html="html"
-        />
+        <div class="container" :style="sizerStyles" v-html="html" />
     </div>
 </template>
 <script>
@@ -68,7 +64,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-html {
     .container {
         position: relative;

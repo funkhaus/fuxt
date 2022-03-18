@@ -1,5 +1,7 @@
 <template>
-    <section class="page-default">
+    <section class="page-home">
+        <wp-image class="image" :image="parsedPage.featuredImage" />
+
         <wp-gutenberg id="content" :blocks="parsedPage.blocks" />
     </section>
 </template>
@@ -25,6 +27,7 @@ export default {
             // Shape data from WP-GQL to work with template
             return {
                 ...this.page,
+                featuredImage: _get(this, "page.featuredImage.node", {}),
             }
         },
     },
@@ -32,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page-default {
+.page-home {
     color: var(--color-black);
     margin: 0 auto;
     min-height: var(--unit-100vh);
@@ -47,8 +50,9 @@ export default {
         // Hover styles would go here
     }
 
-    /* Breakpoints */
+    // Breakpoints
     @media #{$lt-phone} {
+        // Phone styles would go here
     }
 }
 </style>

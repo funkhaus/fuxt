@@ -19,7 +19,7 @@
 }
 
 /* Breakpoints */
-@media (--lt-phone) {
+@media #{$lt-phone} {
     :root {
         /* --unit-gap: 20px; */
     }

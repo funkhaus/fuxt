@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-column {
     flex-basis: var(--flex-basis, 0);
     flex-grow: 1;

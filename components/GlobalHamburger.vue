@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .global-hamburger {
     background-color: red;
     height: 20px;
@@ -38,11 +38,11 @@ export default {
     top: 20px;
     right: 20px;
 
-    /* Breakpoints */
-    @media (--lt-phone) {
-        /* .hamburger {
-            display: block;
-        } */
+    // Breakpoints
+    @media #{$lt-phone} {
+        // .hamburger {
+        //     display: block;
+        // }
     }
 }
 </style>

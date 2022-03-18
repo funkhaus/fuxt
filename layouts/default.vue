@@ -5,10 +5,7 @@
 
         <global-hamburger />
 
-        <nuxt-link
-            to="/"
-            class="logo"
-        >
+        <nuxt-link to="/" class="fuxt-logo">
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
@@ -128,9 +125,9 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
 .layout-default {
-    .logo {
+    .fuxt-logo {
         position: absolute;
         top: 20px;
         left: 0;

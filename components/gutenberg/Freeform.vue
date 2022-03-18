@@ -1,8 +1,5 @@
 <template lang="html">
-    <div
-        class="gutenberg-freeform margin-section"
-        v-html="parsedHtml"
-    />
+    <div class="gutenberg-freeform margin-section" v-html="parsedHtml" />
 </template>
 
 <script>
@@ -23,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-freeform {
 }
 </style>

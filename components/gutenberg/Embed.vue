@@ -13,10 +13,7 @@
                 :height="dimensions.height"
                 :width="dimensions.width"
             />
-            <div
-                class="sizer"
-                :style="sizerStyles"
-            />
+            <div class="sizer" :style="sizerStyles" />
         </div>
     </div>
 </template>
@@ -130,7 +127,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-embed {
     .container {
         position: relative;

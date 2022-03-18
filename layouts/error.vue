@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
 .section-404 {
     min-height: var(--unit-100vh);
     text-align: center;

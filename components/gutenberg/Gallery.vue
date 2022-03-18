@@ -1,9 +1,6 @@
 <template lang="html">
     <div :class="classes">
-        <div
-            v-for="column in parsedImages"
-            class="column item"
-        >
+        <div v-for="column in parsedImages" class="column item">
             <wp-image
                 v-for="image in column"
                 :key="image.id"
@@ -87,12 +84,12 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .gutenberg-gallery {
     display: flex;
     flex-wrap: wrap;
 
-    /* Modes */
+    // Modes
     &.mode-masonry {
         .column {
             display: block;
@@ -110,7 +107,7 @@ export default {
         }
     }
 
-    /* Columns Mode */
+    // Columns Mode
     .column {
         box-sizing: border-box;
     }
@@ -150,8 +147,8 @@ export default {
         }
     }
 
-    /* Breakpoints */
-    @media (--lt-phone) {
+    // Breakpoints
+    @media #{$lt-phone} {
         display: block;
 
         &.mode-cropped,

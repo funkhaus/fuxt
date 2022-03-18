@@ -9,19 +9,10 @@
     may want to use it on pages templates as well to have more control over the SEO tags set.
 -->
 <template lang="html">
-    <div
-        :key="parsedUri"
-        class="wp-seo"
-    >
+    <div :key="parsedUri" class="wp-seo">
         <!-- Print content to page for SEO gain -->
-        <h1
-            v-if="parsedTitle"
-            v-html="parsedTitle"
-        />
-        <div
-            v-if="parsedDescription"
-            v-html="parsedDescription"
-        />
+        <h1 v-if="parsedTitle" v-html="parsedTitle" />
+        <div v-if="parsedDescription" v-html="parsedDescription" />
     </div>
 </template>
 
@@ -208,7 +199,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .wp-seo {
     display: none;
 }
