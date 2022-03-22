@@ -43,7 +43,10 @@ export default {
      ** Global CSS
      */
     css: [
+        "~/styles/global.scss",
         "~/styles/transitions.css",
+        "~/styles/variables-css.scss",
+        "~/styles/themes.scss",
         //"~/styles/fonts.css" // Be sure to turn on the font loader plugin and config it
     ],
 
@@ -52,10 +55,7 @@ export default {
      */
     styleResources: {
         scss: [
-            "~/styles/global.scss",
             "~/styles/media-queries.scss",
-            "~/styles/variables-css.scss",
-            "~/styles/themes.scss",
         ],
     },
 
