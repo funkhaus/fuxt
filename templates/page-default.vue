@@ -1,7 +1,7 @@
 <template>
-    <main class="page-default">
+    <section class="page-default">
         <wp-gutenberg id="content" :blocks="parsedPage.blocks" />
-    </main>
+    </section>
 </template>
 
 <script>
