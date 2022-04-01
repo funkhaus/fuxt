@@ -1,5 +1,5 @@
 <template>
-    <section class="page-news-list">
+    <main class="page-news-list">
         {{ parsedPosts }}
 
         <!--
@@ -19,7 +19,7 @@
             </template>
         </lazy-loader>
         -->
-    </section>
+    </main>
 </template>
 
 <script>
