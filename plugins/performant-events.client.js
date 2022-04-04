@@ -26,6 +26,9 @@ function onKeydown({ store }, event) {
 }
 
 export default (context, inject) => {
+    let touchDown = false
+    let touchTimerId = null
+
     // Avoid this running twice
     if (hasLoaded) {
         return
@@ -40,11 +43,27 @@ export default (context, inject) => {
         return
     }
 
+    // We use this to ignore setting winHeight/winWidth on Safari pulldown-to-refresh gesture
+    window.addEventListener("touchstart", (event) => {
+        clearTimeout(touchTimerId)
+        touchDown = true
+    })
+    window.addEventListener("touchend", (event) => {
+        clearTimeout(touchTimerId)
+        touchTimerId = setTimeout(() => {
+            touchDown = false
+        }, 1000)
+    })
+
     // Bind to new events
     window.addEventListener("performant-scroll", (event) => {
         onScroll(context, event)
     })
     window.addEventListener("performant-resize", (event) => {
+        // Abort if touch is down (eg: when doing a pull-down refresh)
+        if (touchDown) {
+            return
+        }
         onResize(context, event)
     })
     window.addEventListener("keydown", (event) => {
