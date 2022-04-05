@@ -41,6 +41,7 @@ export default {
         GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
         GutenbergCover: () => import("~/components/gutenberg/Cover"),
         GutenbergHtml: () => import("~/components/gutenberg/Html"),
+        GutenbergVideo: () => import("~/components/gutenberg/Video"),
     },
     props: {
         blocks: {

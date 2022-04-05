@@ -15,6 +15,7 @@ fragment GutenbergBlocks on BlockEditorContentNode {
         ...SpacerBlock
         ...CoverBlock
         ...HtmlBlock
+        ...VideoBlock
 
         # Columns (and column)
         ...ColumnsBlock
@@ -63,6 +64,26 @@ fragment ParagraphBlock on Block {
                 textColor: textColorCode
                 backgroundColor: backgroundColorCode
                 dropCap
+                wpId: anchor
+                wpClasses: className
+            }
+        }
+    }
+}
+
+# Video
+fragment VideoBlock on Block {
+    ... on CoreVideoBlock {
+        attributes {
+            ... on CoreVideoBlockAttributes {
+                src
+                muted
+                autoplay
+                controls
+                loop
+                preload
+                poster
+                align
                 wpId: anchor
                 wpClasses: className
             }
@@ -228,6 +249,7 @@ fragment ColumnBlock on Block {
             ...HtmlBlock
             ...ListBlock
             ...EmbedBlock
+            ...VideoBlock
         }
     }
 }
