@@ -13,7 +13,7 @@
             :width="parsedWidth"
             @load="onLoaded('image')"
             @error="onError('image')"
-        />
+        >
 
         <video
             v-if="parsedVideoUrl"
@@ -26,14 +26,21 @@
             :autoplay="autoplay"
             :muted="muted"
             :playsinline="playsinline"
+            :disablepictureinpicture="disablepictureinpicture"
             @loadeddata="onLoaded('video')"
             @error="onError('video')"
             @ended="onEnded"
             @playing="onPlaying"
         />
 
-        <div class="sizer" :style="sizerStyles" />
-        <div class="background-color" :style="backgroundStyles" />
+        <div
+            class="sizer"
+            :style="sizerStyles"
+        />
+        <div
+            class="background-color"
+            :style="backgroundStyles"
+        />
 
         <figcaption
             v-if="parsedCaption"
@@ -116,6 +123,10 @@ export default {
             default: true,
         },
         playsinline: {
+            type: Boolean,
+            default: true,
+        },
+        disablepictureinpicture: {
             type: Boolean,
             default: true,
         },

@@ -7,6 +7,8 @@
         :controls="controls"
         :loop="loop"
         :poster="poster"
+        :preload="preload"
+        :disablepictureinpicture="disablepictureinpicture"
     />
 </template>
 
@@ -40,6 +42,10 @@ export default {
         poster: {
             type: String,
             default: "",
+        },
+        disablepictureinpicture: {
+            type: Boolean,
+            default: true,
         },
     },
     computed: {
