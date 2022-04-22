@@ -3,7 +3,16 @@
         <div class="container">
             <!-- .container allows for paddings to work with ratio sizing-->
 
+            <lazy-video-player
+                v-if="hasCustomPlayer && isVimeo"
+                :src="url"
+                :title="caption"
+                :dimensions="dimensions"
+                :autoplay="false"
+            />
+
             <iframe
+                v-else
                 class="iframe"
                 :src="iFrameSrc"
                 :title="caption"
@@ -13,13 +22,19 @@
                 :height="dimensions.height"
                 :width="dimensions.width"
             />
-            <div class="sizer" :style="sizerStyles" />
+            <div
+                class="sizer"
+                :style="sizerStyles"
+            />
+
+            <slot />
         </div>
     </div>
 </template>
 
 <script>
 import _get from "lodash/get"
+import Vue from "vue"
 
 export default {
     props: {
@@ -52,6 +67,9 @@ export default {
                 { "is-vimeo": this.isVimeo },
                 { "is-youtube": this.isYouTube },
             ]
+        },
+        hasCustomPlayer() {
+            return Boolean(Vue.options.components["VideoPlayer"])
         },
         sizerStyles() {
             return {
