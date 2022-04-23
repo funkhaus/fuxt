@@ -1,5 +1,8 @@
 <template lang="html">
-    <blockquote :class="classes" v-html="parsedContent" />
+    <blockquote
+        :class="classes"
+        v-html="parsedContent"
+    />
 </template>
 
 <script>
@@ -22,7 +25,7 @@ export default {
         classes() {
             return [
                 "gutenberg-quote",
-                "margin-text",
+                "margin-section",
                 `align-${this.textAlign || "default"}`,
             ]
         },

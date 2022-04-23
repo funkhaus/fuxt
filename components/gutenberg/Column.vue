@@ -1,6 +1,12 @@
 <template lang="html">
-    <div :class="classes" :style="styles">
-        <wp-gutenberg class="wp-gutenberg" :blocks="blocks" />
+    <div
+        :class="classes"
+        :style="styles"
+    >
+        <wp-gutenberg
+            class="wp-gutenberg"
+            :blocks="blocks"
+        />
     </div>
 </template>
 
@@ -31,6 +37,7 @@ export default {
                 "gutenberg-column",
                 "gutenberg-block",
                 `vertical-alignment-${this.verticalAlignment || "default"}`,
+                { "column-empty": this.blocks.length == 0 },
             ]
         },
     },

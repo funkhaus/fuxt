@@ -128,8 +128,8 @@ export default {
 
     // Max width of blocks: Section, headings/quotes, paragraph/lists.
     --unit-max-width-large: var(--unit-max-width, 1600px);
-    --unit-max-width-medium: 1000px;
-    --unit-max-width-small: 700px;
+    --unit-max-width-medium: 1280px;
+    --unit-max-width-small: 960px;
 
     margin: var(--unit-margin-large) auto;
     display: flow-root;
@@ -167,6 +167,9 @@ export default {
         }
         + .margin-section {
             margin-top: var(--unit-margin-large);
+        }
+        &:first-child {
+            margin-bottom: var(--unit-margin-xsmall);
         }
 
         ::v-deep {
@@ -211,6 +214,9 @@ export default {
 
                     &:last-child {
                         margin-bottom: 0;
+                    }
+                    &.column-empty {
+                        display: none;
                     }
                 }
             }
@@ -276,7 +282,6 @@ export default {
         ::v-deep {
             p {
                 margin: var(--unit-margin-small) auto;
-                font-weight: 300;
             }
             .citation {
                 font-size: 50%;
@@ -317,6 +322,9 @@ export default {
 
         + .gutenberg-paragraph {
             margin-top: var(--unit-margin-small);
+        }
+        + .gutenberg-heading {
+            margin-top: var(--unit-margin-large);
         }
     }
     .gutenberg-list {
