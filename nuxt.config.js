@@ -27,7 +27,7 @@ export default {
      */
     pageTransition: {
         name: "fade",
-        mode: "out-in",
+        mode: "",
     },
 
     /*
