@@ -325,7 +325,7 @@ export default {
         volume(amount = false) {
             if (this.$refs.video) {
                 // HTML5 video method
-                if (amount === false) {
+                if (amount !== false) {
                     this.$refs.video.volume = amount
                 }
                 return this.$refs.video.volume
