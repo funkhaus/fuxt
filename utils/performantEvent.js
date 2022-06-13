@@ -14,7 +14,7 @@ function performantEvent(type, obj = window) {
         switch (type) {
             case "scroll":
                 detail = {
-                    scrollTop: obj.pageYOffset,
+                    scrollTop: obj.pageYOffset || 0,
                 }
                 break
             case "resize":
