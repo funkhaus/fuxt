@@ -51,7 +51,7 @@ export default {
     ],
 
     /*
-     ** Global SCSS
+     ** SCSS that is injected into every component
      */
     styleResources: {
         scss: [
