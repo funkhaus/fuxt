@@ -16,7 +16,7 @@
         >
 
         <video
-            v-if="parsedVideoUrl"
+            v-if="isVideo"
             ref="video"
             class="media media-video"
             :src="parsedVideoUrl"
@@ -60,90 +60,90 @@ export default {
     props: {
         image: {
             type: Object,
-            default: () => ({}),
+            default: () => ({})
         },
         height: {
             type: Number,
-            default: 0,
+            default: 0
         },
         width: {
             type: Number,
-            default: 0,
+            default: 0
         },
         src: {
             type: String,
-            default: "",
+            default: ""
         },
         srcset: {
             type: String,
-            default: "",
+            default: ""
         },
         sizes: {
             type: String,
-            default: "",
+            default: ""
         },
         alt: {
             type: String,
-            default: "",
+            default: ""
         },
         caption: {
             type: String,
-            default: "",
+            default: ""
         },
         aspectRatio: {
             type: Number,
-            default: 0,
+            default: 0
         },
         objectFit: {
             type: String,
-            default: "cover",
+            default: "cover"
         },
         mode: {
             type: String,
-            default: "intrinsic-ratio",
+            default: "intrinsic-ratio"
         },
         backgroundColor: {
             type: String,
-            default: "",
+            default: ""
         },
         videoUrl: {
             type: String,
-            default: "",
+            default: ""
         },
         loop: {
             type: Boolean,
-            default: true,
+            default: true
         },
         autoplay: {
             type: Boolean,
-            default: true,
+            default: true
         },
         muted: {
             type: Boolean,
-            default: true,
+            default: true
         },
         playsinline: {
             type: Boolean,
-            default: true,
+            default: true
         },
         disablepictureinpicture: {
             type: Boolean,
-            default: true,
+            default: true
         },
         focalPoint: {
             type: Object,
-            default: () => ({}),
-        },
+            default: () => ({})
+        }
     },
     data() {
         return {
             loadedStatus: {
-                booted: false,
+                booted: false
             },
             errorStatus: {
                 image: false,
-                video: false,
-            },
+                video: false
+            }
         }
     },
     computed: {
@@ -159,6 +159,7 @@ export default {
                 `is-orientation-${this.orientation}`,
                 `object-fit-${this.objectFit}`,
                 { "is-svg": this.isSvg },
+                { "is-video": this.isVideo }
             ]
         },
         aspectPadding() {
@@ -221,7 +222,7 @@ export default {
                     _get(this.image, "imageMeta.focalPointX", ""),
                 y:
                     _get(this, "focalPoint.y", false) ||
-                    _get(this.image, "imageMeta.focalPointY", ""),
+                    _get(this.image, "imageMeta.focalPointY", "")
             }
         },
         parsedAlt() {
@@ -266,6 +267,9 @@ export default {
         isSvg() {
             return this.parsedSrc.includes(".svg")
         },
+        isVideo() {
+            return this.parsedVideoUrl
+        }
     },
     watch: {
         // Update loaded state if new src set
@@ -281,7 +285,7 @@ export default {
                 Vue.set(this.loadedStatus, "image", false)
                 Vue.set(this.errorStatus, "image", false)
             }
-        },
+        }
     },
     mounted() {
         // Setup loaded state tracking
@@ -342,8 +346,8 @@ export default {
                 // HTML5 video method
                 this.$refs.video.currentTime = seconds
             }
-        },
-    },
+        }
+    }
 }
 </script>
 
@@ -409,18 +413,22 @@ export default {
     }
 
     // Loaded state
-    &.has-loaded .media {
-        opacity: 1;
+    &.has-loaded {
+        .media {
+            opacity: 1;
+        }
+        &.is-video .media-image {
+            // Hide image when video is loaded to avoid overlaps
+            opacity: 0;
+        }
     }
 
     // SVG overides as we won't have a height/width for intrinsic ratio.
-    &.is-svg {
-        .media {
-            object-fit: contain;
-            position: relative;
-            height: auto;
-            width: 100%;
-        }
+    &.is-svg .media {
+        object-fit: contain;
+        position: relative;
+        height: auto;
+        width: 100%;
     }
 
     // Error state (only show the media that is working)
