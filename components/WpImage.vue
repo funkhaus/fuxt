@@ -1,7 +1,7 @@
 <template>
     <figure :class="classes">
         <img
-            v-if="parsedSrc"
+            v-if="parsedSrc && !disabled"
             ref="img"
             class="media media-image"
             :src="parsedSrc"
@@ -16,7 +16,7 @@
         >
 
         <video
-            v-if="isVideo"
+            v-if="isVideo && !disabled"
             ref="video"
             class="media media-video"
             :src="parsedVideoUrl"
@@ -133,6 +133,10 @@ export default {
         focalPoint: {
             type: Object,
             default: () => ({})
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -159,7 +163,8 @@ export default {
                 `is-orientation-${this.orientation}`,
                 `object-fit-${this.objectFit}`,
                 { "is-svg": this.isSvg },
-                { "is-video": this.isVideo }
+                { "is-video": this.isVideo },
+                { "is-disabled": this.disabled }
             ]
         },
         aspectPadding() {
@@ -285,25 +290,37 @@ export default {
                 Vue.set(this.loadedStatus, "image", false)
                 Vue.set(this.errorStatus, "image", false)
             }
+        },
+        disabled(newVal) {
+            if (!newVal) {
+                this.$nextTick(() => {
+                    this.init()
+                })
+            }
         }
     },
     mounted() {
-        // Setup loaded state tracking
-        if (this.parsedVideoUrl) {
-            Vue.set(
-                this.loadedStatus,
-                "video",
-                this.$refs.video.readyState >= 3
-            )
+        if (!this.disabled) {
+            this.init()
         }
-        if (this.parsedSrc) {
-            Vue.set(this.loadedStatus, "image", this.$refs.img.complete)
-        }
-        // Set the booted flag
-        Vue.set(this.loadedStatus, "booted", true)
-        this.$emit("orientation", this.orientation)
     },
     methods: {
+        init() {
+            // Setup loaded state tracking
+            if (this.parsedVideoUrl) {
+                Vue.set(
+                    this.loadedStatus,
+                    "video",
+                    this.$refs.video.readyState >= 3
+                )
+            }
+            if (this.parsedSrc) {
+                Vue.set(this.loadedStatus, "image", this.$refs.img.complete)
+            }
+            // Set the booted flag
+            Vue.set(this.loadedStatus, "booted", true)
+            this.$emit("orientation", this.orientation)
+        },
         onLoaded(type) {
             Vue.set(this.loadedStatus, type, true)
             this.$emit("loaded", type)
