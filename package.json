@@ -21,7 +21,7 @@
     },
     "devDependencies": {
         "@nuxtjs/sitemap": "^2.4.0",
-        "@nuxtjs/storybook": "^4.2.0",
+        "@nuxtjs/storybook": "^4.3.2",
         "@nuxtjs/style-resources": "^1.2.1",
         "@wordpress/autop": "^3.2.1",
         "core-js": "^3.17.1",
@@ -32,7 +32,7 @@
         "graphql-tag": "^2.12.6",
         "lodash": "^4.17.21",
         "nodemon": "^2.0.12",
-        "nuxt-graphql-request": "^5.0.0",
+        "nuxt-graphql-request": "^5.2.0",
         "prettier": "^2.7.1",
         "sass": "^1.49.11",
         "sass-loader": "^10.2.1",
@@ -42,6 +42,6 @@
         "webpack": "^4.46.0"
     },
     "comments": {
-        "devDependencies": "1) eslint and eslint-plugin-vue shouldn't be upgraded past v7 untill this is fixed: https://github.com/vuejs/vue-cli/issues/6759 2) graphql can't go past v15"
+        "devDependencies": "Graphql can't go past v15"
     }
 }
