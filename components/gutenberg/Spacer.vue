@@ -25,6 +25,5 @@ export default {
 
 <style lang="scss" scoped>
 .gutenberg-spacer {
-    min-height: 1px;
 }
 </style>
