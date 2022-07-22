@@ -311,11 +311,11 @@ export default {
                 Vue.set(
                     this.loadedStatus,
                     "video",
-                    this.$refs.video.readyState >= 3
+                    this.$refs.video?.readyState >= 3 || false
                 )
             }
             if (this.parsedSrc) {
-                Vue.set(this.loadedStatus, "image", this.$refs.img.complete)
+                Vue.set(this.loadedStatus, "image", this.$refs.img?.complete || false)
             }
             // Set the booted flag
             Vue.set(this.loadedStatus, "booted", true)
