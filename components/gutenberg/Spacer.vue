@@ -1,19 +1,22 @@
 <template lang="html">
-    <div class="gutenberg-spacer gutenberg-block" :style="styles" />
+    <div
+        class="gutenberg-spacer gutenberg-block"
+        :style="styles"
+    />
 </template>
 
 <script>
 export default {
     props: {
         height: {
-            type: Number,
-            default: 0,
+            type: [String, Number],
+            default: "100px",
         },
     },
     computed: {
         styles() {
             return {
-                margin: `0 0 ${this.height}px 0`,
+                margin: `0 0 ${parseInt(this.height)}px 0`,
             }
         },
     },
