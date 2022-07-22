@@ -10,16 +10,16 @@ export default {
             { charset: "utf-8" },
             {
                 name: "viewport",
-                content: "width=device-width, initial-scale=1",
-            },
+                content: "width=device-width, initial-scale=1"
+            }
         ],
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
         script: [
             {
                 src: "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver,smoothscroll&flags=gated",
-                body: true,
-            },
-        ],
+                body: true
+            }
+        ]
     },
 
     /*
@@ -27,7 +27,7 @@ export default {
      */
     pageTransition: {
         name: "fade",
-        mode: "",
+        mode: ""
     },
 
     /*
@@ -36,7 +36,7 @@ export default {
      */
     loading: {
         color: "#000000",
-        height: "3px",
+        height: "3px"
     },
 
     /*
@@ -46,7 +46,7 @@ export default {
         "~/styles/global.scss",
         "~/styles/transitions.css",
         "~/styles/variables-css.scss",
-        "~/styles/themes.scss",
+        "~/styles/themes.scss"
         //"~/styles/fonts.css" // Be sure to turn on the font loader plugin and config it
     ],
 
@@ -54,19 +54,18 @@ export default {
      ** SCSS that is injected into every component
      */
     styleResources: {
-        scss: [
-            "~/styles/media-queries.scss",
-        ],
+        scss: ["~/styles/media-queries.scss"]
     },
 
     /*
      ** Plugins to load before mounting the App
      */
     plugins: [
+        { src: "~/plugins/devtools.client.js", mode: "client" },
         { src: "~/plugins/global-directive-loader.js" },
         { src: "~/plugins/google-gtag.client.js", mode: "client" },
         { src: "~/plugins/preview.client.js", mode: "client" },
-        { src: "~/plugins/performant-events.client.js", mode: "client" },
+        { src: "~/plugins/performant-events.client.js", mode: "client" }
         //{ src: "~/plugins/web-font-loader.client.js", mode: "client" },
         //{ src: "~/plugins/ip-geolocate.js" },
     ],
@@ -76,7 +75,7 @@ export default {
      */
     modules: [
         "~/modules/populate",
-        "@nuxtjs/sitemap",
+        "@nuxtjs/sitemap"
         // [
         //     "nuxt-vuex-localstorage",
         //     {
@@ -99,7 +98,7 @@ export default {
     buildModules: [
         "@nuxtjs/style-resources",
         "nuxt-graphql-request",
-        "~/modules/sitemap-route-generator",
+        "~/modules/sitemap-route-generator"
     ],
 
     /*
@@ -112,10 +111,10 @@ export default {
                 endpoint: process.env.GQL_ENDPOINT,
                 options: {
                     credentials: "include",
-                    mode: "cors",
-                },
-            },
-        },
+                    mode: "cors"
+                }
+            }
+        }
     },
 
     /*
@@ -127,14 +126,14 @@ export default {
         middleware: ["referrer"],
         prefetchLinks: true,
         linkPrefetchedClass: "link-prefetched",
-        trailingSlash: true,
+        trailingSlash: true
     },
 
     /*
      ** Server side middleware
      */
     serverMiddleware: [
-        { handler: "~/server-middleware/redirect-trailing-slash.js" },
+        { handler: "~/server-middleware/redirect-trailing-slash.js" }
         // { handler: "~/server-middleware/preview-ssr.js" },
     ],
 
@@ -163,27 +162,27 @@ export default {
                             {
                                 loader: "vue-svg-loader",
                                 options: {
-                                    svgo: false,
-                                },
-                            },
-                        ],
+                                    svgo: false
+                                }
+                            }
+                        ]
                     },
                     {
                         // ?url on import will give base64 encode SVG.
                         // Good for use in CSS.
                         resourceQuery: /url/,
-                        use: ["url-loader"],
+                        use: ["url-loader"]
                     },
                     {
                         // Default SVG loader.
                         loader: "vue-svg-loader",
                         options: {
                             svgo: {
-                                plugins: [{ removeViewBox: false }],
-                            },
-                        },
-                    },
-                ],
+                                plugins: [{ removeViewBox: false }]
+                            }
+                        }
+                    }
+                ]
             })
         },
         html: {
@@ -198,9 +197,9 @@ export default {
                 removeEmptyAttributes: true,
                 removeRedundantAttributes: true,
                 trimCustomFragments: true,
-                useShortDoctype: true,
-            },
-        },
+                useShortDoctype: true
+            }
+        }
     },
 
     /*
@@ -209,7 +208,7 @@ export default {
     generate: {
         fallback: "404.html",
         interval: 500,
-        concurrency: 100,
+        concurrency: 100
     },
 
     /*
@@ -227,14 +226,14 @@ export default {
             return routes.filter((route) => {
                 return !excludedPaths.includes(route.url)
             })
-        },
+        }
     },
 
     /*
      ** Allow devices on local network to view the site at {your IP}:3000
      */
     server: {
-        host: process.env.HOST || "0.0.0.0",
+        host: process.env.HOST || "0.0.0.0"
     },
 
     /*
@@ -250,20 +249,20 @@ export default {
                 values: [
                     {
                         name: "default",
-                        value: "#ffffff",
+                        value: "#ffffff"
                     },
                     {
                         name: "black",
-                        value: "#000000",
-                    },
-                ],
-            },
+                        value: "#000000"
+                    }
+                ]
+            }
         },
         webpackFinal(config, { configDir }) {
             // Allow webpack to auto-load .gql and .svg files
             config.resolve.extensions.push(".gql", ".svg")
 
             return config
-        },
-    },
+        }
+    }
 }
