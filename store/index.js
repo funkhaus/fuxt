@@ -10,6 +10,7 @@ export const state = () => ({
     winHeight: 0,
     winWidth: 0,
     referrer: false,
+    scrollDirection: "up"
 })
 
 // Define mutations
@@ -33,6 +34,9 @@ export const mutations = {
     SET_REFERRER(state, object) {
         state.referrer = object
     },
+    SET_SCROLL_DIRECTION(state, direction) {
+        state.scrollDirection = direction
+    }
 }
 
 // Define actions
@@ -69,7 +73,7 @@ export const actions = {
                 description: settings.description,
                 themeScreenshotUrl: settings.themeScreenshotUrl,
                 backendUrl: settings.backendUrl,
-                frontendUrl: settings.frontendUrl,
+                frontendUrl: settings.frontendUrl
             }
 
             // Get ACF site settings, shape them correctly
@@ -91,5 +95,5 @@ export const actions = {
         } catch (e) {
             throw new Error(e)
         }
-    },
+    }
 }

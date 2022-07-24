@@ -5,7 +5,10 @@
 
         <global-hamburger />
 
-        <nuxt-link to="/" class="fuxt-logo">
+        <nuxt-link
+            to="/"
+            class="fuxt-logo"
+        >
             <svg-logo-funkhaus class="svg" />
         </nuxt-link>
 
@@ -36,21 +39,21 @@ import SvgLogoFunkhaus from "~/assets/svg/logo-funkhaus"
 
 export default {
     components: {
-        SvgLogoFunkhaus,
+        SvgLogoFunkhaus
     },
     head() {
         return {
             htmlAttrs: {
-                lang: "en",
+                lang: "en"
             },
             bodyAttrs: {
                 class: this.bodyClasses,
-                style: this.bodyStyles,
+                style: this.bodyStyles
             },
             titleTemplate(titleChunk) {
                 return titleTemplate(this, titleChunk)
             },
-            meta: metaDefaults(this),
+            meta: metaDefaults(this)
         }
     },
     computed: {
@@ -81,6 +84,7 @@ export default {
                 `breakpoint-${this.breakpoint}`,
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.$store.state.sTop > 0 },
+                `scrolling-${this.$store.state.scrollDirection}`
             ]
         },
         themeName() {
@@ -110,7 +114,7 @@ export default {
             }
 
             return breakpoint
-        },
+        }
     },
     watch: {
         breakpoint: {
@@ -119,9 +123,9 @@ export default {
                 if (newVal != oldVal) {
                     this.$store.commit("SET_BREAKPOINT", newVal)
                 }
-            },
-        },
-    },
+            }
+        }
+    }
 }
 </script>
 

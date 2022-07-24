@@ -2,17 +2,26 @@ import performantEvent from "~/utils/performantEvent"
 import _get from "lodash/get"
 
 let hasLoaded = false
+let oldScroll = 0
 
 // Event callbacks to handle updating the store from a browser event
 function onScroll({ store }, event = {}) {
     // Save window scroll position to store
     const sTop = _get(event, "detail.scrollTop", window.pageYOffset)
+
+    if (oldScroll > sTop || sTop === 0) {
+        store.commit("SET_SCROLL_DIRECTION", "up")
+    } else {
+        store.commit("SET_SCROLL_DIRECTION", "down")
+    }
+    oldScroll = sTop
+
     store.commit("SET_S_TOP", sTop)
 }
 function onResize({ store }, event = {}) {
     const dimensions = {
         height: _get(event, "detail.winHeight", window.innerHeight),
-        width: _get(event, "detail.winWidth", window.innerWidth),
+        width: _get(event, "detail.winWidth", window.innerWidth)
     }
     store.commit("SET_WIN_DIMENSIONS", dimensions)
 }
