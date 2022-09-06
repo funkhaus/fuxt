@@ -44,7 +44,7 @@ export default {
      */
     css: [
         "~/styles/global.scss",
-        "~/styles/transitions.css",
+        "~/styles/transitions.scss",
         "~/styles/variables-css.scss",
         "~/styles/themes.scss"
         //"~/styles/fonts.css" // Be sure to turn on the font loader plugin and config it
