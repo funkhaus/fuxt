@@ -112,16 +112,11 @@ export default {
 </script>
 
 <style lang="scss">
-html[data-is-logged-in="true"] {
-    margin-top: 30px;
-}
-</style>
-
 <style lang="scss" scoped>
 .wp-controls {
     position: fixed;
     z-index: 1000;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
 
