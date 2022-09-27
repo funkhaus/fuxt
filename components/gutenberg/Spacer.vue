@@ -9,17 +9,17 @@
 export default {
     props: {
         height: {
-            type: [String, Number],
-            default: "100px",
-        },
+            type: String,
+            default: "0px"
+        }
     },
     computed: {
         styles() {
             return {
-                margin: `0 0 ${parseInt(this.height)}px 0`,
+                padding: `0 0 ${this.height} 0`
             }
-        },
-    },
+        }
+    }
 }
 </script>
 

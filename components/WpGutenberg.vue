@@ -17,11 +17,7 @@ import _kebabCase from "lodash/kebabCase"
 
 // Remove the block prefix's WordPress gives them
 function getBlockName(name = "") {
-    name = name
-        .replace("core/", "")
-        .replace("acf/", "")
-        .replace("genesis-custom-blocks/", "")
-        .toLowerCase()
+    name = name.replace("core/", "").replace("acf/", "").toLowerCase()
     return `gutenberg-${name}`
 }
 
@@ -41,13 +37,13 @@ export default {
         GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
         GutenbergCover: () => import("~/components/gutenberg/Cover"),
         GutenbergHtml: () => import("~/components/gutenberg/Html"),
-        GutenbergVideo: () => import("~/components/gutenberg/Video"),
+        GutenbergVideo: () => import("~/components/gutenberg/Video")
     },
     props: {
         blocks: {
             type: Array,
-            default: () => [],
-        },
+            default: () => []
+        }
     },
     computed: {
         registeredComponents() {
@@ -71,7 +67,7 @@ export default {
                         obj,
                         "attributes.wpClasses",
                         ""
-                    )}`,
+                    )}`
                 }
 
                 // Make name fit with Vue component syntax
@@ -111,32 +107,31 @@ export default {
                 delete output.attributes
                 return output
             })
-        },
-    },
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .wp-gutenberg {
-    // Margins above/below main section blocks, text blocks, and between text and text.
-    --unit-margin-large: 80px;
-    --unit-margin-small: 40px;
-    --unit-margin-xsmall: 15px;
+    // Margins above/below blocks
+    --unit-margin-large: 40px; // Columns, Gallerys, Blockquotes...
+    --unit-margin-small: 20px; // Everything except P, H{n} and lists.
 
     // Gaps on the side of a block (between browser edge)
     --unit-gutter: var(--unit-gap, 40px);
 
-    // Max width of blocks: Section, headings/quotes, paragraph/lists.
-    --unit-max-width-large: var(--unit-max-width, 1600px);
-    --unit-max-width-medium: 1280px;
-    --unit-max-width-small: 960px;
+    // Max width of blocks
+    --unit-max-width-large: 1400px; // Default, galleries, images, columns
+    --unit-max-width-medium: 1080px; // Headings (center aligned), Blockquotes
+    --unit-max-width-small: 800px; // Headings (left or right aligned), P, lists
 
     margin: var(--unit-margin-large) auto;
     display: flow-root;
 
     // Genric styles for all top level blocks
     > .gutenberg-block {
-        margin: var(--unit-margin-small) auto;
+        margin: var(--unit-margin-large) auto;
         max-width: var(--unit-max-width-large);
         padding: 0 var(--unit-gutter);
         box-sizing: border-box;
@@ -149,42 +144,56 @@ export default {
         }
     }
 
-    // Margin type defined here.
-    // There are two main block types, "margin-section" and "margin-text".
-    .margin-section {
-        margin: var(--unit-margin-small) auto;
-
-        + .margin-text {
-            margin-bottom: var(--unit-margin-xsmall);
-        }
-    }
+    // Generic margins and max-widths
     .margin-text {
-        margin: var(--unit-margin-large) auto 0 auto;
+        margin: var(--unit-margin-small) auto;
         max-width: var(--unit-max-width-small);
-
-        + .margin-text {
-            margin: var(--unit-margin-xsmall) auto;
-        }
-        + .margin-section {
-            margin-top: var(--unit-margin-large);
-        }
-        &:first-child {
-            margin-bottom: var(--unit-margin-xsmall);
-        }
-
-        ::v-deep {
-            a {
-                text-decoration: underline;
-                transition: opacity 400ms
-                    var(--easing-authentic-motion, "ease-in-out");
-            }
-            a:hover {
-                opacity: 0.35;
-            }
-        }
+    }
+    .margin-section {
+        margin: var(--unit-margin-large) auto;
+        max-width: var(--unit-max-width-large);
     }
 
     // Specific block styling below.
+    .gutenberg-heading {
+        // Align
+        &.align-center {
+            max-width: var(--unit-max-width-medium);
+        }
+
+        // Size
+        &.is-h1 {
+            font-size: 80px;
+        }
+        &.is-h2 {
+            font-size: 60px;
+        }
+        &.is-h3 {
+            font-size: 32px;
+        }
+        &.is-h4 {
+            font-size: 24px;
+        }
+    }
+    .gutenberg-paragraph {
+        line-height: 1.4;
+    }
+    .gutenberg-list {
+        padding: 0 calc(var(--unit-gutter) * 2);
+        line-height: 1.4;
+
+        ::v-deep li {
+            margin: 10px 0;
+        }
+        &.is-ul {
+            ::v-deep li {
+                padding-left: 1ch;
+                &::marker {
+                    content: "—";
+                }
+            }
+        }
+    }
     .gutenberg-columns {
         ::v-deep {
             .gutenberg-column {
@@ -195,15 +204,6 @@ export default {
                     padding: 0;
                 }
             }
-            .gutenberg-heading,
-            .gutenberg-paragraph,
-            .gutenberg-list {
-                max-width: 450px;
-            }
-        }
-
-        + .gutenberg-columns {
-            margin-top: var(--unit-margin-large);
         }
 
         @media #{$lt-phone} {
@@ -245,8 +245,6 @@ export default {
             }
         }
         &.mode-cropped {
-            margin-bottom: calc(-1 * var(--unit-margin-small));
-
             ::v-deep {
                 .image {
                     margin-bottom: var(--unit-margin-small);
@@ -277,14 +275,16 @@ export default {
     .gutenberg-quote {
         max-width: var(--unit-max-width-medium);
         text-align: center;
-        font-size: 40px;
 
         ::v-deep {
             p {
                 margin: var(--unit-margin-small) auto;
+                font-size: 32px;
+                line-height: 1.4;
             }
             .citation {
-                font-size: 50%;
+                font-size: 14px;
+                margin-top: -1.5em;
                 font-weight: 500;
             }
         }
@@ -295,58 +295,8 @@ export default {
         height: 70vh;
         min-height: 400px;
     }
-    .gutenberg-heading {
-        max-width: var(--unit-max-width-small);
-
-        // Align
-        &.align-center {
-            max-width: var(--unit-max-width-medium);
-        }
-
-        // Size
-        &.is-h1 {
-            font-size: 40px;
-        }
-        &.is-h2 {
-            font-size: 30px;
-        }
-        &.is-h3 {
-            font-size: 20px;
-        }
-        &.is-h4 {
-            font-size: 10px;
-        }
-    }
-    .gutenberg-paragraph {
-        line-height: 1.4;
-
-        + .gutenberg-paragraph {
-            margin-top: var(--unit-margin-small);
-        }
-        + .gutenberg-heading {
-            margin-top: var(--unit-margin-large);
-        }
-    }
-    .gutenberg-list {
-        padding: 0 calc(var(--unit-gutter) * 2);
-
-        ::v-deep li {
-            margin: 10px 0;
-        }
-
-        // Types
-        &.is-ul {
-            ::v-deep li {
-                padding-left: 1ch;
-                &::marker {
-                    content: "—";
-                }
-            }
-        }
-
-        + .gutenberg-paragraph {
-            margin-top: var(--unit-margin-small);
-        }
+    .gutenberg-spacer {
+        margin: 0 auto;
     }
 
     // This is mostly used for legacy blog posts
@@ -365,18 +315,6 @@ export default {
                 box-sizing: border-box;
                 max-height: 80vh;
                 object-fit: contain;
-
-                + {
-                    h1,
-                    h2,
-                    h3,
-                    h4,
-                    h5,
-                    h6,
-                    p {
-                        margin-top: var(--unit-margin-large);
-                    }
-                }
             }
             h1,
             h2,
@@ -386,25 +324,10 @@ export default {
             h6 {
                 max-width: var(--unit-max-width-medium);
                 margin: var(--unit-margin-small) auto;
-
-                + img {
-                    margin-top: var(--unit-margin-large);
-                }
             }
             p {
                 max-width: var(--unit-max-width-small);
                 margin: var(--unit-margin-small) auto;
-
-                + img {
-                    margin-top: var(--unit-margin-large);
-
-                    &:first-child {
-                        margin-top: 0;
-                    }
-                    &:last-child {
-                        margin-top: 0;
-                    }
-                }
             }
             &:first-child {
                 margin-top: 0;

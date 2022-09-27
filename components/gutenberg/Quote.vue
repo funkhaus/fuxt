@@ -10,23 +10,24 @@ export default {
     props: {
         content: {
             type: String,
-            default: "",
+            default: ""
         },
         citation: {
             type: String,
-            default: "",
+            default: ""
         },
         textAlign: {
             type: String,
-            default: "default",
-        },
+            default: "default"
+        }
     },
     computed: {
         classes() {
             return [
                 "gutenberg-quote",
                 "margin-section",
-                `align-${this.textAlign || "default"}`,
+                { "has-citation": this.citation },
+                `align-${this.textAlign || "default"}`
             ]
         },
         parsedContent() {
@@ -35,8 +36,8 @@ export default {
                 output = `${output} <cite class="citation">${this.citation}</cite>`
             }
             return output
-        },
-    },
+        }
+    }
 }
 </script>
 
@@ -46,7 +47,6 @@ export default {
 
     ::v-deep .citation {
         font-style: normal;
-        font-size: 20px;
         display: block;
     }
 
@@ -59,9 +59,6 @@ export default {
     }
     &.align-right {
         text-align: right;
-    }
-    &.is-style-large {
-        /* TODO Bigger text option here */
     }
 }
 </style>
