@@ -156,6 +156,8 @@ export default {
 
     // Specific block styling below.
     .gutenberg-heading {
+        line-height: 1.2;
+        
         // Align
         &.align-center {
             max-width: var(--unit-max-width-medium);
