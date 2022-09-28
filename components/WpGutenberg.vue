@@ -180,6 +180,7 @@ export default {
     }
     .gutenberg-list {
         padding: 0 calc(var(--unit-gutter) * 2);
+        margin-left: 2ch;
         line-height: 1.4;
 
         ::v-deep li {
