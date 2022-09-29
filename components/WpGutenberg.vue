@@ -176,6 +176,22 @@ export default {
         &.is-h4 {
             font-size: 24px;
         }
+
+        // Breakpoints
+        @media #{$lt-phone} {
+            &.is-h1 {
+                font-size: 60px;
+            }
+            &.is-h2 {
+                font-size: 32px;
+            }
+            &.is-h3 {
+                font-size: 24px;
+            }
+            &.is-h4 {
+                font-size: 18px;
+            }
+        }        
     }
     .gutenberg-paragraph {
         line-height: 1.4;
