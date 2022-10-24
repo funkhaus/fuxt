@@ -90,7 +90,8 @@ export default {
                         break
 
                     case "gutenberg-gallery":
-                        const imageBlocks = _get(output, "innerBlocks", [])
+                        const imageBlocks =
+                            _get(output, "innerBlocks", []) || []
                         output.images = imageBlocks.map((obj) => {
                             return _get(obj, "mediaItem.nodes[0]", {})
                         })
@@ -151,7 +152,7 @@ export default {
     // Specific block styling below.
     .gutenberg-heading {
         line-height: 1.2;
-        
+
         // Align
         &.align-center {
             max-width: var(--unit-max-width-medium);
@@ -185,7 +186,7 @@ export default {
             &.is-h4 {
                 font-size: 18px;
             }
-        }        
+        }
     }
     .gutenberg-paragraph {
         line-height: 1.4;
