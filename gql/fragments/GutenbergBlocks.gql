@@ -117,11 +117,6 @@ fragment GalleryBlock on Block {
                 }
             }
         }
-        mediaItems(first: 50) {
-            nodes {
-                ...MediaImage
-            }
-        }
         attributes {
             ... on CoreGalleryBlockAttributes {
                 columns
