@@ -61,8 +61,8 @@ fragment ParagraphBlock on Block {
                 content
                 textAlign: align
                 fontSize
-                textColor: textColorCode
-                backgroundColor: backgroundColorCode
+                textColor
+                backgroundColor
                 dropCap
                 wpId: anchor
                 wpClasses: className
@@ -143,9 +143,9 @@ fragment HeadingBlock on Block {
                 level
                 textAlign
                 className
-                fontSize: fontSizeValue
-                textColor: textColorCode
-                backgroundColor: backgroundColorCode
+                fontSize
+                textColor
+                backgroundColor
                 wpId: anchor
                 wpClasses: className
             }
@@ -175,9 +175,9 @@ fragment ListBlock on Block {
             ... on CoreListBlockAttributes {
                 ordered
                 content: values
-                fontSize: fontSizeValue
-                textColor: textColorCode
-                backgroundColor: backgroundColorCode
+                fontSize
+                textColor
+                backgroundColor
             }
         }
     }
