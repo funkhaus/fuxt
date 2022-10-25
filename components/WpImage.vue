@@ -193,48 +193,49 @@ export default {
             if (this.height) {
                 return parseInt(this.height)
             }
-            return this.image?.mediaDetails?.height || auto
+            return this.image.mediaDetails?.height || auto
         },
         parsedWidth() {
             // default to defined width
             if (this.width) {
                 return parseInt(this.width)
             }
-            return this.image?.mediaDetails?.width || "auto"
+            return this.image.mediaDetails?.width || "auto"
         },
         parsedSrc() {
-            return this.src || this.image?.sourceUrl ||""
+            return this.src || this.image.sourceUrl || ""
         },
         parsedSrcset() {
-            return this.srcset || this.image?.srcSet || ""
+            return this.srcset || this.image.srcSet || ""
         },
         parsedSizes() {
-            return this.sizes || this.image?.sizes || ""
+            return this.sizes || this.image.sizes || ""
         },
         parsedColor() {
             return (
-                this.backgroundColor ||
-                this.image?.imageMeta?.primaryColor || ""
+                this.backgroundColor || this.image.imageMeta?.primaryColor || ""
             )
         },
         parsedVideoUrl() {
-            return this.videoUrl || this.image?.imageMeta?.videoUrl || ""
+            return this.videoUrl || this.image.imageMeta?.videoUrl || ""
         },
         parsedFocalPoint() {
             return {
                 x:
-                (this.focalPoint.x, false) || 
-                    this.image?.imageMeta?.focalPointX || "",
+                    (this.focalPoint.x, false) ||
+                    this.image.imageMeta?.focalPointX ||
+                    "",
                 y:
-                (this.focalPoint.y, false) ||
-                    this.image?.imageMeta?.focalPointY || ""
+                    (this.focalPoint.y, false) ||
+                    this.image.imageMeta?.focalPointY ||
+                    ""
             }
         },
         parsedAlt() {
-            return this.alt || this.image?.altText || ""
+            return this.alt || this.image.altText || ""
         },
         parsedCaption() {
-            return this.caption || this.image?.caption || ""
+            return this.caption || this.image.caption || ""
         },
         sizerStyles() {
             let styles = {}
@@ -315,7 +316,11 @@ export default {
                 )
             }
             if (this.parsedSrc) {
-                Vue.set(this.loadedStatus, "image", this.$refs.img?.complete || false)
+                Vue.set(
+                    this.loadedStatus,
+                    "image",
+                    this.$refs.img?.complete || false
+                )
             }
             // Set the booted flag
             Vue.set(this.loadedStatus, "booted", true)

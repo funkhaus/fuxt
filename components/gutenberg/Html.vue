@@ -1,6 +1,10 @@
 <template>
     <div :class="classes">
-        <div class="container" :style="sizerStyles" v-html="html" />
+        <div
+            class="container"
+            :style="sizerStyles"
+            v-html="html"
+        />
     </div>
 </template>
 <script>
@@ -10,8 +14,8 @@ export default {
     props: {
         html: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         classes() {
@@ -19,7 +23,7 @@ export default {
                 "gutenberg-html",
                 "margin-section",
                 { "is-iframe": this.isIframe },
-                { "has-aspect-ratio": this.aspectPadding },
+                { "has-aspect-ratio": this.aspectPadding }
             ]
         },
         sizerStyles() {
@@ -59,8 +63,8 @@ export default {
             }
 
             return output
-        },
-    },
+        }
+    }
 }
 </script>
 

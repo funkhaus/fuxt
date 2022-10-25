@@ -26,26 +26,24 @@
 </template>
 
 <script>
-
-
 export default {
     props: {
         to: {
             type: String,
-            default: "",
+            default: ""
         },
         target: {
             type: String,
-            default: "_self",
+            default: "_self"
         },
         element: {
             type: String,
-            default: "span",
-        },
+            default: "span"
+        }
     },
     computed: {
         frontendUrl() {
-            return this.$store?.state?.siteMeta?.frontendUrl || false
+            return this.$store.state.siteMeta.frontendUrl || false
         },
         isInternal() {
             // wp-content in url means probably a download link, so open in new window
@@ -79,8 +77,8 @@ export default {
 
             // Replace all these things
             const replaceThese = [
-                this.$store?.state?.siteMeta?.frontendUrl || "",
-                this.$store?.state?.siteMeta?.backendUrl || "",
+                this.$store.state.siteMeta.frontendUrl || "",
+                this.$store.state.siteMeta.backendUrl || ""
             ]
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")
@@ -101,7 +99,7 @@ export default {
             } else {
                 return this.target
             }
-        },
-    },
+        }
+    }
 }
 </script>

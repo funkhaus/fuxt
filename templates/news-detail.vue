@@ -27,17 +27,17 @@ export default {
         })
 
         return {
-            page: data?.nodeByUri || {}
+            page: data.nodeByUri || {}
         }
     },
     computed: {
         next() {
-            const next = this.page?.previousPost?.node || {}
+            const next = this.page.previousPost?.node || {}
             return {
                 title: next.title,
                 text: next.excerpt,
                 to: next.uri,
-                image: next?.featuredImage?.node || {}
+                image: next.featuredImage?.node || {}
             }
         }
     }

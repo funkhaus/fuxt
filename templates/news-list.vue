@@ -36,8 +36,8 @@ export default {
         })
 
         return {
-            posts: data?.posts?.nodes || [],
-            startCursor: data?.pageInfo?.endCursor || ""
+            posts: data.posts?.nodes || [],
+            startCursor: data.pageInfo?.endCursor || ""
         }
     },
     data() {

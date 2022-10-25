@@ -72,7 +72,7 @@ export default {
             const data = await this.$graphql.default.request(WP_SEO, {
                 uri: this.parsedUri
             })
-            this.data = data?.nodeByUri || {}
+            this.data = data.nodeByUri || {}
         } catch (e) {
             console.warn("<wp-seo> Fetch Error:", this.parsedUri, e)
         }
@@ -130,10 +130,10 @@ export default {
 
             // Try to set title from data, fallback to site title
             if (!output) {
-                output = this.data?.title || ""
+                output = this.data.title || ""
             }
             if (!output) {
-                output = this.data?.name || ""
+                output = this.data.name || ""
             }
             if (!output) {
                 output = this.$store.state.siteMeta.title || undefined
@@ -168,7 +168,7 @@ export default {
             let output = this.image
 
             if (!output) {
-                output = this.data?.featuredImage?.node?.sourceUrl || undefined
+                output = this.data.featuredImage?.node?.sourceUrl || undefined
             }
             if (!output) {
                 output =

@@ -17,7 +17,7 @@ export default {
             uri: route.path
         })
         return {
-            page: data?.nodeByUri || {}
+            page: data.nodeByUri || {}
         }
     },
     computed: {
