@@ -40,8 +40,6 @@
 </template>
 
 <script>
-import _get from "lodash/get"
-
 export default {
     props: {
         item: {
@@ -62,7 +60,7 @@ export default {
             ]
         },
         getChildren() {
-            return _get(this, "item.childItems.nodes", [])
+            return this.item?.childItems?.nodes || []
         },
         hasSubMenu() {
             return this.getChildren.length
@@ -91,8 +89,8 @@ export default {
             let url = this.item.url
             // Replace all these things
             const replaceThese = [
-                _get(this, "$store.state.siteMeta.frontendUrl", ""),
-                _get(this, "$store.state.siteMeta.backendUrl", ""),
+                this.$store?.state?.siteMeta?.frontendUrl || "",
+                this.$store?.state?.siteMeta?.backendUrl || "",
             ]
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")

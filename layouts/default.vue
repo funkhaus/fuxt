@@ -29,7 +29,6 @@
 
 <script>
 // Helpers
-import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
 import metaDefaults from "~/utils/metaDefaults"
 import titleTemplate from "~/utils/titleTemplate"

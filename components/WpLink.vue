@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import _get from "lodash/get"
+
 
 export default {
     props: {
@@ -45,7 +45,7 @@ export default {
     },
     computed: {
         frontendUrl() {
-            return this.$store.state.siteMeta.frontendUrl || false
+            return this.$store?.state?.siteMeta?.frontendUrl || false
         },
         isInternal() {
             // wp-content in url means probably a download link, so open in new window
@@ -79,8 +79,8 @@ export default {
 
             // Replace all these things
             const replaceThese = [
-                _get(this, "$store.state.siteMeta.frontendUrl", ""),
-                _get(this, "$store.state.siteMeta.backendUrl", ""),
+                this.$store?.state?.siteMeta?.frontendUrl || "",
+                this.$store?.state?.siteMeta?.backendUrl || "",
             ]
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")

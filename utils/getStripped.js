@@ -13,3 +13,5 @@ function getStripped(obj, path, def = undefined) {
 }
 
 export default getStripped
+
+// NOTE SURE HOW TO WRITE THIS ONE

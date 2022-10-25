@@ -13,7 +13,6 @@
 
 <script>
 import WP_CONTROLS from "~/gql/queries/WpControls"
-import _get from "lodash/get"
 
 export default {
     props: {
@@ -45,8 +44,8 @@ export default {
                 },
                 { Preview: true }
             )
-            this.data = _get(data, "nodeByUri", {}) || {}
-            this.user = _get(data, "viewer", {}) || {}
+            this.data = data?.nodeByUri || {}
+            this.user = data?.viewer || {}
         } catch (e) {
             console.warn("<wp-controls> Fetch Error:", this.parsedUri, e)
         }
