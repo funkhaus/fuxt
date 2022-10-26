@@ -31,6 +31,7 @@
             @error="onError('video')"
             @ended="onEnded"
             @playing="onPlaying"
+            @pause="onPause"
         />
 
         <div
@@ -147,7 +148,8 @@ export default {
             errorStatus: {
                 image: false,
                 video: false
-            }
+            },
+            isPlaying: false
         }
     },
     computed: {
@@ -164,7 +166,8 @@ export default {
                 `object-fit-${this.objectFit}`,
                 { "is-svg": this.isSvg },
                 { "is-video": this.isVideo },
-                { "is-disabled": this.disabled }
+                { "is-disabled": this.disabled },
+                { "is-playing": this.isPlaying }
             ]
         },
         aspectPadding() {
@@ -315,7 +318,11 @@ export default {
                 )
             }
             if (this.parsedSrc) {
-                Vue.set(this.loadedStatus, "image", this.$refs.img?.complete || false)
+                Vue.set(
+                    this.loadedStatus,
+                    "image",
+                    this.$refs.img?.complete || false
+                )
             }
             // Set the booted flag
             Vue.set(this.loadedStatus, "booted", true)
@@ -333,9 +340,15 @@ export default {
         },
         onEnded($event) {
             this.$emit(`ended`, $event)
+            this.isPlaying = false
         },
         onPlaying($event) {
             this.$emit(`playing`, $event)
+            this.isPlaying = true
+        },
+        onPause($event) {
+            this.$emit(`paused`, $event)
+            this.isPlaying = false
         },
         play() {
             if (this.$refs.video) {
@@ -431,12 +444,17 @@ export default {
 
     // Loaded state
     &.has-loaded {
-        .media {
+        .media-image {
             opacity: 1;
         }
-        &.is-video .media-image {
+    }
+    &.is-playing {
+        .media-image {
             // Hide image when video is loaded to avoid overlaps
             opacity: 0;
+        }
+        .media-video {
+            opacity: 1;
         }
     }
 
