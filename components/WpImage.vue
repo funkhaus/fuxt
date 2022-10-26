@@ -206,14 +206,16 @@ export default {
             return this.src || this.image.sourceUrl || ""
         },
         parsedSrcset() {
-            return this.srcset || this.image.srcSet || ""
+            return this.srcset || this.image?.srcSet || ""
         },
         parsedSizes() {
             return this.sizes || this.image.sizes || ""
         },
         parsedColor() {
             return (
-                this.backgroundColor || this.image.imageMeta?.primaryColor || ""
+                this.backgroundColor ||
+                this.image?.imageMeta?.primaryColor ||
+                ""
             )
         },
         parsedVideoUrl() {

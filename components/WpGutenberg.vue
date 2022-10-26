@@ -81,13 +81,13 @@ export default {
                 // Shape any props as needed
                 switch (output.componentName) {
                     case "gutenberg-image":
-                        output.image = output.mediaItem?.nodes[0] || {}
+                        output.image = output.mediaItem?.nodes?.[0] || {}
                         break
 
                     case "gutenberg-gallery":
                         const imageBlocks = output.innerBlocks || [] || []
                         output.images = imageBlocks.map((obj) => {
-                            return obj.mediaItem?.nodes[0] || {}
+                            return obj.mediaItem?.nodes?.[0] || {}
                         })
                         break
                 }

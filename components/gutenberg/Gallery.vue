@@ -57,7 +57,7 @@ export default {
         },
         croppedRatio() {
             let output = null
-            const firstImageDimensions = this.images[0]?.mediaDetails || {}
+            const firstImageDimensions = this.images?.[0]?.mediaDetails || {}
 
             // If imageCrop enabled, then size all images the same as first
             if (this.imageCrop) {

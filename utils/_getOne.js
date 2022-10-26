@@ -14,5 +14,3 @@ function _getOne(obj, paths, defaultValue) {
 
 export default _getOne
 
-// NOTE SURE HOW TO WRITE THIS ONE
-
