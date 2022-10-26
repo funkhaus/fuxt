@@ -1,4 +1,4 @@
-import _get from "lodash/get"
+
 
 export default async ({ store, req, query, isDev, $config }) => {
     // Set to true to check all users IPs. This is useful for debugging.
@@ -22,7 +22,7 @@ export default async ({ store, req, query, isDev, $config }) => {
 
     let location = {
         ip: "",
-        detectedCountry: _get(store, "state.geolocation.detectedCountry", ""),
+        detectedCountry: store?.state?.geolocation?.detectedCountry || ""
     }
 
     // Abort if we already have a country

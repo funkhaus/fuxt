@@ -40,29 +40,27 @@
 </template>
 
 <script>
-import _get from "lodash/get"
-
 export default {
     props: {
         item: {
             type: Object,
-            default: () => ({}),
-        },
+            default: () => ({})
+        }
     },
     computed: {
         classes() {
             return [
                 "wp-menu-item menu-item",
                 {
-                    "is-realtive": this.isRelative,
+                    "is-realtive": this.isRelative
                 },
                 { "has-sub-menu": this.hasSubMenu },
                 { "is-disabled": this.isHash },
-                ...this.item.cssClasses,
+                ...this.item.cssClasses
             ]
         },
         getChildren() {
-            return _get(this, "item.childItems.nodes", [])
+            return this.item.childItems?.nodes || []
         },
         hasSubMenu() {
             return this.getChildren.length
@@ -91,19 +89,19 @@ export default {
             let url = this.item.url
             // Replace all these things
             const replaceThese = [
-                _get(this, "$store.state.siteMeta.frontendUrl", ""),
-                _get(this, "$store.state.siteMeta.backendUrl", ""),
+                this.$store.state.siteMeta.frontendUrl || "",
+                this.$store.state.siteMeta.backendUrl || ""
             ]
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")
             })
             return url
-        },
+        }
     },
     methods: {
         menuInteracted(event) {
             this.$emit("menu-interacted", event)
-        },
-    },
+        }
+    }
 }
 </script>

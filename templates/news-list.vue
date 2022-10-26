@@ -24,7 +24,6 @@
 
 <script>
 // Helpers
-import _get from "lodash/get"
 
 // Queries
 import NEWS_LIST from "~/gql/queries/NewsList"
@@ -33,17 +32,17 @@ export default {
     async asyncData({ $graphql, route }) {
         const data = await $graphql.default.request(NEWS_LIST, {
             categoryName: route.params.category || "",
-            after: route.params.cursor,
+            after: route.params.cursor
         })
 
         return {
-            posts: _get(data, "posts.nodes", []),
-            startCursor: _get(data, "pageInfo.endCursor", ""),
+            posts: data.posts?.nodes || [],
+            startCursor: data.pageInfo?.endCursor || ""
         }
     },
     data() {
         return {
-            NEWS_LIST,
+            NEWS_LIST
         }
     },
     computed: {
@@ -51,13 +50,13 @@ export default {
             return this.posts.map((obj) => {
                 return {
                     ...obj,
-                    image: _get(obj, "featuredImage.node", {}),
-                    categories: _get(obj, "categories.nodes", []),
-                    to: obj.uri,
+                    image: obj.featuredImage?.node || {},
+                    categories: obj.categories?.nodes || [],
+                    to: obj.uri
                 }
             })
-        },
-    },
+        }
+    }
 }
 </script>
 

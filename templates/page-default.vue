@@ -1,33 +1,33 @@
 <template>
     <section class="page-default">
-        <wp-gutenberg id="content" :blocks="parsedPage.blocks" />
+        <wp-gutenberg
+            id="content"
+            :blocks="parsedPage.blocks"
+        />
     </section>
 </template>
 
 <script>
-// Helpers
-import _get from "lodash/get"
-
 // Queries
 import HOME from "~/gql/queries/Home"
 
 export default {
     async asyncData({ $graphql, route }) {
         const data = await $graphql.default.request(HOME, {
-            uri: route.path,
+            uri: route.path
         })
         return {
-            page: _get(data, "nodeByUri", {}),
+            page: data.nodeByUri || {}
         }
     },
     computed: {
         parsedPage() {
             // Shape data from WP-GQL to work with template
             return {
-                ...this.page,
+                ...this.page
             }
-        },
-    },
+        }
+    }
 }
 </script>
 

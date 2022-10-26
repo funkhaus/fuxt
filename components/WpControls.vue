@@ -1,11 +1,32 @@
 <template lang="html">
-    <header v-if="isLoggedIn" class="wp-controls">
-        <a class="link" :href="adminUrl">Dashboard</a>
-        <a v-if="hasPost" class="link" :href="newPostUrl">+New Post</a>
-        <a v-if="hasPage" class="link" :href="newPageUrl">+New Page</a>
-        <a v-if="editUrl" class="link" :href="editUrl"> Edit {{ postType }} </a>
+    <header
+        v-if="isLoggedIn"
+        class="wp-controls"
+    >
+        <a
+            class="link"
+            :href="adminUrl"
+        >Dashboard</a>
+        <a
+            v-if="hasPost"
+            class="link"
+            :href="newPostUrl"
+        >+New Post</a>
+        <a
+            v-if="hasPage"
+            class="link"
+            :href="newPageUrl"
+        >+New Page</a>
+        <a
+            v-if="editUrl"
+            class="link"
+            :href="editUrl"
+        > Edit {{ postType }} </a>
 
-        <a class="user link" :href="userUrl">
+        <a
+            class="user link"
+            :href="userUrl"
+        >
             <span class="greeting">Hello</span> {{ userDisplayName }}
         </a>
     </header>
@@ -13,27 +34,26 @@
 
 <script>
 import WP_CONTROLS from "~/gql/queries/WpControls"
-import _get from "lodash/get"
 
 export default {
     props: {
         path: {
             type: String,
-            default: "",
+            default: ""
         },
         hasPost: {
             type: Boolean,
-            default: true,
+            default: true
         },
         hasPage: {
             type: Boolean,
-            default: true,
-        },
+            default: true
+        }
     },
     data() {
         return {
             data: {},
-            user: {},
+            user: {}
         }
     },
     async fetch() {
@@ -41,12 +61,12 @@ export default {
             const data = await this.$graphql.default.request(
                 WP_CONTROLS,
                 {
-                    uri: this.parsedUri,
+                    uri: this.parsedUri
                 },
                 { Preview: true }
             )
-            this.data = _get(data, "nodeByUri", {}) || {}
-            this.user = _get(data, "viewer", {}) || {}
+            this.data = data.nodeByUri || {}
+            this.user = data.viewer || {}
         } catch (e) {
             console.warn("<wp-controls> Fetch Error:", this.parsedUri, e)
         }
@@ -56,8 +76,8 @@ export default {
             // This is used to style a gap at top of page.
             // Better than a class as it won't conflict with other head() html classes
             htmlAttrs: {
-                "data-is-logged-in": this.isLoggedIn,
-            },
+                "data-is-logged-in": this.isLoggedIn
+            }
         }
     },
     computed: {
@@ -95,19 +115,19 @@ export default {
         },
         postType() {
             return this.data.__typename || ""
-        },
+        }
     },
     watch: {
         parsedUri() {
             if (this.isLoggedIn) {
                 this.$fetch()
             }
-        },
+        }
     },
     fetchKey(getCounter) {
         return `${this.parsedUri}-${getCounter(this.parsedUri)}`
     },
-    fetchOnServer: false,
+    fetchOnServer: false
 }
 </script>
 

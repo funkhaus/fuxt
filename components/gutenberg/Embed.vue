@@ -33,31 +33,30 @@
 </template>
 
 <script>
-import _get from "lodash/get"
 import Vue from "vue"
 
 export default {
     props: {
         url: {
             type: String,
-            default: "",
+            default: ""
         },
         provider: {
             type: String,
-            default: "",
+            default: ""
         },
         caption: {
             type: String,
-            default: "",
+            default: ""
         },
         color: {
             type: String,
-            default: "",
+            default: ""
         },
         wpClasses: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         classes() {
@@ -65,7 +64,7 @@ export default {
                 "gutenberg-embed",
                 "margin-section",
                 { "is-vimeo": this.isVimeo },
-                { "is-youtube": this.isYouTube },
+                { "is-youtube": this.isYouTube }
             ]
         },
         hasCustomPlayer() {
@@ -73,7 +72,7 @@ export default {
         },
         sizerStyles() {
             return {
-                "padding-top": `${this.aspectRatio}%`,
+                "padding-top": `${this.aspectRatio}%`
             }
         },
         isVimeo() {
@@ -95,7 +94,7 @@ export default {
             // https://youtu.be/wSX9F6ETTDQ
             var regex = /youtu(?:.*\/v\/|.*v\=|\.be\/)([A-Za-z0-9_\-]{11})/
             const matches = this.url.match(regex)
-            return _get(matches, "[1]", "").trim()
+            return (matches?.[1] || "").trim()
         },
         vimeoId() {
             if (!this.isVimeo) {
@@ -122,7 +121,7 @@ export default {
         dimensions() {
             let output = {
                 height: 720,
-                width: 1280,
+                width: 1280
             }
 
             // Go through each class, and figure out the ratio from this: "wp-embed-aspect-16-9"
@@ -140,8 +139,8 @@ export default {
         },
         aspectRatio() {
             return (this.dimensions.height / this.dimensions.width) * 100
-        },
-    },
+        }
+    }
 }
 </script>
 

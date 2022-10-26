@@ -1,42 +1,46 @@
 <template lang="html">
     <article class="page-news-detail">
-        <h2 class="title" v-html="page.title" />
+        <h2
+            class="title"
+            v-html="page.title"
+        />
 
-        <wp-gutenberg id="content" class="content" :blocks="page.blocks" />
+        <wp-gutenberg
+            id="content"
+            class="content"
+            :blocks="page.blocks"
+        />
 
-        Next: <br />
+        Next: <br>
         {{ next }}
     </article>
 </template>
 
 <script>
-// Helpers
-import _get from "lodash/get"
-
 // GQL
 import NEWS_DETAIL from "~/gql/queries/NewsDetail"
 
 export default {
     async asyncData({ $graphql, route }) {
         const data = await $graphql.default.request(NEWS_DETAIL, {
-            uri: route.path,
+            uri: route.path
         })
 
         return {
-            page: _get(data, "nodeByUri", {}),
+            page: data.nodeByUri || {}
         }
     },
     computed: {
         next() {
-            const next = _get(this, "page.previousPost.node", {})
+            const next = this.page.previousPost?.node || {}
             return {
                 title: next.title,
                 text: next.excerpt,
                 to: next.uri,
-                image: _get(next, "featuredImage.node", {}),
+                image: next.featuredImage?.node || {}
             }
-        },
-    },
+        }
+    }
 }
 </script>
 
