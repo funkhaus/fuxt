@@ -9,16 +9,24 @@
     may want to use it on pages templates as well to have more control over the SEO tags set.
 -->
 <template lang="html">
-    <div :key="parsedUri" class="wp-seo">
+    <div
+        :key="parsedUri"
+        class="wp-seo"
+    >
         <!-- Print content to page for SEO gain -->
-        <h1 v-if="parsedTitle" v-html="parsedTitle" />
-        <div v-if="parsedDescription" v-html="parsedDescription" />
+        <h1
+            v-if="parsedTitle"
+            v-html="parsedTitle"
+        />
+        <div
+            v-if="parsedDescription"
+            v-html="parsedDescription"
+        />
     </div>
 </template>
 
 <script>
 // Helpers
-import _get from "lodash/get"
 import getStripped from "~/utils/getStripped"
 
 // Queries
@@ -28,24 +36,24 @@ export default {
     props: {
         title: {
             type: String,
-            default: "",
+            default: ""
         },
         imageUrl: {
             type: String,
-            default: "",
+            default: ""
         },
         description: {
             type: String,
-            default: "",
+            default: ""
         },
         path: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     data() {
         return {
-            data: {},
+            data: {}
         }
     },
     async fetch() {
@@ -62,9 +70,9 @@ export default {
         // Get data from API
         try {
             const data = await this.$graphql.default.request(WP_SEO, {
-                uri: this.parsedUri,
+                uri: this.parsedUri
             })
-            this.data = _get(data, "nodeByUri", {})
+            this.data = data.nodeByUri || {}
         } catch (e) {
             console.warn("<wp-seo> Fetch Error:", this.parsedUri, e)
         }
@@ -88,25 +96,25 @@ export default {
                     hid: "og:description",
                     name: "description",
                     property: "og:description",
-                    content: this.parsedDescription,
+                    content: this.parsedDescription
                 },
                 {
                     hid: "twitter:description",
                     name: "twitter:description",
                     property: "twitter:description",
-                    content: this.parsedDescription,
+                    content: this.parsedDescription
                 },
                 {
                     hid: "og:image",
                     property: "og:image",
-                    content: this.parsedImageUrl,
+                    content: this.parsedImageUrl
                 },
                 {
                     hid: "og:title",
                     property: "og:title",
-                    content: this.parsedTitle,
-                },
-            ],
+                    content: this.parsedTitle
+                }
+            ]
         }
     },
     computed: {
@@ -122,13 +130,13 @@ export default {
 
             // Try to set title from data, fallback to site title
             if (!output) {
-                output = _get(this, "data.title", "")
+                output = this.data.title || ""
             }
             if (!output) {
-                output = _get(this, "data.name", "")
+                output = this.data.name || ""
             }
             if (!output) {
-                output = _get(this, "$store.state.siteMeta.title", undefined)
+                output = this.$store.state.siteMeta.title || undefined
             }
 
             return output
@@ -160,42 +168,32 @@ export default {
             let output = this.image
 
             if (!output) {
-                output = _get(
-                    this,
-                    "data.featuredImage.node.sourceUrl",
-                    undefined
-                )
+                output = this.data.featuredImage?.node?.sourceUrl || undefined
             }
             if (!output) {
-                output = _get(
-                    this,
-                    "$store.state.siteMeta.socialSharedImage",
-                    undefined
-                )
+                output =
+                    this.$store.state.siteMeta.socialSharedImage || undefined
             }
             if (!output) {
-                output = _get(
-                    this,
-                    "$store.state.siteMeta.themeScreenshotUrl",
-                    undefined
-                )
+                output =
+                    this.$store.state.siteMeta.themeScreenshotUrl || undefined
             }
 
             // Use supplied image URL, or image from server, fallback to theme screenshot
             return output
-        },
+        }
     },
     watch: {
         "$route.path"() {
             this.$fetch()
-        },
+        }
     },
     activated() {
         // This is a cache for Fetch. Will call fetch again if last fetch more than 60 sec ago
         if (this.$fetchState.timestamp <= Date.now() - 60000) {
             this.$fetch()
         }
-    },
+    }
 }
 </script>
 

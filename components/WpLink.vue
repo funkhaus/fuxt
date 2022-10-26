@@ -26,22 +26,20 @@
 </template>
 
 <script>
-import _get from "lodash/get"
-
 export default {
     props: {
         to: {
             type: String,
-            default: "",
+            default: ""
         },
         target: {
             type: String,
-            default: "_self",
+            default: "_self"
         },
         element: {
             type: String,
-            default: "span",
-        },
+            default: "span"
+        }
     },
     computed: {
         frontendUrl() {
@@ -79,8 +77,8 @@ export default {
 
             // Replace all these things
             const replaceThese = [
-                _get(this, "$store.state.siteMeta.frontendUrl", ""),
-                _get(this, "$store.state.siteMeta.backendUrl", ""),
+                this.$store.state.siteMeta.frontendUrl || "",
+                this.$store.state.siteMeta.backendUrl || ""
             ]
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")
@@ -101,7 +99,7 @@ export default {
             } else {
                 return this.target
             }
-        },
-    },
+        }
+    }
 }
 </script>

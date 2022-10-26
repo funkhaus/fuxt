@@ -1,6 +1,9 @@
 <template lang="html">
     <div :class="classes">
-        <div v-for="column in parsedImages" class="column item">
+        <div
+            v-for="column in parsedImages"
+            class="column item"
+        >
             <wp-image
                 v-for="image in column"
                 :key="image.id"
@@ -21,27 +24,26 @@
 </template>
 
 <script>
-import _get from "lodash/get"
 import sortColumns from "~/utils/sortColumns"
 
 export default {
     props: {
         images: {
             type: Array,
-            default: () => [],
+            default: () => []
         },
         caption: {
             type: String,
-            default: "",
+            default: ""
         },
         columns: {
             type: Number,
-            default: 1,
+            default: 1
         },
         imageCrop: {
             type: Boolean,
-            default: true,
-        },
+            default: true
+        }
     },
     computed: {
         classes() {
@@ -50,16 +52,12 @@ export default {
                 "margin-section",
                 `is-${this.parsedColumns}-columns`,
                 { "mode-cropped": this.imageCrop },
-                { "mode-masonry": !this.imageCrop },
+                { "mode-masonry": !this.imageCrop }
             ]
         },
         croppedRatio() {
             let output = null
-            const firstImageDimensions = _get(
-                this,
-                "images[0].mediaDetails",
-                {}
-            )
+            const firstImageDimensions = this.images?.[0]?.mediaDetails || {}
 
             // If imageCrop enabled, then size all images the same as first
             if (this.imageCrop) {
@@ -79,8 +77,8 @@ export default {
                 output = sortColumns(this.images, this.parsedColumns)
             }
             return output
-        },
-    },
+        }
+    }
 }
 </script>
 

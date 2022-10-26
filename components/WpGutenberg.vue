@@ -12,7 +12,6 @@
 
 <script>
 // Helpers
-import _get from "lodash/get"
 import _kebabCase from "lodash/kebabCase"
 
 // Remove the block prefix's WordPress gives them
@@ -62,12 +61,8 @@ export default {
                 let output = {
                     ...obj,
                     ...obj.attributes,
-                    id: _get(obj, "attributes.wpId", ""),
-                    class: `gutenberg-block ${_get(
-                        obj,
-                        "attributes.wpClasses",
-                        ""
-                    )}`
+                    id: obj.attributes?.wpId || "",
+                    class: `gutenberg-block ${obj.attributes?.wpClasses || ""}`
                 }
 
                 // Make name fit with Vue component syntax
@@ -86,14 +81,13 @@ export default {
                 // Shape any props as needed
                 switch (output.componentName) {
                     case "gutenberg-image":
-                        output.image = _get(output, "mediaItem.nodes[0]", {})
+                        output.image = output.mediaItem?.nodes?.[0] || {}
                         break
 
                     case "gutenberg-gallery":
-                        const imageBlocks =
-                            _get(output, "innerBlocks", []) || []
+                        const imageBlocks = output.innerBlocks || [] || []
                         output.images = imageBlocks.map((obj) => {
-                            return _get(obj, "mediaItem.nodes[0]", {})
+                            return obj.mediaItem?.nodes?.[0] || {}
                         })
                         break
                 }

@@ -1,17 +1,19 @@
 <template>
     <div :class="classes">
-        <div class="container" :style="sizerStyles" v-html="html" />
+        <div
+            class="container"
+            :style="sizerStyles"
+            v-html="html"
+        />
     </div>
 </template>
 <script>
-import _get from "lodash/get"
-
 export default {
     props: {
         html: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         classes() {
@@ -19,7 +21,7 @@ export default {
                 "gutenberg-html",
                 "margin-section",
                 { "is-iframe": this.isIframe },
-                { "has-aspect-ratio": this.aspectPadding },
+                { "has-aspect-ratio": this.aspectPadding }
             ]
         },
         sizerStyles() {
@@ -38,14 +40,14 @@ export default {
             const height = this.html.match(
                 /^<iframe[^>]*height\s*=\s*\"?(\d+)\"?[^>]*>/
             )
-            return Math.round(Number(_get(height, "[1]", "")))
+            return Math.round(Number(height?.[1] || ""))
         },
         parsedWidth() {
             // Get the width from SVG attr
             const width = this.html.match(
                 /^<iframe[^>]*width\s*=\s*\"?(\d+)\"?[^>]*>/
             )
-            return Math.round(Number(_get(width, "[1]", "")))
+            return Math.round(Number(width?.[1] || ""))
         },
         aspectPadding() {
             let output = (this.parsedHeight / this.parsedWidth) * 100
@@ -59,8 +61,8 @@ export default {
             }
 
             return output
-        },
-    },
+        }
+    }
 }
 </script>
 
