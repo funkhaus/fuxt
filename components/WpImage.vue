@@ -21,7 +21,6 @@
             class="media media-video"
             :src="parsedVideoUrl"
             :style="mediaStyles"
-            :poster="parsedSrc"
             :loop="loop"
             :autoplay="autoplay"
             :muted="muted"
@@ -450,7 +449,7 @@ export default {
     }
     &.is-playing {
         .media-image {
-            // Hide image when video is loaded to avoid overlaps
+            // Hide image when video is playing to avoid overlaps
             opacity: 0;
         }
         .media-video {
