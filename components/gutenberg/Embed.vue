@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import _get from "lodash/get"
 import Vue from "vue"
 
 export default {
@@ -95,7 +94,7 @@ export default {
             // https://youtu.be/wSX9F6ETTDQ
             var regex = /youtu(?:.*\/v\/|.*v\=|\.be\/)([A-Za-z0-9_\-]{11})/
             const matches = this.url.match(regex)
-            return _get(matches, "[1]", "").trim()
+            return (matches?.[1] || "").trim()
         },
         vimeoId() {
             if (!this.isVimeo) {
