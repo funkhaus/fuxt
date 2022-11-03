@@ -394,7 +394,7 @@ export default {
         z-index: 0;
     }
     .background-color {
-        opacity: 0.1;
+        opacity: 0.2;
         z-index: 0;
         width: 100%;
         height: 100%;
