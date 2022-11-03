@@ -195,7 +195,7 @@ export default {
             if (this.height) {
                 return parseInt(this.height)
             }
-            return this.image?.mediaDetails?.height || auto
+            return this.image?.mediaDetails?.height || "auto"
         },
         parsedWidth() {
             // default to defined width
