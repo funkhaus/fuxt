@@ -268,8 +268,8 @@ export default {
             return styles
         },
         hasLoaded() {
-            // Check if all are true. To handle if we have a video and an image.
-            return Object.values(this.loadedStatus).every(Boolean)
+            // Check if image has loaded. The idea being, show the image until video starts playing.
+            return this.loadedStatus.image == true
         },
         hasError() {
             return Object.values(this.errorStatus).includes(true)
