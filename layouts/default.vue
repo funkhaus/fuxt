@@ -43,11 +43,8 @@ export default {
     head() {
         return {
             htmlAttrs: {
-                lang: "en"
-            },
-            bodyAttrs: {
-                class: this.bodyClasses,
-                style: this.bodyStyles
+                lang: "en",
+                class: this.rootClasses
             },
             titleTemplate(titleChunk) {
                 return titleTemplate(this, titleChunk)
@@ -56,24 +53,14 @@ export default {
         }
     },
     computed: {
-        bodyClasses() {
-            const classes = ["body", `theme-${this.themeName}`]
+        rootClasses() {
+            const classes = ["html", `theme-${this.themeName}`]
             classes.push(`route-${_kebabCase(this.$route.name || "error")}`)
 
             // This is how you add a class conditionally
             // this.foo && classes.push("foo")
 
             return classes.join(" ")
-        },
-        bodyStyles() {
-            // This fixes the 100vh iOS bug/feature.
-            // If less than most tablets, set var to window height.
-            const winWidth = this.$store.state.winWidth
-            let value = "100vh"
-            if (winWidth && winWidth <= 1024) {
-                value = `${this.$store.state.winHeight}px`
-            }
-            return `--unit-100vh: ${value};`
         },
         classes() {
             return [

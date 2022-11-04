@@ -4,7 +4,7 @@
  */
 
 // Globals
-body {
+html {
     font-family: var(--font-primary);
     font-size: 16px;
     color: var(--color-black);
@@ -14,6 +14,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+}
+body {
+    margin: 0;
 }
 ::selection {
     color: var(--color-white);

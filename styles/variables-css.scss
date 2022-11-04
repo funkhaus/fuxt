@@ -3,7 +3,7 @@
  * It's useful for CSS vars
  */
 
-/* CSS vars */
+// CSS vars
 :root {
     --color-white: #ffffff;
     --color-black: #000000;
@@ -18,9 +18,16 @@
     --easing-authentic-motion: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Breakpoints */
+// Breakpoints
 @media #{$lt-phone} {
     :root {
         /* --unit-gap: 20px; */
+    }
+}
+
+// Handle 100vh on mobile using Dynamic View Height units
+@supports (height: 100dvh) {
+    :root {
+        --unit-100vh: 100dvh;
     }
 }
