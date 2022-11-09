@@ -1,23 +1,30 @@
 <template lang="html">
-    <wp-image :class="classes" :image="image" />
+    <wp-image
+        :class="classes"
+        :image="image"
+        :caption="caption"
+    />
 </template>
 
 <script>
-
 export default {
     props: {
         image: {
             type: Object,
-            default: () => {},
+            default: () => {}
         },
         size: {
             type: String,
-            default: "large",
+            default: "large"
         },
         align: {
             type: String,
-            default: "center",
+            default: "center"
         },
+        caption: {
+            type: String,
+            default: ""
+        }
     },
     computed: {
         classes() {
@@ -25,10 +32,10 @@ export default {
                 "gutenberg-image",
                 "margin-section",
                 `align-${this.align || "center"}`,
-                `size-${this.size || "large"}`,
+                `size-${this.size || "large"}`
             ]
-        },
-    },
+        }
+    }
 }
 </script>
 
