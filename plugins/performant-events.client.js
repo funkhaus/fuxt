@@ -1,6 +1,5 @@
 import performantEvent from "~/utils/performantEvent"
 
-
 let hasLoaded = false
 let oldScroll = 0
 
@@ -65,6 +64,13 @@ export default (context, inject) => {
     window.addEventListener("orientationchange", (event) => {
         onResize(context)
     })
+
+    // New way to handle screen orientation change, will replace "orientationchange" eventually
+    if (screen && screen.orientation) {
+        screen.orientation.addEventListener("change", (event) => {
+            onResize(context)
+        })
+    }
 
     // Kick off events to populate store with intial values
     onScroll(context)
