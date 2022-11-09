@@ -78,12 +78,6 @@ export default {
     fetchKey(getCounter) {
         return `${this.name}-${getCounter(this.name)}`
     },
-    activated() {
-        // This is a cache of fetch. Will call fetch again if last fetch more than 60 sec ago.
-        if (this.$fetchState.timestamp <= Date.now() - 60000) {
-            this.$fetch()
-        }
-    },
     methods: {
         menuInteracted(event) {
             this.$emit("menu-interacted", event)
