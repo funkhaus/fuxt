@@ -44,7 +44,7 @@ export default {
         return {
             htmlAttrs: {
                 lang: "en",
-                class: this.rootClasses
+                class: this.htmlClasses
             },
             titleTemplate(titleChunk) {
                 return titleTemplate(this, titleChunk)
@@ -53,7 +53,7 @@ export default {
         }
     },
     computed: {
-        rootClasses() {
+        htmlClasses() {
             const classes = ["html", `theme-${this.themeName}`]
             classes.push(`route-${_kebabCase(this.$route.name || "error")}`)
 
