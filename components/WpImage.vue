@@ -211,7 +211,14 @@ export default {
             return this.srcset || this.image?.srcSet || ""
         },
         parsedSizes() {
-            return this.sizes || this.image?.sizes || ""
+            let output = this.sizes || this.image?.sizes || ""
+
+            // Handle some custom size shortcuts
+            if (this.sizes == "fullscreen") {
+                output = "(max-width: 850px) 1920px, 100vw"
+            }
+
+            return output
         },
         parsedColor() {
             return (
