@@ -46,7 +46,7 @@ fragment ImageBlock on Block {
             }
         }
         mediaItem {
-            nodes {
+            node {
                 ...MediaImage
             }
         }
@@ -111,7 +111,7 @@ fragment GalleryBlock on Block {
         innerBlocks {
             ... on CoreImageBlock {
                 mediaItem {
-                    nodes {
+                    node {
                         ...MediaImage
                     }
                 }
