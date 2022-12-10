@@ -360,14 +360,12 @@ export default {
             this.isPlaying = false
         },
         play() {
-            if (this.$refs.video) {
-                // HTML5 video method
+            if (this.$refs.video && this.$refs.video.paused) {
                 return this.$refs.video.play()
             }
         },
         volume(amount = false) {
             if (this.$refs.video) {
-                // HTML5 video method
                 if (amount !== false) {
                     this.$refs.video.volume = amount
                 }
