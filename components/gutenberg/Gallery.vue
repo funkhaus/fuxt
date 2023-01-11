@@ -108,6 +108,7 @@ export default {
     // Columns Mode
     .column {
         box-sizing: border-box;
+        flex-grow: 1;
     }
     &.is-1-columns {
         .item {
