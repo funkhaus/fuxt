@@ -94,7 +94,7 @@ export default {
                     case "gutenberg-quote":
                         // add nested paragraph
                         output.content =
-                            output.innerBlocks?.[0].attributes?.content || ""
+                            output.innerBlocks?.[0]?.attributes?.content || ""
                         break
                 }
 
