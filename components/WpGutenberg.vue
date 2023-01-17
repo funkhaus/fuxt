@@ -90,6 +90,12 @@ export default {
                             return obj.mediaItem?.node || {}
                         })
                         break
+
+                    case "gutenberg-quote":
+                        // add nested paragraph
+                        output.content =
+                            output.innerBlocks?.[0]?.attributes?.content || ""
+                        break
                 }
 
                 // Remove un-needed elements from object and return
