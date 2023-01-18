@@ -17,6 +17,7 @@ query WpSeo($uri: String!) {
         ... on NodeWithFeaturedImage {
             featuredImage {
                 node {
+                    id
                     sourceUrl(size: FULLSCREEN_XLARGE)
                 }
             }
