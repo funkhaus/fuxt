@@ -1,6 +1,5 @@
 import SITE_SETTINGS from "~/gql/queries/SiteSettings.gql"
 
-
 // Define State defaults
 export const state = () => ({
     siteMeta: {},
@@ -10,7 +9,8 @@ export const state = () => ({
     winHeight: 0,
     winWidth: 0,
     referrer: false,
-    scrollDirection: "up"
+    scrollDirection: "up",
+    fontsLoaded: false
 })
 
 // Define mutations
@@ -36,6 +36,9 @@ export const mutations = {
     },
     SET_SCROLL_DIRECTION(state, direction) {
         state.scrollDirection = direction
+    },
+    SET_FONTS_LOADED: (state) => {
+        state.fontsLoaded = true
     }
 }
 
@@ -83,7 +86,8 @@ export const actions = {
                 })
                 delete options.googleAnalytics
             }
-            options.socialSharedImage = options.socialSharedImage?.sourceUrl || ""
+            options.socialSharedImage =
+                options.socialSharedImage?.sourceUrl || ""
             const siteMeta = { ...meta, ...options }
             commit("SET_SITE_META", siteMeta)
             return siteMeta
