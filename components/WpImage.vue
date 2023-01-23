@@ -425,13 +425,10 @@ export default {
     }
 
     // Modes
-    &.mode-intrinsic-ratio {
+    &:where(.mode-intrinsic-ratio, .mode-cover) {
         position: relative;
     }
-    &.mode-cover,
-    &.mode-fullbleed {
-        position: relative;
-
+    &.mode-cover {
         .sizer {
             width: 100%;
             height: 100%;
