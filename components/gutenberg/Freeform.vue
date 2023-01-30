@@ -1,5 +1,8 @@
 <template lang="html">
-    <div class="gutenberg-freeform margin-section" v-html="parsedHtml" />
+    <div
+        class="gutenberg-freeform margin-section"
+        v-html="parsedHtml"
+    />
 </template>
 
 <script>
@@ -9,14 +12,14 @@ export default {
     props: {
         html: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         parsedHtml() {
             return autop(this.html)
-        },
-    },
+        }
+    }
 }
 </script>
 

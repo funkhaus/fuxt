@@ -8,7 +8,7 @@ function smoothScroll({ top, left, behavior, selector }) {
     window.scrollTo({
         top,
         left,
-        behavior,
+        behavior
     })
 
     const scrollPromise = new Promise((resolve, reject) => {

@@ -570,44 +570,44 @@
         "logos": {
             "nodes": [
                 {
-                  "id": "cG9zdDoxMzA=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-webbys.svg"
+                    "id": "cG9zdDoxMzA=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-webbys.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjk=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-ukmva.svg"
+                    "id": "cG9zdDoxMjk=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-ukmva.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjg=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-theoneshow.svg"
+                    "id": "cG9zdDoxMjg=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-theoneshow.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjc=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-oscars.svg"
+                    "id": "cG9zdDoxMjc=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-oscars.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjY=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-nyf.svg"
+                    "id": "cG9zdDoxMjY=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-nyf.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjU=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-mvpa.svg"
+                    "id": "cG9zdDoxMjU=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-mvpa.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjQ=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-mtvmovietv.svg"
+                    "id": "cG9zdDoxMjQ=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-mtvmovietv.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjM=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-ddad.svg"
+                    "id": "cG9zdDoxMjM=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-ddad.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjI=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-cmt.svg"
+                    "id": "cG9zdDoxMjI=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-cmt.svg"
                 },
                 {
-                  "id": "cG9zdDoxMjE=",
-                  "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-cma.svg"
+                    "id": "cG9zdDoxMjE=",
+                    "sourceUrl": "https://mock-api.funkhaus.us/wp-content/uploads/2021/03/award-cma.svg"
                 }
             ]
         },

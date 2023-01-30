@@ -1,7 +1,16 @@
 <template lang="html">
-    <div :class="classes" :style="styles">
-        <wp-gutenberg :blocks="blocks" class="content" />
-        <div class="overlay" :style="overlayStyles" />
+    <div
+        :class="classes"
+        :style="styles"
+    >
+        <wp-gutenberg
+            :blocks="blocks"
+            class="content"
+        />
+        <div
+            class="overlay"
+            :style="overlayStyles"
+        />
     </div>
 </template>
 
@@ -10,51 +19,51 @@ export default {
     props: {
         blocks: {
             type: Array,
-            default: () => [],
+            default: () => []
         },
         url: {
             type: String,
-            default: "",
+            default: ""
         },
         opacity: {
             type: Number,
-            default: 0,
+            default: 0
         },
         isFixed: {
             type: Boolean,
-            default: false,
+            default: false
         },
         minHeight: {
             type: Number,
-            default: 0,
+            default: 0
         },
         minHeightUnit: {
             type: String,
-            default: "px",
+            default: "px"
         },
         gradient: {
             type: String,
-            default: "",
+            default: ""
         },
         customGradient: {
             type: String,
-            default: "",
+            default: ""
         },
         overlayColor: {
             type: String,
-            default: "",
+            default: ""
         },
         customOverlayColor: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         classes() {
             return [
                 "gutenberg-cover",
                 { "is-fixed": this.isFixed },
-                "margin-section",
+                "margin-section"
             ]
         },
         styles() {
@@ -65,13 +74,13 @@ export default {
 
             return {
                 "background-image": `url(${this.url})`,
-                "min-height": minHeight,
+                "min-height": minHeight
             }
         },
         overlayStyles() {
             return {
                 background: this.overlayBackground,
-                opacity: this.opacity / 100,
+                opacity: this.opacity / 100
             }
         },
         overlayBackground() {
@@ -81,8 +90,8 @@ export default {
                 this.overlayColor ||
                 this.gradient
             )
-        },
-    },
+        }
+    }
 }
 </script>
 

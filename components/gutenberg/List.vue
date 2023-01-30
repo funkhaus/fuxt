@@ -12,24 +12,24 @@ export default {
     props: {
         content: {
             type: String,
-            default: "",
+            default: ""
         },
         ordered: {
             type: Boolean,
-            default: false,
+            default: false
         },
         textColor: {
             type: String,
-            default: "",
+            default: ""
         },
         backgroundColor: {
             type: String,
-            default: "",
+            default: ""
         },
         fontSize: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         classes() {
@@ -39,7 +39,7 @@ export default {
             return {
                 color: this.textColor,
                 "background-color": this.backgroundColor,
-                "font-size": this.fontSize,
+                "font-size": this.fontSize
             }
         },
         listType() {
@@ -48,8 +48,8 @@ export default {
                 output = "ol"
             }
             return output
-        },
-    },
+        }
+    }
 }
 </script>
 

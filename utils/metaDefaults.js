@@ -11,35 +11,35 @@ function metaDefaults({ $store, $route }) {
             hid: "og:description",
             name: "description",
             property: "og:description",
-            content: $store.state.siteMeta.description,
+            content: $store.state.siteMeta.description
         },
         {
             hid: "og:image",
             property: "og:image",
-            content: imageUrl,
+            content: imageUrl
         },
         {
             property: "og:url",
-            content: `${$store.state.siteMeta.frontendUrl}${$route.path}`,
+            content: `${$store.state.siteMeta.frontendUrl}${$route.path}`
         },
         {
             property: "og:site_name",
-            content: $store.state.siteMeta.title,
+            content: $store.state.siteMeta.title
         },
         {
             property: "og:type",
-            content: "website",
+            content: "website"
         },
         {
             hid: "og:title",
             property: "og:title",
-            content: $store.state.siteMeta.title,
+            content: $store.state.siteMeta.title
         },
         {
             hid: "twitter:card",
             property: "twitter:card",
-            content: "summary_large_image",
-        },
+            content: "summary_large_image"
+        }
     ]
 }
 export default metaDefaults

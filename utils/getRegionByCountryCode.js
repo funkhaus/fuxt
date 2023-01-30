@@ -36,7 +36,7 @@ function getRegionByCountryCode(countryCode = "") {
         "RO",
         "SE",
         "SI",
-        "SK",
+        "SK"
     ]
 
     switch (true) {

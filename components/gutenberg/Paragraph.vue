@@ -1,5 +1,9 @@
 <template lang="html">
-    <p :class="classes" :style="styles" v-html="content" />
+    <p
+        :class="classes"
+        :style="styles"
+        v-html="content"
+    />
 </template>
 
 <script>
@@ -7,28 +11,28 @@ export default {
     props: {
         content: {
             type: String,
-            default: "",
+            default: ""
         },
         textAlign: {
             type: String,
-            default: "default",
+            default: "default"
         },
         fontSize: {
             type: String,
-            default: "",
+            default: ""
         },
         textColor: {
             type: String,
-            default: "",
+            default: ""
         },
         backgroundColor: {
             type: String,
-            default: "",
+            default: ""
         },
         dropCap: {
             type: Boolean,
-            default: false,
-        },
+            default: false
+        }
     },
     computed: {
         classes() {
@@ -36,14 +40,14 @@ export default {
                 "gutenberg-paragraph",
                 `align-${this.textAlign || "default"}`,
                 "margin-text",
-                { "has-drop-cap": this.dropCap },
+                { "has-drop-cap": this.dropCap }
             ]
         },
         styles() {
             return {
                 color: this.textColor,
                 "background-color": this.backgroundColor,
-                "font-size": this.parsedFontSize,
+                "font-size": this.parsedFontSize
             }
         },
         parsedFontSize() {
@@ -52,8 +56,8 @@ export default {
                 output = `${this.fontSize}px`
             }
             return output
-        },
-    },
+        }
+    }
 }
 </script>
 

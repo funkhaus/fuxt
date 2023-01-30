@@ -3,11 +3,18 @@
         <h2 v-if="error.statusCode === 404">
             Sorry the page could not be found.
         </h2>
-        <h2 v-else>A {{ error.statusCode }} error occurred.</h2>
+        <h2 v-else>
+            A {{ error.statusCode }} error occurred.
+        </h2>
 
-        <p v-if="error.message" v-text="error.message" />
+        <p
+            v-if="error.message"
+            v-text="error.message"
+        />
 
-        <nuxt-link to="/"> Back to the home page </nuxt-link>
+        <nuxt-link to="/">
+            Back to the home page
+        </nuxt-link>
     </section>
 </template>
 
@@ -16,12 +23,12 @@ export default {
     props: ["error"],
     head() {
         return {
-            title: `${this.error.statusCode} Error`,
+            title: `${this.error.statusCode} Error`
         }
     },
     mounted() {
         console.log(this.error)
-    },
+    }
 }
 </script>
 

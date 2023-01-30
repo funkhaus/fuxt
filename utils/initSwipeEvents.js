@@ -7,7 +7,7 @@ function initSwipeEvents(el, deltaMin = 80) {
         startX: 0,
         startY: 0,
         endX: 0,
-        endY: 0,
+        endY: 0
     }
     let directionEvents = []
     el.addEventListener("touchstart", (e) => {

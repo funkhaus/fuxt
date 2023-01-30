@@ -7,7 +7,7 @@ function getOffset(el) {
 
     return {
         top: elemRect.top - bodyRect.top,
-        left: elemRect.left - bodyRect.left,
+        left: elemRect.left - bodyRect.left
     }
 }
 

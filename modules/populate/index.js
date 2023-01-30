@@ -3,7 +3,7 @@ import { resolve } from "path"
 export default function () {
     this.addTemplate({
         src: resolve(__dirname, "populate.server.js"),
-        fileName: "populate.server.js",
+        fileName: "populate.server.js"
     })
     this.nuxt.hook("build:before", () => {
         this.options.plugins.push(`${__dirname}/populate.server.js`)

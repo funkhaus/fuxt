@@ -15,21 +15,21 @@ export default {
     props: {
         blocks: {
             type: Array,
-            default: () => [],
+            default: () => []
         },
         verticalAlignment: {
             type: String,
-            default: "default",
+            default: "default"
         },
         width: {
             type: String,
-            default: "",
-        },
+            default: ""
+        }
     },
     computed: {
         styles() {
             return {
-                "--flex-basis": this.width,
+                "--flex-basis": this.width
             }
         },
         classes() {
@@ -37,10 +37,10 @@ export default {
                 "gutenberg-column",
                 "gutenberg-block",
                 `vertical-alignment-${this.verticalAlignment || "default"}`,
-                { "column-empty": this.blocks.length == 0 },
+                { "column-empty": this.blocks.length == 0 }
             ]
-        },
-    },
+        }
+    }
 }
 </script>
 

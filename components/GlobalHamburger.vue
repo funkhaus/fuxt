@@ -1,5 +1,8 @@
 <template>
-    <div :class="classes" @click="toggleMenu()">
+    <div
+        :class="classes"
+        @click="toggleMenu()"
+    >
         <div class="line line-1" />
         <div class="line line-2" />
         <div class="line line-3" />
@@ -11,20 +14,20 @@ export default {
     props: {
         isOpened: {
             type: Boolean,
-            default: false,
-        },
+            default: false
+        }
     },
     computed: {
         classes() {
             return ["global-hamburger", { "is-opened": this.isOpened }]
-        },
+        }
     },
     methods: {
         toggleMenu() {
             // Toggle menu state
             this.$emit("menu-opened", !this.isOpened)
-        },
-    },
+        }
+    }
 }
 </script>
 

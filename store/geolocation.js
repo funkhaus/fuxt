@@ -10,7 +10,7 @@ export const state = () => ({
     ip: "",
     detectedCountry: "",
     selectedRegion: "", // This is where you would set the user defined country (like on button click)
-    version: 1, // Used by nuxt-vuex-localstorage to reset all users location
+    version: 1 // Used by nuxt-vuex-localstorage to reset all users location
 })
 
 // Define mutations
@@ -26,7 +26,7 @@ export const mutations = {
                 data.detectedCountry || state.detectedCountry
             state.selectedRegion = data.selectedRegion || state.selectedRegion
         }
-    },
+    }
 }
 
 // Getters
@@ -40,5 +40,5 @@ export const getters = {
         }
 
         return getRegionByCountryCode(state.detectedCountry)
-    },
+    }
 }

@@ -1,4 +1,3 @@
-
 export default ({ store, app: { router, context } }, inject) => {
     // Remove any empty tracking codes
     let codes = store?.state?.siteMeta?.gaTrackingCodes || []
@@ -40,13 +39,13 @@ export default ({ store, app: { router, context } }, inject) => {
     gtag("js", new Date())
 
     // Add tracking codes from Vuex store
-    codes.forEach(code => {
+    codes.forEach((code) => {
         gtag("config", code, {
             send_page_view: false // Necessary to avoid duplicated page track on first page load
         })
 
         // After each router transition, log page event to Google for each code
-        router.afterEach(to => {
+        router.afterEach((to) => {
             gtag("event", "page_view", { page_path: to.fullPath })
         })
     })

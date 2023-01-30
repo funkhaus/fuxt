@@ -17,49 +17,49 @@ export default {
     props: {
         src: {
             type: String,
-            default: "",
+            default: ""
         },
         muted: {
             type: Boolean,
-            default: true,
+            default: true
         },
         autoplay: {
             type: Boolean,
-            default: true,
+            default: true
         },
         controls: {
             type: Boolean,
-            default: false,
+            default: false
         },
         loop: {
             type: Boolean,
-            default: true,
+            default: true
         },
         preload: {
             type: String,
-            default: "auto",
+            default: "auto"
         },
         poster: {
             type: String,
-            default: "",
+            default: ""
         },
         disablepictureinpicture: {
             type: Boolean,
-            default: true,
-        },
+            default: true
+        }
     },
     computed: {
         classes() {
             return [
                 "gutenberg-video",
                 "margin-section",
-                `align-${this.align || "center"}`,
+                `align-${this.align || "center"}`
             ]
         },
         parsedSrc() {
             return decodeURI(this.src).replaceAll("&amp;", "&")
-        },
-    },
+        }
+    }
 }
 </script>
 

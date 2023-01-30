@@ -1,5 +1,3 @@
-
-
 export default async ({ store, req, query, isDev, $config }) => {
     // Set to true to check all users IPs. This is useful for debugging.
     const forceCheck = query.ip || false // DO NOT LEAVE TRUE AS IT WILL COST MONEY
@@ -74,7 +72,7 @@ export default async ({ store, req, query, isDev, $config }) => {
 
                 return {
                     detectedCountry: data.country_code || "",
-                    ip: data.ip || "",
+                    ip: data.ip || ""
                 }
             })
             .catch((error) => {
@@ -82,7 +80,7 @@ export default async ({ store, req, query, isDev, $config }) => {
 
                 return {
                     detectedCountry: "",
-                    ip: "",
+                    ip: ""
                 }
             })
 
@@ -93,6 +91,6 @@ export default async ({ store, req, query, isDev, $config }) => {
     store.commit("geolocation/SET_GEOLOCATION", {
         ip: location.ip || "",
         detectedCountry: location.detectedCountry || "",
-        selectedRegion: "",
+        selectedRegion: ""
     })
 }

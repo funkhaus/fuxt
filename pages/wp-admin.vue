@@ -16,7 +16,7 @@ export default {
         if (process.client) {
             window.location = `${this.$store.state.siteMeta.backendUrl}/wp-admin`
         }
-    },
+    }
 }
 </script>
 

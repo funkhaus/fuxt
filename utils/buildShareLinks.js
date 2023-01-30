@@ -32,7 +32,7 @@ function buildShareLinks(opts) {
         )}`,
         pinterest: `http://pinterest.com/pin/create/button/?url=${encodeURIComponent(
             url
-        )}&description=${encodeURIComponent(text)}`,
+        )}&description=${encodeURIComponent(text)}`
     }
 }
 

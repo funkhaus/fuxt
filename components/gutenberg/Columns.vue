@@ -15,8 +15,8 @@ export default {
     props: {
         blocks: {
             type: Array,
-            default: () => [],
-        },
+            default: () => []
+        }
     },
     computed: {
         parsedBlocks() {
@@ -24,11 +24,11 @@ export default {
                 // Flatten the "attributes"
                 return {
                     ...obj,
-                    ...obj.attributes,
+                    ...obj.attributes
                 }
             })
-        },
-    },
+        }
+    }
 }
 </script>
 

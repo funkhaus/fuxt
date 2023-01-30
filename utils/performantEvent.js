@@ -14,13 +14,13 @@ function performantEvent(type, obj = window) {
         switch (type) {
             case "scroll":
                 detail = {
-                    scrollTop: obj.pageYOffset || 0,
+                    scrollTop: obj.pageYOffset || 0
                 }
                 break
             case "resize":
                 detail = {
                     winWidth: obj.innerWidth,
-                    winHeight: obj.innerHeight,
+                    winHeight: obj.innerHeight
                 }
                 break
         }
@@ -48,7 +48,7 @@ function performantEvent(type, obj = window) {
         },
         remove: function () {
             obj.removeEventListener(type, execute)
-        },
+        }
     }
 }
 

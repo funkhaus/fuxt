@@ -19,7 +19,7 @@ export default function ({ query, enablePreview, redirect, error, $graphql }) {
             return error({
                 statusCode: 404,
                 message:
-                    "For WordPress preview's to work, you first need to save the post/page as a draft.",
+                    "For WordPress preview's to work, you first need to save the post/page as a draft."
             })
             break
 
