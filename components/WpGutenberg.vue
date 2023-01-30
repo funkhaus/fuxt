@@ -91,6 +91,14 @@ export default {
                         })
                         break
 
+                    case "gutenberg-list":
+                        output.items = output.innerBlocks.map((obj) => {
+                            return {
+                                ...obj.attributes
+                            }
+                        })
+                        break
+
                     case "gutenberg-quote":
                         // add nested paragraph
                         output.content =
