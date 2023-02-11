@@ -31,7 +31,7 @@
         "graphql": "^15.8.0",
         "graphql-tag": "^2.12.6",
         "lodash": "^4.17.21",
-        "nodemon": "^2.0.12",
+        "nodemon": "^2.0.20",
         "nuxt-graphql-request": "^5.2.0",
         "prettier": "^2.7.1",
         "sass": "^1.49.11",
