@@ -40,6 +40,11 @@ export default {
     components: {
         SvgLogoFunkhaus
     },
+    data() {
+        return {
+            computedStyle: {}
+        }
+    },
     head() {
         return {
             htmlAttrs: {
@@ -67,7 +72,7 @@ export default {
                 "layout",
                 "layout-default",
                 "main",
-                `breakpoint-${this.breakpoint}`,
+                `breakpoint-${this.$store.state.breakpoint}`,
                 { "menu-opened": this.$store.state.menuOpened },
                 { "is-scrolled": this.$store.state.sTop > 0 },
                 `scrolling-${this.$store.state.scrollDirection}`
@@ -81,35 +86,25 @@ export default {
                     break
             }
             return output
-        },
-        breakpoint() {
-            const winWidth = this.$store.state.winWidth
-            let breakpoint = "desktop"
-
-            switch (true) {
-                case winWidth == 0:
-                    breakpoint = "desktop"
-                    break
-
-                case winWidth <= 1024:
-                    breakpoint = "mobile"
-                    break
-
-                default:
-                    breakpoint = "desktop"
-            }
-
-            return breakpoint
         }
     },
     watch: {
-        breakpoint: {
-            immediate: true,
-            handler(newVal, oldVal) {
-                if (newVal != oldVal) {
-                    this.$store.commit("SET_BREAKPOINT", newVal)
-                }
-            }
+        "$store.state.winWidth"() {
+            this.setBreakpointName()
+        }
+    },
+    mounted() {
+        this.computedStyle = window.getComputedStyle(this.$el)
+        this.setBreakpointName()
+    },
+    methods: {
+        setBreakpointName() {
+            // Remove all quotes from breakpoint name
+            // SEE https://stackoverflow.com/a/19156197/503546
+            const name = this.computedStyle
+                .getPropertyValue("--breakpoint-name")
+                .replace(/['"]+/g, "")
+            return this.$store.commit("SET_BREAKPOINT", name)
         }
     }
 }

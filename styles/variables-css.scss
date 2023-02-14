@@ -31,3 +31,19 @@
         --unit-100vh: 100dvh;
     }
 }
+
+// Set Breakpoint name, this is saved into Vuex in the default layout
+:root {
+    @media #{$gt-cinema} {
+        --breakpoint-name: "cinema";
+    }
+    @media #{$lt-cinema} {
+        --breakpoint-name: "desktop";
+    }
+    @media #{$lt-tablet} {
+        --breakpoint-name: "tablet";
+    }
+    @media #{$lt-phone} {
+        --breakpoint-name: "phone";
+    }
+}

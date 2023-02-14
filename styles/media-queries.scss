@@ -3,24 +3,18 @@
  */
 
 /* Breakpoints */
-// $gt-cinema: 'only screen and (min-width: 1800px)';
-// $lt-desktop: 'only screen and (max-width: 1200px)';
-// $lt-tablet: 'only screen and (max-width: 1024px)';
+$gt-cinema: "only screen and (min-width: 1800px)";
+$lt-cinema: "only screen and (max-width: 1799px)";
+$lt-tablet: "only screen and (max-width: 1024px)";
 $lt-phone: "only screen and (max-width: 850px)";
 // $phone-landscape: 'only screen and (max-width: 850px) and (orientation: landscape)';
 // $pad: "only screen and (min-device-width : 768px) and (max-device-width : 1024px)";
 $has-hover: "(hover: hover)";
 
-/*
-NOTE: The above media queires can be used like this in your components
+// Hover states can be styled like this
+// @media #{$has-hover} {
+// }
 
-    // Hover states
-    @media #{$has-hover} {
-        // Hover only styles would go here
-    }
-
-    // Breakpoints
-    @media #{$lt-phone} {
-        // Phone styles would go here
-    }
-*/
+// Media queries can be used like this
+// @media #{$lt-phone} {
+// }
