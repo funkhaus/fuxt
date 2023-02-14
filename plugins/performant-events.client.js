@@ -2,12 +2,14 @@ import performantEvent from "~/utils/performantEvent"
 
 let hasLoaded = false
 let oldScroll = 0
+let computedStyle = {}
 
 // Event callbacks to handle updating the store from a browser event
 function onScroll({ store }, event = {}) {
     // Save window scroll position to store
     const sTop = (event?.detail?.scrollTop, window.pageYOffset)
 
+    // Save scroll direction to store
     if (oldScroll > sTop || sTop === 0) {
         store.commit("SET_SCROLL_DIRECTION", "up")
     } else {
@@ -18,11 +20,18 @@ function onScroll({ store }, event = {}) {
     store.commit("SET_S_TOP", sTop)
 }
 function onResize({ store }, event = {}) {
+    // Save window dimensions to store
     const dimensions = {
         height: (event?.detail?.winHeight, window.innerHeight),
         width: (event?.detail?.winWidth, window.innerWidth)
     }
     store.commit("SET_WIN_DIMENSIONS", dimensions)
+
+    // Save breakpoint name to store
+    const breakpointName = computedStyle
+        .getPropertyValue("--breakpoint-name")
+        .replace(/['"]+/g, "")
+    store.commit("SET_BREAKPOINT", breakpointName || "")
 }
 function onKeydown({ store }, event) {
     switch (event && event.key) {
@@ -47,6 +56,9 @@ export default (context, inject) => {
     if (!context.store) {
         return
     }
+
+    // Save this as it is naturally reactive
+    computedStyle = window.getComputedStyle(document.body)
 
     // Bind to new events
     window.addEventListener("performant-scroll", (event) => {

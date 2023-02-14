@@ -87,25 +87,6 @@ export default {
             }
             return output
         }
-    },
-    watch: {
-        "$store.state.winWidth"() {
-            this.setBreakpointName()
-        }
-    },
-    mounted() {
-        this.computedStyle = window.getComputedStyle(this.$el)
-        this.setBreakpointName()
-    },
-    methods: {
-        setBreakpointName() {
-            // Remove all quotes from breakpoint name
-            // SEE https://stackoverflow.com/a/19156197/503546
-            const name = this.computedStyle
-                .getPropertyValue("--breakpoint-name")
-                .replace(/['"]+/g, "")
-            return this.$store.commit("SET_BREAKPOINT", name)
-        }
     }
 }
 </script>
