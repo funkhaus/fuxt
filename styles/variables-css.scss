@@ -1,5 +1,5 @@
 /*
- * This file is included once, for the entire sute.
+ * This file is included once, for the entire site.
  * It's useful for CSS vars
  */
 
@@ -9,30 +9,26 @@
     --color-black: #000000;
 
     --unit-100vh: 100vh;
-    /* --unit-gap: 40px; */
+    // --unit-gap: 40px;
     --unit-max-width: 1800px;
 
     --font-primary: sans-serif;
     --font-secondary: serif;
 
     --easing-authentic-motion: cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-// Breakpoints
-@media #{$lt-phone} {
-    :root {
-        /* --unit-gap: 20px; */
+    // Breakpoints
+    @media #{$lt-phone} {
+        // --unit-gap: 20px;
     }
-}
 
-// Handle 100vh on mobile using Dynamic View Height units
-@supports (height: 100dvh) {
-    :root {
+    // Handle 100vh on mobile using Dynamic View Height units
+    @supports (height: 100dvh) {
         --unit-100vh: 100dvh;
     }
 }
 
-// Set Breakpoint name, this is saved into Vuex by a plugin
+// Set Breakpoint name, this is saved into Vuex by the `performant-events.client.js` plugin
 :root {
     @media #{$gt-cinema} {
         --breakpoint-name: "cinema";
