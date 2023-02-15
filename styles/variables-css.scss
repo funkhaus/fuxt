@@ -32,7 +32,7 @@
     }
 }
 
-// Set Breakpoint name, this is saved into Vuex in the default layout
+// Set Breakpoint name, this is saved into Vuex by a plugin
 :root {
     @media #{$gt-cinema} {
         --breakpoint-name: "cinema";
