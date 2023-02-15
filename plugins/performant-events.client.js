@@ -31,6 +31,7 @@ function onResize({ store }, event = {}) {
     const breakpointName = computedStyle
         .getPropertyValue("--breakpoint-name")
         .replace(/['"]+/g, "")
+        .trim()
     store.commit("SET_BREAKPOINT", breakpointName || "")
 }
 function onKeydown({ store }, event) {
