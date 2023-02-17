@@ -9,5 +9,10 @@ query WpControls($uri: String!) {
     viewer {
         id
         nicename
+        avatar(size: 20) {
+            url
+            width
+            height
+        }
     }
 }

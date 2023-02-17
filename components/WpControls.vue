@@ -28,6 +28,13 @@
             :href="userUrl"
         >
             <span class="greeting">Hello</span> {{ userDisplayName }}
+            <img
+                v-if="avatar.url"
+                class="avatar"
+                :src="avatar.url"
+                :width="avatar.width"
+                :height="avatar.height"
+            >
         </a>
     </header>
 </template>
@@ -87,6 +94,9 @@ export default {
                 output = this.$route.path
             }
             return output
+        },
+        avatar() {
+            return this.user?.avatar || {}
         },
         adminUrl() {
             return `${this.$store.state.siteMeta.backendUrl}/wp-admin`
@@ -162,6 +172,13 @@ export default {
     .user {
         margin-left: auto;
         margin-right: 0;
+    }
+    .avatar {
+        height: 15px;
+        width: auto;
+        display: inline-block;
+        vertical-align: middle;
+        margin: -2px 0 0 3px;
     }
 
     // Hovers
