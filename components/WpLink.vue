@@ -52,6 +52,9 @@ export default {
             }
             return this.to.startsWith(this.frontendUrl)
         },
+        isHashLink() {
+            return this.to.startsWith("#")
+        },
         isEmail() {
             return this.to.includes("mailto:")
         },
@@ -94,7 +97,7 @@ export default {
             return `/${url}`
         },
         parsedTarget() {
-            if (!this.isInternal && !this.isRelative) {
+            if (!this.isInternal && !this.isRelative && !this.isHashLink) {
                 return "_blank"
             } else {
                 return this.target
