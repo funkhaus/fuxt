@@ -331,7 +331,7 @@ export default {
             }
             .citation {
                 font-size: 14px;
-                margin-top: -1.5em;
+                margin-top: -1em;
                 font-weight: 500;
             }
         }

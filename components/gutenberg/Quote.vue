@@ -1,16 +1,27 @@
 <template lang="html">
     <blockquote
         :class="classes"
-        v-html="parsedContent"
-    />
+        :style="styles"
+    >
+        <gutenberg-paragraph
+            v-for="(block, i) in innerBlocks"
+            :key="`block-paragraph-${i}`"
+            v-bind="block"
+        />
+        <cite
+            v-if="citation"
+            class="citation"
+            v-html="citation"
+        />
+    </blockquote>
 </template>
 
 <script>
 export default {
     props: {
-        content: {
-            type: String,
-            default: ""
+        innerBlocks: {
+            type: Array,
+            default: () => []
         },
         citation: {
             type: String,
@@ -19,6 +30,18 @@ export default {
         textAlign: {
             type: String,
             default: "default"
+        },
+        fontSize: {
+            type: String,
+            default: ""
+        },
+        textColor: {
+            type: String,
+            default: ""
+        },
+        backgroundColor: {
+            type: String,
+            default: ""
         }
     },
     computed: {
@@ -30,10 +53,17 @@ export default {
                 `align-${this.textAlign || "default"}`
             ]
         },
-        parsedContent() {
-            let output = this.content
-            if (this.citation) {
-                output = `${output} <cite class="citation">${this.citation}</cite>`
+        stlyes() {
+            return {
+                color: this.textColor,
+                "background-color": this.backgroundColor,
+                "font-size": this.parsedFontSize
+            }
+        },
+        parsedFontSize() {
+            let output = ""
+            if (this.fontSize) {
+                output = `${this.fontSize}px`
             }
             return output
         }
@@ -45,7 +75,7 @@ export default {
 .gutenberg-quote {
     font-weight: normal;
 
-    ::v-deep .citation {
+    .citation {
         font-style: normal;
         display: block;
     }

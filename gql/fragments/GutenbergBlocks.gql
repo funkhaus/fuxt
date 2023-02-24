@@ -61,9 +61,9 @@ fragment ParagraphBlock on Block {
             ... on CoreParagraphBlockAttributes {
                 content
                 textAlign: align
-                fontSize
-                textColor
-                backgroundColor
+                fontSize: fontSizeValue
+                textColor: textColorCode
+                backgroundColor: backgroundColorCode
                 dropCap
                 wpId: anchor
                 wpClasses: className
@@ -140,8 +140,8 @@ fragment HeadingBlock on Block {
                 textAlign
                 className
                 fontSize
-                textColor
-                backgroundColor
+                textColor: textColorCode
+                backgroundColor: backgroundColorCode
                 wpId: anchor
                 wpClasses: className
             }
@@ -154,21 +154,17 @@ fragment QuoteBlock on Block {
     ... on CoreQuoteBlock {
         attributes {
             ... on CoreQuoteBlockAttributes {
-                content: value
                 citation
                 wpId: anchor
                 wpClasses: className
                 textAlign: align
+                textColor: textColorCode
+                backgroundColor: backgroundColorCode
+                fontSize: fontSizeValue
             }
         }
         innerBlocks {
-            ... on CoreParagraphBlock {
-                attributes {
-                    ... on CoreParagraphBlockAttributes {
-                        content
-                    }
-                }
-            }
+            ...ParagraphBlock
         }
     }
 }
@@ -179,10 +175,9 @@ fragment ListBlock on Block {
         attributes {
             ... on CoreListBlockAttributes {
                 ordered
-                content: values
                 fontSize
-                textColor
-                backgroundColor
+                textColor: textColorCode
+                backgroundColor: backgroundColorCode
             }
         }
         innerBlocks {
