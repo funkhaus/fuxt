@@ -36,7 +36,8 @@ export default {
         GutenbergGallery: () => import("~/components/gutenberg/Gallery"),
         GutenbergCover: () => import("~/components/gutenberg/Cover"),
         GutenbergHtml: () => import("~/components/gutenberg/Html"),
-        GutenbergVideo: () => import("~/components/gutenberg/Video")
+        GutenbergVideo: () => import("~/components/gutenberg/Video"),
+        GutenbergButtons: () => import("~/components/gutenberg/Buttons")
     },
     props: {
         blocks: {
@@ -78,6 +79,15 @@ export default {
                     output = { ...output, ...obj.fields }
                 }
 
+                // Flatten all inner blocks to array of attributes
+                if (obj.innerBlocks?.length) {
+                    output.innerBlocks = output.innerBlocks.map((obj) => {
+                        return {
+                            ...obj.attributes
+                        }
+                    })
+                }
+
                 // Shape any props as needed
                 switch (output.componentName) {
                     case "gutenberg-image":
@@ -85,17 +95,9 @@ export default {
                         break
 
                     case "gutenberg-gallery":
-                        const imageBlocks = output.innerBlocks || [] || []
+                        const imageBlocks = output.innerBlocks || []
                         output.images = imageBlocks.map((obj) => {
                             return obj.mediaItem?.node || {}
-                        })
-                        break
-
-                    case "gutenberg-list":
-                        output.items = output.innerBlocks.map((obj) => {
-                            return {
-                                ...obj.attributes
-                            }
                         })
                         break
 
@@ -103,6 +105,21 @@ export default {
                         // add nested paragraph
                         output.content =
                             output.innerBlocks?.[0]?.attributes?.content || ""
+                        break
+
+                    case "gutenberg-buttons":
+                        // Parse JSON props on top level Buttons group
+                        output.layout = JSON.parse(output.layout)
+
+                        // Parse JSON props on child inner single Buttons
+                        const buttonBlocks = output.innerBlocks || []
+                        output.innerBlocks = buttonBlocks.map((obj) => {
+                            return {
+                                ...obj,
+                                class: obj.wpClass,
+                                styles: JSON.parse(obj.styles)
+                            }
+                        })
                         break
                 }
 

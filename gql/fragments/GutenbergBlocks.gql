@@ -16,6 +16,7 @@ fragment GutenbergBlocks on BlockEditorContentNode {
         ...CoverBlock
         ...HtmlBlock
         ...VideoBlock
+        ...ButtonsBlock
 
         # Columns (and column)
         ...ColumnsBlock
@@ -264,6 +265,7 @@ fragment ColumnBlock on Block {
             ...ListBlock
             ...EmbedBlock
             ...VideoBlock
+            ...ButtonsBlock
         }
     }
 }
@@ -303,5 +305,43 @@ fragment CoverBlock on Block {
 fragment HtmlBlock on Block {
     ... on CoreHtmlBlock {
         html: originalContent
+    }
+}
+
+# Buttons (group)
+fragment ButtonsBlock on Block {
+    ... on CoreButtonsBlock {
+        attributes {
+            ... on CoreButtonsBlockAttributes {
+                wpId: anchor
+                layout
+                fontSize: fontSizeValue
+                wpClass: className
+            }
+        }
+        innerBlocks {
+            name
+            ...ButtonBlock
+        }
+    }
+}
+
+# Button (single)
+fragment ButtonBlock on Block {
+    ... on CoreButtonBlock {
+        attributes {
+            ... on CoreButtonBlockAttributes {
+                wpId: anchor
+                fontSize: fontSizeValue
+                text
+                styles: style
+                target: linkTarget
+                wpClass: className
+                backgroundColor: backgroundColorCode
+                textColor: textColorCode
+                url
+                widthPercentage: width
+            }
+        }
     }
 }
