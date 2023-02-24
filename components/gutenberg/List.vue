@@ -3,16 +3,21 @@
         :is="listType"
         :class="classes"
         :style="styles"
-        v-html="content"
-    />
+    >
+        <gutenberg-list-item
+            v-for="(block, i) in innerBlocks"
+            :key="`list-item-${i}`"
+            v-html="block.content"
+        />
+    </component>
 </template>
 
 <script>
 export default {
     props: {
-        content: {
-            type: String,
-            default: ""
+        innerBlocks: {
+            type: Array,
+            default: () => []
         },
         ordered: {
             type: Boolean,

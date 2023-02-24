@@ -83,7 +83,8 @@ export default {
                 if (obj.innerBlocks?.length) {
                     output.innerBlocks = output.innerBlocks.map((obj) => {
                         return {
-                            ...obj.attributes
+                            ...obj.attributes,
+                            class: obj.wpClass || []
                         }
                     })
                 }
@@ -107,6 +108,15 @@ export default {
                             output.innerBlocks?.[0]?.attributes?.content || ""
                         break
 
+                        // case "gutenberg-list":
+                        //     const itemBlocks = output.innerBlocks || []
+                        //     output.innerBlocks = itemBlocks.map((obj) => {
+                        //         return {
+                        //             ...obj,
+                        //         }
+                        //     })
+                        //     break
+
                     case "gutenberg-buttons":
                         // Parse JSON props on top level Buttons group
                         output.layout = JSON.parse(output.layout)
@@ -116,7 +126,6 @@ export default {
                         output.innerBlocks = buttonBlocks.map((obj) => {
                             return {
                                 ...obj,
-                                class: obj.wpClass,
                                 styles: JSON.parse(obj.styles)
                             }
                         })
@@ -218,11 +227,10 @@ export default {
     }
     .gutenberg-list {
         padding: 0 calc(var(--unit-gutter) * 2);
-        margin-left: 2ch;
         line-height: 1.4;
 
         ::v-deep li {
-            margin: 10px 0;
+            margin: 0.5ch 0;
         }
         &.is-ul {
             ::v-deep li {
