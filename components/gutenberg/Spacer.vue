@@ -2,7 +2,9 @@
     <div
         class="gutenberg-spacer gutenberg-block"
         :style="styles"
-    />
+    >
+        <!-- A spacer is placed here -->
+    </div>
 </template>
 
 <script>
