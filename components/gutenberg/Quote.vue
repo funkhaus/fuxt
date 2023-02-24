@@ -53,7 +53,7 @@ export default {
                 `align-${this.textAlign || "default"}`
             ]
         },
-        stlyes() {
+        styles() {
             return {
                 color: this.textColor,
                 "background-color": this.backgroundColor,

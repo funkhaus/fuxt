@@ -80,11 +80,14 @@ export default {
                 }
 
                 // Flatten all inner blocks to array of attributes
+                // TODO This should be recursive so it works for inner blocks inside inner blocks
                 if (obj.innerBlocks?.length) {
                     output.innerBlocks = output.innerBlocks.map((obj) => {
                         return {
+                            ...obj,
                             ...obj.attributes,
-                            class: obj.wpClass || []
+                            id: obj.attributes?.wpId || "",
+                            class: obj.wpClass || ""
                         }
                     })
                 }
@@ -101,21 +104,6 @@ export default {
                             return obj.mediaItem?.node || {}
                         })
                         break
-
-                    case "gutenberg-quote":
-                        // add nested paragraph
-                        output.content =
-                            output.innerBlocks?.[0]?.attributes?.content || ""
-                        break
-
-                        // case "gutenberg-list":
-                        //     const itemBlocks = output.innerBlocks || []
-                        //     output.innerBlocks = itemBlocks.map((obj) => {
-                        //         return {
-                        //             ...obj,
-                        //         }
-                        //     })
-                        //     break
 
                     case "gutenberg-buttons":
                         // Parse JSON props on top level Buttons group
