@@ -311,7 +311,7 @@ fragment ButtonsBlock on Block {
                 wpId: anchor
                 layout
                 fontSize: fontSizeValue
-                wpClass: className
+                wpClasses: className
             }
         }
         innerBlocks {
@@ -331,7 +331,7 @@ fragment ButtonBlock on Block {
                 text
                 styles: style
                 target: linkTarget
-                wpClass: className
+                wpClasses: className
                 backgroundColor: backgroundColorCode
                 textColor: textColorCode
                 url

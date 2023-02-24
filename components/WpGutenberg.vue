@@ -87,7 +87,7 @@ export default {
                             ...obj,
                             ...obj.attributes,
                             id: obj.attributes?.wpId || "",
-                            class: obj.wpClass || ""
+                            class: obj.attributes?.wpClasses || ""
                         }
                     })
                 }

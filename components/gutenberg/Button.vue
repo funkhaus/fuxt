@@ -61,8 +61,9 @@ export default {
         },
         parsedStyles() {
             return {
-                color: this.textColor,
-                "font-size": this.parsedFontSize
+                "font-size": this.parsedFontSize,
+                "--color": this.textColor,
+                "--background-color": this.backgroundColor
             }
         },
         linkStyles() {
@@ -113,24 +114,36 @@ export default {
         word-break: break-word;
         box-sizing: border-box;
 
-        color: #fff;
-        background-color: #32373c;
+        color: var(--color, #fff);
+        background-color: var(--background-color, #32373c);
         border-radius: 9999px;
         text-decoration: none;
         padding: calc(0.667em + 2px) calc(1.333em + 2px) calc(0.5em + 2px);
 
-        transition: 0.4s opacity ease-in-out;
+        transition: 0.4s opacity ease-in-out, 0.4s background-color ease-in-out,
+            0.4s color ease-in-out;
     }
     &.is-style-outline .link {
         border: 2px solid;
         padding: 0.667em 1.333em 0.5em;
-        color: currentcolor;
+        color: var(--color, #32373c);
+        border-color: var(--color, #32373c);
 
         background-color: transparent;
         background-image: none;
     }
     a.wp-link:hover {
         opacity: 0.8;
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        &.is-style-outline .link:hover {
+            opacity: 1;
+            background-color: var(--color, #32373c);
+            border-color: var(--color, #32373c);
+            color: #fff;
+        }
     }
 }
 </style>
