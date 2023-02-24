@@ -44,6 +44,7 @@ fragment ImageBlock on Block {
                 wpClasses: className
                 align
                 size: sizeSlug
+                widthPixels: width
             }
         }
         mediaItem {

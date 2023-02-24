@@ -3,6 +3,7 @@
         :class="classes"
         :image="image"
         :caption="caption"
+        :style="styles"
     />
 </template>
 
@@ -24,6 +25,10 @@ export default {
         caption: {
             type: String,
             default: ""
+        },
+        widthPixels: {
+            type: Number,
+            default: 0
         }
     },
     computed: {
@@ -34,6 +39,15 @@ export default {
                 `align-${this.align || "center"}`,
                 `size-${this.size || "large"}`
             ]
+        },
+        styles() {
+            let maxWidth = ""
+            if (this.widthPixels) {
+                maxWidth = `${this.widthPixels}px`
+            }
+            return {
+                "--max-width": maxWidth
+            }
         }
     }
 }
@@ -61,16 +75,16 @@ export default {
 
     // Sizes
     &.size-full {
-        max-width: 100%;
+        max-width: var(--max-width, 100%);
     }
     &.size-large {
-        max-width: 100%;
+        max-width: var(--max-width, var(--unit-max-width-large));
     }
     &.size-medium {
-        max-width: 50%;
+        max-width: var(--max-width, 50%);
     }
     &.size-thumbnail {
-        max-width: 25%;
+        max-width: var(--max-width, 25%);
     }
 
     // Breakpoints
