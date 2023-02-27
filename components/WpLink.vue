@@ -9,7 +9,7 @@
 
     <a
         v-else-if="to"
-        :href="to"
+        :href="parsedTo"
         :target="parsedTarget"
         class="wp-link"
     >
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import _unescape from "lodash/unescape"
+
 export default {
     props: {
         to: {
@@ -75,23 +77,31 @@ export default {
             }
             return result
         },
+        escapedTo() {
+            // Convert things like &amp; back to &.
+            return _unescape(url)
+        },
         parsedTo() {
             let url = this.to
 
             // Replace all these things
             const replaceThese = [
-                this.$store.state.siteMeta.frontendUrl || "",
-                this.$store.state.siteMeta.backendUrl || ""
+                this.$store.state.siteMeta?.frontendUrl || "",
+                this.$store.state.siteMeta?.backendUrl || ""
             ]
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")
             })
 
-            if (url.startsWith("/")) {
-                return url
-            }
-            if (url.startsWith(".")) {
-                return url
+            url = _unescape(url)
+
+            // Abort for non-local links
+            switch (true) {
+                case this.isEmail:
+                case url.startsWith("/"):
+                case url.startsWith("."):
+                case url.startsWith("http"):
+                    return url
             }
 
             return `/${url}`
