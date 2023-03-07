@@ -12,7 +12,7 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 
 ## Features
 
--   Optimzed for Netlify deployment. Includes custom WordPress plugin for manual and auto deploys.
+-   Optimized for Netlify deployment. Includes custom WordPress plugin for manual and auto deploys.
 -   WordPress Previews and Drafts work with regular WordPress logins. `Preview` token in requests to work with CDNs.
 -   Includes a WordPress admin bar on frontend for logged in users.
 -   Supports Gutenberg blocks on frontend and backend!
@@ -61,7 +61,7 @@ $ npm run storybook
 $ npm run build
 $ npm start
 
-# build Stroybook for production
+# build Storybook for production
 $ npx nuxt storybook build
 
 # generate static project
