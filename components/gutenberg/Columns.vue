@@ -3,7 +3,7 @@
         <gutenberg-column
             v-for="(column, i) in parsedBlocks"
             :key="i"
-            :blocks="column.blocks"
+            :blocks="column.innerBlocks"
             :vertical-alignment="column.verticalAlignment"
             :width="column.width"
             class="gutenberg-column gutenberg-block"

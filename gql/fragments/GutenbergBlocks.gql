@@ -221,7 +221,7 @@ fragment ColumnsBlock on Block {
             ...ColumnBlock
 
             ... on CoreColumnBlock {
-                blocks: innerBlocks {
+                innerBlocks {
                     name
                     ... on CoreColumnsBlock {
                         attributes {
@@ -230,7 +230,7 @@ fragment ColumnsBlock on Block {
                                 wpClasses: className
                             }
                         }
-                        blocks: innerBlocks {
+                        innerBlocks {
                             ...ColumnBlock
                         }
                     }
@@ -250,7 +250,7 @@ fragment ColumnBlock on Block {
                 verticalAlignment
             }
         }
-        blocks: innerBlocks {
+        innerBlocks {
             name
             ...HeadingBlock
             ...ParagraphBlock
@@ -269,7 +269,7 @@ fragment ColumnBlock on Block {
 # Cover
 fragment CoverBlock on Block {
     ... on CoreCoverBlock {
-        blocks: innerBlocks {
+        innerBlocks {
             name
             ...HeadingBlock
             ...ParagraphBlock
