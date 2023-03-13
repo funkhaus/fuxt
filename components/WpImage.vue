@@ -214,8 +214,23 @@ export default {
             let output = this.sizes || this.image?.sizes || ""
 
             // Handle some custom size shortcuts
-            if (this.sizes == "fullscreen") {
-                output = "(max-width: 850px) 1920px, 100vw"
+            switch(this.sizes) {
+                case "full-screen":
+                case "fullscreen":
+                    output = "(max-width: 850px) 1920px, 100vw"
+                    break
+                
+                case "half-screen":
+                    output = "50vw"
+                    break
+                
+                case "third-screen":
+                    output = "33.33vw"
+                    break
+
+                case "quarter-screen":
+                    output = "25vw"
+                    break
             }
 
             return output
