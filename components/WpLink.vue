@@ -49,7 +49,7 @@ export default {
         },
         isInternal() {
             // wp-content in url means probably a download link, so open in new window
-            if (!this.to || this.to.includes("wp-content") || this.isEmail) {
+            if (!this.to || this.to?.includes("wp-content") || this.isEmail) {
                 return false
             }
             return this.to.startsWith(this.frontendUrl)
