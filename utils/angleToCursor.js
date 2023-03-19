@@ -41,3 +41,4 @@ function getAngleToCursor(el, evt, orientation = "north") {
     // ReConvert rads into degrees
     return rads * 180 / Math.PI
 }
+export default getAngleToCursor
