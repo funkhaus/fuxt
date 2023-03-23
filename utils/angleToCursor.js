@@ -1,11 +1,11 @@
 /*
  * Get the angle from the cursor to the provided element
- * @param {HTMLElement} el - Element that is going to be rotated
  * @param {mousemove} evt - Mouse event data
+ * @param {HTMLElement} el - Element that is going to be rotated
  * @param {string} orientation - The orientation where zero should be
  * @return {Number} - The angle in degrees the cursor is to the element
  */
-function getAngleToCursor(el, evt, orientation = "north") {
+function angleDistanceToCursor(evt, el, orientation = "north") {
     // get normal angle from mouse to element
     const mouseX = evt.clientX
     const mouseY = evt.clientY
@@ -13,11 +13,12 @@ function getAngleToCursor(el, evt, orientation = "north") {
     const elX = elRect.left + elRect.width / 2
     const elY = elRect.top + elRect.height / 2
 
-    let rads = Math.atan2(mouseY-elY, mouseX-elX)
+    let rads = Math.atan2(mouseY - elY, mouseX - elX)
+
     const whole = Math.PI * 2
 
     // Change where zero is located
-    switch(orientation) {
+    switch (orientation) {
         case "south":
             rads -= whole / 4
             break
@@ -29,8 +30,8 @@ function getAngleToCursor(el, evt, orientation = "north") {
         case "north":
             rads += whole / 4
             break
-        
-        case "west":            
+
+        case "west":
             rads += whole / 2
             break
     }
@@ -38,7 +39,18 @@ function getAngleToCursor(el, evt, orientation = "north") {
     // convert rads to range between 0 and 360 (although still in radians)
     rads = ((rads % whole) + whole) % whole
 
-    // ReConvert rads into degrees
-    return rads * 180 / Math.PI
+    // Convert rads into degrees
+    const angle = (rads * 180) / Math.PI
+
+    // Calc distance
+    const distance = Math.floor(
+        Math.sqrt(Math.pow(mouseX - elX, 2) + Math.pow(mouseY - elY, 2))
+    )
+
+    return {
+        angle,
+        distance
+    }
 }
-export default getAngleToCursor
+
+export default angleDistanceToCursor
