@@ -3,7 +3,7 @@
  * @param {mousemove} evt - Mouse event data
  * @param {HTMLElement} el - Element that is going to be rotated
  * @param {string} orientation - The orientation where zero should be
- * @return {Number} - The angle in degrees the cursor is to the element
+ * @return {Object} - Object with angle in degrees the cursor is to the element, and distance in px.
  */
 function angleDistanceToCursor(evt, el, orientation = "north") {
     // get normal angle from mouse to element
