@@ -262,7 +262,6 @@ fragment ColumnBlock on Block {
             ...EmbedBlock
             ...VideoBlock
             ...ButtonsBlock
-            ...CreditBlock
         }
     }
 }
