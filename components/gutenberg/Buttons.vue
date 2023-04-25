@@ -4,7 +4,7 @@
         :style="parsedStyles"
     >
         <gutenberg-button
-            v-for="(block, i) in parsedInnerBlocks"
+            v-for="(block, i) in parsedBlocks"
             :key="`block-button-${i}`"
             v-bind="block"
         />
@@ -22,7 +22,7 @@ export default {
             type: String,
             default: ""
         },
-        innerBlocks: {
+        blocks: {
             type: Array,
             default: () => []
         }
@@ -52,8 +52,8 @@ export default {
 
             return output
         },
-        parsedInnerBlocks() {
-            return this.innerBlocks.map((obj) => {
+        parsedBlocks() {
+            return this.blocks.map((obj) => {
                 return {
                     ...obj,
                     fontSize: obj.fontSize || this.parsedFontSize

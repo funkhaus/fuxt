@@ -55,75 +55,75 @@ export default {
             })
         },
         parsedBlocks() {
+            return this.blocks.map((obj) => {
+                return this.shapeBlock(obj)
+            })
+        }
+    },
+    methods: {
+        shapeBlock(block = {}) {
             // This function is used to shape the data coming out of WP-GQL
             // to better match the basic prop inputs of each component
-            return this.blocks.map((obj) => {
-                // Start by flatterning the "attributes"
-                let output = {
-                    ...obj,
-                    ...obj.attributes,
-                    id: obj.attributes?.wpId || "",
-                    class: `gutenberg-block ${obj.attributes?.wpClasses || ""}`
-                }
 
-                // Make name fit with Vue component syntax
-                output.componentName = `${getBlockName(obj.name)}`
+            // Start by flatterning the "attributes" from WP-GQL
+            let output = {
+                ...block,
+                ...block.attributes,
+                id: block.attributes?.wpId || "",
+                class: `gutenberg-block ${block.attributes?.wpClasses || ""}`,
+                componentName: `${getBlockName(block.name)}`
+            }
 
-                // Store boolean that Block has a registered in Vue component
-                output.isRegistered = this.registeredComponents.includes(
-                    output.componentName
-                )
+            // Store boolean that Block has a registered Vue component
+            output.isRegistered = this.registeredComponents.includes(
+                output.componentName
+            )
 
-                // Flattern any ACF fields to the object
-                if (obj.fields) {
-                    output = { ...output, ...obj.fields }
-                }
+            // Flattern any ACF fields to the object
+            if (block.fields) {
+                output = { ...output, ...block.fields }
+            }
 
-                // Flatten all inner blocks to array of attributes
-                // TODO This should be recursive so it works for inner blocks inside inner blocks
-                if (obj.innerBlocks?.length) {
-                    output.innerBlocks = output.innerBlocks.map((obj) => {
+            // Shape any innerBlocks, rename to Blocks
+            // After this, be sure to only use `blocks`, not `innerBlocks` as it won't exist
+            if (output.innerBlocks?.length) {
+                // This is recursive, so that innerBlocks get shaped correctly too
+                output.blocks = shapeBlock(block)
+                delete output.innerBlocks
+            }
+
+            // Shape any special props as needed by the components
+            switch (output.componentName) {
+                case "gutenberg-image":
+                    output.image = output.mediaItem?.node || {}
+                    break
+
+                case "gutenberg-gallery":
+                    const imageBlocks = output.blocks || []
+                    output.images = blocks.map((obj) => {
+                        return obj.mediaItem?.node || {}
+                    })
+                    break
+
+                case "gutenberg-buttons":
+                    // Parse JSON props on top level Buttons group
+                    output.layout = JSON.parse(output.layout)
+
+                    // Parse JSON props on child inner single Buttons
+                    const buttonBlocks = output.blocks || []
+                    output.blocks = buttonBlocks.map((obj) => {
                         return {
                             ...obj,
-                            ...obj.attributes,
-                            id: obj.attributes?.wpId || "",
-                            class: obj.attributes?.wpClasses || ""
+                            styles: JSON.parse(obj.styles)
                         }
                     })
-                }
+                    break
+            }
 
-                // Shape any props as needed
-                switch (output.componentName) {
-                    case "gutenberg-image":
-                        output.image = output.mediaItem?.node || {}
-                        break
+            // Remove un-needed elements from object and return
+            delete output.attributes
 
-                    case "gutenberg-gallery":
-                        const imageBlocks = output.innerBlocks || []
-                        output.images = imageBlocks.map((obj) => {
-                            return obj.mediaItem?.node || {}
-                        })
-                        break
-
-                    case "gutenberg-buttons":
-                        // Parse JSON props on top level Buttons group
-                        output.layout = JSON.parse(output.layout)
-
-                        // Parse JSON props on child inner single Buttons
-                        const buttonBlocks = output.innerBlocks || []
-                        output.innerBlocks = buttonBlocks.map((obj) => {
-                            return {
-                                ...obj,
-                                styles: JSON.parse(obj.styles)
-                            }
-                        })
-                        break
-                }
-
-                // Remove un-needed elements from object and return
-                delete output.attributes
-                return output
-            })
+            return output
         }
     }
 }

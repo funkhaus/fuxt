@@ -5,7 +5,7 @@
         :style="styles"
     >
         <gutenberg-list-item
-            v-for="(block, i) in innerBlocks"
+            v-for="(block, i) in blocks"
             :key="`list-item-${i}`"
             v-html="block.content"
         />
@@ -15,7 +15,7 @@
 <script>
 export default {
     props: {
-        innerBlocks: {
+        blocks: {
             type: Array,
             default: () => []
         },

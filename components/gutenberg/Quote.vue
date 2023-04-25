@@ -4,7 +4,7 @@
         :style="styles"
     >
         <gutenberg-paragraph
-            v-for="(block, i) in innerBlocks"
+            v-for="(block, i) in blocks"
             :key="`block-paragraph-${i}`"
             v-bind="block"
         />
@@ -19,7 +19,7 @@
 <script>
 export default {
     props: {
-        innerBlocks: {
+        blocks: {
             type: Array,
             default: () => []
         },
