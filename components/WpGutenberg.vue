@@ -88,7 +88,7 @@ export default {
             // After this, be sure to only use `blocks`, not `innerBlocks` as it won't exist
             if (output.innerBlocks?.length) {
                 // This is recursive, so that innerBlocks get shaped correctly too
-                output.blocks = shapeBlock(block)
+                output.blocks = this.shapeBlock(block)
                 delete output.innerBlocks
             }
 
