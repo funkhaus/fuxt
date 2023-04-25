@@ -1,7 +1,7 @@
 #import "~/gql/fragments/MediaImage.gql"
 
 fragment GutenbergBlocks on BlockEditorContentNode {
-    blocks {
+    innerBlocks {
         name
 
         ...FreeformBlock
@@ -110,7 +110,7 @@ fragment EmbedBlock on Block {
 # Galleries
 fragment GalleryBlock on Block {
     ... on CoreGalleryBlock {
-        blocks {
+        innerBlocks {
             ... on CoreImageBlock {
                 mediaItem {
                     node {
@@ -164,7 +164,7 @@ fragment QuoteBlock on Block {
                 fontSize: fontSizeValue
             }
         }
-        blocks {
+        innerBlocks {
             ...ParagraphBlock
         }
     }
@@ -181,7 +181,7 @@ fragment ListBlock on Block {
                 backgroundColor: backgroundColorCode
             }
         }
-        blocks {
+        innerBlocks {
             ... on CoreListItemBlock {
                 attributes {
                     ... on CoreListItemBlockAttributes {
@@ -216,12 +216,12 @@ fragment ColumnsBlock on Block {
                 wpClasses: className
             }
         }
-        blocks {
+        innerBlocks {
             # Columns will always have a direct column block child, but this handles nested columns
             ...ColumnBlock
 
             ... on CoreColumnBlock {
-                blocks {
+                innerBlocks {
                     name
                     ... on CoreColumnsBlock {
                         attributes {
@@ -230,7 +230,7 @@ fragment ColumnsBlock on Block {
                                 wpClasses: className
                             }
                         }
-                        blocks {
+                        innerBlocks {
                             ...ColumnBlock
                         }
                     }
@@ -250,7 +250,7 @@ fragment ColumnBlock on Block {
                 verticalAlignment
             }
         }
-        blocks {
+        innerBlocks {
             name
             ...HeadingBlock
             ...ParagraphBlock
@@ -269,7 +269,7 @@ fragment ColumnBlock on Block {
 # Cover
 fragment CoverBlock on Block {
     ... on CoreCoverBlock {
-        blocks {
+        innerBlocks {
             name
             ...HeadingBlock
             ...ParagraphBlock
@@ -315,7 +315,7 @@ fragment ButtonsBlock on Block {
                 wpClasses: className
             }
         }
-        blocks {
+        innerBlocks {
             name
             ...ButtonBlock
         }
