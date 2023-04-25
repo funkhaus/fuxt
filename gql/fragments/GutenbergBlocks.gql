@@ -1,7 +1,7 @@
 #import "~/gql/fragments/MediaImage.gql"
 
 fragment GutenbergBlocks on BlockEditorContentNode {
-    innerBlocks {
+    blocks {
         name
 
         ...FreeformBlock
