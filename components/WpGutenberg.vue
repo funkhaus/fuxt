@@ -88,7 +88,9 @@ export default {
             // After this, be sure to only use `blocks`, not `innerBlocks` as it won't exist
             if (output.innerBlocks?.length) {
                 // This is recursive, so that innerBlocks get shaped correctly too
-                output.blocks = this.shapeBlock(block)
+                output.blocks = output.innerBlocks.map((innerBlock) => {
+                    return this.shapeBlock(innerBlock)
+                })
                 delete output.innerBlocks
             }
 
@@ -100,7 +102,7 @@ export default {
 
                 case "gutenberg-gallery":
                     const imageBlocks = output.blocks || []
-                    output.images = blocks.map((obj) => {
+                    output.images = imageBlocks.map((obj) => {
                         return obj.mediaItem?.node || {}
                     })
                     break
