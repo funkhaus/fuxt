@@ -214,6 +214,7 @@ fragment ColumnsBlock on Block {
             ... on CoreColumnsBlockAttributes {
                 wpId: anchor
                 wpClasses: className
+                isStackedOnMobile
             }
         }
         innerBlocks {
@@ -248,6 +249,8 @@ fragment ColumnBlock on Block {
             ... on CoreColumnBlockAttributes {
                 width
                 verticalAlignment
+                wpId: anchor
+                wpClasses: className
             }
         }
         innerBlocks {

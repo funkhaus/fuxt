@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="gutenberg-columns margin-section">
+    <div :class="classes">
         <gutenberg-column
             v-for="(column, i) in parsedBlocks"
             :key="i"
@@ -16,9 +16,20 @@ export default {
         blocks: {
             type: Array,
             default: () => []
+        },
+        isStackedOnMobile: {
+            type: Boolean,
+            default: true
         }
     },
     computed: {
+        classes() {
+            return [
+                "gutenberg-columns",
+                "margin-section",
+                { "is-stacked-on-mobile": this.isStackedOnMobile }
+            ]
+        },
         parsedBlocks() {
             return this.blocks.map((obj) => {
                 // Flatten the "attributes"
@@ -48,11 +59,13 @@ export default {
 
     /* Breakpoints */
     @media #{$lt-phone} {
-        display: block;
+        &.is-stacked-on-mobile {
+            display: block;
 
-        .gutenberg-column {
-            flex-basis: 1;
-            padding: 0;
+            .gutenberg-column {
+                flex-basis: 1;
+                padding: 0;
+            }
         }
     }
 }
