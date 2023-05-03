@@ -379,7 +379,7 @@ export default {
             this.isPlaying = false
         },
         play() {
-            if (this.$refs.video && this.$refs.video.paused) {
+            if (this.$refs?.video?.paused || false) {
                 return this.$refs.video.play()
             }
         },
