@@ -46,8 +46,9 @@ function buildVimeoUrl(url = "", options = {}) {
     }
     let parameters = { ...defaults, ...options }
 
-    // Parse URL, set new player hostname
+    // Parse URL, remove query params, set new player hostname
     url = new URL(url)
+    url.search = ""
     url.hostname = "player.vimeo.com"
 
     // Get Video ID and Privacy Hash from paths
@@ -93,8 +94,9 @@ function buildYouTubeUrl(url, options) {
     // Get YouTube ID
     const youTubeId = getYouTubeId(url)
 
-    // Parse URL, set new player hostname
+    // Parse URL, remove any query params
     url = new URL(url)
+    url.search = ""
 
     // Set ID
     url.pathname = `/embed/${youTubeId}`
