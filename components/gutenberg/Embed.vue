@@ -34,6 +34,7 @@
 
 <script>
 import Vue from "vue"
+import buildVideoEmbedUrl from "~/utils/buildVideoEmbedUrl"
 
 export default {
     props: {
@@ -88,31 +89,16 @@ export default {
                 String(this.url).includes("youtu.be")
             )
         },
-        youTubeId() {
-            // Regex to find the YouTube ID from these:
-            // https://www.youtube.com/watch?v=wSX9F6ETTDQ
-            // https://youtu.be/wSX9F6ETTDQ
-            var regex = /youtu(?:.*\/v\/|.*v\=|\.be\/)([A-Za-z0-9_\-]{11})/
-            const matches = this.url.match(regex)
-            return (matches?.[1] || "").trim()
-        },
-        vimeoId() {
-            if (!this.isVimeo) {
-                return ""
-            }
-
-            return this.url.replace("https://vimeo.com/", "").trim()
-        },
         iFrameSrc() {
             let url = this.url
 
             switch (true) {
-                case this.isVimeo:
-                    url = `https://player.vimeo.com/video/${this.vimeoId}?&byline=0&portrait=0&autoplay=false&playsinline=true&color=${this.color}`
-                    break
-
                 case this.isYouTube:
-                    url = `https://www.youtube.com/embed/${this.youTubeId}?&autoplay=false&playsinline=1&rel=0&modestbranding=1&controls=1&enablejsapi=1&color=${this.color}`
+                case this.isVimeo:
+                    url = buildVideoEmbedUrl(this.url, {
+                        color: this.color,
+                        autoplay: 0
+                    })
                     break
             }
 
