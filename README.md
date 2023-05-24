@@ -31,6 +31,7 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
     -   wp-link (handles parsing WordPress permalinks)
 -   Built in webfontloader for fast font loading
 -   Uses Nuxt Auto Components
+-   Built in proxy server, to make secure HTTP requests via WordPress
 -   Lots of common functions to save you time!
     -   Mobile swipe events baked in
     -   Solve for [100vh on mobile](https://stackoverflow.com/questions/58886797/how-to-access-the-real-100vh-on-ios-in-css) baked in
