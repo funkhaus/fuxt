@@ -1,6 +1,10 @@
 export default {
     target: "static",
     components: true,
+    env: {
+        GQL_ENDPOINT: process.env.GQL_ENDPOINT,
+        PROXY_BASE_URL: process.env.PROXY_BASE_URL || ""
+    },
 
     /*
      ** Headers of the page
