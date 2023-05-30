@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import _unescape from "lodash/unescape"
-
 export default {
     props: {
         to: {
@@ -76,10 +74,6 @@ export default {
                     result = true
             }
             return result
-        },
-        escapedTo() {
-            // Convert things like &amp; back to &.
-            return _unescape(url)
         },
         parsedTo() {
             let url = this.to
