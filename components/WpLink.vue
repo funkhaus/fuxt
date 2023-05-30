@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import _unescape from "lodash/unescape"
+
 export default {
     props: {
         to: {
@@ -76,7 +78,7 @@ export default {
             return result
         },
         parsedTo() {
-            let url = this.to
+            let url = _unescape(this.to)
 
             // Replace all these things
             const replaceThese = [
@@ -86,8 +88,6 @@ export default {
             replaceThese.forEach((element) => {
                 url = url.replace(element, "")
             })
-
-            url = _unescape(url)
 
             // Abort for non-local links
             switch (true) {
