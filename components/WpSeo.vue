@@ -121,7 +121,11 @@ export default {
         parsedUri() {
             let output = this.path
             if (!output) {
-                output = this.$route.path
+                // Strip page cursors as those never match anything in WordPress
+                output = this.$route.path.replace(
+                    `/page/${this.$route?.params?.cursor || ""}/`,
+                    ""
+                )
             }
             return output
         },
