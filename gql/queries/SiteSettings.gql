@@ -8,8 +8,8 @@ query SiteSettings {
         themeScreenshotUrl
     }
     # NOTE You need ACF Pro installed to use Site Options
-    acfSettings: siteOptionsMeta {
-        siteOptions {
+    acfSettings: siteOptions {
+        siteOptionsMeta {
             socialMedia {
                 platform
                 url
