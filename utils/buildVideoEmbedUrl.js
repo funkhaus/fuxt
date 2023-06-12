@@ -104,7 +104,11 @@ function buildYouTubeUrl(url, options) {
     // Add all options as query params to URL
     url = setUrlParameters(url, parameters)
 
-    return url.toString()
+    // Convert short URL
+    url = url.toString()
+    url = url.replace("https://youtu.be/", "https://www.youtube.com/")
+
+    return url
 }
 
 /**
