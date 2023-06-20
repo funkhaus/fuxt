@@ -63,14 +63,17 @@ export default {
     methods: {
         shapeBlock(block = {}) {
             // This function is used to shape the data coming out of WP-GQL
-            // to better match the basic prop inputs of each component
+            // to better match the basic prop inputs of each component.
+            // Keep in mind this is used recurisive by inner blocks.
 
-            // Start by flatterning the "attributes" from WP-GQL
+            // Start by flatterning the "attributes" from WP-GQL, account for recursive id and classes
+            const cmsClasses = block.attributes?.wpClasses || block.class || ""
+            const cmsId = block.attributes?.wpId || block.id || ""
             let output = {
                 ...block,
                 ...block.attributes,
-                id: block.attributes?.wpId || "",
-                class: `gutenberg-block ${block.attributes?.wpClasses || ""}`,
+                id: cmsId,
+                class: `gutenberg-block ${cmsClasses}`,
                 componentName: `${getBlockName(block.name)}`
             }
 
