@@ -5,7 +5,8 @@
  *    https://example.com/news/p/post-slug-here/?preview=true&id=1234&type=post&status=publish&slug=post-slug-here&uri=/news/p/post-slug-here/
  */
 export default function (context) {
-    const { query, store, enablePreview, error, $graphql, redirect } = context
+    const { query, route, store, enablePreview, error, $graphql, redirect } =
+        context
 
     // Enable Nuxt Preview mode
     if (query.preview) {
@@ -22,7 +23,9 @@ export default function (context) {
 
     // Can handle some redirects here if Preview URLs are different than frontend.
     switch (true) {
-        case Boolean(query.preview) && !query.id:
+        case Boolean(query.preview) &&
+            route.path == "/" &&
+            (query.p || query.page_id):
             return error({
                 statusCode: 404,
                 message:
