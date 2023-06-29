@@ -2,7 +2,7 @@
     "name": "fuxt",
     "version": "5.0.0",
     "engines": {
-        "node": "16.x"
+        "node": "18.x"
     },
     "engineStrict": false,
     "description": "A Vue/Nuxt frontend boilerplate optimzed to work with the fuxt-backend WordPress theme.",
