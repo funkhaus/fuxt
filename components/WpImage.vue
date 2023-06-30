@@ -25,7 +25,7 @@
             :autoplay="autoplay"
             :muted="muted"
             :playsinline="playsinline"
-            :disablepictureinpicture="disablepictureinpicture"
+            :disablePictureinPicture="disablePictureinPicture"
             @loadeddata="onLoaded('video')"
             @error="onError('video')"
             @ended="onEnded"
@@ -126,7 +126,7 @@ export default {
             type: Boolean,
             default: true
         },
-        disablepictureinpicture: {
+        disablePictureinPicture: {
             type: Boolean,
             default: true
         },
