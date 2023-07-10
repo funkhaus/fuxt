@@ -15,6 +15,23 @@ export default {
             default: ""
         }
     },
+    head() {
+        return {
+            script: [
+                {
+                    skip: !this.isInstagram,
+                    hid: "instagram",
+                    async: true,
+                    src: "//www.instagram.com/embed.js",
+                    callback: () => {
+                        if (window.instgrm) {
+                            window.instgrm.Embeds.process()
+                        }
+                    }
+                }
+            ]
+        }
+    },
     computed: {
         classes() {
             return [
@@ -34,6 +51,9 @@ export default {
         },
         isIframe() {
             return this.html.includes("<iframe")
+        },
+        isInstagram() {
+            return this.html.includes("instagram.com/embed.js")
         },
         parsedHeight() {
             // Get the height from SVG attr
