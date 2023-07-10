@@ -126,7 +126,7 @@ export default {
             type: Boolean,
             default: true
         },
-        disablepictureinpicture: {
+        disablePictureinPicture: {
             type: Boolean,
             default: true
         },
