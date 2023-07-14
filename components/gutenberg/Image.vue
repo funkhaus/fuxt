@@ -42,9 +42,15 @@ export default {
         },
         styles() {
             let maxWidth = ""
+
             if (this.widthPixels) {
+                // Set max width to the number set by user in WP
                 maxWidth = `${this.widthPixels}px`
+            } else if (this.size == "full") {
+                // Set max width to that of image, unless overridden by user in WP
+                maxWidth = `${this.image?.mediaDetails?.width || -1}px`
             }
+
             return {
                 "--max-width": maxWidth
             }
