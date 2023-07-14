@@ -25,7 +25,7 @@
             :autoplay="autoplay"
             :muted="muted"
             :playsinline="playsinline"
-            :disablePictureInPicture="disablepictureinpicture"
+            :disablePictureInPicture="disablePictureinPicture"
             @loadeddata="onLoaded('video')"
             @error="onError('video')"
             @ended="onEnded"
