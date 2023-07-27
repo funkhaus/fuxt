@@ -8,6 +8,9 @@ export default function (context) {
     const { query, route, store, enablePreview, error, $graphql, redirect } =
         context
 
+    // Force dev tools in production, useful for testing Netlify deploys
+    // Object.assign(Vue.config, { devtools: true })
+
     // Enable Nuxt Preview mode
     if (query.preview) {
         $graphql.default.setHeaders({ Preview: true })
