@@ -11,7 +11,7 @@ function metaDefaults({ $store, $route }) {
             hid: "og:description",
             name: "description",
             property: "og:description",
-            content: $store.state.siteMeta.description
+            content: $store.state?.siteMeta?.description || ""
         },
         {
             hid: "og:image",
@@ -24,7 +24,7 @@ function metaDefaults({ $store, $route }) {
         },
         {
             property: "og:site_name",
-            content: $store.state.siteMeta.title
+            content: $store.state?.siteMeta?.title || ""
         },
         {
             property: "og:type",
@@ -33,7 +33,7 @@ function metaDefaults({ $store, $route }) {
         {
             hid: "og:title",
             property: "og:title",
-            content: $store.state.siteMeta.title
+            content: $store.state?.siteMeta?.title || ""
         },
         {
             hid: "twitter:card",
