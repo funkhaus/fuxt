@@ -1,6 +1,6 @@
 /*
  * This function is returns an object of time remaining between start and end
- * {'years': 1, 'months': 12, 'days': 59, 'hours': 23, 'seconds': 59}
+ * {'years': 1, 'months':   , 'days': 59, 'hours': 23, 'seconds': 59}
  */
 
 import {
