@@ -2,7 +2,7 @@
  * This function returns an object of time remaining between start and end
  * Must pass in a date() object for start and end params.
  *
- * @RETURNS {'years': 1, 'months':   , 'days': 59, 'hours': 23, 'seconds': 59}
+ * @RETURNS {'years': 1, 'months': 12, 'days': 59, 'hours': 23, 'seconds': 59}
  * @SEE https://stackoverflow.com/a/56159578/503546
  */
 
