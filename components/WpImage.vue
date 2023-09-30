@@ -223,17 +223,17 @@ export default {
 
                 case "half":
                 case "half-screen":
-                    output = "(max-width: 850px) 50vw, 100vw"
+                    output = "(max-width: 850px) 100vw, 50vw"
                     break
 
                 case "third":
                 case "third-screen":
-                    output = "(max-width: 850px) 33.33vw, 100vw"
+                    output = "(max-width: 850px) 100vw, 33.33vw"
                     break
 
                 case "quarter":
                 case "quarter-screen":
-                    output = "(max-width: 850px) 25vw, 100vw"
+                    output = "(max-width: 850px) 100vw, 25vw"
                     break
             }
 
