@@ -17,11 +17,11 @@
         "generate": "nuxt generate"
     },
     "dependencies": {
-        "nuxt": "^2.17.0"
+        "nuxt": "^3.7.4"
     },
     "devDependencies": {
         "@nuxtjs/sitemap": "^2.4.0",
-        "@nuxtjs/storybook": "^4.3.2",
+        "@nuxtjs/storybook": "^7.0.0",
         "@nuxtjs/style-resources": "^1.2.1",
         "@wordpress/autop": "^3.36.0",
         "core-js": "^3.31.0",
