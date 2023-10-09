@@ -39,6 +39,10 @@ function metaDefaults({ $store, $route }) {
             hid: "twitter:card",
             property: "twitter:card",
             content: "summary_large_image"
+        },
+        {
+            name: "viewport",
+            content: "width=device-width, initial-scale=1, viewport-fit=cover"
         }
     ]
 }
