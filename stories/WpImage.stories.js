@@ -1,4 +1,3 @@
-import WpImage from "~/components/WpImage"
 import { data as API } from "~/stories/mock-api.json"
 
 export default {
@@ -6,7 +5,6 @@ export default {
 }
 
 export const Default = () => ({
-    components: { WpImage },
     data() {
         return {
             image: API.images.nodes[0]
@@ -16,7 +14,6 @@ export const Default = () => ({
 })
 
 export const ImageWithVideo = () => ({
-    components: { WpImage },
     data() {
         return {
             image: API.images.nodes[1]
@@ -26,7 +23,6 @@ export const ImageWithVideo = () => ({
 })
 
 export const ImageFullBleed = () => ({
-    components: { WpImage },
     data() {
         return {
             image: API.images.nodes[1]

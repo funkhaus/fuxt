@@ -1,4 +1,3 @@
-import WpMenu from "~/components/WpMenu"
 import { data as API } from "~/stories/mock-api.json"
 
 export default {
@@ -6,7 +5,6 @@ export default {
 }
 
 export const Default = () => ({
-    components: { WpMenu },
     data() {
         return {
             items: API.menu.menuItems.nodes
@@ -16,6 +14,5 @@ export const Default = () => ({
 })
 
 export const Fetch = () => ({
-    components: { WpMenu },
     template: `<wp-menu name="Main Menu" />`
 })
