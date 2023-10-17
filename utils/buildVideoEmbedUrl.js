@@ -152,7 +152,7 @@ function getYouTubeId(url = "") {
     // https://youtu.be/wSX9F6ETTDQ
     var regex = /youtu(?:.*\/v\/|.*v\=|\.be\/)([A-Za-z0-9_\-]{11})/
     const matches = url.match(regex)
-    return matches[1] || ""
+    return matches?.[1] || ""
 }
 
 export default buildVideoEmbedUrl
