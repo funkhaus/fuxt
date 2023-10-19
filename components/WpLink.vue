@@ -49,7 +49,12 @@ export default {
         },
         isInternal() {
             // wp-content in url means probably a download link, so open in new window
-            if (!this.to || this.to?.includes("wp-content") || this.isEmail) {
+            if (
+                !this.to ||
+                this.to?.includes("wp-content") ||
+                this.isEmail ||
+                this.isPhone
+            ) {
                 return false
             }
             return this.to.startsWith(this.frontendUrl)
@@ -60,10 +65,16 @@ export default {
         isEmail() {
             return this.to.includes("mailto:")
         },
+        isPhone() {
+            return this.to.includes("tel:")
+        },
         isRelative() {
             let result = false
             switch (true) {
                 case this.isEmail:
+                    result = false
+                    break
+                case this.isPhone:
                     result = false
                     break
                 case this.target == "_blank":
@@ -92,6 +103,7 @@ export default {
             // Abort for non-local links
             switch (true) {
                 case this.isEmail:
+                case this.isPhone:
                 case url.startsWith("/"):
                 case url.startsWith("."):
                 case url.startsWith("http"):
