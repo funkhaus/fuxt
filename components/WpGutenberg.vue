@@ -37,7 +37,8 @@ export default {
         GutenbergCover: () => import("~/components/gutenberg/Cover"),
         GutenbergHtml: () => import("~/components/gutenberg/Html"),
         GutenbergVideo: () => import("~/components/gutenberg/Video"),
-        GutenbergButtons: () => import("~/components/gutenberg/Buttons")
+        GutenbergButtons: () => import("~/components/gutenberg/Buttons"),
+        GutenbergSlideshow: () => import("~/components/gutenberg/Slideshow")
     },
     props: {
         blocks: {
@@ -103,8 +104,15 @@ export default {
                     output.image = output.mediaItem?.node || {}
                     break
 
-                case "gutenberg-gallery":
+                case "gutenberg-slideshow":
                     const imageBlocks = output.blocks || []
+                    output.images = imageBlocks.map((obj) => {
+                        return obj.mediaItem?.node || {}
+                    })
+                    break
+
+                case "gutenberg-gallery":
+                    imageBlocks || []
                     output.images = imageBlocks.map((obj) => {
                         return obj.mediaItem?.node || {}
                     })
