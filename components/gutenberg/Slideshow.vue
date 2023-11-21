@@ -2,12 +2,15 @@
     <slideshow
         :slides="images"
         class="slideshow"
+        @update:activeIndex="updateIndex"
     >
         <wp-image
+            ref="image"
             slot="slide"
             slot-scope="{ slide }"
             :image="slide"
             class="image"
+            object-fit="contain"
         />
     </slideshow>
 </template>
@@ -23,11 +26,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 .slideshow {
-    height: 800px;
-    width: 100%;
+    display: block;
+    height: 80vh;
+    width: var(--unit-max-width-medium);
+    overflow: hidden;
+    position: relative;
+
     .image {
-        height: 500px;
-        width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+
+        height: 100%;
+        width: 100%;
+    }
+
+    // Breakpoints
+    @media #{$lt-phone} {
+        width: var(--unit-max-width-small);
     }
 }
 </style>
