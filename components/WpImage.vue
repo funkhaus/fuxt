@@ -148,7 +148,8 @@ export default {
                 image: false,
                 video: false
             },
-            isPlaying: false
+            isPlaying: false,
+            observer: null
         }
     },
     computed: {
@@ -335,6 +336,11 @@ export default {
             this.init()
         }
     },
+    destroyed() {
+        if (this.observer) {
+            this.observer.disconnect()
+        }
+    },
     methods: {
         init() {
             // Setup loaded state tracking
@@ -352,6 +358,13 @@ export default {
                     this.$refs.img?.complete || false
                 )
             }
+
+            // Intersection Observer
+            this.observer = new IntersectionObserver(this.onIntersection, {
+                rootMargin: "50% 50% 50% 50%"
+            })
+            this.observer.observe(this.$el)
+
             // Set the booted flag
             Vue.set(this.loadedStatus, "booted", true)
             this.$emit("orientation", this.orientation)
@@ -377,6 +390,13 @@ export default {
         onPause($event) {
             this.$emit(`paused`, $event)
             this.isPlaying = false
+        },
+        onIntersection(entries, observer) {
+            entries.forEach((entry) => {
+                if (this.$refs.video && !this.$refs.video.readyState) {
+                    this.$refs.video.load()
+                }
+            })
         },
         play() {
             if (this.$refs?.video?.paused || false) {
