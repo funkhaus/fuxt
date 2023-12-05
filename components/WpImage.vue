@@ -417,10 +417,17 @@ export default {
                 this.$refs.video.pause()
             }
         },
-        seekTo(seconds = 0) {
+        currentTime(amount = false) {
             if (this.$refs.video) {
-                // HTML5 video method
-                this.$refs.video.currentTime = seconds
+                if (amount !== false) {
+                    this.$refs.video.currentTime = amount
+                }
+                return this.$refs.video.currentTime
+            }
+        },
+        getDuration() {
+            if (this.$refs.video) {
+                return this.$refs.video.duration
             }
         }
     }
