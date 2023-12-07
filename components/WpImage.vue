@@ -393,7 +393,11 @@ export default {
         },
         onIntersection(entries, observer) {
             entries.forEach((entry) => {
-                if (this.$refs.video && !this.$refs.video.readyState) {
+                if (
+                    entry.isIntersecting &&
+                    this.$refs.video &&
+                    !this.$refs.video.readyState // Don't try to load if already loaded!
+                ) {
                     this.$refs.video.load()
                 }
             })
