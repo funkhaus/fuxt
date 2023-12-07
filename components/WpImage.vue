@@ -19,7 +19,7 @@
             v-if="isVideo && !disabled"
             ref="video"
             class="media media-video"
-            preload="none"            
+            preload="none"
             :src="parsedVideoUrl"
             :style="mediaStyles"
             :loop="loop"
