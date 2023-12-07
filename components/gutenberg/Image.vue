@@ -27,8 +27,8 @@ export default {
             default: ""
         },
         widthPixels: {
-            type: Number,
-            default: 0
+            type: String,
+            default: ""
         }
     },
     computed: {
