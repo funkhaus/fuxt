@@ -9,6 +9,7 @@
         :poster="poster"
         :preload="preload"
         :disablepictureinpicture="disablepictureinpicture"
+        :playsinline="playsinline"
     />
 </template>
 
@@ -32,6 +33,10 @@ export default {
             default: false
         },
         loop: {
+            type: Boolean,
+            default: true
+        },
+        playsinline: {
             type: Boolean,
             default: true
         },
