@@ -29,7 +29,7 @@
             class="sub-menu"
         >
             <wp-menu-item
-                v-for="(subItem, i) in getChildren"
+                v-for="(subItem, i) in children"
                 :key="`sub-${i}`"
                 class="menu-item sub-menu-item"
                 :item="subItem"
@@ -59,8 +59,8 @@ export default {
                 ...this.item.cssClasses
             ]
         },
-        getChildren() {
-            return this.item.childItems?.nodes || []
+        children() {
+            return this.item.children?.nodes || []
         },
         hasSubMenu() {
             return this.getChildren.length
