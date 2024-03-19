@@ -21,6 +21,7 @@
 <script>
 // Helpers
 import _kebabCase from "lodash/kebabCase"
+import flatListToHierarchical from "~/utils/flatListToHierarchical.js"
 
 // GQL
 import MENU_BY_NAME from "~/gql/queries/MenuByName"
@@ -53,7 +54,7 @@ export default {
             const data = await this.$graphql.default.request(MENU_BY_NAME, {
                 name: this.name
             })
-            this.menuItems = data.menu?.menuItems?.nodes || []
+            this.menuItems = flatListToHierarchical(data.menu?.menuItems?.nodes || [])
             this.hasLoaded = true
             this.$emit("loaded")
         } catch (error) {

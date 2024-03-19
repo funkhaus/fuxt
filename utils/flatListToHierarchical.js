@@ -1,0 +1,18 @@
+// Used to transform a flat list of wordpress menu items into a hierarchical tree
+
+export default function(data = [],{idKey='key',parentKey='parentId',childrenKey='children'} = {}) {
+  const tree = [];
+  const childrenOf = {};
+  data.forEach((item) => {
+      const newItem = {...item};
+      const { [idKey]: id, [parentKey]: parentId = 0 } = newItem;
+      childrenOf[id] = childrenOf[id] || [];
+      newItem[childrenKey] = childrenOf[id];
+      parentId
+          ? (
+              childrenOf[parentId] = childrenOf[parentId] || []
+          ).push(newItem)
+          : tree.push(newItem);
+  });
+  return tree;
+};
