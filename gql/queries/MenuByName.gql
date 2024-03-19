@@ -2,14 +2,9 @@ query MenuByName($name: ID!) {
     menu(id: $name, idType: NAME) {
         id
         name
-        menuItems(first: 30, where: { parentDatabaseId: 0 }) {
+        menuItems(first: 30) {
             nodes {
                 ...MenuItem
-                childItems {
-                    nodes {
-                        ...MenuItem
-                    }
-                }
             }
         }
     }
