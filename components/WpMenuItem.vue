@@ -60,10 +60,10 @@ export default {
             ]
         },
         children() {
-            return this.item.children?.nodes || []
+            return this.item.children || []
         },
         hasSubMenu() {
-            return this.getChildren.length
+            return this.children.length
         },
         isRelative() {
             return (
