@@ -18,7 +18,9 @@ query SiteSettings {
                 code
             }
             socialSharedImage {
-                sourceUrl(size: SOCIAL_PREVIEW)
+                node {
+                    sourceUrl(size: SOCIAL_PREVIEW)
+                }
             }
         }
     }
