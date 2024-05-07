@@ -20,6 +20,9 @@ fragment GutenbergBlocks on BlockEditorContentNode {
 
         # Columns (and column)
         ...ColumnsBlock
+
+        # Custom
+        ...SlideshowBlock
     }
 }
 
@@ -340,6 +343,20 @@ fragment ButtonBlock on Block {
                 textColor: textColorCode
                 url
                 widthPercentage: width
+            }
+        }
+    }
+}
+
+# Custom Blocks
+fragment SlideshowBlock on Block {
+    ... on AcfSlideshowBlock {
+        attributes {
+            wpClasses: className
+        }
+        fields: slideshow {
+            images {
+                ...MediaImage
             }
         }
     }
