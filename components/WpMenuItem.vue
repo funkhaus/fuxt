@@ -56,8 +56,24 @@ export default {
                 },
                 { "has-sub-menu": this.hasSubMenu },
                 { "is-disabled": this.isHash },
-                ...this.item.cssClasses
+                ...this.item.cssClasses,
+                { "is-sibling": this.isSibling },
+                { "is-ancestor": this.isAncestor }
             ]
+        },
+        isSibling() {
+            let currentPath = this.$route.path.split("/").filter(Boolean)
+            currentPath.pop()
+            let itemPath = this.item.url.split("/").filter(Boolean)
+            itemPath.pop()
+
+            return currentPath.join("/") === itemPath.join("/")
+        },
+        isAncestor() {
+            let currentPath = this.$route.path.split("/").filter(Boolean)
+            let itemPath = this.item.url.split("/").filter(Boolean)
+
+            return currentPath[0] === itemPath[0]
         },
         children() {
             return this.item.children || []
