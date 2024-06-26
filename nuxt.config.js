@@ -17,13 +17,7 @@ export default {
                 content: "width=device-width, initial-scale=1"
             }
         ],
-        link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
-        script: [
-            {
-                src: "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver,smoothscroll&flags=gated",
-                body: true
-            }
-        ]
+        link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
     },
 
     /*
