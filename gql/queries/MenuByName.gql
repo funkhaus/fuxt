@@ -16,4 +16,5 @@ fragment MenuItem on MenuItem {
     target
     url
     id
+    parentId
 }
