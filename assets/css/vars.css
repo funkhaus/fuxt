@@ -1,0 +1,10 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --unit-100vh: 100vh;
+  --unit-max-width: 1800px;
+
+  --font-primary: sans-serif;
+  --font-secondary: serif;
+}

@@ -1,0 +1,55 @@
+@import 'vars.css';
+@import 'media.css';
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2em;
+}
+
+p {
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (--small-viewport) {
+  .wrapper {
+    background-color: rgb(85, 85, 96);
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media (--medium-viewport) {
+  .wrapper {
+    background-color: rgb(89, 74, 74);
+  }
+
+  h1 {
+    font-size: 1.75em;
+  }
+}
+
+@media (--large-viewport) {
+  .wrapper {
+    background-color: #909090;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}

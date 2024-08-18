@@ -1,0 +1,32 @@
+#import "~/gql/fragments/MediaImage.gql"
+#import "~/gql/fragments/GutenbergBlocks.gql"
+
+query NewsDetail($uri: String!) {
+    nodeByUri(uri: $uri) {
+        id
+        ... on Post {
+            title
+            excerpt
+            featuredImage {
+                node {
+                    ...MediaImage
+                }
+            }
+            ...GutenbergBlocks
+            previousPost {
+                node {
+                    ... on Post {
+                        id
+                        title
+                        uri
+                        featuredImage {
+                            node {
+                                ...MediaImage
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

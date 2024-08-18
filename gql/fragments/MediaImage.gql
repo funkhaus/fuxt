@@ -1,0 +1,22 @@
+fragment MediaImage on MediaItem {
+    sourceUrl(size: FULLSCREEN_XLARGE)
+    sizes(size: FULLSCREEN_XLARGE)
+    srcSet(size: FULLSCREEN_XLARGE)
+    src: sourceUrl(size: FULLSCREEN_SMALL) # Requesting smaller size as this isn't really used due to srcSet
+    id
+    databaseId
+    title
+    altText
+    caption
+    mediaDetails {
+        height
+        width
+    }
+    imageMeta {
+        videoUrl
+        primaryColor
+        focalPointX
+        focalPointY
+        blurhash
+    }
+}

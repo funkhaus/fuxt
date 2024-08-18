@@ -1,0 +1,26 @@
+query WpSeo($uri: String!) {
+    nodeByUri(uri: $uri) {
+        id
+        ... on NodeWithTitle {
+            title
+        }
+        ... on Category {
+            name
+            description
+        }
+        ... on NodeWithContentEditor {
+            content
+        }
+        ... on NodeWithExcerpt {
+            excerpt
+        }
+        ... on NodeWithFeaturedImage {
+            featuredImage {
+                node {
+                    id
+                    sourceUrl(size: FULLSCREEN_XLARGE)
+                }
+            }
+        }
+    }
+}

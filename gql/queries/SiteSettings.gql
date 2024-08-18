@@ -1,0 +1,28 @@
+query SiteSettings {
+    # This syntax is called a GQL alias. See: https://graphql.org/learn/queries/#aliases
+    wpSettings: generalSettings {
+        title
+        description
+        backendUrl
+        frontendUrl
+        themeScreenshotUrl
+    }
+    # NOTE You need ACF Pro installed to use Site Options
+    acfSettings: siteOptions {
+        siteOptionsMeta {
+            socialMedia {
+                platform
+                url
+            }
+            googleAnalytics {
+                code
+            }
+            socialSharedImage {
+                node {
+                    id
+                    sourceUrl(size: SOCIAL_PREVIEW)
+                }
+            }
+        }
+    }
+}

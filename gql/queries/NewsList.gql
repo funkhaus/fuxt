@@ -1,0 +1,29 @@
+#import "~/gql/fragments/MediaImage.gql"
+
+query NewsList($categoryName: String, $first: Int = 10, $after: String) {
+    posts(
+        first: $first
+        after: $after
+        where: {
+            categoryName: $categoryName
+            orderby: { field: DATE, order: DESC }
+        }
+    ) {
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+        nodes {
+            id
+            uri
+            title
+            encodedContent
+            date
+            featuredImage {
+                node {
+                    ...MediaImage
+                }
+            }
+        }
+    }
+}
