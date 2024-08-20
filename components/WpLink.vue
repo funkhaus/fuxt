@@ -5,6 +5,7 @@
         :to="parsedTo"
     >
         <slot />
+        
     </nuxt-link>
 
     <a
@@ -24,16 +25,15 @@
         <slot />
     </component>
 </template>
-<!-- NOTES: - The linter didn't work, not sure how to configure it to work
-            - Ran into issues when I got to the part of using stuff from the store  -->
+
 <script setup lang="ts">
 import { defineProps, computed, toRefs,  } from "vue"
-const siteSetting = useSiteSettingStore()
+const siteSettings = useSiteSettingStore()
 
 const props = defineProps<{
     to: string
-    target: string
-    element: string
+    target?: string
+    element?: string
 
 }>()
 
@@ -61,8 +61,10 @@ let isRelative = computed(() => {
 })
 
 let frontendUrl = computed(() => {
-    return siteSetting.settings.frontendUrl || false
+    return siteSettings.settings.frontendUrl || false
 })
+
+
 
 let isInternal = computed(() => {
     // wp-content in url means probably a download link, so open in new window
@@ -96,8 +98,8 @@ let parsedTo = computed(() => {
 
     // Replace all these things
     const replaceThese = [
-        siteSetting.siteMeta?.frontendUrl || "",
-        siteSetting.siteMeta?.backendUrl || ""
+        siteSettings.siteMeta?.frontendUrl || "",
+        siteSettings.siteMeta?.backendUrl || ""
     ]
     replaceThese.forEach((element) => {
         url = url.replace(element, "")

@@ -3,6 +3,7 @@
 export const useSiteSettingStore = defineStore('site_settings', () => {
   const settings = ref({})
 
+
   // const GqlInstance = useGql()
 
   const init = async () => {
@@ -16,6 +17,7 @@ export const useSiteSettingStore = defineStore('site_settings', () => {
   return {
 
     settings,
+
 
     init
   }
