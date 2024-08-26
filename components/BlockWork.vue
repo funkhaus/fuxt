@@ -53,7 +53,7 @@ const playVideo = () => {
 }
 
 const onIsPlaying = () => {
-  alert('Video is playing!')
+  // alert('Video is playing!')
 }
 </script>
 
@@ -61,7 +61,7 @@ const onIsPlaying = () => {
   <div
     class="wrapper"
   >
-    <NuxtLink
+    <wp-link
       :to="to"
       :styles="styles"
     >
@@ -82,7 +82,7 @@ const onIsPlaying = () => {
         :image="image"
         @is-playing="onIsPlaying"
       />
-    </NuxtLink>
+    </wp-link>
 
     <button @click="playVideo">
       Play Video
