@@ -53,7 +53,7 @@ const playVideo = () => {
 }
 
 const onIsPlaying = () => {
-  alert('Video is playing!')
+  // alert('Video is playing!')
 }
 </script>
 
