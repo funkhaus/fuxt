@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@nuxt/fonts": "^0.7.1",
+    "@nuxtjs/sitemap": "6.0.0-beta.4",
     "nuxt": "^3.12.3",
     "nuxt-graphql-client": "^0.2.36",
     "postcss-custom-media": "^10.0.8",
@@ -26,10 +27,11 @@
     "@pinia/nuxt": "^0.5.1",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
+    "@storybook/vue3": "^8.2.9",
     "@types/node": "^18.17.5",
     "eslint": "^8.57.0",
     "pinia": "^2.1.7",
     "storybook": "^8.2.9"
   },
-  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
+  "packageManager": "pnpm@9.7.1"
 }

@@ -36,7 +36,10 @@ export const BlockWorkStory: Story = {
       components: { BlockWork },
       setup: () => ({ args }),
 
-      template: '<BlockWork v-bind="args" />'
+      template: `<div>
+        <h1>BlockWork Demo</h1>
+        <BlockWork v-bind="args" />
+      </div>`
     }
   }
 }

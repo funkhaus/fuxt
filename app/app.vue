@@ -21,13 +21,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div
-    id="app"
-  >
-    APP.vue
-
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

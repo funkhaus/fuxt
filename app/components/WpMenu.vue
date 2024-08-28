@@ -3,13 +3,7 @@ defineProps<{
   title: string
 }>()
 
-const { data } = await useFetch<{
-  id: number
-  title: { rendered: string }
-  link: string
-}[]>(
-  `https://fuxt-backend.funkhaus.us/wp-json/wp/v2/pages`
-)
+const { data } = await useWpFetch(`/pages`)
 
 const links = computed(() => {
   return data.value?.map(item => ({
