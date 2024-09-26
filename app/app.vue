@@ -1,27 +1,29 @@
 <script lang="ts" setup>
 const route = useRoute()
 
-useHead(() => {
-  return {
-    titleTemplate: 'Funkhaus | %s',
-    htmlAttrs: {
-      class: `html route-${route.name?.toString()}`
-    }
-  }
-})
+// Computed
+const htmlClasses = computed(() => ['html', 'route-' + route.name?.toString()])
 
-useSeoMeta({
-  title: 'My Amazing Site',
-  ogTitle: 'My Amazing Site',
-  description: 'This is my amazing site, let me tell you all about it.',
-  ogDescription: 'This is my amazing site, let me tell you all about it.',
-  ogImage: 'https://example.com/image.png',
-  twitterCard: 'summary_large_image'
+// Methods
+useHead(() => {
+    return {
+        titleTemplate: '%s',
+        htmlAttrs: {
+            class: htmlClasses
+        }
+    }
+})
+defineNuxtLink({
+    activeClass: 'active-link',
+    exactActiveClass: 'exact-active-link',
+    prefetch: true,
+    trailingSlash: 'append',
+    prefetchedClass: 'prefetched-link'
 })
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>

@@ -1,29 +1,39 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <div>
-    <header>
-      <slot name="title" />
+    <main :class="classes">
+        <wp-seo />
 
-      <NuxtLink to="/blog">
-        Blog
-      </NuxtLink>
+        <global-header>
+            <slot name="breadcrumbs">
+                <!-- Default crumbs here -->
+            </slot>
 
-      <WpMenu
-        name="Main Menu"
-        title="Menu"
-      />
+            <!-- TODO: global-hamburger -->
+        </global-header>
 
-      <div>
-        Breakcrumbs:
-        <slot name="breadcrumbs">
-          <Breadcrumbs :links="['A', 'B']" />
-        </slot>
-      </div>
-    </header>
+        <!-- <header>
+            <NuxtLink to="/blog">
+                Blog
+            </NuxtLink>
 
-    <slot />
-  </div>
+            <WpMenu
+                name="Main Menu"
+                title="Menu"
+            />
+
+            <div>
+                Breakcrumbs:
+                <slot name="breadcrumbs">
+                    <Breadcrumbs :links="['A', 'B']" />
+                </slot>
+            </div>
+        </header> -->
+
+        <slot />
+
+        <!-- TODO: <client-only><wp-controls /> -->
+    </main>
 </template>
+
+<script setup lang="ts">
+const classes = computed(() => ['default-layout'])
+</script>

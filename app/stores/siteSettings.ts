@@ -1,22 +1,52 @@
-// import type { SiteSettingsQuery } from '#gql'
+export const useSiteSettingsStore = defineStore('siteSettings', () => {
+    const settings = ref({})
+    const menuOpened = ref(false)
+    const breakpoint = ref('desktop')
+    const referrer = ref(false)
+    const scrollDirection = ref('up')
+    const sTop = ref(0)
+    const winHeight = ref(0)
+    const winWidth = ref(0)
 
-export const useSiteSettingStore = defineStore('site_settings', () => {
-  const settings = ref({})
+    // Function to update the store
+    const update = (newVal) => {
+        console.log('Updating store', newVal)
 
-  // const GqlInstance = useGql()
+        scrollDirection.value = newVal
+    }
 
-  const init = async () => {
-    // const res = await GqlInstance({ operation: 'SiteSettings' })
+    // TODO Get some values from WP
+    // const res = await useWpFetch('/settings')
+    const res = {
+        title: '',
+        description: '',
+        backendUrl: '',
+        frontendUrl: '',
+        themeScreenshotUrl: ''
+    }
+    const siteOptions = {
+        socialMedia: [
+            {
+                platform: '',
+                url: ''
+            }
+        ],
+        googleAnalytics: ['123456', '78912345'],
+        socialSharedImage: { id: 123456, sourceUrl: 'https://example.com/image.jpg' }
 
-    // if (res) {
-    //   settings.value = res
-    // }
-  }
+    }
 
-  return {
+    settings.value = { ...res, ...siteOptions }
 
-    settings,
-
-    init
-  }
+    return {
+        settings,
+        menuOpened,
+        breakpoint,
+        sTop,
+        winHeight,
+        winWidth,
+        referrer,
+        scrollDirection,
+        update
+    }
 })

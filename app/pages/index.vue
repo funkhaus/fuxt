@@ -1,27 +1,25 @@
-<script setup lang="ts">
-useSeoMeta({
-  title: 'Home Page'
-})
-
-const menuStore = useOtherMenuStore()
-</script>
-
 <template>
-  <div>
-    <p>
-      menu sidebar is: {{ menuStore.isOpen }}
-    </p>
-
-    <button @click="menuStore.toggle">
-      Toggle Menu Sidebar
-    </button>
-
-    <hr>
-
-    <BlockWork
-      to="/"
-      title="The Block"
-      :image="{ src: 'https://placehold.co/600x400/EEE/31343C' }"
-    />
-  </div>
+    <section class="page-home">
+        Home page here
+    </section>
 </template>
+
+<style scoped>
+.page-home {
+    min-height: 200vh;
+
+    color: var(--color-black);
+    /* margin: 0 auto; */
+    /* min-height: var(--unit-100vh); */
+
+    /* Hover states */
+    /* @media #{$has-hover} {
+         Hover styles would go here
+    } */
+
+    /* Breakpoints */
+    @media (--lt-phone) {
+        background-color: blue;
+    }
+}
+</style>

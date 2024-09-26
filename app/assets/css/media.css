@@ -11,5 +11,18 @@
 @custom-media --has-hover "(hover: hover)";
 
 
+/* Usage example:
+@media (--lt-phone) {
+    background-color: red;
+} 
+*/
 
+/* body {
+    background: green;
+}
 
+@media (--lt-phone) {
+    body {
+        background-color: yellow;
+    }
+}  */

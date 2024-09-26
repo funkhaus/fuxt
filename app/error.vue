@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <NuxtLayout>
-    Error Page
-  </NuxtLayout>
+    <NuxtLayout>
+        Error Page is here
+    </NuxtLayout>
 </template>

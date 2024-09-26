@@ -1,92 +1,99 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+    compatibilityDate: '2024-09-17',
 
-  // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
-  future: { compatibilityVersion: 4 },
+    // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
+    future: { compatibilityVersion: 4 },
 
-  devtools: { enabled: true },
+    devtools: { enabled: true },
 
-  nitro: {
+    nitro: {
     // https://github.com/danielroe/nuxt-vercel-isr
-    routeRules: {
-      // all routes
-      '/**': {
-        isr: true
-      }
-    }
-  },
+        routeRules: {
+            // all routes
+            '/**': {
+                isr: true
+            }
+        }
+    },
+    app: {
+        head: {
+            meta: [
+                { charset: 'utf-8' },
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, initial-scale=1'
+                }
+            ],
+            link: [
+                {
+                    rel: 'icon',
+                    type: 'image/png',
+                    href: '/favicon.png'
+                }
+            ]
+        }
+    },
 
-  runtimeConfig: {
-    // accessible by server side only
-    // API_URL: '',
-    api: { url: '' },
+    runtimeConfig: {
+        public: {
+            wordpressApiUrl: process.env.WORDPRESS_API_URL
+        }
+    },
 
-    // exposed to the client side
-    public: {
-      // API_URL: '',
-      // GEO_KEY: ''
+    // required for @nuxtjs/storybook
+    vue: {
+        runtimeCompiler: true
+    },
 
-      api: { url: '' },
-      geo: { key: '' }
-    }
-  },
-
-  // required for @nuxtjs/storybook
-  vue: {
-    runtimeCompiler: true
-  },
-
-  // css: ['~/assets/css/main.css'],
-
-  modules: [
-    '@nuxt/fonts',
-    '@pinia/nuxt',
-    '@nuxtjs/storybook',
-    '@nuxtjs/sitemap'
-  ],
-
-  site: {
-    url: 'https://nuxt.com',
-    name: 'Nuxt Example'
-  },
-
-  sitemap: {
-    exclude: []
-  },
-
-  fonts: {
-    families: [
-      {
-        name: 'CalibreWeb-Light',
-        src: '/fonts/CalibreWeb-Light.woff',
-        fallbacks: [
-          'sans-serif'
-        ],
-        weights: ['300'],
-        styles: ['normal'],
-        display: 'swap'
-      }
+    css: [
+        '~/assets/css/media.css',
+        '~/assets/css/vars.css',
+        '~/assets/css/main.css'
     ],
 
-    adobe: {
-      id: [
-        'twu5pcy'
-      ]
+    modules: [
+        '@nuxt/fonts',
+        '@pinia/nuxt',
+        '@nuxtjs/storybook',
+        '@nuxtjs/sitemap',
+        '@vueuse/nuxt'
+    ],
+
+    site: {
+        url: 'https://nuxt.com',
+        name: 'Nuxt Example'
+    },
+
+    sitemap: {
+        exclude: []
+    },
+
+    fonts: {
+        // families: [
+        //     {
+        //         name: 'CalibreWeb-Light',
+        //         src: '/fonts/CalibreWeb-Light.woff',
+        //         fallbacks: [
+        //             'sans-serif'
+        //         ],
+        //         weights: ['300'],
+        //         styles: ['normal'],
+        //         display: 'swap'
+        //     }
+        // ]
+        // adobe: {
+        //     id: [
+        //         'twu5pcy'
+        //     ]
+        // }
+
+    },
+
+    postcss: {
+        plugins: {
+            'postcss-nested': {},
+            'postcss-custom-media': {}
+        }
     }
-
-  },
-
-  postcss: {
-    plugins: {
-      // Installed By Default
-      // 'autoprefixer': {},
-      // 'cssnano': {},
-      // 'postcss-url': {},
-      // 'postcss-import': {},
-
-      // Custom plugins
-      'postcss-custom-media': {}
-    }
-  }
 })
