@@ -16,15 +16,18 @@ export const useSiteSettingsStore = defineStore('siteSettings', () => {
     }
 
     // TODO Get some values from WP
-    // const res = await useWpFetch('/settings')
-    const res = {
+    // Any way to do these as a Promise.all in Nuxt4?
+    // const settingsData = await useWpFetch('/settings')
+    // const acfData = await useWpFetch('/acf-options?name=Site Settings')
+
+    const settingsData = {
         title: '',
         description: '',
         backendUrl: '',
         frontendUrl: '',
         themeScreenshotUrl: ''
     }
-    const siteOptions = {
+    const acfData = {
         socialMedia: [
             {
                 platform: '',
@@ -36,7 +39,7 @@ export const useSiteSettingsStore = defineStore('siteSettings', () => {
 
     }
 
-    settings.value = { ...res, ...siteOptions }
+    settings.value = { ...settingsData, ...acfData }
 
     return {
         settings,
