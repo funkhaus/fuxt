@@ -15,6 +15,11 @@
 <script setup lang="ts">
 const settingsStore = useSiteSettingsStore()
 
+// Data
+
+// Computeds
+
+// Methods
 const toggleMenu = () => {
     settingsStore.menuOpened = !settingsStore.menuOpened
 }

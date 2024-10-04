@@ -5,6 +5,7 @@
 - Get GA plugin working
 - Make sure Preview's work
 - Maybe this helps with better Gutenberg support now: https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-serialization-default-parser/
+- Log issue with WP OpenAPI about how request goes to wrong site URL
 
 ## TODO - Fuxt backend
 - Update plugin manifest
