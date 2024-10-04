@@ -1,6 +1,6 @@
 export default defineNuxtPlugin(() => {
     const settingsStore = useSiteSettingsStore()
-    const { scrollDirection, winWidth, winHeight, sTop, breakpoint } = storeToRefs(settingsStore)
+    const { scrollDirection, winWidth, winHeight, sTop, breakpoint, referrer } = storeToRefs(settingsStore)
 
     // Get browser dimensions
     const { y } = useWindowScroll()
@@ -29,4 +29,17 @@ export default defineNuxtPlugin(() => {
     }, {
         immediate: true
     })
+
+    // Update store referrer. Useful to know where the user came from.
+    addRouteMiddleware('referrer', async (to, from) => {
+        if (from.name) {
+            referrer.value = {
+                name: from.name,
+                fullPath: from.fullPath,
+                path: from.path,
+                query: from.query,
+                params: from.params
+            }
+        }
+    }, { global: true })
 })

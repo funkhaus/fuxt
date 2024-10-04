@@ -2,44 +2,45 @@ export const useSiteSettingsStore = defineStore('siteSettings', () => {
     const settings = ref({})
     const menuOpened = ref(false)
     const breakpoint = ref('desktop')
-    const referrer = ref(false)
+    const referrer: Ref<boolean | object> = ref(false)
     const scrollDirection = ref('up')
     const sTop = ref(0)
     const winHeight = ref(0)
     const winWidth = ref(0)
+    let hasLoaded = false
 
-    // Function to update the store
-    const update = (newVal) => {
-        console.log('Updating store', newVal)
-
-        scrollDirection.value = newVal
-    }
-
-    // TODO Get some values from WP
-    // Any way to do these as a Promise.all in Nuxt4?
-    // const settingsData = await useWpFetch('/settings')
-    // const acfData = await useWpFetch('/acf-options?name=Site Settings')
-
-    const settingsData = {
+    // Setup default store values
+    settings.value = {
         title: '',
         description: '',
         backendUrl: '',
         frontendUrl: '',
-        themeScreenshotUrl: ''
-    }
-    const acfData = {
-        socialMedia: [
-            {
-                platform: '',
-                url: ''
-            }
-        ],
-        googleAnalytics: ['123456', '78912345'],
-        socialSharedImage: { id: 123456, sourceUrl: 'https://example.com/image.jpg' }
-
+        themeScreenshotUrl: '',
+        sociaMedia: [],
+        googleAnalytics: [],
+        socialSharedImage: {}
     }
 
-    settings.value = { ...settingsData, ...acfData }
+    // Populate state from WP API
+    const init = async () => {
+        // Do requests in parallel
+        const settingsReq = useWpFetch('/settings')
+        const acfReq = useWpFetch('/acf-options?name=Site Options')
+        const [settingsRes, acfRes] = await Promise.all([settingsReq, acfReq])
+
+        // Get ref values
+        const settingsData = settingsRes.data?.value || {}
+        const acfData = acfRes.data?.value || {}
+
+        // Save to store
+        settings.value = { ...settingsData, ...acfData }
+        hasLoaded = true
+    }
+
+    // This ensures we only fetch state from WP once
+    if (!hasLoaded) {
+        init()
+    }
 
     return {
         settings,
@@ -49,7 +50,6 @@ export const useSiteSettingsStore = defineStore('siteSettings', () => {
         winHeight,
         winWidth,
         referrer,
-        scrollDirection,
-        update
+        scrollDirection
     }
 })
