@@ -21,6 +21,14 @@ export default defineNuxtConfig({
         }
     },
 
+    vite: {
+        optimizeDeps: {
+            // Used for v8.3.5 of Storybook. Can remove after update.
+            // SEE https://github.com/nuxt-modules/storybook/issues/776
+            include: ['jsdoc-type-pratt-parser']
+        }
+    },
+
     app: {
         head: {
             meta: [
