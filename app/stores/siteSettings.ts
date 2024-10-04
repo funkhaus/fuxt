@@ -7,9 +7,9 @@ export const useSiteSettingsStore = defineStore('siteSettings', () => {
     const sTop = ref(0)
     const winHeight = ref(0)
     const winWidth = ref(0)
-    let hasLoaded = false
+    const hasLoaded = ref(false)
 
-    // Setup default store values
+    // Setup default store settings values
     settings.value = {
         title: '',
         description: '',
@@ -34,12 +34,6 @@ export const useSiteSettingsStore = defineStore('siteSettings', () => {
 
         // Save to store
         settings.value = { ...settingsData, ...acfData }
-        hasLoaded = true
-    }
-
-    // This ensures we only fetch state from WP once
-    if (!hasLoaded) {
-        init()
     }
 
     return {
@@ -50,6 +44,8 @@ export const useSiteSettingsStore = defineStore('siteSettings', () => {
         winHeight,
         winWidth,
         referrer,
-        scrollDirection
+        scrollDirection,
+        hasLoaded,
+        init
     }
 })

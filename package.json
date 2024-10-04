@@ -12,32 +12,31 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "STORYBOOK=true storybook dev -p 6006",
+    "build-storybook": "STORYBOOK=true storybook build"
   },
   "dependencies": {
     "nuxt": "^3.12.3"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^2.0.2",
     "@nuxt/eslint-config": "^0.5.7",
     "@nuxt/fonts": "^0.8.0",
     "@nuxtjs/sitemap": "6.0.1",
     "@nuxtjs/storybook": "^8.2.0",
     "@pinia/nuxt": "^0.5.1",
-    "@storybook/addon-essentials": "^8.2.9",
-    "@storybook/addon-links": "^8.2.9",
-    "@storybook/vue3": "^8.2.9",
+    "@storybook/addon-essentials": "^8.3.0",
+    "@storybook/addon-links": "^8.3.0",
+    "@storybook/vue3": "^8.3.0",
     "@types/node": "^22.5.5",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
     "eslint": "^9.10.0",
-    "lodash": "^4.17.21",
+    "nuxt-lodash": "^2.5.3",
     "pinia": "^2.1.7",
     "postcss": "^8.4.47",
     "postcss-custom-media": "^11.0.1",
     "postcss-nested": "^6.2.0",
-    "storybook": "^8.2.9",
+    "storybook": "^8.3.0",
     "vue": "^3.4.36"
   }
 }

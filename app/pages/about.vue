@@ -1,14 +1,6 @@
 <template>
     <section class="page-home">
-        Home page here
-
-        <button @click="toggleMenu()">
-            Toggle menu
-        </button>
-
-        <nuxt-link to="/about">
-            About page
-        </nuxt-link>
+        About page
     </section>
 </template>
 

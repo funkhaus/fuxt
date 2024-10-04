@@ -1,9 +1,20 @@
-import { useSiteSettingStore } from '~/stores/siteSettings'
-
 export default defineNuxtPlugin(async () => {
-    // initialize stores
-    // await useSiteSettingStore().init()
+    const settingsStore = useSiteSettingsStore()
+    if (settingsStore.hasLoaded) {
+        return
+    }
 
-    // manipulating state via useState
-    // useMenuState().value.opened = false
+    // Popiulate the store with the settings from the WP API
+    await useSiteSettingsStore().init()
+
+    // Configure NuxtLink defaults
+    defineNuxtLink({
+        activeClass: 'active-link',
+        exactActiveClass: 'exact-active-link',
+        prefetch: true,
+        trailingSlash: 'append',
+        prefetchedClass: 'prefetched-link'
+    })
+
+    settingsStore.hasLoaded = true
 })

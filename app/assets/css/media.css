@@ -2,13 +2,14 @@
 @custom-media --medium-viewport (min-width: 601px) and (max-width: 1200px);
 @custom-media --large-viewport (min-width: 1201px);
 
-@custom-media --gt-cinema "only screen and (min-width: 1800px)";
-@custom-media --lt-cinema "only screen and (max-width: 1799px)";
-@custom-media --lt-tablet "only screen and (max-width: 1024px)";
-@custom-media --lt-phone "only screen and (max-width: 850px)";
+@custom-media --gt-cinema only screen and (min-width: 1800px);
+@custom-media --lt-cinema only screen and (max-width: 1799px);
+@custom-media --lt-tablet only screen and (max-width: 1024px);
+@custom-media --lt-phone only screen and (max-width: 850px);
 /* // @custom-media --phone-landscape: 'only screen and (max-width: 850px) and (orientation: landscape)';
 // @custom-media --pad: "only screen and (min-device-width : 768px) and (max-device-width : 1024px)"; */
-@custom-media --has-hover "(hover: hover)";
+@custom-media --has-hover (hover: hover);
+
 
 
 /* Usage example:

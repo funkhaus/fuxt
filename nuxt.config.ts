@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
     future: { compatibilityVersion: 4 },
 
+    // This only ships on dev, it gets stripped in Production
     devtools: { enabled: true },
 
     nitro: {
@@ -14,8 +15,12 @@ export default defineNuxtConfig({
             '/**': {
                 isr: true
             }
+        },
+        prerender: {
+            autoSubfolderIndex: true
         }
     },
+
     app: {
         head: {
             meta: [
@@ -43,7 +48,7 @@ export default defineNuxtConfig({
 
     // required for @nuxtjs/storybook
     vue: {
-        runtimeCompiler: true
+        runtimeCompiler: process.env.STORYBOOK === 'true'
     },
 
     css: [
@@ -57,7 +62,8 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@nuxtjs/storybook',
         '@nuxtjs/sitemap',
-        '@vueuse/nuxt'
+        '@vueuse/nuxt',
+        'nuxt-lodash'
     ],
 
     site: {

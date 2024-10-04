@@ -1,29 +1,30 @@
 <script lang="ts" setup>
 const route = useRoute()
+const settingsStore = useSiteSettingsStore()
 
 // Computed
-const htmlClasses = computed(() => ['html', 'route-' + route.name?.toString()])
+const htmlClasses = computed(() => [
+    'html',
+    'route-' + route.name?.toString(),
+    { 'menu-opened': settingsStore.menuOpened }
+])
 
 // Methods
 useHead(() => {
     return {
-        titleTemplate: '%s',
-        htmlAttrs: {
-            class: htmlClasses
-        }
+        titleTemplate: '%s'
     }
-})
-defineNuxtLink({
-    activeClass: 'active-link',
-    exactActiveClass: 'exact-active-link',
-    prefetch: true,
-    trailingSlash: 'append',
-    prefetchedClass: 'prefetched-link'
 })
 </script>
 
 <template>
+    <Html :class="htmlClasses" />
+
     <NuxtLayout>
         <NuxtPage />
     </NuxtLayout>
 </template>
+
+<style>
+
+</style>

@@ -3,6 +3,7 @@
  * It's useful for global styles.
  */
 
+ 
  /* Globals */
  html {
      font-family: var(--font-primary);
@@ -18,12 +19,6 @@
  body {
      margin: 0;
  }
-
- @media (--lt-phone) {
-  body {
-    background-color: red;
-  }
-} 
  ::selection {
      color: var(--color-white);
      background: var(--color-black);
