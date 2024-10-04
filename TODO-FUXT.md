@@ -1,11 +1,12 @@
 ## TODO - Fuxt
 - SEO defaults
 - Port over default CSS vars
+- Get trailing slash redirect working
 - Remove GQL features
 - Get GA plugin working
 - Make sure Preview's work
 - Maybe this helps with better Gutenberg support now: https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-serialization-default-parser/
-- Log issue with WP OpenAPI about how request goes to wrong site URL
+
 
 ## TODO - Fuxt backend
 - Update plugin manifest
@@ -14,15 +15,7 @@
 - Hide WP Open API menu item for non-Devs
 
 ## Questions for Conrawl
-- How the do we get `postcss-custom-media` actually working in components, and `/assets/css/*` files?
-- Only ship Storybook when needed
-    - Only use runtime compiler when Storybook is used
-- Only ship Nuxt DevTools when in Dev mode
-- What's the answer to trailingSlash for existing page URLs (not just NuxtLinks)
-- Can we use array/object syntax for htmlClasses somehow?
-- Should we have a plugin for app setup code, or put in app.vue?
-- Am I using ref()'s correct in my browser.client.ts plugin? Seems like too many watch() are needed.
-- Enable PostCSS inline comments `// comment`
+- See GitHub issues on fuxt repo
 
 ## TODO - Base Components
 - WpImage
@@ -36,3 +29,4 @@
 
 ## Usage Notes
 - Install VS Code plugin "ESlint"
+- Document vueUse and lodash auto import usage

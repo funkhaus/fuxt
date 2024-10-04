@@ -74,10 +74,15 @@ export default defineNuxtConfig({
         'nuxt-lodash'
     ],
 
-    site: {
-        url: 'https://nuxt.com',
-        name: 'Nuxt Example'
+    lodash: {
+        prefix: '_',
+        prefixSkip: []
     },
+
+    // site: {
+    //     url: 'https://nuxt.com',
+    //     name: 'Nuxt Example'
+    // },
 
     sitemap: {
         exclude: []
