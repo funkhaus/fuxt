@@ -1,5 +1,5 @@
 export default defineNuxtPlugin(() => {
-    const settingsStore = useSiteSettingsStore()
+    const siteStore = useSiteStore()
 
     // Get browser dimensions
     const { y } = useWindowScroll()
@@ -8,14 +8,14 @@ export default defineNuxtPlugin(() => {
 
     // Update scroll direction
     watch(y, (newVal, oldVal = 0) => {
-        settingsStore.sTop = newVal
-        settingsStore.breakpoint = newBreakpoint?.value?.replace(/['"]+/g, '').trim() || 'desktop'
+        siteStore.sTop = newVal
+        siteStore.breakpoint = newBreakpoint?.value?.replace(/['"]+/g, '').trim() || 'desktop'
 
         if (oldVal > newVal || newVal === 0) {
-            settingsStore.scrollDirection = 'up'
+            siteStore.scrollDirection = 'up'
         }
         else {
-            settingsStore.scrollDirection = 'down'
+            siteStore.scrollDirection = 'down'
         }
     }, {
         immediate: true
@@ -23,8 +23,8 @@ export default defineNuxtPlugin(() => {
 
     // Update window dimensions
     watch([newWinWidth, newWinHeight], () => {
-        settingsStore.winWidth = newWinWidth.value
-        settingsStore.winHeight = newWinHeight.value
+        siteStore.winWidth = newWinWidth.value
+        siteStore.winHeight = newWinHeight.value
     }, {
         immediate: true
     })
@@ -32,7 +32,7 @@ export default defineNuxtPlugin(() => {
     // Update store referrer. Useful to know where the user came from.
     addRouteMiddleware('referrer', async (to, from) => {
         if (from.name) {
-            settingsStore.referrer = {
+            siteStore.referrer = {
                 name: from.name,
                 fullPath: from.fullPath,
                 path: from.path,

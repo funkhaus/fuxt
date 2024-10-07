@@ -1,7 +1,10 @@
 <template>
     <header class="global-header">
         Header goes here
-        <slot />
+
+        <wp-menu
+            name="Main Menu"
+        />
 
         <h2>
             Testing
@@ -17,7 +20,7 @@
 @import "~/assets/css/media.css";
 
 .global-header {
-    background-color: #333;
+    background-color: lightgray;
 
     border: var(--lt-phone);
 

@@ -1,11 +1,11 @@
 export default defineNuxtPlugin(async () => {
-    const settingsStore = useSiteSettingsStore()
-    if (settingsStore.hasLoaded) {
+    const siteStore = useSiteStore()
+    if (siteStore.hasLoaded) {
         return
     }
 
     // Popiulate the store with the settings from the WP API
-    await useSiteSettingsStore().init()
+    await useSiteStore().init()
 
     // Configure NuxtLink defaults
     defineNuxtLink({
@@ -16,5 +16,5 @@ export default defineNuxtPlugin(async () => {
         prefetchedClass: 'prefetched-link'
     })
 
-    settingsStore.hasLoaded = true
+    siteStore.hasLoaded = true
 })

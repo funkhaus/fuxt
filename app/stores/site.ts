@@ -1,4 +1,4 @@
-export const useSiteSettingsStore = defineStore('siteSettings', () => {
+export const useSiteStore = defineStore('site', () => {
     const settings = ref({})
     const menuOpened = ref(false)
     const breakpoint = ref('desktop')

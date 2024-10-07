@@ -1,5 +1,5 @@
 export default defineNuxtPlugin(() => {
-    // const settingStore = useSiteSettingsStore()
+    // const settingStore = useSiteStore()
 
     const googleAnalytics = []
     // const googleAnalytics = settingStore.settings.acfSettings?.siteOptionsMeta?.googleAnalytics || []

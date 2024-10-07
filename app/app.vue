@@ -1,18 +1,35 @@
 <script lang="ts" setup>
 const route = useRoute()
-const settingsStore = useSiteSettingsStore()
+const siteStore = useSiteStore()
 
 // Computed
 const htmlClasses = computed(() => [
     'html',
     'route-' + route.name?.toString(),
-    { 'menu-opened': settingsStore.menuOpened }
+    { 'menu-opened': siteStore.menuOpened }
 ])
 
 // Methods
 useHead(() => {
     return {
-        titleTemplate: '%s'
+        titleTemplate(titleChunk) {
+            const title = titleChunk
+            const siteTitle = siteStore.settings.title
+
+            let output = siteTitle
+
+            switch (true) {
+                case siteTitle == title:
+                    output = siteTitle
+                    break
+
+                case Boolean(title):
+                    output = `${siteTitle} - ${title}`
+                    break
+            }
+
+            return output
+        }
     }
 })
 </script>

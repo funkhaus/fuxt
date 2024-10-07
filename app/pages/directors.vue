@@ -1,42 +1,27 @@
 <template>
-    <section class="page-home">
-        Home page here
-
-        <button @click="toggleMenu()">
-            Toggle menu
-        </button>
-
+    <section class="page-directors">
+        directors page
         <br>
-
-        <!-- <div v-html="data.content" /> -->
-
-        <wp-image :image="data.featuredMedia" />
+        <nuxt-link to="/">
+            Home
+        </nuxt-link>
+        <br>
+        <nuxt-link to="/About">
+            About
+        </nuxt-link>
     </section>
 </template>
 
 <script setup lang="ts">
 const siteStore = useSiteStore()
 
-// Fetch data from WP
-const { data } = await useWpFetch(`/post`, {
-    query: {
-        uri: '/'
-    }
-    // pick: ['title'],
-    // onResponseError({ error }) {
-    //     console.warn('<wp-seo> Fetch Error:', parsedPath, error)
-    //     data.value = {}
-    // }
-})
-
-// Methods
 const toggleMenu = () => {
     siteStore.menuOpened = !siteStore.menuOpened
 }
 </script>
 
 <style scoped>
-.page-home {
+.page-directors {
     min-height: 200vh;
 
     color: var(--color-black);
