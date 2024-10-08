@@ -21,7 +21,7 @@
 
 ## TODO - Base Components
 - WpImage
-- WpMenu
+- [x] WpMenu
 - VideoStage
 - Gutenberg (LLM help?)
 - WpSeo
