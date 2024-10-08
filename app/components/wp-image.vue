@@ -26,6 +26,8 @@
         <!-- TODO Focal points color -->
         <!-- TODO Sizing modes -->
         <!-- TODO SrcSets and Sizes -->
+        <!-- TODO Only load video when coming into view -->
+        <!-- TODO Has-loaded of video? -->
     </figure>
 </template>
 
@@ -58,9 +60,10 @@ const props = defineProps({
 })
 
 // Computeds
-const classes = computed(() => ['wp-image', { 'has-loaded': imageLoaded.value }])
+const classes = computed(() => ['wp-image', { 'has-loaded': imageLoaded.value }, { 'has-video': hasVideo.value }])
 const src = computed(() => props.image?.src || '')
 const videoUrl = computed(() => props.image?.acf?.videoUrl || '')
+const hasVideo = computed(() => Boolean(videoUrl.value))
 
 // Actions
 const setImageLoaded = () => {
@@ -69,7 +72,7 @@ const setImageLoaded = () => {
 
 // Lifecycle hooks
 onMounted(() => {
-    imageLoaded.value = imageEl.value?.complete
+    imageLoaded.value = imageEl.value?.complete || false
 })
 </script>
 
