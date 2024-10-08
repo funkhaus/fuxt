@@ -30,11 +30,6 @@
             class="caption"
             v-text="caption"
         />
-
-        <!-- TODO Background color -->
-        <!-- TODO Focal points and color -->
-        <!-- TODO Only load video when coming into view -->
-        <!-- TODO Has-loaded of video? -->
     </figure>
 </template>
 
@@ -83,7 +78,7 @@ const props = defineProps({
     }
 })
 
-// Refs
+// State
 const isPlaying = ref(false)
 
 // Computeds
@@ -148,7 +143,6 @@ const orientation = computed(() => {
     }
     return output
 })
-
 const cssVars = ref({
     aspectRatio: parsedAspectRatio.value
 })
@@ -158,8 +152,6 @@ const setImageLoaded = () => {
     imageLoaded.value = true
 }
 const onPlaying = () => {
-    console.log('Playing')
-
     isPlaying.value = true
 }
 

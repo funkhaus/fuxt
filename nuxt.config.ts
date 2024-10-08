@@ -111,7 +111,7 @@ export default defineNuxtConfig({
     postcss: {
         plugins: {
             '@csstools/postcss-global-data': {
-              files: ["./app/assets/css/media.css"]
+                files: ['./app/assets/css/media.css']
             },
             'postcss-nested': {},
             'postcss-custom-media': {}

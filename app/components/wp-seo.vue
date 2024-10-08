@@ -5,10 +5,10 @@
             v-if="parsedTitle"
             v-html="parsedTitle"
         />
-        <!-- <div
+        <div
             v-if="parsedDescription"
             v-html="parsedDescription"
-        /> -->
+        />
     </div>
 </template>
 
@@ -29,6 +29,10 @@ const props = defineProps({
     path: {
         type: String,
         default: ''
+    },
+    imageUrl: {
+        type: String,
+        default: ''
     }
 })
 
@@ -40,7 +44,7 @@ const { data } = await useWpFetch(`/post`, {
     query: {
         uri: parsedPath
     },
-    pick: ['title'],
+    pick: ['title', 'excerpt', 'content', 'featuredMedia'],
     onResponseError({ error }) {
         console.warn('<wp-seo> Fetch Error:', parsedPath, error)
         data.value = {}
@@ -49,14 +53,16 @@ const { data } = await useWpFetch(`/post`, {
 
 // Computeds
 const parsedTitle = computed<string>(() => props.title || data.value?.title || siteStore.settings?.title || undefined)
+const parsedDescription = computed<string>(() => props.description || data.value?.excerpt || data.value?.content || siteStore.settings.description || undefined)
+const parsedImage = computed<string>(() => props.imageUrl || data.value?.featuredMedia?.src || siteStore.settings.themeScreenshotUrl || undefined)
 
+// Set meta tags
 useSeoMeta({
-    title: () => parsedTitle.value
-    // ogTitle: 'My Amazing Site',
-    // description: 'This is my amazing site, let me tell you all about it.',
-    // ogDescription: 'This is my amazing site, let me tell you all about it.',
-    // ogImage: 'https://example.com/image.png',
-    // twitterCard: 'summary_large_image'
+    title: () => parsedTitle.value,
+    ogTitle: () => parsedTitle.value,
+    description: () => parsedDescription.value,
+    ogDescription: () => parsedDescription.value,
+    ogImage: () => parsedImage.value
 })
 </script>
 

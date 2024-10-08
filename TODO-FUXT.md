@@ -21,12 +21,16 @@
 
 ## TODO - Base Components
 - WpImage
+    - TODO Background color
+    - TODO Focal points and color
+    - TODO Only load video when coming into view
+    - TODO Has-loaded of video?
 - [x] WpMenu
 - VideoStage
 - Gutenberg (LLM help?)
-- WpSeo
+- [x] WpSeo
 - WpControls
-- WpLink
+- [x] WpLink (No longer needed actually, nuxt-link does it all now)
 - SplitText
 
 ## Usage Notes
