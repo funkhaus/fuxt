@@ -5,10 +5,6 @@
         <wp-menu
             name="Main Menu"
         />
-
-        <h2>
-            Testing
-        </h2>
     </header>
 </template>
 

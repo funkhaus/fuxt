@@ -1,26 +1,19 @@
 <template>
     <nav :class="classes">
         <ul class="menu">
-            <li
+            <template
                 v-for="item in items"
-                :key="item.id"
-                class="menu-item"
+                :key="item.id || item.uri || item.url"
             >
-                <!-- TODO: Hanlde link classes and ids, and child items -->
-
                 <slot
                     :title="item.title"
-                    :uri="item.uri || item.url"
+                    :to="item.uri || item.url"
                     :target="item.target"
                     :classes="item.classes"
                 >
-                    <nuxt-link
-                        :to="item.uri"
-                    >
-                        {{ item.title }}
-                    </nuxt-link>
+                    <wp-menu-item :item="item" />
                 </slot>
-            </li>
+            </template>
         </ul>
     </nav>
 </template>
@@ -38,6 +31,7 @@ const props = defineProps({
     }
 })
 
+// Fetch data from WP
 const { data } = await useWpFetch(`/menus`, {
     query: {
         name: props.name
@@ -48,13 +42,7 @@ const { data } = await useWpFetch(`/menus`, {
     }
 })
 
+// Computeds
 const classes = computed(() => ['wp-menu', `name-${_KebabCase(props.name) || 'unknown'}`])
-
-const items = computed(() => {
-    let output = data.value || []
-    if (props.items.length) {
-        output = props.items
-    }
-    return output
-})
+const items = computed(() => data.value || props.items || [])
 </script>
