@@ -16,7 +16,6 @@
     "build-storybook": "STORYBOOK=true storybook build"
   },
   "dependencies": {
-    "@csstools/postcss-global-data": "^3.0.0",
     "nuxt": "^3.12.3"
   },
   "devDependencies": {
@@ -37,6 +36,7 @@
     "postcss": "^8.4.47",
     "postcss-custom-media": "^11.0.1",
     "postcss-nested": "^6.2.0",
+    "@csstools/postcss-global-data": "^3.0.0",
     "storybook": "^8.3.0",
     "vue": "^3.4.36"
   }
