@@ -16,6 +16,7 @@
     "build-storybook": "STORYBOOK=true storybook build"
   },
   "dependencies": {
+    "@csstools/postcss-global-data": "^3.0.0",
     "nuxt": "^3.12.3"
   },
   "devDependencies": {

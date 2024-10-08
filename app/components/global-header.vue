@@ -13,12 +13,10 @@
 </script>
 
 <style scoped>
-@import "~/assets/css/media.css";
 
 .global-header {
     background-color: lightgray;
 
-    border: var(--lt-phone);
 
     @media (--lt-phone) {
         background-color: red;
