@@ -60,7 +60,6 @@ export default defineNuxtConfig({
     },
 
     css: [
-        '~/assets/css/media.css',
         '~/assets/css/vars.css',
         '~/assets/css/main.css'
     ],
@@ -111,6 +110,9 @@ export default defineNuxtConfig({
 
     postcss: {
         plugins: {
+            '@csstools/postcss-global-data': {
+              files: ["./app/assets/css/media.css"]
+            },
             'postcss-nested': {},
             'postcss-custom-media': {}
         }
