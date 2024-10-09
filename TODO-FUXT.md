@@ -4,6 +4,7 @@
 - Remove GQL features
 - Get GA plugin working
 - Make sure Preview's work
+- Get nuxt-fonts working one day!
 - Maybe this helps with better Gutenberg support now: https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-serialization-default-parser/
 - Get some sort of template and story snippit working: 
     - https://marketplace.visualstudio.com/items?itemName=exer7um.vue-3-vscode-snippets 

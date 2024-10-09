@@ -19,8 +19,8 @@
     "nuxt": "^3.12.3"
   },
   "devDependencies": {
+    "@csstools/postcss-global-data": "^3.0.0",
     "@nuxt/eslint-config": "^0.5.7",
-    "@nuxt/fonts": "^0.8.0",
     "@nuxtjs/sitemap": "6.0.1",
     "@nuxtjs/storybook": "^8.2.0",
     "@pinia/nuxt": "^0.5.1",
@@ -36,7 +36,6 @@
     "postcss": "^8.4.47",
     "postcss-custom-media": "^11.0.1",
     "postcss-nested": "^6.2.0",
-    "@csstools/postcss-global-data": "^3.0.0",
     "storybook": "^8.3.0",
     "vue": "^3.4.36"
   }

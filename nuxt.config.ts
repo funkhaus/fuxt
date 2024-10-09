@@ -74,20 +74,9 @@ export default defineNuxtConfig({
             'postcss-custom-media': {}
         }
     },
-    fonts: {
-        assets: {
-            prefix: '/fonts/'
-        }
-        // adobe: {
-        //     id: [
-        //         '123456'
-        //     ]
-        // }
-    },
 
     // Modules and configuration
     modules: [
-        '@nuxt/fonts',
         '@pinia/nuxt',
         '@nuxtjs/storybook',
         '@nuxtjs/sitemap',
