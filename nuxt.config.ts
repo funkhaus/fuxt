@@ -61,7 +61,6 @@ export default defineNuxtConfig({
 
     // CSS and fonts
     css: [
-        '~/assets/css/fonts.css',
         '~/assets/css/vars.css',
         '~/assets/css/main.css'
     ],
@@ -78,11 +77,12 @@ export default defineNuxtConfig({
     // Modules and configuration
     modules: [
         '@pinia/nuxt',
+        'nuxt-svgo',
+        '@nuxt/fonts',
+        '@nuxtjs/storybook',
         '@nuxtjs/sitemap',
         '@vueuse/nuxt',
-        'nuxt-lodash',
-        'nuxt-svgo',
-        '@nuxtjs/storybook'
+        'nuxt-lodash'
     ],
     lodash: {
         prefix: '_',
@@ -95,5 +95,11 @@ export default defineNuxtConfig({
         autoImportPath: './assets/svgs/',
         defaultImport: 'component',
         componentPrefix: 'svg'
+    },
+    fonts: {
+        experimental: {
+            // Must be enabled to support processing fonts as CSS vars
+            processCSSVariables: true
+        }
     }
 })
