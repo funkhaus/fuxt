@@ -158,7 +158,7 @@ const onPlaying = () => {
 // Lifecycle hooks
 onMounted(() => {
     imageLoaded.value = imageEl.value?.complete || false
-    isPlaying.value = !videoEl.value?.paused || false
+    isPlaying.value = videoEl.value ? !videoEl.value?.paused : false
 })
 </script>
 
