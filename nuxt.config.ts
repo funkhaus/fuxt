@@ -78,10 +78,11 @@ export default defineNuxtConfig({
     // Modules and configuration
     modules: [
         '@pinia/nuxt',
-        '@nuxtjs/storybook',
         '@nuxtjs/sitemap',
         '@vueuse/nuxt',
-        'nuxt-lodash'
+        'nuxt-lodash',
+        'nuxt-svgo',
+        '@nuxtjs/storybook'
     ],
     lodash: {
         prefix: '_',
@@ -89,5 +90,10 @@ export default defineNuxtConfig({
     },
     sitemap: {
         exclude: ['/wp-admin/']
+    },
+    svgo: {
+        autoImportPath: './assets/svgs/',
+        defaultImport: 'component',
+        componentPrefix: 'svg'
     }
 })

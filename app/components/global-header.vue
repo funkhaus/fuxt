@@ -1,6 +1,8 @@
 <template>
     <header class="global-header">
-        Header goes here
+        <nuxt-link to="/">
+            <svg-logo-funkhaus class="logo" />
+        </nuxt-link>
 
         <wp-menu
             name="Main Menu"
@@ -13,17 +15,11 @@
 </script>
 
 <style scoped>
-
 .global-header {
     background-color: lightgray;
 
-
-    @media (--lt-phone) {
-        background-color: red;
-
-        h2 {
-            color: yellow;
-        }
-    }
+    /* @media (--lt-phone) {
+        Mobil styles go here
+    } */
 }
 </style>

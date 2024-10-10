@@ -32,6 +32,7 @@
     "@vueuse/nuxt": "^11.1.0",
     "eslint": "^9.10.0",
     "nuxt-lodash": "^2.5.3",
+    "nuxt-svgo": "^4.0.6",
     "pinia": "^2.1.7",
     "postcss": "^8.4.47",
     "postcss-custom-media": "^11.0.1",
