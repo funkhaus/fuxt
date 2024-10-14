@@ -83,8 +83,6 @@ export default defineNuxtConfig({
         '@nuxtjs/sitemap',
         '@vueuse/nuxt',
         'nuxt-lodash',
-        '@nuxt/eslint',
-    '@nuxtjs/stylelint-module'
     ],
     lodash: {
         prefix: '_',
