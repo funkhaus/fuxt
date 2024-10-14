@@ -84,6 +84,7 @@ export default defineNuxtConfig({
         '@vueuse/nuxt',
         'nuxt-lodash',
         '@nuxt/eslint',
+    '@nuxtjs/stylelint-module'
     ],
     lodash: {
         prefix: '_',
