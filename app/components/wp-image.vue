@@ -100,7 +100,14 @@ const width = computed(() => props.image?.width || props.image?.meta?.width || 0
 const alt = computed(() => props.image?.alt || '')
 const caption = computed(() => props.image?.caption || '')
 const srcSet = computed(() => props.image?.srcset || '')
-const parsedAspectRatio = computed(() => `${width.value} / ${height.value}`)
+const parsedAspectRatio = computed(() => {
+    let output = `${width.value} / ${height.value}`
+    
+    if (props.aspectRatio && typeof props.aspectRatio === 'number') {
+        output = 100 / props.aspectRatio 
+    }
+    return output
+})
 const parsedSizes = computed(() => {
     let output = props.sizes || props.image?.sizes || ''
 
