@@ -82,7 +82,8 @@ export default defineNuxtConfig({
         '@nuxtjs/storybook',
         '@nuxtjs/sitemap',
         '@vueuse/nuxt',
-        'nuxt-lodash'
+        'nuxt-lodash',
+        '@nuxt/eslint',
     ],
     lodash: {
         prefix: '_',

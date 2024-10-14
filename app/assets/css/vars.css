@@ -9,7 +9,7 @@
   --font-primary: sans-serif;
   --font-secondary: serif;
 
-  --easing-authentic-motion: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-motion: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Breakpoints */
   @media (--lt-phone) {
