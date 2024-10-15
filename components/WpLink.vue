@@ -60,13 +60,13 @@ export default {
             return this.to.startsWith(this.frontendUrl)
         },
         isHashLink() {
-            return this.to.startsWith("#")
+            return this.to?.startsWith("#") || false
         },
         isEmail() {
-            return this.to.includes("mailto:")
+            return this.to?.includes("mailto:") || false
         },
         isPhone() {
-            return this.to.includes("tel:")
+            return this.to?.includes("tel:") || false
         },
         isRelative() {
             let result = false
