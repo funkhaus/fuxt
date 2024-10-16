@@ -8,4 +8,9 @@
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
+  "[vue]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "html.format.wrapAttributes": "force-expand-multiline"
 }
