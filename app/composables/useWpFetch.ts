@@ -4,7 +4,7 @@ export function useWpFetch(endpoint: string, options: object = {}) {
 
     const response = useFetch(endpoint, {
         transform: (data) => {
-            return convertKeysToCamelCase(data || {})
+            return keysToCamelCase(data || {})
         },
         onRequest({ options }) {
             const { enabled } = usePreviewMode()
