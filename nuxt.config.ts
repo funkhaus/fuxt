@@ -45,6 +45,10 @@ export default defineNuxtConfig({
                     href: '/favicon.png'
                 }
             ]
+        },
+        pageTransition: {
+            name: 'fade',
+            mode: 'out-in'
         }
     },
     devtools: {
@@ -62,7 +66,8 @@ export default defineNuxtConfig({
     // CSS and fonts
     css: [
         '~/assets/css/vars.css',
-        '~/assets/css/main.css'
+        '~/assets/css/main.css',
+        '~/assets/css/transitions.css'
     ],
     postcss: {
         plugins: {
@@ -97,6 +102,9 @@ export default defineNuxtConfig({
         componentPrefix: 'svg'
     },
     fonts: {
+        defaults: {
+            weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+        },
         experimental: {
             // Must be enabled to support processing fonts as CSS vars
             processCSSVariables: true
