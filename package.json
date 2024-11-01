@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
-    "@nuxt/eslint-config": "^0.5.7",
     "@nuxt/fonts": "^0.10.0",
     "@nuxtjs/sitemap": "6.0.1",
     "@nuxtjs/storybook": "^8.2.0",
@@ -31,7 +30,6 @@
     "@types/node": "^22.5.5",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
-    "eslint": "^9.10.0",
     "nuxt-lodash": "^2.5.3",
     "nuxt-svgo": "^4.0.6",
     "pinia": "^2.1.7",

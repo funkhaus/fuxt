@@ -4,9 +4,9 @@
             <svg-logo-funkhaus class="logo" />
         </nuxt-link>
 
-        <wp-menu
-            name="Main Menu"
-        />
+        <wp-menu name="Main Menu" />
+
+        <slot />
     </header>
 </template>
 

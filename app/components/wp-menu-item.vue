@@ -22,6 +22,7 @@
 </template>
 
 <script setup lang="ts">
+
 const props = defineProps({
     item: {
         type: Object,
@@ -32,5 +33,6 @@ const props = defineProps({
 // Computeds
 const children = computed(() => props.item?.children || [])
 const hasSubMenu = computed(() => Boolean(children.value.length || 0))
-const classes = computed(() => ['wp-menu-item', 'menu-item', { 'has-sub-menu': hasSubMenu.value }, ...props.item.classes])
+const classes = computed(() => ['wp-menu-item', 'menu-item', { 'has-sub-menu': hasSubMenu.value }, ...props.item?.classes || []])
+
 </script>

@@ -5,11 +5,11 @@ function keysToCamelCase(obj: unknown): unknown {
         return obj.map(v => keysToCamelCase(v));
     } else if (obj != null && obj.constructor === Object) {
         return Object.keys(obj).reduce(
-            (result, key) => ({
-                ...result,
-                [_CamelCase(key)]: keysToCamelCase(obj[key]),
-            }),
-            {},
+        (result, key) => ({
+            ...result,
+            [_CamelCase(key)]: keysToCamelCase(obj[key]),
+        }),
+        {},
         );
     }
     return obj;

@@ -1,77 +1,47 @@
-# fuxt 
+# fuxt
 
-The new version of fuxt, built around Nuxt 4.
+A complete Headless WordPress tech stack built on Nuxt 4.
 
-TODO Update this file.
+Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme and included WordPress optimized components.
 
-## Setup
+Built by [Funkhaus](http://funkhaus.us/). We normally host on [Flywheel](https://share.getf.ly/n02x5z).
 
-Make sure to install the dependencies:
+PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's provocative](https://www.youtube.com/watch?v=_eRRab36XLI).
 
-```bash
-# npm
-npm install
+## Features
 
-# pnpm
-pnpm install
+- TODO
 
-# yarn
-yarn install
+## Build Setup
 
-# bun
-bun install
-```
+**This is just a [Nuxt site](https://nuxtjs.org), so it builds and deploys like any other Nuxt project.**
 
-## Development Server
+Works best with the [fuxt-backend](https://github.com/funkhaus/fuxt-backend) WordPress theme as the backend.
 
-Start the development server on `http://localhost:3000`:
+**First step:** Duplicate and rename `.example.env` to `.env`. Define any vars environment needed there.
 
 ```bash
-# npm
-npm run dev
+# install dependencies
+$ npm install
 
-# pnpm
-pnpm run dev
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-# yarn
-yarn dev
+# serve with hot reload Storybook at localhost:3003
+$ npm run storybook
 
-# bun
-bun run dev
+# build for production and launch server
+$ npm run build
+$ npm start
+
+# build Storybook for production
+$ npx nuxt storybook build
+
+# generate static project
+$ npm run generate
+
 ```
 
-## Production
+## Documentation
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+For detailed explanation on how things work, checkout [the wiki](https://github.com/funkhaus/fuxt/wiki).

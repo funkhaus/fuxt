@@ -14,7 +14,7 @@ useHead(() => {
     return {
         titleTemplate(titleChunk) {
             const title = titleChunk
-            const siteTitle = siteStore.settings.title
+            const siteTitle = siteStore.settings?.title || ''
 
             let output = siteTitle
 
@@ -42,6 +42,4 @@ useHead(() => {
     </NuxtLayout>
 </template>
 
-<style>
-
-</style>
+<style></style>

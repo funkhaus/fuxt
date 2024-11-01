@@ -13,7 +13,8 @@ export default defineNuxtConfig({
         },
         prerender: {
             // This helps ensure that all paths end with `/`.
-            autoSubfolderIndex: true
+            autoSubfolderIndex: true,
+            crawlLinks: true
         }
     },
     vite: {

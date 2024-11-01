@@ -78,29 +78,35 @@
  .global-hamburger {
      z-index: 400;
  }
+
+ /* Page structure */
+ .header {}
  
  /* Gutenberg overrides */
  #content {
-     /* Margins above/below blocks */
-     --unit-margin-large: 40px; /* Columns, Gallerys, Blockquotes... */
-     --unit-margin-small: 20px; /* Everything except P, H{n} and lists. */
+    /* Margins above/below blocks */
+    --unit-margin-large: 40px; /* Columns, Gallerys, Blockquotes... */
+    --unit-margin-small: 20px; /* Everything except P, H{n} and lists. */
+
+    /* Gaps on the side of a block (between browser edge) */
+    --unit-gutter: var(--unit-gap, 40px);
+
+    /* Gaps inbetween images in gallery */
+    --unit-gallery-gap: var(--unit-gap, 40px);
+
+    /* Max width of blocks */
+    --unit-max-width-large: 1400px; /* Default, galleries, images, columns */
+    --unit-max-width-medium: 1080px; /* Headings (center aligned), Blockquotes */
+    --unit-max-width-small: 800px; /* Headings (left or right aligned), P, lists */
  
-     /* Gaps on the side of a block (between browser edge) */
-     --unit-gutter: var(--unit-gap, 40px);
- 
-     /* Max width of blocks */
-     --unit-max-width-large: 1400px; /* Default, galleries, images, columns */
-     --unit-max-width-medium: 1080px; /* Headings (center aligned), Blockquotes */
-     --unit-max-width-small: 800px; /* Headings (left or right aligned), P, lists */
- 
-     /* Specific block overrides */
-     .gutenberg-paragraph + .gutenberg-heading {
-         margin-top: var(--unit-margin-large);
-     }
+    /* Specific block overrides */
+    .core-paragraph + .core-heading {
+        margin-top: var(--unit-margin-large);
+    }
  
      /* Gutenberg breakpoints overrides */
      @media (--lt-phone) {
-         .gutenberg-spacer {
+         .core-spacer {
              display: none;
          }
      }

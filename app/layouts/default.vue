@@ -6,27 +6,7 @@
             <slot name="breadcrumbs">
                 <!-- Default crumbs here -->
             </slot>
-
-            <!-- TODO: global-hamburger -->
         </global-header>
-
-        <!-- <header>
-            <NuxtLink to="/blog">
-                Blog
-            </NuxtLink>
-
-            <WpMenu
-                name="Main Menu"
-                title="Menu"
-            />
-
-            <div>
-                Breakcrumbs:
-                <slot name="breadcrumbs">
-                    <Breadcrumbs :links="['A', 'B']" />
-                </slot>
-            </div>
-        </header> -->
 
         <slot />
 

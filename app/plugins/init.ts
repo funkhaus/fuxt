@@ -4,7 +4,7 @@ export default defineNuxtPlugin(async () => {
         return
     }
 
-    // Popiulate the store with the settings from the WP API
+    // Populate the store with the settings from the WP API
     await useSiteStore().init()
 
     // Configure NuxtLink defaults
