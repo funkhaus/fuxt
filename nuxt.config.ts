@@ -15,6 +15,9 @@ export default defineNuxtConfig({
             // This helps ensure that all paths end with `/`.
             autoSubfolderIndex: true,
             crawlLinks: true
+        },
+        compressPublicAssets: {
+            gzip: true
         }
     },
     vite: {
