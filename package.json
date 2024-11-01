@@ -1,47 +1,42 @@
 {
-    "name": "fuxt",
-    "version": "5.0.0",
-    "engines": {
-        "node": "18.x"
-    },
-    "engineStrict": false,
-    "description": "A Vue/Nuxt frontend boilerplate optimzed to work with the fuxt-backend WordPress theme.",
-    "author": "Funkhaus",
-    "private": true,
-    "scripts": {
-        "dev": "nuxt",
-        "build": "nuxt build",
-        "start": "nuxt start",
-        "storybook": "nuxt storybook",
-        "storybook-build": "nuxt storybook build",
-        "generate": "nuxt generate"
-    },
-    "dependencies": {
-        "nuxt": "^2.17.0"
-    },
-    "devDependencies": {
-        "@nuxtjs/sitemap": "^2.4.0",
-        "@nuxtjs/storybook": "^4.3.2",
-        "@nuxtjs/style-resources": "^1.2.1",
-        "@wordpress/autop": "^3.36.0",
-        "core-js": "^3.31.0",
-        "eslint": "^8.43.0",
-        "eslint-config-prettier": "^8.8.0",
-        "eslint-plugin-vue": "^9.15.1",
-        "graphql": "^15.8.0",
-        "graphql-tag": "^2.12.6",
-        "lodash": "^4.17.21",
-        "nodemon": "^2.0.22",
-        "nuxt-graphql-request": "^6.0.3",
-        "prettier": "^2.8.8",
-        "sass": "^1.63.6",
-        "sass-loader": "^10.2.1",
-        "vue-svg-loader": "^0.16.0",
-        "vue-template-compiler": "^2.6.12",
-        "webfontloader": "^1.6.28",
-        "webpack": "^4.46.0"
-    },
-    "comments": {
-        "devDependencies": "Graphql can't go past v15"
-    }
+  "name": "fuxt",
+  "version": "4.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "storybook": "STORYBOOK=true storybook dev -p 6006",
+    "build-storybook": "STORYBOOK=true storybook build"
+  },
+  "dependencies": {
+    "nuxt": "^3.13.2"
+  },
+  "devDependencies": {
+    "@csstools/postcss-global-data": "^3.0.0",
+    "@nuxt/fonts": "^0.10.0",
+    "@nuxtjs/sitemap": "6.0.1",
+    "@nuxtjs/storybook": "^8.2.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@storybook/addon-essentials": "^8.3.0",
+    "@storybook/addon-links": "^8.3.0",
+    "@storybook/vue3": "^8.3.0",
+    "@types/node": "^22.5.5",
+    "@vueuse/core": "^11.1.0",
+    "@vueuse/nuxt": "^11.1.0",
+    "nuxt-lodash": "^2.5.3",
+    "nuxt-svgo": "^4.0.6",
+    "pinia": "^2.1.7",
+    "postcss": "^8.4.47",
+    "postcss-custom-media": "^11.0.1",
+    "postcss-nested": "^6.2.0",
+    "storybook": "^8.3.0",
+    "vue": "^3.4.36"
+  }
 }

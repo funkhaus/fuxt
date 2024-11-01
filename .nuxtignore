@@ -1,6 +1,0 @@
-# Storybook
-**/*.stories.js
-
-# Static files
-stories/mock-api.json
-mock-api.json
