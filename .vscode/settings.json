@@ -1,4 +1,5 @@
 {
+  "prettier.enable": true,
   "eslint.useFlatConfig": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
@@ -8,4 +9,6 @@
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
