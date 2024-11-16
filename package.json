@@ -10,7 +10,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "lint": "eslint .",
-    "format": "eslint . --fix && prettier --write",
+    "format": "eslint . --fix",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
