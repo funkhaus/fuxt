@@ -35,6 +35,7 @@
     "pinia": "^2.1.7",
     "postcss": "^8.4.47",
     "postcss-custom-media": "^11.0.1",
+    "postcss-mixins": "^11.0.3",
     "postcss-nested": "^6.2.0",
     "storybook": "^8.3.0",
     "vue": "^3.4.36"

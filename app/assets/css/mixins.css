@@ -1,0 +1,21 @@
+/* mixin example */
+@define-mixin text-underline $color {
+    &::after{
+        content: '';
+        display: block;
+        width: 0%;
+        height: 2px;
+
+        background-color: $color;
+        opacity: 0;
+
+        transition: width .3s var(--easing-authentic-motion), opacity .3s var(--easing-authentic-motion);
+    }
+
+    @media (--has-hover){
+        &:hover::after{
+            width: 100%;
+            opacity: 1;
+        }
+    }
+} 

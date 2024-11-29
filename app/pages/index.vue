@@ -2,7 +2,7 @@
     <section class="page-home">
         Home page here
 
-        <button @click="toggleMenu()">
+        <button @click="toggleMenu()" class="button">
             Toggle menu
         </button>
 
@@ -36,10 +36,19 @@ const toggleMenu = () => {
 </script>
 
 <style scoped>
+/* TODO: figure out how to import mixins globally */
+@import "~/assets/css/mixins.css";
+
 .page-home {
     min-height: 200vh;
 
     color: var(--color-black);
+
+
+    .button{
+        @mixin text-underline var(--color-black);
+    }
+
     /* margin: 0 auto; */
     /* min-height: var(--unit-100vh); */
 

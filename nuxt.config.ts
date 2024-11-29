@@ -71,13 +71,15 @@ export default defineNuxtConfig({
     css: [
         '~/assets/css/vars.css',
         '~/assets/css/main.css',
-        '~/assets/css/transitions.css'
+        '~/assets/css/transitions.css',
+        '~/assets/css/mixins.css', 
     ],
     postcss: {
         plugins: {
             '@csstools/postcss-global-data': {
-                files: ['./app/assets/css/media.css']
+                files: ['./app/assets/css/media.css', './app/assets/css/mixins.css']
             },
+            'postcss-mixins': {},
             'postcss-nested': {},
             'postcss-custom-media': {}
         }
