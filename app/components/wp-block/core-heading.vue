@@ -15,7 +15,7 @@ const props = defineProps({
     attrs: {
         type: Object,
         default: () => ({})
-    },
+    }
 })
 
 // Computeds
@@ -23,17 +23,17 @@ const classes = computed(() => [
     'core-heading',
     'margin-text',
     `align-${props.attrs?.align || 'default'}`,
-    `is-${props.attrs?.tagName}`,
+    `is-${props.attrs?.tagName}`
 ])
 const styles = computed(() => ({
     fontSize: props.attrs?.style?.typography?.fontSize || 'initial',
     color: props.attrs?.style?.color?.text || 'initial',
     backgroundColor: props.attrs?.style?.color?.background || 'initial',
-    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial',
+    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial'
 }))
 </script>
 
-<style scoped>  
+<style scoped>
 .core-heading {
     font-size: v-bind('styles.fontSize');
     color: v-bind('styles.color');

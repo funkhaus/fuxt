@@ -3,21 +3,21 @@
  * Used primarily for separating text at an emdash (—).
  */
 // TODO: refactor this function to use a regular expression instead of a string for separator
-function splitAtDash(text: string = "", separator: string = " — ", keepSeparator: boolean = false): string[] {
-    let output = text.split(separator);
+function splitAtDash(text: string = '', separator: string = ' — ', keepSeparator: boolean = false): string[] {
+    let output = text.split(separator)
 
     // Add separator back into the array
     // This is useful if separating by an opening quote
     if (keepSeparator) {
         output = output.map((element, index) => {
             if (index > 0) {
-                return ` ${separator} ` + element;
+                return ` ${separator} ` + element
             }
-            return element;
-        });
+            return element
+        })
     }
 
-    return output;
+    return output
 }
 
-export default splitAtDash;
+export default splitAtDash

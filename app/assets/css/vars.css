@@ -24,17 +24,17 @@
 
 /* Set Breakpoint name, this is saved into Pina */
 :root {
-    --breakpoint-name: "desktop";
+    --breakpoint-name: 'desktop';
     @media (--gt-cinema) {
-        --breakpoint-name: "cinema";
+        --breakpoint-name: 'cinema';
     }
     @media (--lt-cinema) {
-        --breakpoint-name: "desktop";
+        --breakpoint-name: 'desktop';
     }
     @media (--lt-tablet) {
-        --breakpoint-name: "tablet";
+        --breakpoint-name: 'tablet';
     }
     @media (--lt-phone) {
-        --breakpoint-name: "phone";
+        --breakpoint-name: 'phone';
     }
 }

@@ -18,20 +18,20 @@ const props = defineProps({
     attrs: {
         type: Object,
         default: () => ({})
-    },
+    }
 })
 
 // Computeds
 const classes = computed(() => [
-    "core-video",
-    "margin-section",
-    `align-${props.attrs?.align || "center"}`
+    'core-video',
+    'margin-section',
+    `align-${props.attrs?.align || 'center'}`
 ])
 const parsedSrc = computed(() => {
     // Try to get src from attrs or caption (to support old WP versions)
     const captionSrc = props.attrs?.caption?.match(/src="([^"]*)"/) || []
-    const src = props.attrs?.src || captionSrc?.[1] || ""
-    return decodeURI(src).replaceAll("&amp;", "&")
+    const src = props.attrs?.src || captionSrc?.[1] || ''
+    return decodeURI(src).replaceAll('&amp;', '&')
 })
 </script>
 

@@ -9,5 +9,18 @@
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "eslint.validate": [
+  "javascript",
+  "javascriptreact",
+  "typescript",
+  "typescriptreact",
+  "vue",
+  "html",
+  "markdown",
+  "json",
+  "jsonc",
+  "yaml",
+  "toml"
+],
 }

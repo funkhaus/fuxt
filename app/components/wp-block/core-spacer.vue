@@ -1,6 +1,9 @@
 <template lang="html">
     <div
+        v-for="x in 10"
+        v-if="1"
         class="core-spacer"
+        :class="'foo'"
     />
 </template>
 
@@ -9,11 +12,11 @@ const props = defineProps({
     attrs: {
         type: Object,
         default: () => ({})
-    },
+    }
 })
 
 const styles = computed(() => ({
-    height: props.attrs?.height || '0px',
+    height: props.attrs?.height || '0px'
 }))
 </script>
 

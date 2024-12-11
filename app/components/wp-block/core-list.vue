@@ -24,14 +24,14 @@ const props = defineProps({
     innerBlocks: {
         type: Array,
         default: () => []
-    },
+    }
 })
 
 // Computeds
 const classes = computed(() => [
-    'core-list',    
+    'core-list',
     'margin-text',
-    `is-${listType.value}`,
+    `is-${listType.value}`
 ])
 const listType = computed(() => {
     return props.attrs?.tagName || 'ul'
@@ -41,11 +41,11 @@ const styles = computed(() => ({
     fontSize: props.attrs?.style?.typography?.fontSize || 'initial',
     color: props.attrs?.style?.color?.text || 'initial',
     backgroundColor: props.attrs?.style?.color?.background || 'initial',
-    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial',
+    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial'
 }))
 </script>
 
-<style scoped>  
+<style scoped>
 .core-list {
     font-size: v-bind('styles.fontSize');
     color: v-bind('styles.color');

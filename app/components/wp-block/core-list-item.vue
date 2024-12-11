@@ -14,7 +14,7 @@ const props = defineProps({
     attrs: {
         type: Object,
         default: () => ({})
-    },
+    }
 })
 </script>
 

@@ -3,7 +3,7 @@
         <slot name="before" />
         <ul class="menu">
             <slot name="inner" />
-            
+
             <template
                 v-for="item in items"
                 :key="item.id || item.uri || item.url"
@@ -14,13 +14,12 @@
                     :target="item.target"
                     :classes="item.classes"
                 >
-                    <wp-menu-item 
-                        @click.native="menuInteracted"    
-                        :item="item" 
+                    <wp-menu-item
+                        :item="item"
+                        @click.native="menuInteracted"
                     />
                 </slot>
             </template>
-
         </ul>
         <slot name="after" />
     </nav>
@@ -45,7 +44,7 @@ const data = ref({})
 
 // Fetch data from WP
 if (props.name) {
-    const { data: fetchedData }  = await useWpFetch(`/menus`, {
+    const { data: fetchedData } = await useWpFetch(`/menus`, {
         query: {
             name: props.name
         },
@@ -55,9 +54,10 @@ if (props.name) {
         }
     })
 
-    data.value = fetchedData.value;
-} else {
-  console.log('<wp-menu> No menu name provided');
+    data.value = fetchedData.value
+}
+else {
+    console.log('<wp-menu> No menu name provided')
 }
 
 // Computeds
@@ -65,7 +65,7 @@ const classes = computed(() => ['wp-menu', `name-${_KebabCase(props.name) || 'un
 const items = computed(() => {
     let output = props?.items || []
     if (data.value?.length) {
-        output = data.value 
+        output = data.value
     }
     return output
 })
