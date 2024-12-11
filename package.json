@@ -1,49 +1,52 @@
 {
-  "name": "fuxt",
-  "version": "4.0.0",
-  "private": true,
-  "type": "module",
-  "engines": {
-    "node": "22.x"
-  },
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "lint": "eslint .",
-    "format": "eslint . --fix",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "storybook": "STORYBOOK=true storybook dev -p 6006",
-    "build-storybook": "STORYBOOK=true storybook build"
-  },
-  "dependencies": {
-    "nuxt": "^3.13.2"
-  },
-  "devDependencies": {
-    "@csstools/postcss-global-data": "^3.0.0",
-    "@nuxt/eslint-config": "^0.7.0",
-    "@nuxt/fonts": "^0.10.0",
-    "@nuxtjs/sitemap": "6.0.1",
-    "@nuxtjs/storybook": "^8.2.0",
-    "@pinia/nuxt": "^0.5.1",
-    "@storybook/addon-essentials": "^8.3.0",
-    "@storybook/addon-links": "^8.3.0",
-    "@storybook/vue3": "^8.3.0",
-    "@types/node": "^22.5.5",
-    "@vueuse/core": "^11.1.0",
-    "@vueuse/nuxt": "^11.1.0",
-    "eslint": "^9.14.0",
-    "eslint-plugin-format": "^0.1.2",
-    "nuxt-lodash": "^2.5.3",
-    "nuxt-svgo": "^4.0.6",
-    "pinia": "^2.1.7",
-    "postcss": "^8.4.47",
-    "postcss-custom-media": "^11.0.1",
-    "postcss-nested": "^6.2.0",
-    "prettier": "^3.3.3",
-    "storybook": "^8.3.0",
-    "typescript": "^5.6.3",
-    "vue": "^3.4.36"
-  }
+    "name": "fuxt",
+    "version": "4.0.0",
+    "private": true,
+    "type": "module",
+    "engines": {
+        "node": "22.x"
+    },
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "lint": "eslint .",
+        "format": "eslint . --fix",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "storybook": "STORYBOOK=true storybook dev -p 6006",
+        "build-storybook": "STORYBOOK=true storybook build"
+    },
+    "dependencies": {
+        "nuxt": "^3.13.2"
+    },
+    "devDependencies": {
+        "@csstools/postcss-global-data": "^3.0.0",
+        "@nuxt/eslint-config": "^0.7.0",
+        "@nuxt/fonts": "^0.10.0",
+        "@nuxtjs/sitemap": "6.0.1",
+        "@nuxtjs/storybook": "^8.2.0",
+        "@pinia/nuxt": "^0.5.1",
+        "@storybook/addon-essentials": "^8.3.0",
+        "@storybook/addon-links": "^8.3.0",
+        "@storybook/vue3": "^8.3.0",
+        "@types/node": "^22.5.5",
+        "@vueuse/core": "^11.1.0",
+        "@vueuse/nuxt": "^11.1.0",
+        "eslint": "^9.14.0",
+        "eslint-plugin-format": "^0.1.2",
+        "eslint-plugin-jsonc": "^2.18.2",
+        "jsonc-eslint-parser": "^2.4.0",
+        "nuxt-lodash": "^2.5.3",
+        "nuxt-svgo": "^4.0.6",
+        "pinia": "^2.1.7",
+        "postcss": "^8.4.47",
+        "postcss-custom-media": "^11.0.1",
+        "postcss-nested": "^6.2.0",
+        "prettier": "^3.3.3",
+        "storybook": "^8.3.0",
+        "typescript": "^5.6.3",
+        "vue": "^3.4.36"
+    },
+    "packageManager": "pnpm@8.15.9+sha256.daa27a0b541bc635323ff96c2ded995467ff9fe6d69ff67021558aa9ad9dcc36"
 }
