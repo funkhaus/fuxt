@@ -1,9 +1,6 @@
 <template lang="html">
     <div
-        v-for="x in 10"
-        v-if="1"
         class="core-spacer"
-        :class="'foo'"
     />
 </template>
 
