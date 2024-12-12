@@ -1,6 +1,6 @@
 <template>
-    <p 
-        :class="classes" 
+    <p
+        :class="classes"
         v-html="innerHtml"
     />
 </template>
@@ -14,24 +14,24 @@ const props = defineProps({
     attrs: {
         type: Object,
         default: () => ({})
-    },
+    }
 })
 
 // Computeds
 const classes = computed(() => [
-    'core-paragraph',    
+    'core-paragraph',
     'margin-text',
-    `align-${props.attrs?.align || 'default'}`,
+    `align-${props.attrs?.align || 'default'}`
 ])
 const styles = computed(() => ({
     fontSize: props.attrs?.style?.typography?.fontSize || 'initial',
     color: props.attrs?.style?.color?.text || 'initial',
     backgroundColor: props.attrs?.style?.color?.background || 'initial',
-    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial',
+    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial'
 }))
 </script>
 
-<style scoped>  
+<style scoped>
 .core-paragraph {
     font-size: v-bind('styles.fontSize');
     color: v-bind('styles.color');

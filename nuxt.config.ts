@@ -1,35 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2024-09-17',
-    future: { compatibilityVersion: 4 },
 
-    // Build configuration
-    nitro: {
-        routeRules: {
-            // All routes should be ISR
-            '/**': {
-                isr: true
-            }
-        },
-        prerender: {
-            // This helps ensure that all paths end with `/`.
-            autoSubfolderIndex: true,
-            crawlLinks: true
-        },
-        compressPublicAssets: {
-            gzip: true
-        }
-    },
-    vite: {
-        optimizeDeps: {
-            // Used for v8.3.5 of Storybook. Can remove after update.
-            // SEE https://github.com/nuxt-modules/storybook/issues/776
-            include: ['jsdoc-type-pratt-parser']
-        }
-    },
-    vue: {
-        // Required for @nuxtjs/storybook
-        runtimeCompiler: process.env.STORYBOOK === 'true'
+    // Modules and configuration
+    modules: [
+        '@pinia/nuxt',
+        'nuxt-svgo',
+        '@nuxt/fonts',
+        '@nuxtjs/storybook',
+        '@nuxtjs/sitemap',
+        '@vueuse/nuxt',
+        'nuxt-lodash'
+    ],
+    devtools: {
+        // This only ships on dev, it gets stripped in Production
+        enabled: true
     },
 
     // Nuxt app configuration
@@ -55,9 +39,16 @@ export default defineNuxtConfig({
             mode: 'out-in'
         }
     },
-    devtools: {
-        // This only ships on dev, it gets stripped in Production
-        enabled: true
+
+    // CSS and fonts
+    css: [
+        '~/assets/css/vars.css',
+        '~/assets/css/main.css',
+        '~/assets/css/transitions.css'
+    ],
+    vue: {
+        // Required for @nuxtjs/storybook
+        runtimeCompiler: process.env.STORYBOOK === 'true'
     },
 
     // Runtime ENV parsing
@@ -66,13 +57,33 @@ export default defineNuxtConfig({
             wordpressApiUrl: process.env.WORDPRESS_API_URL
         }
     },
+    future: { compatibilityVersion: 4 },
+    compatibilityDate: '2024-09-17',
 
-    // CSS and fonts
-    css: [
-        '~/assets/css/vars.css',
-        '~/assets/css/main.css',
-        '~/assets/css/transitions.css'
-    ],
+    // Build configuration
+    nitro: {
+        routeRules: {
+            // All routes should be ISR
+            '/**': {
+                isr: true
+            }
+        },
+        prerender: {
+            // This helps ensure that all paths end with `/`.
+            autoSubfolderIndex: true,
+            crawlLinks: true
+        },
+        compressPublicAssets: {
+            gzip: true
+        }
+    },
+    vite: {
+        optimizeDeps: {
+            // Used for v8.3.5 of Storybook. Can remove after update.
+            // SEE https://github.com/nuxt-modules/storybook/issues/776
+            include: ['jsdoc-type-pratt-parser']
+        }
+    },
     postcss: {
         plugins: {
             '@csstools/postcss-global-data': {
@@ -82,17 +93,15 @@ export default defineNuxtConfig({
             'postcss-custom-media': {}
         }
     },
-
-    // Modules and configuration
-    modules: [
-        '@pinia/nuxt',
-        'nuxt-svgo',
-        '@nuxt/fonts',
-        '@nuxtjs/storybook',
-        '@nuxtjs/sitemap',
-        '@vueuse/nuxt',
-        'nuxt-lodash'
-    ],
+    fonts: {
+        defaults: {
+            weights: [100, 200, 300, 400, 500, 600, 700, 800, 900]
+        },
+        experimental: {
+            // Must be enabled to support processing fonts as CSS vars
+            processCSSVariables: true
+        }
+    },
     lodash: {
         prefix: '_',
         prefixSkip: []
@@ -104,14 +113,5 @@ export default defineNuxtConfig({
         autoImportPath: './assets/svgs/',
         defaultImport: 'component',
         componentPrefix: 'svg'
-    },
-    fonts: {
-        defaults: {
-            weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-        },
-        experimental: {
-            // Must be enabled to support processing fonts as CSS vars
-            processCSSVariables: true
-        }
     }
 })

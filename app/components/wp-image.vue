@@ -1,13 +1,35 @@
 <template>
     <figure :class="classes">
-        <img v-if="src && !disabled" ref="imageEl" class="media media-image" :src="src" :srcset="srcSet"
-            :sizes="parsedSizes" loading="lazy" :alt="alt" @load="setImageLoaded">
+        <img
+            v-if="src && !disabled"
+            ref="imageEl"
+            class="media media-image"
+            :src="src"
+            :srcset="srcSet"
+            :sizes="parsedSizes"
+            loading="lazy"
+            :alt="alt"
+            @load="setImageLoaded"
+        >
 
-        <video v-if="videoUrl && !disabled" ref="videoEl" class="media media-video" :src="videoUrl" :loop="props.loop"
-            :autoplay="props.autoplay" :muted="props.muted" playsinline disablePictureInPicture="true"
-            @playing="onPlaying" />
+        <video
+            v-if="videoUrl && !disabled"
+            ref="videoEl"
+            class="media media-video"
+            :src="videoUrl"
+            :loop="props.loop"
+            :autoplay="props.autoplay"
+            :muted="props.muted"
+            playsinline
+            disablePictureInPicture="true"
+            @playing="onPlaying"
+        />
 
-        <figcaption v-if="caption" class="caption" v-text="caption" />
+        <figcaption
+            v-if="caption"
+            class="caption"
+            v-text="caption"
+        />
 
         <slot />
     </figure>
@@ -19,7 +41,6 @@ const videoEl = ref(null)
 const imageLoaded = ref(false)
 
 const emit = defineEmits(['image-loaded', 'is-playing', 'is-paused', 'is-ended'])
-
 
 // Props
 const props = defineProps({
@@ -141,7 +162,6 @@ const cssVars = ref({
 const setImageLoaded = () => {
     imageLoaded.value = true
     emit('image-loaded')
-
 }
 const onPlaying = () => {
     isPlaying.value = true
@@ -153,7 +173,6 @@ onMounted(() => {
     imageLoaded.value = imageEl.value?.complete || false
     isPlaying.value = videoEl.value ? !videoEl.value?.paused : false
 })
-
 </script>
 
 <style scoped>

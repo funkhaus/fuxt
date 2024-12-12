@@ -23,29 +23,28 @@ const props = defineProps({
     attrs: {
         type: Object,
         default: () => ({})
-    },
+    }
 })
 
 // Computeds
 const classes = computed(() => [
-    'core-block',    
+    'core-block',
     'margin-section',
-    `align-${props.attrs?.align || 'default'}`,
+    `align-${props.attrs?.align || 'default'}`
 ])
 const styles = computed(() => ({
     fontSize: props.attrs?.style?.typography?.fontSize || 'initial',
     color: props.attrs?.style?.color?.text || 'initial',
     backgroundColor: props.attrs?.style?.color?.background || 'initial',
-    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial',
+    letterSpacing: props.attrs?.style?.typography?.letterSpacing || 'initial'
 }))
 const citation = computed(() => {
-    let cite = props.attrs?.citation || ''
+    const cite = props.attrs?.citation || ''
     return cite.replace('<blockquote class="wp-block-quote"><cite>', '').replace('</cite></blockquote>', '')
 })
-
 </script>
 
-<style scoped>  
+<style scoped>
 .core-quote {
     font-size: v-bind('styles.fontSize');
     color: v-bind('styles.color');

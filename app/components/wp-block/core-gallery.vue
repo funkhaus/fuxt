@@ -18,23 +18,23 @@ const props = defineProps({
     attrs: {
         type: Object,
         default: () => ({})
-    },
+    }
 })
 
 // Computeds
 const classes = computed(() => [
-    "core-gallery",
-    "margin-section",
+    'core-gallery',
+    'margin-section',
     `is-${props.attrs?.columns || 3}-columns`,
-    { "mode-default": !props.attrs?.imageCrop || false },
-    { "mode-cropped": props.attrs?.imageCrop || false },
-    { "is-random": props.attrs?.randomOrder || false },
+    { 'mode-default': !props.attrs?.imageCrop || false },
+    { 'mode-cropped': props.attrs?.imageCrop || false },
+    { 'is-random': props.attrs?.randomOrder || false }
 ])
 
 // Handle random order of gallery items in SSR friendly way
 const images = useState('images', () => {
-    let blocks = props.innerBlocks
-    if(props.attrs?.randomOrder) {
+    const blocks = props.innerBlocks
+    if (props.attrs?.randomOrder) {
         return _Shuffle(blocks)
     }
     return blocks
@@ -42,7 +42,7 @@ const images = useState('images', () => {
 </script>
 
 <style scoped>
-.core-gallery {    
+.core-gallery {
     --gap: var(--unit-gallery-gap, --unit-gap);
 
     display: flex;
@@ -95,12 +95,12 @@ const images = useState('images', () => {
         flex-grow: 1;
         justify-content: center;
         max-width: 100%;
-        position: relative;            
-    }    
+        position: relative;
+    }
     &.mode-default {
         .item {
             margin-bottom: auto;
-            margin-top: auto;          
+            margin-top: auto;
         }
     }
     &.mode-cropped {
@@ -111,9 +111,9 @@ const images = useState('images', () => {
             flex-grow: 1;
             justify-content: center;
             max-width: 100%;
-            position: relative;            
+            position: relative;
         } */
-    }    
+    }
 
     /* Breakpoints */
     @media (--lt-phone) {

@@ -18,16 +18,15 @@ const props = defineProps({
     innerBlocks: {
         type: Array,
         default: () => []
-    },
+    }
 })
 
 // Computeds
 const classes = computed(() => [
     'core-columns',
     'margin-section',
-    { "is-stacked-on-mobile": props.attrs.isStackedOnMobile }
+    { 'is-stacked-on-mobile': props.attrs.isStackedOnMobile }
 ])
-
 </script>
 
 <style scoped>
