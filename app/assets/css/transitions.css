@@ -67,7 +67,7 @@
     > * {
         transition:
             transform 0.6s var(--easing-authentic-motion),
-            opacity 0.4s ease-in-out;
+            opacity 0.4s var(--easing-authentic-motion);
     }
 }
 .reveal-up-enter-active {
@@ -105,7 +105,7 @@
     > * {
         transition:
             transform 0.6s var(--easing-authentic-motion),
-            opacity 0.4s ease-in-out;
+            opacity 0.4s var(--easing-authentic-motion);
     }
 }
 .reveal-down-enter-active {
