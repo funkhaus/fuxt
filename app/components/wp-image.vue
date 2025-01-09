@@ -168,6 +168,28 @@ const onPlaying = () => {
     emit('is-playing')
 }
 
+const pause = () => {
+    if (videoEl.value) {
+        videoEl.value.pause()
+        isPlaying.value = false
+        emit('is-paused')
+    }
+}
+
+const play = () => {
+    if (videoEl.value) {
+        videoEl.value.play()
+        isPlaying.value = true
+        emit('is-playing')
+    }
+}
+
+// Expose to parent
+defineExpose({
+    play,
+    pause
+})
+
 // Lifecycle hooks
 onMounted(() => {
     imageLoaded.value = imageEl.value?.complete || false
