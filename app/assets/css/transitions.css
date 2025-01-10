@@ -29,7 +29,7 @@
 .slide-up-leave-active {
     transition: transform 0.4s var(--easing-authentic-motion);
 }
-.slide-up-enter {
+.slide-up-enter-from {
     transform: translateY(100%);
 }
 .slide-up-enter-to {
@@ -47,7 +47,7 @@
 .slide-down-leave-active {
     transition: transform 0.4s var(--easing-authentic-motion);
 }
-.slide-down-enter {
+.slide-down-enter-from {
     transform: translateY(-100%);
 }
 .slide-down-enter-to {
@@ -73,7 +73,7 @@
 .reveal-up-enter-active {
     z-index: 10;
 }
-.reveal-up-enter {
+.reveal-up-enter-from {
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
     > * {
         transform: translateY(100px);
@@ -111,7 +111,7 @@
 .reveal-down-enter-active {
     z-index: 10;
 }
-.reveal-down-enter {
+.reveal-down-enter-from {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     > * {
         transform: translateY(-100px);
