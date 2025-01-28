@@ -106,6 +106,10 @@ export default defineNuxtConfig({
         prefix: '_',
         prefixSkip: []
     },
+
+    server: {
+        host: process.env.HOST || '0.0.0.0'
+    },
     sitemap: {
         exclude: ['/wp-admin/']
     },
