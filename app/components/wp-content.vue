@@ -19,6 +19,7 @@ const allBlocks = {
     'core-image': resolveComponent('wp-block-core-image'),
     'core-columns': resolveComponent('wp-block-core-columns'),
     'core-column': resolveComponent('wp-block-core-column'),
+    'core-cover': resolveComponent('wp-block-core-cover'),
     'core-list': resolveComponent('wp-block-core-list'),
     'core-spacer': resolveComponent('wp-block-core-spacer'),
     'core-gallery': resolveComponent('wp-block-core-gallery'),
