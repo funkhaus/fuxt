@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     css: [
         '~/assets/css/vars.css',
         '~/assets/css/main.css',
+        '~/assets/css/fonts.css',
         '~/assets/css/transitions.css'
     ],
     vue: {
