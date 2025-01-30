@@ -130,16 +130,18 @@ const parsedFontSize = computed(() => {
         background-color: transparent;
         background-image: none;
     }
-    &.is-link .link:hover {
-        opacity: 0.75;
-    }
 
     /* Hovers */
     @media (--has-hover) {
-        &.is-style-outline.is-link .link:hover {
-            opacity: 1;
-            background-color: var(--color, #32373c);
-            border-color: var(--background-color, #32373c);
+        &.is-link {
+            .link:hover {
+                opacity: 0.75;
+            }
+            &.is-style-outline .link:hover {
+                opacity: 1;
+                color: var(--color, #32373c);
+                border-color: var(--background-color, #32373c);
+            }
         }
     }
 }

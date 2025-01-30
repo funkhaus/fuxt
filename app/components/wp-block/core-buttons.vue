@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-
 const props = defineProps({
     attrs: {
         type: Object,
@@ -59,7 +58,6 @@ const parsedBlocks = computed(() => {
 <style scoped>
 .core-buttons {
     display: flex;
-    /* Currently WP GQL Gutenberg doesn't expose this as a prop */
     align-items: center;
     gap: 0.5em;
 
