@@ -139,7 +139,6 @@ const parsedFontSize = computed(() => {
             }
             &.is-style-outline .link:hover {
                 opacity: 1;
-                color: var(--color, #32373c);
                 border-color: var(--background-color, #32373c);
             }
         }
