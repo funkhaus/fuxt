@@ -3,7 +3,7 @@
         :class="classes"
         :style="parsedStyles"
     >
-        <core-button
+        <wp-block-core-button
             v-for="(block, i) in parsedBlocks"
             :key="`block-button-${i}`"
             v-bind="block"
@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import CoreButton from './core-button.vue'
 
 const props = defineProps({
     attrs: {
