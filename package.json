@@ -21,6 +21,7 @@
         "nuxt": "^3.13.2"
     },
     "devDependencies": {
+        "@chromatic-com/storybook": "^3.2.4",
         "@csstools/postcss-global-data": "^3.0.0",
         "@nuxt/eslint-config": "^0.7.0",
         "@nuxt/fonts": "^0.10.0",
