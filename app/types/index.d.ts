@@ -1,1 +1,1 @@
-export * from './funkyImage'
+export * from './global-hamburger'

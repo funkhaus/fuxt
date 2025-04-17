@@ -2,15 +2,15 @@
     <section class="page-home">
         Home page here
 
-        <button @click="toggleMenu()">
-            Toggle menu
-        </button>
+        <global-hamburger
+            :menu-opened="siteStore.menuOpened"
+            @toggle-menu="toggleMenu()"
+        />
 
-        <br>
-
-        <!-- <div v-html="data.content" /> -->
-
-        <wp-image :image="data.featuredMedia" />
+        <div
+            v-if="data?.content"
+            v-html="data?.content"
+        />
     </section>
 </template>
 
@@ -22,11 +22,6 @@ const { data } = await useWpFetch(`/post`, {
     query: {
         uri: '/'
     }
-    // pick: ['title'],
-    // onResponseError({ error }) {
-    //     console.warn('<wp-seo> Fetch Error:', parsedPath, error)
-    //     data.value = {}
-    // }
 })
 
 // Methods
@@ -37,20 +32,17 @@ const toggleMenu = () => {
 
 <style scoped>
 .page-home {
-    min-height: 200vh;
+    min-height: var(--unit-100vh);
 
-    color: var(--color-black);
-    /* margin: 0 auto; */
-    /* min-height: var(--unit-100vh); */
-
-    /* Hover states */
-    /* @media #{$has-hover} {
-         Hover styles would go here
-    } */
-
+    /* Hover */
+    @media (--has-hover) {
+    }
     /* Breakpoints */
+    @media (--gt-cinema) {
+    }
+    @media (--lt-tablet) {
+    }
     @media (--lt-phone) {
-        background-color: blue;
     }
 }
 </style>
