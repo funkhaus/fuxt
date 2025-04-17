@@ -8,7 +8,6 @@
         />
 
         <div
-            v-if="data?.content"
             v-html="data?.content"
         />
     </section>
