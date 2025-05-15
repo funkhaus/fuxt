@@ -35,10 +35,10 @@ const dimensions = computed(() => {
     }
 
     // Go through each class, and figure out the ratio from this: "wp-embed-aspect-16-9"
-    props.attrs?.className.split(' ').forEach((str) => {
+    props.attrs?.className?.split(' ').forEach((str) => {
         if (str.includes('wp-embed-aspect-')) {
             let ratio = str.replace('wp-embed-aspect-', '')
-            ratio = ratio.split('-')
+            ratio = ratio?.split('-')
 
             output.width = parseInt(ratio[0])
             output.height = parseInt(ratio[1])
