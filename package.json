@@ -18,7 +18,7 @@
         "build-storybook": "STORYBOOK=true storybook build"
     },
     "dependencies": {
-        "nuxt": "^3.13.2"
+        "nuxt": "^3.15.4"
     },
     "devDependencies": {
         "@chromatic-com/storybook": "^3.2.4",
