@@ -2,7 +2,7 @@
  * Get a cookie. Used by custom video player.
  * SEE https://stackoverflow.com/a/24103596/503546
  */
-function getCookie(name: string): string | null {
+const getCookie = (name: string): string | null => {
     const nameEQ = `${name}=`
     const cookiesArray = document.cookie.split(';')
 
