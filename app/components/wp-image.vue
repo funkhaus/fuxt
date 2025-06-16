@@ -31,6 +31,7 @@
                 v-if="blurhash && showBlurhash && enableBlurhash"
                 ref="blurhashCanvas"
                 class="blurhash-bg"
+                aria-hidden="true"
             />
             <!-- <canvas
                 v-if="blurhash && !imageLoaded && !disabled"
@@ -222,14 +223,13 @@ defineExpose({
 
 // Watchers
 // This decodes the blurhash code from the backend and draws it as a blurry placeholder image on the canvas, scaled up to fill the image area. This provides a nice preview while the real image loads.
-watchEffect(() => {
+function drawBlurhash() {
     if (!blurhash.value || !blurhashCanvas.value) return
     // Sets the canvas size to 32x32 pixels. This is the resolution at which the blurhash will be decoded.
     const width = 32
     const height = 32
     blurhashCanvas.value.width = width
     blurhashCanvas.value.height = height
-    // returns Uint8ClampedArray RGBA
     // Uses the decode function to turn the blurhash string into pixel data (RGBA values) for a 32x32 image.
     const pixels = decode(blurhash.value, width, height)
     // Gets the 2D drawing context from the canvas.
@@ -244,12 +244,14 @@ watchEffect(() => {
     // Sets the canvas’s CSS width and height to 100% so it fills its container, but the actual pixel data remains low-res and blurry.
     blurhashCanvas.value.style.width = '100%'
     blurhashCanvas.value.style.height = '100%'
-})
+}
 
 // Lifecycle hooks
 onMounted(() => {
     imageLoaded.value = imageEl.value?.complete || false
     isPlaying.value = videoEl.value ? !videoEl.value?.paused : false
+
+    drawBlurhash()
 
     // TODO: Remove this after testing
     setTimeout(() => {
