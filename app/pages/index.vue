@@ -1,6 +1,11 @@
 <template>
     <section class="page-home">
         Home page here
+        <wp-image
+            v-for="(item, index) in items"
+            :key="index"
+            :image="item"
+        />
 
         <global-hamburger
             :menu-opened="siteStore.menuOpened"
@@ -17,10 +22,23 @@
 const siteStore = useSiteStore()
 
 // Fetch data from WP
-const { data } = await useWpFetch(`/post`, {
+const pageReq = useWpFetch(`/post`, {
     query: {
         uri: '/'
     }
+})
+const workReq = useWpFetch(`/post`, {
+    query: {
+        uri: '/work',
+        fields: 'acf, children'
+    }
+})
+
+const [{ data: workData }, { data: pageData }] = await Promise.all([workReq, pageReq])
+
+// Computed properties
+const items = computed(() => {
+    return workData?.value?.children?.map(item => item?.featuredMedia || {}) || []
 })
 
 // Methods
