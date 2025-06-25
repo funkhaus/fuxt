@@ -2,7 +2,7 @@
  * Set a cookie. Used by custom video player.
  * SEE https://stackoverflow.com/a/24103596/503546
  */
-function setCookie(name: string, value: string, days?: number): void {
+const setCookie = (name: string, value: string, days?: number): void => {
     let expires = ''
     if (days) {
         const date = new Date()

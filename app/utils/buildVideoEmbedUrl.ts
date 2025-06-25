@@ -28,8 +28,7 @@ function buildVideoEmbedUrl(url: string = '', options: Record<string, any> = {})
  * @param {Record<string, any>} options - Optional Vimeo embed parameter options.
  * @returns {string}
  */
-function buildVimeoUrl(url: string = '', options: Record<string, any> = {}): string {
-    // Set defaults and merge with provided options
+const buildVimeoUrl = (url: string = '', options: Record<string, any> = {}): string => {
     const defaults: Record<string, any> = {
         byline: 0,
         portrait: 0,
@@ -44,25 +43,20 @@ function buildVimeoUrl(url: string = '', options: Record<string, any> = {}): str
     }
     const parameters: Record<string, any> = { ...defaults, ...options }
 
-    // Parse URL, remove query params, set new player hostname
     const parsedUrl = new URL(url)
     parsedUrl.search = ''
     parsedUrl.hostname = 'player.vimeo.com'
 
-    // Get Video ID and Privacy Hash from paths
     const paths = parsedUrl.pathname.split('/').filter(Boolean)
-
-    // Set ID
     parsedUrl.pathname = `/video/${paths[0] || ''}`
 
-    // Set privacy hash
     if (paths[1]) {
         parsedUrl.searchParams.set('h', paths[1])
     }
 
-    // Add all options as query params to URL
     return setUrlParameters(parsedUrl, parameters).toString()
 }
+
 
 /**
  * Convert a YouTube video page URL into an iFrame embed URL
@@ -71,7 +65,7 @@ function buildVimeoUrl(url: string = '', options: Record<string, any> = {}): str
  * @param {Record<string, any>} options - Optional YouTube embed parameter options.
  * @returns {string}
  */
-function buildYouTubeUrl(url: string, options: Record<string, any>): string {
+const buildYouTubeUrl = (url: string, options: Record<string, any>): string => {
     // Set defaults and merge with provided options
     const defaults: Record<string, any> = {
         rel: 0,
@@ -92,10 +86,10 @@ function buildYouTubeUrl(url: string, options: Record<string, any>): string {
     const parsedUrl = new URL(url)
     parsedUrl.search = ''
 
-    // Set ID
+      // Set ID
     parsedUrl.pathname = `/embed/${youTubeId}`
 
-    // Add all options as query params to URL
+     // Add all options as query params to URL
     return setUrlParameters(parsedUrl, parameters)
         .toString()
         .replace('https://youtu.be/', 'https://www.youtube.com/')
@@ -108,9 +102,8 @@ function buildYouTubeUrl(url: string, options: Record<string, any>): string {
  * @param {Record<string, any>} parameters - Object of URL parameter key:value pairs
  * @returns {URL} - A URL interface with updated parameters
  */
-function setUrlParameters(url: URL, parameters: Record<string, any> = {}): URL {
+const setUrlParameters = (url: URL, parameters: Record<string, any> = {}): URL => {
     Object.entries(parameters).forEach(([key, value]) => {
-        // Cast a true/false to 1/0 to be URL friendly
         if (typeof value === 'boolean') {
             url.searchParams.set(key, Number(value).toString())
         }
@@ -127,25 +120,22 @@ function setUrlParameters(url: URL, parameters: Record<string, any> = {}): URL {
  * @param {string} url
  * @returns {boolean}
  */
-function isVimeo(url: string = ''): boolean {
-    return url.includes('vimeo.com')
-}
+const isVimeo = (url: string = ''): boolean => url.includes('vimeo.com')
 
 /**
  * Tests a URL string for YouTube
  * @param {string} url
  * @returns {boolean}
  */
-function isYouTube(url: string = ''): boolean {
-    return url.includes('youtube.com') || url.includes('youtu.be')
-}
+const isYouTube = (url: string = ''): boolean => url.includes('youtube.com') || url.includes('youtu.be')
+
 
 /**
  * Gets a YouTube ID from a URL string
  * @param {string} url
  * @returns {string}
  */
-function getYouTubeId(url: string = ''): string {
+const getYouTubeId = (url: string = ''): string => {
     const regex = /youtu(?:.*\/v\/|.*v\=|\.be\/)([A-Za-z0-9_\-]{11})/
     const matches = url.match(regex)
     return matches ? matches[1] : ''
