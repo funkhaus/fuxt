@@ -27,6 +27,7 @@
 
         <transition name="fade">
             <canvas
+                aria-hidden="true"
                 v-if="blurhash && !imageLoaded && !disabled"
                 ref="blurhashCanvas"
                 class="blurhash-bg"
