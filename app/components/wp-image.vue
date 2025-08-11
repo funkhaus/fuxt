@@ -207,12 +207,6 @@ const play = () => {
     }
 }
 
-// Expose to parent
-defineExpose({
-    play,
-    pause
-})
-
 // Watchers
 // This decodes the blurhash code from the backend and draws it as a blurry placeholder image on the canvas, scaled up to fill the image area. This provides a nice preview while the real image loads.
 function drawBlurhash() {
@@ -244,6 +238,12 @@ onMounted(() => {
     isPlaying.value = videoEl.value ? !videoEl.value?.paused : false
 
     drawBlurhash()
+})
+
+// Expose to parent
+defineExpose({
+    play,
+    pause
 })
 </script>
 
