@@ -25,19 +25,12 @@
             @playing="onPlaying"
         />
 
-        <!-- TODO: replace after/if merged - For the working showcase -->
         <transition name="fade">
             <canvas
-                v-if="blurhash && showBlurhash && enableBlurhash"
-                ref="blurhashCanvas"
-                class="blurhash-bg"
-                aria-hidden="true"
-            />
-            <!-- <canvas
                 v-if="blurhash && !imageLoaded && !disabled"
                 ref="blurhashCanvas"
                 class="blurhash-bg"
-            /> -->
+            />
         </transition>
 
         <figcaption
@@ -112,9 +105,6 @@ const props = defineProps({
 // State
 const isPlaying = ref(false)
 
-// TODO: Delete this, only for testing purposes
-const showBlurhash = ref(true)
-
 // Computed
 const classes = computed(() => [
     'wp-image',
@@ -126,6 +116,7 @@ const classes = computed(() => [
     { 'is-disabled': props.disabled },
     { 'is-playing': isPlaying.value }
 ])
+
 const src = computed(() => props.image?.src || '')
 const videoUrl = computed(() => props.image?.acf?.videoUrl || '')
 const hasVideo = computed(() => Boolean(videoUrl.value))
@@ -252,11 +243,6 @@ onMounted(() => {
     isPlaying.value = videoEl.value ? !videoEl.value?.paused : false
 
     drawBlurhash()
-
-    // TODO: Remove this after testing
-    setTimeout(() => {
-        showBlurhash.value = false
-    }, 2000)
 })
 </script>
 
