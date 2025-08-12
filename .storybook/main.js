@@ -1,13 +1,8 @@
 /** @type { import('storybook-vue').StorybookConfig } */
 const config = {
     stories: [
-        '../pages/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-        '../components/**/*.stories.@(js|jsx|ts|tsx|mdx)'
-    ],
-    addons: [
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@chromatic-com/storybook'
+        '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+        '../stories/**/*.@(js|jsx|ts|tsx|mdx)'
     ],
     framework: {
         name: '@storybook-vue/nuxt',

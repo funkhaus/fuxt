@@ -116,6 +116,6 @@ export default defineNuxtConfig({
     svgo: {
         autoImportPath: './assets/svgs/',
         defaultImport: 'component',
-        componentPrefix: 'svg'
+        componentPrefix: 'svg',
     }
 })
