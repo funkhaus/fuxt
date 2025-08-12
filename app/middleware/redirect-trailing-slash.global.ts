@@ -1,6 +1,10 @@
 import { withTrailingSlash, stringifyQuery } from 'ufo'
 
 export default defineNuxtRouteMiddleware((to, from) => {
+    if (!import.meta.client) {
+        return
+    }
+
     const pathEndsWithSlash = to.path.endsWith('/')
     let redirectUrl = withTrailingSlash(to.path)
 

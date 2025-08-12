@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import decodeHtmlEntities from './utils/decodeHtmlEntities'
+
 const route = useRoute()
 const siteStore = useSiteStore()
 
@@ -13,8 +15,8 @@ const htmlClasses = computed(() => [
 useHead(() => {
     return {
         titleTemplate(titleChunk) {
-            const title = titleChunk
-            const siteTitle = siteStore.settings?.title || ''
+            const title = decodeHtmlEntities(titleChunk)
+            const siteTitle = decodeHtmlEntities(siteStore.settings?.title || '')
 
             let output = siteTitle
 
