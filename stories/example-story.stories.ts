@@ -11,7 +11,7 @@ export const Default = () => ({
     components: { GlobalHamburger, WpImage },
     data() {
         return {
-            image: API.images.nodes[5],
+            image: API.images.nodes[2],
             isOpen: false
         }
     },
