@@ -10,10 +10,8 @@
 /* @custom-media --pad: "only screen and (min-device-width : 768px) and (max-device-width : 1024px)"; */
 @custom-media --has-hover (hover: hover);
 
-
-
 /* Usage example:
 @media (--lt-phone) {
     background-color: red;
-} 
+}
 */

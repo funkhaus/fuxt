@@ -3,87 +3,87 @@
  * It's useful for global styles.
  */
 
- 
- /* Globals */
- html {
-     font-family: var(--font-primary);
-     font-size: 16px;
-     color: var(--color-black);
-     background-color: var(--color-white);
-     margin: 0;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-     font-feature-settings: "kern" 1;
-     font-kerning: normal;
- }
- body {
-     margin: 0;
- }
- ::selection {
-     color: var(--color-white);
-     background: var(--color-black);
- }
- h1,
- h2,
- h3,
- h4,
- h5 {
-     font-weight: 400;
- }
- a {
-     text-decoration: none;
-     color: inherit;
-     transition: color 0.4s;
- }
- button {
-     appearance: none;
-     border: none;
-     background-color: transparent;
-     cursor: pointer;
-     outline: none;
-     margin: 0;
- }
- .title {
-     .line {
-         display: block;
-     }
- }
- .overlay {
-     position: absolute;
-     top: 0;
-     left: 0;
-     right: 0;
-     bottom: 0;
-     background: rgba(0, 0, 0, 0.3);
- }
- .svg {
-     path {
-         transition: fill 0.4s;
-     }
- }
- 
- /* Z-Indexs */
- .footer {
-     z-index: -100;
- }
- .page {
-     z-index: 100;
- }
- .header {
-     z-index: 200;
- }
- .menu-panel {
-     z-index: 300;
- }
- .global-hamburger {
-     z-index: 400;
- }
+/* Globals */
+html {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1;
+    font-kerning: normal;
+}
+body {
+    margin: 0;
+}
+::selection {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 400;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.4s;
+}
+button {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    margin: 0;
+}
+.title {
+    .line {
+        display: block;
+    }
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+.svg {
+    path {
+        transition: fill 0.4s;
+    }
+}
 
- /* Page structure */
- .header {}
- 
- /* Gutenberg overrides */
- #content {
+/* Z-Indexs */
+.footer {
+    z-index: -100;
+}
+.page {
+    z-index: 100;
+}
+.header {
+    z-index: 200;
+}
+.menu-panel {
+    z-index: 300;
+}
+.global-hamburger {
+    z-index: 400;
+}
+
+/* Page structure */
+.header {
+}
+
+/* Gutenberg overrides */
+#content {
     /* Margins above/below blocks */
     --unit-margin-large: 40px; /* Columns, Gallerys, Blockquotes... */
     --unit-margin-small: 20px; /* Everything except P, H{n} and lists. */
@@ -98,22 +98,22 @@
     --unit-max-width-large: 1400px; /* Default, galleries, images, columns */
     --unit-max-width-medium: 1080px; /* Headings (center aligned), Blockquotes */
     --unit-max-width-small: 800px; /* Headings (left or right aligned), P, lists */
- 
+
     /* Specific block overrides */
     .core-paragraph + .core-heading {
         margin-top: var(--unit-margin-large);
     }
- 
-     /* Gutenberg breakpoints overrides */
-     @media (--lt-phone) {
-         .core-spacer {
-             display: none;
-         }
-     }
- }
- 
- /* Animations */
- /* .bounce {
+
+    /* Gutenberg breakpoints overrides */
+    @media (--lt-phone) {
+        .core-spacer {
+            display: none;
+        }
+    }
+}
+
+/* Animations */
+/* .bounce {
      animation: bounce 1.5s ease-in-out infinite;
  }
  @keyframes bounce {
@@ -131,4 +131,3 @@
          transform: translateY(5px) translateX(-50%);
      }
  } */
- 

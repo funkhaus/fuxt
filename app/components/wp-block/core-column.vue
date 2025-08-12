@@ -1,7 +1,7 @@
 <template>
     <div :class="classes">
-        <wp-content 
-            :blocks="innerBlocks" 
+        <wp-content
+            :blocks="innerBlocks"
         />
     </div>
 </template>
@@ -15,20 +15,19 @@ const props = defineProps({
     innerBlocks: {
         type: Array,
         default: () => []
-    },
+    }
 })
 
 // Computeds
 const classes = computed(() => [
     'core-column',
-    `vertical-alignment-${props.attrs?.verticalAlignment || "default"}`,
-    { "column-empty": props.innerBlocks?.length == 0 },
-    { "has-width": Boolean(props.attrs.width) },
+    `vertical-alignment-${props.attrs?.verticalAlignment || 'default'}`,
+    { 'column-empty': props.innerBlocks?.length == 0 },
+    { 'has-width': Boolean(props.attrs.width) }
 ])
 const styles = computed(() => ({
-    width: props.attrs?.width || '0',
+    width: props.attrs?.width || '0'
 }))
-
 </script>
 
 <style scoped>

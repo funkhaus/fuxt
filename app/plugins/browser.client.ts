@@ -4,12 +4,10 @@ export default defineNuxtPlugin(() => {
     // Get browser dimensions
     const { y } = useWindowScroll()
     const { width: newWinWidth, height: newWinHeight } = useWindowSize()
-    const newBreakpoint = useCssVar('--breakpoint-name')
 
     // Update scroll direction
     watch(y, (newVal, oldVal = 0) => {
         siteStore.sTop = newVal
-        siteStore.breakpoint = newBreakpoint?.value?.replace(/['"]+/g, '').trim() || 'desktop'
 
         if (oldVal > newVal || newVal === 0) {
             siteStore.scrollDirection = 'up'
@@ -23,6 +21,9 @@ export default defineNuxtPlugin(() => {
 
     // Update window dimensions
     watch([newWinWidth, newWinHeight], () => {
+        const newBreakpoint = useCssVar('--breakpoint-name')
+        siteStore.breakpoint = newBreakpoint?.value?.replace(/['"]+/g, '').trim() || 'desktop'
+        
         siteStore.winWidth = newWinWidth.value
         siteStore.winHeight = newWinHeight.value
     }, {

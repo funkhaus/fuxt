@@ -1,19 +1,19 @@
 /* Fade */
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
     opacity: 0;
 }
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.4s var(--easing-motion);
+    transition: opacity 0.4s var(--easing-authentic-motion);
 }
 
 /* Slide left & slide right */
-.slide-right-enter,
+.slide-right-enter-from,
 .slide-left-leave-to {
     transform: translateX(-100%);
 }
-.slide-left-enter,
+.slide-left-enter-from,
 .slide-right-leave-to {
     transform: translateX(100%);
 }
@@ -21,15 +21,15 @@
 .slide-right-leave-active,
 .slide-left-enter-active,
 .slide-left-leave-active {
-    transition: transform 0.4s var(--easing-motion);
+    transition: transform 0.4s var(--easing-authentic-motion);
 }
 
 /* Slide up */
 .slide-up-enter-active,
 .slide-up-leave-active {
-    transition: transform 0.4s var(--easing-motion);
+    transition: transform 0.4s var(--easing-authentic-motion);
 }
-.slide-up-enter {
+.slide-up-enter-from {
     transform: translateY(100%);
 }
 .slide-up-enter-to {
@@ -45,9 +45,9 @@
 /* Slide down */
 .slide-down-enter-active,
 .slide-down-leave-active {
-    transition: transform 0.4s var(--easing-motion);
+    transition: transform 0.4s var(--easing-authentic-motion);
 }
-.slide-down-enter {
+.slide-down-enter-from {
     transform: translateY(-100%);
 }
 .slide-down-enter-to {
@@ -63,16 +63,17 @@
 /* Reveal up */
 .reveal-up-enter-active,
 .reveal-up-leave-active {
-    transition: clip-path 0.6s var(--easing-motion);
+    transition: clip-path 0.6s var(--easing-authentic-motion);
     > * {
-        transition: transform 0.6s var(--easing-motion),
-            opacity 0.4s ease-in-out;
+        transition:
+            transform 0.6s var(--easing-authentic-motion),
+            opacity 0.4s var(--easing-authentic-motion);
     }
 }
 .reveal-up-enter-active {
     z-index: 10;
 }
-.reveal-up-enter {
+.reveal-up-enter-from {
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
     > * {
         transform: translateY(100px);
@@ -100,16 +101,17 @@
 /* Reveal down */
 .reveal-down-enter-active,
 .reveal-down-leave-active {
-    transition: clip-path 0.6s var(--easing-motion);
+    transition: clip-path 0.6s var(--easing-authentic-motion);
     > * {
-        transition: transform 0.6s var(--easing-motion),
-            opacity 0.4s ease-in-out;
+        transition:
+            transform 0.6s var(--easing-authentic-motion),
+            opacity 0.4s var(--easing-authentic-motion);
     }
 }
 .reveal-down-enter-active {
     z-index: 10;
 }
-.reveal-down-enter {
+.reveal-down-enter-from {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     > * {
         transform: translateY(-100px);

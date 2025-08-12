@@ -3,10 +3,6 @@
         <nuxt-link to="/">
             <svg-logo-funkhaus class="logo" />
         </nuxt-link>
-
-        <wp-menu name="Main Menu" />
-
-        <slot />
     </header>
 </template>
 
@@ -16,10 +12,11 @@
 
 <style scoped>
 .global-header {
+    padding: 20px;
     background-color: lightgray;
 
-    /* @media (--lt-phone) {
-        Mobil styles go here
-    } */
+    .logo {
+        width: 300px;
+    }
 }
 </style>

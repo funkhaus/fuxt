@@ -1,12 +1,12 @@
 <template>
     <div class="wp-content">
         <component
-            v-for="(block, index) in parsedBlocks"
-            :key="`wp-block-${index}`"
             :is="allBlocks[block.blockName]"
+            v-for="(block, index) in parsedBlocks"
             v-bind="block"
-            :class="block.classes"
             :id="block.anchorId"
+            :key="`wp-block-${index}`"
+            :class="block.classes"
         />
     </div>
 </template>
@@ -16,15 +16,15 @@
 const allBlocks = {
     'core-paragraph': resolveComponent('wp-block-core-paragraph'),
     'core-heading': resolveComponent('wp-block-core-heading'),
-    'core-image': resolveComponent('wp-block-core-image'),    
-    'core-columns': resolveComponent('wp-block-core-columns'),    
-    'core-column': resolveComponent('wp-block-core-column'),    
+    'core-image': resolveComponent('wp-block-core-image'),
+    'core-columns': resolveComponent('wp-block-core-columns'),
+    'core-column': resolveComponent('wp-block-core-column'),
     'core-list': resolveComponent('wp-block-core-list'),
     'core-spacer': resolveComponent('wp-block-core-spacer'),
     'core-gallery': resolveComponent('wp-block-core-gallery'),
     'core-quote': resolveComponent('wp-block-core-quote'),
     'core-embed': resolveComponent('wp-block-core-embed'),
-    'core-video': resolveComponent('wp-block-core-video'),
+    'core-video': resolveComponent('wp-block-core-video')
 }
 
 // Props
@@ -32,22 +32,21 @@ const props = defineProps({
     blocks: {
         type: Array,
         default: () => []
-    },
+    }
 })
 
 // Parsed blocks
 const parsedBlocks = computed(() => {
-    
     // Remove blocks we don't have registered components for
-    const blocks = props.blocks.filter(block => {
-        const blockName = block.blockName?.replace('/', '-') || '';
+    const blocks = props.blocks.filter((block) => {
+        const blockName = block.blockName?.replace('/', '-') || ''
         return Boolean(allBlocks[blockName] || false)
     })
-    
+
     // Reshape blocks with generic attributes
-    return blocks.map(block => {
-        const blockName = block.blockName?.replace('/', '-') || '';
-        
+    return blocks.map((block) => {
+        const blockName = block.blockName?.replace('/', '-') || ''
+
         return {
             ...block,
             blockName,
@@ -55,7 +54,7 @@ const parsedBlocks = computed(() => {
             classes: [
                 'wp-block',
                 blockName,
-                block.attrs?.className || '',
+                block.attrs?.className || ''
             ]
         }
     })
@@ -70,7 +69,7 @@ const parsedBlocks = computed(() => {
 
     /* Gaps on the side of a block (between browser edge) */
     --unit-gutter: var(--unit-gap, 40px);
-    
+
     /* Gaps inbetween images in gallery */
     --unit-gallery-gap: var(--unit-gap, 40px);
 
@@ -83,7 +82,7 @@ const parsedBlocks = computed(() => {
     display: flow-root;
 
     /* Genric styles for all top level blocks */
-    :where(> .wp-block) {
+    > .wp-block {
         margin: var(--unit-margin-large) auto;
         max-width: var(--unit-max-width-large);
         padding: 0 var(--unit-gutter);
@@ -157,7 +156,7 @@ const parsedBlocks = computed(() => {
             li {
                 padding-left: 1ch;
                 &::marker {
-                    content: "—";
+                    content: '—';
                 }
             }
         }
@@ -183,11 +182,11 @@ const parsedBlocks = computed(() => {
             &.column-empty {
                 display: none;
             }
-        }            
-    }  
+        }
+    }
     .core-gallery + .core-gallery {
-        margin-top: calc( (var(--unit-margin-large) * -1) + var(--unit-gallery-gap) );
-    }     
+        margin-top: calc((var(--unit-margin-large) * -1) + var(--unit-gallery-gap));
+    }
     .core-quote {
         max-width: var(--unit-max-width-medium);
         text-align: center;
@@ -202,7 +201,6 @@ const parsedBlocks = computed(() => {
             margin-top: -1em;
             font-weight: 500;
         }
-    
     }
     .core-cover {
         max-width: 100%;
@@ -213,7 +211,5 @@ const parsedBlocks = computed(() => {
     .core-spacer {
         margin: 0 auto;
     }
-
-  
 }
 </style>
