@@ -1,15 +1,15 @@
 <template>
     <section class="page-home">
         Home page here
+        <button @click="toggleMenu()" class="button">
+            Toggle menu - test mixin
+        </button>
         <wp-image
             v-for="(item, index) in items"
             :key="index"
             :image="item"
         />
 
-        <button @click="toggleMenu()" class="button">
-            Toggle menu
-        </button>
 
         <div
             v-html="data?.content"
