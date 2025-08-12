@@ -2,6 +2,11 @@
     <section class="page-home">
         Home page here
         <wp-image
+            v-for="(item, index) in logos"
+            :key="index"
+            :image="item"
+        />
+        <wp-image
             v-for="(item, index) in items"
             :key="index"
             :image="item"
@@ -22,9 +27,14 @@
 const siteStore = useSiteStore()
 
 // Fetch data from WP
-const pageReq = useWpFetch(`/post`, {
+const logoReq = useWpFetch(`/post`, {
     query: {
-        uri: '/'
+        name: 'Logo'
+    }
+})
+const menuReq = useWpFetch(`/menus`, {
+    query: {
+        name: 'Main Menu'
     }
 })
 const workReq = useWpFetch(`/post`, {
@@ -34,11 +44,17 @@ const workReq = useWpFetch(`/post`, {
     }
 })
 
-const [{ data: workData }, { data: pageData }] = await Promise.all([workReq, pageReq])
+const [{ data: workData }, { data: menuData }, { data: logoData }] = await Promise.all([workReq, menuReq, logoReq])
 
 // Computed properties
 const items = computed(() => {
     return workData?.value?.children?.map(item => item?.featuredMedia || {}) || []
+})
+const menuItems = computed(() => {
+    return menuData?.value || []
+})
+const logos = computed(() => {
+    return logoData?.value || {}
 })
 
 // Methods
