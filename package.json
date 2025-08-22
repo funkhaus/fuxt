@@ -46,5 +46,8 @@
         "storybook": "9.0.5",
         "typescript": "^5.6.3",
         "vue": "^3.4.36"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "4.9.5"
     }
 }
