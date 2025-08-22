@@ -1,6 +1,9 @@
 <template>
     <section class="page-home">
         Home page here
+        <button @click="toggleMenu()" class="button">
+            Toggle menu - test mixin
+        </button>
         <wp-image
             v-for="(item, index) in logos"
             :key="index"
@@ -12,10 +15,6 @@
             :image="item"
         />
 
-        <global-hamburger
-            :menu-opened="siteStore.menuOpened"
-            @toggle-menu="toggleMenu()"
-        />
 
         <div
             v-html="data?.content"
@@ -64,8 +63,26 @@ const toggleMenu = () => {
 </script>
 
 <style scoped>
+/* TODO: figure out how to import mixins globally */
+@import "~/assets/css/mixins.css";
+
 .page-home {
-    min-height: var(--unit-100vh);
+    min-height: 200vh;
+
+    color: var(--color-black);
+
+
+    .button{
+        @mixin text-underline var(--color-black);
+    }
+
+    /* margin: 0 auto; */
+    /* min-height: var(--unit-100vh); */
+
+    /* Hover states */
+    /* @media #{$has-hover} {
+         Hover styles would go here
+    } */
 
     /* Hover */
     @media (--has-hover) {

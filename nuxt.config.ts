@@ -41,11 +41,6 @@ export default defineNuxtConfig({
     },
 
     // CSS and fonts
-    css: [
-        '~/assets/css/vars.css',
-        '~/assets/css/main.css',
-        '~/assets/css/transitions.css'
-    ],
     vue: {
         // Required for @nuxtjs/storybook
         runtimeCompiler: process.env.STORYBOOK === 'true'
@@ -60,6 +55,13 @@ export default defineNuxtConfig({
     future: { compatibilityVersion: 4 },
     compatibilityDate: '2024-09-17',
 
+    // CSS and fonts
+    css: [
+        '~/assets/css/vars.css',
+        '~/assets/css/main.css',
+        '~/assets/css/transitions.css',
+        '~/assets/css/mixins.css', 
+    ],
     // Build configuration
     nitro: {
         routeRules: {
@@ -87,8 +89,9 @@ export default defineNuxtConfig({
     postcss: {
         plugins: {
             '@csstools/postcss-global-data': {
-                files: ['./app/assets/css/media.css']
+                files: ['./app/assets/css/media.css', './app/assets/css/mixins.css']
             },
+            'postcss-mixins': {},
             'postcss-nested': {},
             'postcss-custom-media': {}
         }
