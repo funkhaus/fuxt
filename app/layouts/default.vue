@@ -1,6 +1,6 @@
 <template>
     <main :class="classes">
-        <wp-seo />
+        <wp-seo :fetch-data="false" />
 
         <global-header>
             <slot name="breadcrumbs">

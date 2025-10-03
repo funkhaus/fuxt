@@ -33,26 +33,36 @@ const props = defineProps({
     imageUrl: {
         type: String,
         default: ''
+    },
+    fetchData: {
+        type: Boolean,
+        default: true
     }
 })
 
 // Fetch data from WP
 const parsedPath = computed<string>(() => props.path || route.path || '')
+const data = ref({})
 
 // Fetch data from WP
-const { data, error } = await useWpFetch(`/post`, {
-    query: {
-        uri: parsedPath
-    },
-    pick: ['title', 'excerpt', 'content', 'featuredMedia'],
-    onResponseError() {
-        console.warn('<wp-seo> Fetch Error:', parsedPath.value)
-    }
-})
-
-// On error, set data to empty object
-if (error.value) {
-    data.value = {}
+if (props.fetchData) {
+    console.log('fetching data')
+    const { data: fetchedData, error } = await useWpFetch(`/post`, {
+        onResponse() {
+            data.value = fetchedData.value
+        },
+        query: {
+            uri: parsedPath
+        },
+        pick: ['title', 'excerpt', 'content', 'featuredMedia'],
+        onResponseError() {
+            console.warn('<wp-seo> Fetch Error:', parsedPath.value, error)
+        }
+    })
+    console.log('data', data.value)
+}
+else {
+    console.log('not fetching data')
 }
 
 // Computeds
