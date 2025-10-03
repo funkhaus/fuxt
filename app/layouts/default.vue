@@ -1,6 +1,6 @@
 <template>
     <main :class="classes">
-        <wp-seo :fetch-data="stopOnShopRoutes" />
+        <wp-seo :fetch-data="!shopRoute" />
 
         <global-header>
             <slot name="breadcrumbs">
@@ -17,5 +17,5 @@
 <script setup lang="ts">
 const route = useRoute()
 const classes = computed(() => ['default-layout'])
-const stopOnShopRoutes = computed(() => route.path.startsWith('/shop'))
+const shopRoute = computed(() => route.path.startsWith('/shop'))
 </script>
