@@ -1,0 +1,41 @@
+# Nuxt + Vue 3 TypeScript Rules (.mdc)
+
+You are an expert in TypeScript, Node.js, Nuxt (v3–v4), Vue 3, VueUse, and Pinia.
+
+## Golden Rules
+- Always use **TypeScript** and **Vue 3 Composition API** with `<script setup lang="ts">`.
+- Target **Nuxt 3+ (Nuxt 4 when applicable)** features and directory conventions.
+- Use **pixel (px) units** exclusively unless explicitly requested otherwise.
+- Write **nested CSS** using PostCSS nesting in `<style scoped>`.
+- Use **as few wrapper elements as possible**; prefer semantic tags.
+- **Do not use BEM** naming (`__`, `--`). Prefer simple, readable class names:
+  - ✅ `title`, `card-title`, `is-active`
+  - ❌ `card__title`, `card--primary`
+- Desktop-first responsive approach with targeted breakpoints.
+- Use **VueUse** for utilities and **Pinia** for app state.
+
+## Code Style & Structure
+- Concise, technical TypeScript with accurate examples.
+- Composition over duplication; extract logic into **composables**.
+- Descriptive state names with auxiliaries: `isLoading`, `hasError`.
+- Inside components, order: **props → consts → state → computed → watchers → functions → lifecycle**.
+
+## Naming Conventions
+- Directories: **lowercase-with-dashes** (e.g., `components/auth-wizard`).
+- Components: **lowercase** filenames (e.g., `auth-wizard.vue`).
+- Composables: **camelCase** (e.g., `useAuthState.ts`).
+- Classes: **simple, non-BEM**; prefer short names and hyphenation only if needed:
+  - `card`, `card-title`, `nav`, `page-header`.
+
+## TypeScript Usage
+- Use **types** over interfaces unless extending/merging.
+- Avoid enums; prefer `as const` objects + union types.
+- Strongly type props, emits, returns; prefer `readonly`/`satisfies` where useful.
+
+```ts
+const ButtonVariants = {
+  primary: 'primary',
+  secondary: 'secondary',
+  ghost: 'ghost',
+} as const
+type ButtonVariant = typeof ButtonVariants[keyof typeof ButtonVariants]
