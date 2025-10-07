@@ -82,7 +82,7 @@ const parsedBlocks = computed(() => {
     display: flow-root;
 
     /* Genric styles for all top level blocks */
-    :where(> .wp-block) {
+    > .wp-block {
         margin: var(--unit-margin-large) auto;
         max-width: var(--unit-max-width-large);
         padding: 0 var(--unit-gutter);
