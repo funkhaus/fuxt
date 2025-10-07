@@ -13,6 +13,32 @@ You are an expert in TypeScript, Node.js, Nuxt (v3–v4), Vue 3, VueUse, and Pin
   - ❌ `card__title`, `card--primary`
 - Desktop-first responsive approach with targeted breakpoints.
 - Use **VueUse** for utilities and **Pinia** for app state.
+- Always use **CSS variables** for colors when available.
+- Always use **predefined media query breakpoints** from `media.css`:
+  - `--gt-cinema` (min-width: 1800px)
+  - `--lt-cinema` (max-width: 1799px) 
+  - `--lt-tablet` (max-width: 1024px)
+  - `--lt-phone` (max-width: 850px)
+  - `--has-hover` (hover: hover)
+- Grids should use **flex** and **gap** styles with CSS variables for gap sizes.
+- Grids should have **max-width of 1800px** by default.
+- Grids should default to **3 blocks on --gt-cinema, 2 blocks by default, and 1 block on --lt-phone**.
+
+## Component Documentation
+- Always document components in `COMPONENTS.md` using this format:
+  ```markdown
+  ### [ ] ComponentName (AuthorName)
+  
+  Brief description of functionality and purpose.
+  
+  - propName: defaultValue
+  - propName: "string default"
+  - propName: []
+  ```
+- Use markdown checkboxes `[ ]` for incomplete components, `[x]` for complete
+- Include author name in parentheses after component name
+- List all props with their types and default values
+- Keep descriptions concise but descriptive
 
 ## Code Style & Structure
 - Concise, technical TypeScript with accurate examples.
@@ -39,3 +65,4 @@ const ButtonVariants = {
   ghost: 'ghost',
 } as const
 type ButtonVariant = typeof ButtonVariants[keyof typeof ButtonVariants]
+```
