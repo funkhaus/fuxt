@@ -40,7 +40,7 @@ const props = defineProps({
 const parsedPath = computed<string>(() => props.path || route.path || '')
 
 // Fetch data from WP
-const { data, error } = await useWpFetch(`/post`, {
+const { data, error } = await useWpFetch(RequestType.POST, {
     query: {
         uri: parsedPath
     },
@@ -52,13 +52,13 @@ const { data, error } = await useWpFetch(`/post`, {
 
 // On error, set data to empty object
 if (error.value) {
-    data.value = {}
+    console.warn('<wp-seo> Error fetching data:', error.value)
 }
 
 // Computeds
-const parsedTitle = computed<string>(() => props.title || data.value?.title || siteStore.settings?.title || undefined)
-const parsedDescription = computed<string>(() => props.description || data.value?.excerpt || data.value?.content || siteStore.settings.description || undefined)
-const parsedImage = computed<string>(() => props.imageUrl || data.value?.featuredMedia?.src || siteStore.settings?.themeScreenshotUrl || undefined)
+const parsedTitle = computed(() => props.title || data.value?.title || siteStore.settings?.title || undefined)
+const parsedDescription = computed(() => props.description || data.value?.excerpt || data.value?.content || siteStore.settings.description || undefined)
+const parsedImage = computed(() => props.imageUrl || data.value?.featuredMedia?.src || siteStore.settings?.themeScreenshotUrl || undefined)
 
 // Set meta tags
 useSeoMeta({

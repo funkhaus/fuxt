@@ -11,12 +11,13 @@
                 <slot
                     :title="item.title"
                     :to="item.uri || item.url"
+                    :item="item"
                     :target="item.target"
                     :classes="item.classes"
                 >
                     <wp-menu-item
                         :item="item"
-                        @click.native="menuInteracted"
+                        @click="menuInteracted"
                     />
                 </slot>
             </template>
@@ -26,35 +27,30 @@
 </template>
 
 <script setup lang="ts">
+// Types
+import type { WpMenuProps, WpMenuResponse } from '~/types'
+
 const emit = defineEmits(['menu-interacted'])
 
 // Props
-const props = defineProps({
-    name: {
-        type: String,
-        default: ''
-    },
-    items: {
-        type: Array,
-        default: () => []
-    }
-})
+const props = defineProps<WpMenuProps>()
 
-const data = ref({})
+// Data
+const data = ref<WpMenuResponse[]>([])
 
 // Fetch data from WP
 if (props.name) {
-    const { data: fetchedData } = await useWpFetch(`/menus`, {
+    const { data: fetchedData } = await useWpFetch(RequestType.MENUS, {
         query: {
             name: props.name
         },
-        onResponseError({ error }) {
+        onResponseError({ error }: { error: Error }) {
             console.warn('<wp-menu> Fetch Error:', props.name, error)
-            data.value = {}
+            data.value = []
         }
     })
 
-    data.value = fetchedData.value
+    data.value = fetchedData?.value || []
 }
 else {
     console.log('<wp-menu> No menu name provided')
@@ -71,7 +67,7 @@ const items = computed(() => {
 })
 
 // Methods
-const menuInteracted = (event) => {
+const menuInteracted = (event: MouseEvent) => {
     emit('menu-interacted', event)
 }
 </script>

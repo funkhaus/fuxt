@@ -27,9 +27,10 @@
 
         <transition name="fade">
             <canvas
-                aria-hidden="true"
                 v-if="blurhash && !imageLoaded && !disabled"
                 ref="blurhashCanvas"
+                aria-hidden="true"
+
                 class="blurhash-bg"
             />
         </transition>
@@ -50,53 +51,28 @@
  * SEE https://www.npmjs.com/package/blurhash
  */
 import { decode } from 'blurhash'
+// Types
+import type { WpImage, WpImageProps } from '~/types'
 
 const blurhashCanvas = ref<HTMLCanvasElement | null>(null)
 
-const imageEl = ref(null)
-const videoEl = ref(null)
+const imageEl = ref<HTMLImageElement | null>(null)
+const videoEl = ref<HTMLVideoElement | null>(null)
 const imageLoaded = ref(false)
 
 const emit = defineEmits(['image-loaded', 'is-playing', 'is-paused', 'is-ended'])
 
 // Props
-const props = defineProps({
-    image: {
-        type: Object,
-        default: () => ({})
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    loop: {
-        type: Boolean,
-        default: true
-    },
-    autoplay: {
-        type: Boolean,
-        default: true
-    },
-    muted: {
-        type: Boolean,
-        default: true
-    },
-    aspectRatio: {
-        type: [String, Number],
-        default: 0
-    },
-    mode: {
-        type: String,
-        default: 'intrinsic-ratio'
-    },
-    objectFit: {
-        type: String,
-        default: 'cover'
-    },
-    sizes: {
-        type: String,
-        default: ''
-    },
+const props = withDefaults(defineProps<WpImageProps>(), {
+    image: () => ({} as WpImage),
+    disabled: false,
+    loop: true,
+    autoplay: true,
+    muted: true,
+    aspectRatio: 0,
+    mode: 'intrinsic-ratio',
+    objectFit: 'cover',
+    sizes: '',
     enableBlurhash: {
         type: Boolean,
         default: true
@@ -131,7 +107,7 @@ const parsedAspectRatio = computed(() => {
     let output = `${width.value} / ${height.value}`
 
     if (props.aspectRatio && typeof props.aspectRatio === 'number') {
-        output = 100 / props.aspectRatio
+        output = `${100} / ${props.aspectRatio}`
     }
     return output
 })

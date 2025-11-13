@@ -1,5 +1,7 @@
+import type { WpImage, WpSiteOptionsResponse, WpSettingsResponse } from '~/types'
+
 export const useSiteStore = defineStore('site', () => {
-    const settings = ref({})
+    const settings = ref<WpSiteOptionsResponse & WpSettingsResponse>({})
     const menuOpened = ref(false)
     const breakpoint = ref('desktop')
     const referrer: Ref<boolean | object> = ref(false)
@@ -11,21 +13,24 @@ export const useSiteStore = defineStore('site', () => {
 
     // Setup default store settings values
     settings.value = {
+        // Settings
         title: '',
         description: '',
         backendUrl: '',
         frontendUrl: '',
         themeScreenshotUrl: '',
-        sociaMedia: [],
+
+        // Site Options
+        socialMedia: [],
         googleAnalytics: [],
-        socialSharedImage: {}
+        socialSharedImage: {} as WpImage
     }
 
     // Populate state from WP API
     const init = async () => {
         // Do requests in parallel
-        const settingsReq = useWpFetch('/settings')
-        const acfReq = useWpFetch('/acf-options?name=Site Options')
+        const settingsReq = useWpFetch(RequestType.SETTINGS)
+        const acfReq = useWpFetch(RequestType.SITE_OPTIONS)
         const [settingsRes, acfRes] = await Promise.all([settingsReq, acfReq])
 
         // Get ref values

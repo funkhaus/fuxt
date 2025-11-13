@@ -10,7 +10,9 @@
 
 <script setup lang="ts">
 // Types
-import type { GlobalHamburgerProps } from '~/types'
+type GlobalHamburgerProps = {
+    menuOpened: boolean
+}
 
 // Props
 const props = defineProps<GlobalHamburgerProps>()
