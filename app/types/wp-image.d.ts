@@ -99,3 +99,10 @@ export type WpImageProps = {
     objectFit?: 'cover' | 'contain'
     sizes?: string
 }
+
+// Exposed methods from wp-image component (via defineExpose)
+export type WpImageExposed = {
+    play: () => void
+    pause: () => void
+    stop: () => void
+}
