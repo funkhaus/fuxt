@@ -1,0 +1,167 @@
+---
+alwaysApply: true
+---
+
+# Nuxt + Vue 3 TypeScript Rules (.mdc)
+
+You are an expert in TypeScript, Node.js, Nuxt (v3–v4), Vue 3, VueUse, and Pinia.
+
+## Golden Rules
+- Always use **TypeScript** and **Vue 3 Composition API** with `<script setup lang="ts">`.
+- Target **Nuxt 3+ (Nuxt 4 when applicable)** features and directory conventions.
+- Use **pixel (px) units** exclusively unless explicitly requested otherwise.
+- Write **nested CSS** using PostCSS nesting in `<style scoped>`.
+- Use **as few wrapper elements as possible**; prefer semantic tags.
+- **Do not use BEM** naming (`__`, `--`). Prefer simple, readable class names:
+  - ✅ `title`, `card-title`, `is-active`
+  - ❌ `card__title`, `card--primary`
+- Desktop-first responsive approach with targeted breakpoints.
+- Use **VueUse** for utilities and **Pinia** for app state.
+- Always use **CSS variables** for colors when available.
+- Always use **predefined media query breakpoints** from `media.css`:
+  - `--gt-cinema` (min-width: 1800px)
+  - `--lt-cinema` (max-width: 1799px) 
+  - `--lt-tablet` (max-width: 1024px)
+  - `--lt-phone` (max-width: 850px)
+  - `--has-hover` (hover: hover)
+- Grids should use **flex** and **gap** styles with CSS variables for gap sizes.
+- Grids should have **max-width of 1800px** by default.
+- Grids should default to **3 blocks on --gt-cinema, 2 blocks by default, and 1 block on --lt-phone**.
+
+## Component Documentation
+- Always document components in `COMPONENTS.md` using this format:
+  ```markdown
+  ### [ ] ComponentName (AuthorName)
+
+  Brief description of functionality and purpose.
+
+  - propName: defaultValue
+  - propName: "string default"
+  - propName: []
+  ```
+- Use markdown checkboxes `[ ]` for incomplete components, `[x]` for complete
+- Include author name in parentheses after component name
+- List all props with their types and default values
+- Keep descriptions concise but descriptive
+
+## Code Style & Structure
+- Concise, technical TypeScript with accurate examples.
+- Composition over duplication; extract logic into **composables**.
+- Descriptive state names with auxiliaries: `isLoading`, `hasError`.
+- Inside components, order: **props → consts → state → computed → watchers → functions → lifecycle**.
+
+## Naming Conventions
+- Directories: **lowercase-with-dashes** (e.g., `components/auth-wizard`).
+- Components: **lowercase** filenames (e.g., `auth-wizard.vue`).
+- Composables: **camelCase** (e.g., `useAuthState.ts`).
+- Classes: **simple, non-BEM**; prefer short names and hyphenation only if needed:
+  - `card`, `card-title`, `nav`, `page-header`.
+
+## TypeScript Usage
+- Use **types** over interfaces unless extending/merging.
+- Avoid enums; prefer `as const` objects + union types.
+- Strongly type props, emits, returns; prefer `readonly`/`satisfies` where useful.
+
+```ts
+const ButtonVariants = {
+  primary: 'primary',
+  secondary: 'secondary',
+  ghost: 'ghost',
+} as const
+type ButtonVariant = typeof ButtonVariants[keyof typeof ButtonVariants]
+```
+
+## Grid Component Template
+
+When creating grid components (e.g., `grid-text`, `grid-work`, `grid-*`), **ALWAYS** use this template structure:
+
+### Template Structure
+
+```vue
+<template>
+    <div class="grid-{name}">
+        <block-{name}
+            v-for="item in items"
+            :key="item.id || item.title"
+            v-bind="item"
+            class="block"
+        />
+    </div>
+</template>
+
+<script setup lang="ts">
+// Types
+import type { Grid{Name}Props } from '~/types'
+
+// Props
+defineProps<Grid{Name}Props>()
+</script>
+
+<style scoped>
+.grid-{name} {
+    --gutters: 48px;
+    --columns: 3;
+    --gap-row: 48px;
+    --gap-col: 24px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--gap-row) var(--gap-col);
+
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 var(--gutters);
+    box-sizing: border-box;
+
+    .block {
+        width: calc((100% - (var(--columns) - 1) * var(--gap-col)) / var(--columns));
+    }
+
+    /* Breakpoints */
+    @media (--gt-cinema) {
+        --columns: 4;
+    }
+    @media (--lt-tablet) {
+        --gutters: 24px;
+        --columns: 2;
+        --gap-row: 24px;
+    }
+    @media (--lt-phone) {
+        --gutters: 16px;
+        --columns: 1;
+        --gap-col: 16px;
+
+    }
+}
+</style>
+```
+
+### Grid Template Rules
+
+- **Component naming**: `grid-{name}.vue` (e.g., `grid-text.vue`, `grid-work.vue`)
+- **Block component naming**: `block-{name}.vue` (e.g., `block-text.vue`, `block-work.vue`)
+- **CSS class naming**: `.grid-{name}` for container, `.block` for child items
+- **Required CSS variables**:
+  - `--columns`: Number of columns (default: 3, cinema: 4, tablet: 2, phone: 1)
+  - `--gap-row`: Vertical gap between rows (default: 48px, tablet: 24px)
+  - `--gap-col`: Horizontal gap between columns (default: 24, phone: 16px)
+  - `--gutters`: Side padding (default: 48px, tablet: 24px, phone: 16px)
+- **Block width formula**: `width: calc((100% - (var(--columns) - 1) * var(--gap-col)) / var(--columns));`
+
+- **Responsive defaults**:
+  - Desktop: 3 columns, 48px gutters, 24px gap-col, 48px gap-row
+  - Cinema (--gt-cinema): 4 columns
+  - Tablet (--lt-tablet): 2 columns, 24px gutters, 24px gap-row
+  - Phone (--lt-phone): 1 column, 16px gutters, 16px gap-col
+
+### Usage Example
+
+When user requests: "create a grid component called grid-work", generate:
+1. `grid-work.vue` using the template above
+2. `block-work.vue` component (if it doesn't exist)
+3. Type definition `GridWorkProps` in `~/types/grid-work.d.ts`
+4. Import * from grid-work.d.ts in index.d.ts
+
+Replace `{name}` with the component name (e.g., "work" → `grid-work`, `block-work`, `GridWorkProps`).
+
