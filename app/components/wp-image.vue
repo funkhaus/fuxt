@@ -8,6 +8,7 @@
             :srcset="srcSet"
             :sizes="parsedSizes"
             loading="lazy"
+            :style="mediaStyles"
             :alt="alt"
             @load="setImageLoaded"
         >
@@ -155,6 +156,24 @@ const orientation = computed(() => {
 })
 const cssVars = ref({
     aspectRatio: parsedAspectRatio.value
+})
+
+// Compute the effective focal point from both prop and image meta data
+const focalPointComputed = computed(() => {
+    return {
+        x: props.focalPoint?.x ?? props.image?.acf?.focalPointX ?? '',
+        y: props.focalPoint?.y ?? props.image?.acf?.focalPointY ?? ''
+    }
+})
+
+// Apply the focal point to the image's object-position if available
+const mediaStyles = computed(() => {
+    const styles: Record<string, string> = {}
+    const fp = focalPointComputed.value
+    if (fp.x !== '' && fp.y !== '') {
+        styles.objectPosition = `${fp.x}% ${fp.y}%`
+    }
+    return styles
 })
 
 // Actions
