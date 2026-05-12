@@ -30,6 +30,13 @@ const { data: workData } = await useWpFetch(RequestType.POST, {
     }
 })
 
+// Publish SEO data for wp-seo (no separate request needed)
+usePageSeo().value = {
+    title: workData.value?.title,
+    description: workData.value?.excerpt,
+    imageUrl: workData.value?.featuredMedia?.src
+}
+
 // Computed properties
 const items = computed(() => {
     return workData?.value?.children?.map(item => item?.featuredMedia) || []
