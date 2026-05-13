@@ -32,18 +32,36 @@ const props = defineProps({
     }
 })
 
+// WP excerpts and descriptions can contain HTML — strip it for meta tag content
+function stripHtml(str?: string): string | undefined {
+    return str?.replace(/<[^>]*>/g, '') || undefined
+}
+
 // Computeds — props → page state → site store defaults
 const parsedTitle = computed(() => props.title || pageSeo.value?.title || siteStore.settings?.title || undefined)
-const parsedDescription = computed(() => props.description || pageSeo.value?.description || siteStore.settings.description || undefined)
-const parsedImage = computed(() => props.imageUrl || pageSeo.value?.imageUrl || siteStore.settings?.themeScreenshotUrl || undefined)
+const parsedDescription = computed(() => {
+    const raw = props.description || pageSeo.value?.description || siteStore.settings?.description || undefined
+    return stripHtml(raw)
+})
+const parsedImage = computed(() =>
+    props.imageUrl
+    || pageSeo.value?.imageUrl
+    || siteStore.settings?.socialSharedImage?.src
+    || siteStore.settings?.themeScreenshotUrl
+    || undefined
+)
 
 // Set meta tags
 useSeoMeta({
     title: () => parsedTitle.value,
     ogTitle: () => parsedTitle.value,
+    twitterTitle: () => parsedTitle.value,
     description: () => parsedDescription.value,
     ogDescription: () => parsedDescription.value,
-    ogImage: () => parsedImage.value
+    twitterDescription: () => parsedDescription.value,
+    ogImage: () => parsedImage.value,
+    twitterImage: () => parsedImage.value,
+    twitterCard: 'summary_large_image'
 })
 </script>
 
