@@ -23,15 +23,5 @@ const classes = computed(() => ['default-layout'])
 <style>
 .default-layout {
     min-height: var(--unit-100vh);
-
-    .block-red {
-        background-color: #c0392b;
-        color: white;
-
-        aspect-ratio: 16 / 9;
-        max-width: 400px;
-        width: 100%;
-        padding: 16px;
-    }
 }
 </style>

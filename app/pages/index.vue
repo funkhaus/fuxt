@@ -13,9 +13,10 @@
             data-cursor-text="Custom Text"
             class="block-red"
         >
-            Block Example
+            Hover me
         </div>
 
+        <h1>GSAP split-text</h1>
         <!-- 1. Words — fade up on scroll -->
         <split-text
             v-intersection-observer.once="{ threshold: 0.2 }"
@@ -102,6 +103,19 @@ const toggleMenu = () => {
 
 <style scoped>
 .page-home {
+    .block-red {
+        background-color: #c0392b;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        aspect-ratio: 16 / 9;
+        max-width: 400px;
+        width: 100%;
+        padding: 16px;
+    }
+
     .demo-words {
         max-width: 300px;
         :deep(.word) {
