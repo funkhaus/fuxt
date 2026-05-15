@@ -98,6 +98,8 @@ export type WpImageProps = {
     mode?: string
     objectFit?: 'cover' | 'contain'
     sizes?: string
+    enableBlurhash?: boolean
+    backgroundColor?: string
 }
 
 // Exposed methods from wp-image component (via defineExpose)

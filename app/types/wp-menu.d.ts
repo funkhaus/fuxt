@@ -19,6 +19,6 @@ export type WpMenuResponse = {
 export type WpMenuItemProps = WpMenuResponse
 
 export type WpMenuProps = {
-    name: string
+    name?: string
     items?: WpMenuItemProps[]
 }
