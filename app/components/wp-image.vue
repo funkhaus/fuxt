@@ -28,11 +28,15 @@
 
         <transition name="fade">
             <canvas
-                v-if="blurhash && !imageLoaded && !disabled"
+                v-if="blurhash && enableBlurhash && !imageLoaded && !disabled"
                 ref="blurhashCanvas"
                 aria-hidden="true"
-
                 class="blurhash-bg"
+            />
+            <div
+                v-else-if="!imageLoaded && !disabled"
+                class="background-color"
+                :style="{ backgroundColor: backgroundColor }"
             />
         </transition>
 
@@ -74,10 +78,9 @@ const props = withDefaults(defineProps<WpImageProps>(), {
     mode: 'intrinsic-ratio',
     objectFit: 'cover',
     sizes: '',
-    enableBlurhash: {
-        type: Boolean,
-        default: true
-    }
+    // withDefaults() only accepts literal defaults — not `{ type, default }` (that object becomes the value)
+    enableBlurhash: true,
+    backgroundColor: '#4d4d4d89'
 })
 
 // State
@@ -177,9 +180,15 @@ const mediaStyles = computed(() => {
 })
 
 // Actions
+/** Defer until after the current flush so cached images do not flip state during SSR hydration. */
 const setImageLoaded = () => {
-    imageLoaded.value = true
-    emit('image-loaded')
+    nextTick(() => {
+        if (imageLoaded.value) {
+            return
+        }
+        imageLoaded.value = true
+        emit('image-loaded')
+    })
 }
 const onPlaying = () => {
     isPlaying.value = true
@@ -214,7 +223,7 @@ const stop = () => {
 // Watchers
 // This decodes the blurhash code from the backend and draws it as a blurry placeholder image on the canvas, scaled up to fill the image area. This provides a nice preview while the real image loads.
 function drawBlurhash() {
-    if (!blurhash.value || !blurhashCanvas.value) return
+    if (!props.enableBlurhash || !blurhash.value || !blurhashCanvas.value) return
     // Sets the canvas size to 32x32 pixels. This is the resolution at which the blurhash will be decoded.
     const width = 32
     const height = 32
@@ -236,12 +245,30 @@ function drawBlurhash() {
     blurhashCanvas.value.style.height = '100%'
 }
 
+watch([blurhash, () => props.enableBlurhash, blurhashCanvas], () => {
+    nextTick(() => drawBlurhash())
+})
+
 // Lifecycle hooks
 onMounted(() => {
-    imageLoaded.value = imageEl.value?.complete || false
-    isPlaying.value = videoEl.value ? !videoEl.value?.paused : false
+    nextTick(() => {
+        isPlaying.value = videoEl.value ? !videoEl.value?.paused : false
 
-    drawBlurhash()
+        const img = imageEl.value
+        if (img?.complete && img.src) {
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    if (imageLoaded.value) {
+                        return
+                    }
+                    imageLoaded.value = true
+                    emit('image-loaded')
+                })
+            })
+        }
+
+        drawBlurhash()
+    })
 })
 
 // Expose to parent
@@ -259,7 +286,8 @@ defineExpose({
 
     position: relative;
 
-    .blurhash-bg {
+    .blurhash-bg,
+    .background-color {
         position: absolute;
         inset: 0;
         width: 100%;
