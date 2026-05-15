@@ -46,7 +46,7 @@
             lines-class="line"
             class="demo-lines"
         >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </split-text>
 
         <!-- 4. Words + lines — stagger delay per word index -->
@@ -142,13 +142,17 @@ const toggleMenu = () => {
         max-width: 300px;
         :deep(.line) {
             display: block;
-            clip-path: inset(0 0 100% 0);
-            transition: clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1);
-            transition-delay: calc(var(--line) * 0.12s);
+            opacity: 0;
+            transform: translateX(40px);
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease;
+            transition-delay: calc(var(--line) * 0.15s);
         }
 
         &.has-entered :deep(.line) {
-            clip-path: inset(0 0 0% 0);
+            opacity: 1;
+            transform: none;
         }
     }
 
