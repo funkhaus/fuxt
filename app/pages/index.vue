@@ -11,6 +11,13 @@
             @toggle-menu="toggleMenu()"
         />
 
+        <div
+            data-cursor-text="Custom Text"
+            class="block-red"
+        >
+            Block Example
+        </div>
+
         <wp-image
             v-for="(item, index) in items"
             :key="index"
@@ -20,12 +27,14 @@
 </template>
 
 <script setup lang="ts">
+// Helpers
 const siteStore = useSiteStore()
+const route = useRoute()
 
 // Fetch data from WP
 const { data: workData } = await useWpFetch(RequestType.POST, {
     query: {
-        uri: '/work',
+        uri: route.path,
         fields: 'acf, children'
     }
 })
@@ -50,8 +59,6 @@ const toggleMenu = () => {
 
 <style scoped>
 .page-home {
-    min-height: var(--unit-100vh);
-
     /* Hover */
     @media (--has-hover) {
     }
