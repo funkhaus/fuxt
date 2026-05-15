@@ -10,6 +10,7 @@ export const useSiteStore = defineStore('site', () => {
     const winHeight = ref(0)
     const winWidth = ref(0)
     const hasLoaded = ref(false)
+    const isScrollLocked = ref(false)
 
     // Setup default store settings values
     settings.value = {
@@ -51,6 +52,7 @@ export const useSiteStore = defineStore('site', () => {
         referrer,
         scrollDirection,
         hasLoaded,
+        isScrollLocked,
         init
     }
 })
