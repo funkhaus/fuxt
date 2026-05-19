@@ -28,6 +28,7 @@
         "@nuxtjs/storybook": "^8.4.1",
         "@pinia/nuxt": "^0.5.1",
         "@storybook/vue3": "9.0.5",
+        "gsap": "^3.15.0",
         "@types/node": "^22.5.5",
         "@vueuse/core": "^11.1.0",
         "@vueuse/nuxt": "^11.1.0",

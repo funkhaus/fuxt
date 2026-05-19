@@ -2,6 +2,8 @@
     <main :class="classes">
         <wp-seo />
 
+        <cursor-follow />
+
         <global-header>
             <slot name="breadcrumbs">
                 <!-- Default crumbs here -->
@@ -17,3 +19,9 @@
 <script setup lang="ts">
 const classes = computed(() => ['default-layout'])
 </script>
+
+<style>
+.default-layout {
+    min-height: var(--unit-100vh);
+}
+</style>
