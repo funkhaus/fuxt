@@ -5,7 +5,7 @@
         />
 
         <!-- This is an examples component, delete it before development -->
-        <examples />
+        <component-examples />
 
         <wp-image
             v-for="(item, index) in items"

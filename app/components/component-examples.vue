@@ -1,5 +1,5 @@
 <template>
-    <div class="examples">
+    <div class="component-examples">
         <!-- ─── Custom Cursor ──────────────────────────────────────── -->
         <section class="demo-section">
             <h2 class="demo-section__title">
@@ -211,7 +211,7 @@ const cursorImageItems = [
 </script>
 
 <style scoped>
-.examples {
+.component-examples {
     .demo-section {
         padding: 60px 40px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
