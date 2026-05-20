@@ -4,11 +4,17 @@
 
         <cursor-follow />
 
-        <global-header>
-            <slot name="breadcrumbs">
-                <!-- Default crumbs here -->
-            </slot>
-        </global-header>
+        <global-header />
+
+        <global-hamburger
+            :menu-opened="siteStore.menuOpened"
+            @toggle-menu="toggleMenu()"
+        />
+
+        <global-panel-menu
+            :is-opened="siteStore.menuOpened"
+            @close-menu="toggleMenu()"
+        />
 
         <slot />
 
@@ -17,7 +23,16 @@
 </template>
 
 <script setup lang="ts">
+// Helpers
+const siteStore = useSiteStore()
+
+// Computeds
 const classes = computed(() => ['default-layout'])
+
+// Methods
+const toggleMenu = () => {
+    siteStore.menuOpened = !siteStore.menuOpened
+}
 </script>
 
 <style>

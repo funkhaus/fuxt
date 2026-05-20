@@ -4,14 +4,9 @@
             name="Main Menu"
         />
 
-        <global-hamburger
-            :menu-opened="siteStore.menuOpened"
-            @toggle-menu="toggleMenu()"
-        />
-
         <div
             data-cursor-text="Custom Text"
-            class="block-red"
+            class="block-work"
         >
             Hover me
         </div>
@@ -72,7 +67,6 @@
 
 <script setup lang="ts">
 // Helpers
-const siteStore = useSiteStore()
 const route = useRoute()
 
 // Fetch data from WP
@@ -90,22 +84,17 @@ usePageSeo().value = {
     imageUrl: workData.value?.featuredMedia?.src
 }
 
-// Computed properties
+// Computeds
 const items = computed(() => {
     return workData?.value?.children?.map(item => item?.featuredMedia) || []
 })
-
-// Methods
-const toggleMenu = () => {
-    siteStore.menuOpened = !siteStore.menuOpened
-}
 </script>
 
 <style scoped>
 .page-home {
-    .block-red {
-        background-color: #c0392b;
-        color: white;
+    .block-work {
+        background-color: lightgray;
+        color: var(--color-black);
         display: flex;
         align-items: center;
         justify-content: center;
