@@ -6,11 +6,6 @@
 
         <global-header />
 
-        <global-hamburger
-            :menu-opened="siteStore.menuOpened"
-            @toggle-menu="toggleMenu()"
-        />
-
         <global-panel-menu
             :is-opened="siteStore.menuOpened"
             @close-menu="toggleMenu()"

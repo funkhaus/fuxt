@@ -8,7 +8,7 @@
 
         <div
             class="menu-content"
-            style="max-width: 400px"
+            style="max-width: 400px; margin-top: 100px;"
         >
             This is the panel menu. It slides down from the top when opened.
         </div>

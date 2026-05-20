@@ -73,7 +73,7 @@ button {
 .page {
     z-index: 100;
 }
-.header {
+.global-header {
     z-index: 200;
 }
 .global-panel-menu {
@@ -81,10 +81,6 @@ button {
 }
 .global-hamburger {
     z-index: 400;
-}
-
-/* Page structure */
-.header {
 }
 
 /* Gutenberg overrides */
