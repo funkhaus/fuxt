@@ -2,8 +2,12 @@
     <component
         :is="attrs.tagName || 'h2'"
         :class="classes"
-        v-html="innerHtml"
-    />
+    >
+        <span
+            v-if="innerHtml"
+            v-html="innerHtml"
+        />
+    </component>
 </template>
 
 <script setup lang="ts">
