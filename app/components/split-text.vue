@@ -16,9 +16,13 @@ const props = withDefaults(defineProps<{
     linesClass?: string
     wordsClass?: string
     charsClass?: string
+    mask?: boolean
+    observeLines?: boolean
 }>(), {
     tag: 'div',
-    type: 'words'
+    type: 'words',
+    mask: false,
+    observeLines: false
 })
 
 const textRef = useTemplateRef<HTMLElement>('textRef')
@@ -27,6 +31,8 @@ useSplitText(textRef, {
     type: props.type,
     linesClass: props.linesClass,
     wordsClass: props.wordsClass,
-    charsClass: props.charsClass
+    charsClass: props.charsClass,
+    mask: props.mask,
+    observeLines: props.observeLines
 })
 </script>
