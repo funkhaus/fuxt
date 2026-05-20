@@ -26,7 +26,7 @@ const props = defineProps({
 const classes = computed(() => [
     'core-heading',
     'margin-text',
-    `align-${props.attrs?.align || 'default'}`,
+    `align-${props.attrs?.align || props.attrs?.textAlign || 'default'}`,
     `is-${props.attrs?.tagName}`
 ])
 const styles = computed(() => ({
