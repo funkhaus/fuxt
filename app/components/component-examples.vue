@@ -79,7 +79,7 @@
                 <split-text
                     v-intersection-observer.once="{ threshold: 0.2 }"
                     tag="h2"
-                    type="chars"
+                    type="chars,words"
                     chars-class="char"
                     class="st-chars"
                 >
