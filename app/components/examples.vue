@@ -101,6 +101,7 @@
                     tag="p"
                     type="lines"
                     lines-class="line"
+                    :mask="false"
                     class="st-lines"
                 >
                     Design is not just what it looks like and feels like. Design is how it works.
@@ -254,7 +255,7 @@ const cursorImageItems = [
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             font-size: 22px;
             font-weight: 500;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s var(--easing-authentic-motion);
 
             &:first-child {
                 border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -322,8 +323,8 @@ const cursorImageItems = [
             opacity: 0;
             transform: translateY(24px);
             transition:
-                opacity 0.5s ease,
-                transform 0.5s ease;
+                opacity 0.5s var(--easing-authentic-motion),
+                transform 0.5s var(--easing-authentic-motion);
             transition-delay: calc(var(--word) * 0.06s);
         }
 
@@ -351,8 +352,8 @@ const cursorImageItems = [
     .st-lines {
         :deep(.line) {
             display: block;
-            transform: translateY(20px);
-            transition: transform 0.8s ease;
+            transform: translateY(100%);
+            transition: transform 0.8s var(--easing-authentic-motion);
             transition-delay: calc(var(--line) * 0.18s);
         }
 
@@ -366,7 +367,7 @@ const cursorImageItems = [
         :deep(.line) {
             display: block;
             transform: translateY(100%);
-            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: transform 0.9s var(--easing-authentic-motion);
             transition-delay: calc(var(--line) * 0.18s);
         }
 
@@ -380,7 +381,7 @@ const cursorImageItems = [
         :deep(.line) {
             display: block;
             transform: translateY(100%);
-            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: transform 0.9s var(--easing-authentic-motion);
             transition-delay: calc(var(--line) * 0.1s);
         }
 
@@ -397,8 +398,8 @@ const cursorImageItems = [
             opacity: 0;
             transform: translateY(16px);
             transition:
-                opacity 0.5s ease,
-                transform 0.5s ease;
+                opacity 0.5s var(--easing-authentic-motion),
+                transform 0.5s var(--easing-authentic-motion);
             transition-delay: calc((var(--line) * 0.2s) + (var(--word) * 0.04s));
         }
 
