@@ -45,31 +45,33 @@ export function useSplitText(
         })
 
         if (observeLines && linesClass) {
-            const lineEls = Array.from(target.value.querySelectorAll<HTMLElement>(`.${linesClass}`))
+            nextTick(() => {
+                requestAnimationFrame(() => {
+                    if (!target.value) return
+                    const lineEls = Array.from(target.value.querySelectorAll<HTMLElement>(`.${linesClass}`))
 
-            lineEls.forEach((line) => {
-                const parent = line.parentElement
+                    lineEls.forEach((line) => {
+                        const parent = line.parentElement
 
-                // Explicitly enforce overflow:hidden + height on the wrapper so
-                // translateY(100%) is guaranteed to be clipped — regardless of
-                // what GSAP mask does or doesn't set.
-                if (parent && parent !== target.value) {
-                    parent.style.overflow = 'hidden'
-                    parent.style.height = `${line.offsetHeight}px`
-                }
+                        if (parent && parent !== target.value) {
+                            parent.style.overflow = 'hidden'
+                            parent.style.height = `${line.offsetHeight}px`
+                        }
 
-                const observeTarget = parent && parent !== target.value ? parent : line
+                        const observeTarget = parent && parent !== target.value ? parent : line
 
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        if (!entries[0]?.isIntersecting) return
-                        line.classList.add('has-entered')
-                        observer.disconnect()
-                    },
-                    { threshold: 0.1 }
-                )
-                observer.observe(observeTarget)
-                lineObservers.push(observer)
+                        const observer = new IntersectionObserver(
+                            (entries) => {
+                                if (!entries[0]?.isIntersecting) return
+                                line.classList.add('has-entered')
+                                observer.disconnect()
+                            },
+                            { threshold: 0.1 }
+                        )
+                        observer.observe(observeTarget)
+                        lineObservers.push(observer)
+                    })
+                })
             })
         }
     })

@@ -212,8 +212,10 @@ const cursorImageItems = [
 
 <style scoped>
 .component-examples {
+    --gutters: 40px;
+
     .demo-section {
-        padding: 60px 40px;
+        padding: 60px var(--gutters);
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
         .demo-section__title {
@@ -407,6 +409,15 @@ const cursorImageItems = [
             opacity: 1;
             transform: none;
         }
+    }
+
+    /* Breakpoints */
+    @media (--gt-cinema) {
+    }
+    @media (--lt-tablet) {
+    }
+    @media (--lt-phone) {
+        --gutters: 16px;
     }
 }
 </style>
