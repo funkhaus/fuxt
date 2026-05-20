@@ -33,6 +33,7 @@ const cursorRef = useTemplateRef<HTMLElement>('cursorRef')
 
 // Preload a single image and add to cache
 const preloadedImages = ref<string[]>([])
+const failedImages = new Set<string>()
 
 // GSAP quickTo functions for smooth animation
 let setX: ReturnType<typeof gsap.quickTo> | null = null
@@ -75,7 +76,7 @@ const requestHoverUpdate = () => {
 }
 
 const preloadImage = (url: string): Promise<void> => {
-    if (!url || preloadedImages.value.includes(url)) return Promise.resolve()
+    if (!url || preloadedImages.value.includes(url) || failedImages.has(url)) return Promise.resolve()
 
     return new Promise((resolve) => {
         const img = new Image()
@@ -83,7 +84,17 @@ const preloadImage = (url: string): Promise<void> => {
             preloadedImages.value.push(url)
             resolve()
         }
-        img.onerror = () => resolve()
+        img.onerror = () => {
+            failedImages.add(url)
+            // Hide cursor if it's currently showing this broken image
+            if (cursorState.image === url) {
+                lastTrigger = null
+                lastActive = false
+                lastImage = ''
+                hide()
+            }
+            resolve()
+        }
         img.src = url
     })
 }
@@ -120,6 +131,17 @@ const checkTriggerAtPosition = (x: number, y: number) => {
     if (trigger) {
         const text = trigger.dataset.cursorText || ''
         const image = trigger.dataset.cursorImage || ''
+
+        // Don't activate if there's no content to show
+        if (!text && (!image || failedImages.has(image))) {
+            if (lastActive) {
+                lastActive = false
+                lastText = ''
+                lastImage = ''
+                hide()
+            }
+            return
+        }
 
         // Only update if changed
         if (!lastActive || text !== lastText || image !== lastImage) {
@@ -174,6 +196,8 @@ watch(() => cursorState.isActive, (active) => {
         duration: 0.4,
         ease: 'power3.out'
     })
+
+    document.body.style.cursor = active ? 'none' : ''
 })
 
 // MutationObserver to detect new cursor images in DOM

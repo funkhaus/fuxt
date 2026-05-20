@@ -10,6 +10,7 @@ html {
     color: var(--color-black);
     background-color: var(--color-white);
     margin: 0;
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'kern' 1;
@@ -72,18 +73,14 @@ button {
 .page {
     z-index: 100;
 }
-.header {
+.global-header {
     z-index: 200;
 }
-.menu-panel {
+.global-panel-menu {
     z-index: 300;
 }
 .global-hamburger {
     z-index: 400;
-}
-
-/* Page structure */
-.header {
 }
 
 /* Gutenberg overrides */

@@ -36,11 +36,7 @@ const onClick = () => {
 
 <style scoped>
 .global-hamburger {
-    position: fixed;
-    right: 0;
-    top: 0;
-
-    padding: 30px;
+    padding: 10px;
 
     display: flex;
     flex-direction: column;
