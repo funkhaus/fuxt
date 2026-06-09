@@ -2,8 +2,12 @@
     <component
         :is="attrs.tagName || 'h2'"
         :class="classes"
-        v-html="innerHtml"
-    />
+    >
+        <span
+            v-if="innerHtml"
+            v-html="innerHtml"
+        />
+    </component>
 </template>
 
 <script setup lang="ts">
@@ -22,7 +26,7 @@ const props = defineProps({
 const classes = computed(() => [
     'core-heading',
     'margin-text',
-    `align-${props.attrs?.align || 'default'}`,
+    `align-${props.attrs?.align || props.attrs?.textAlign || 'default'}`,
     `is-${props.attrs?.tagName}`
 ])
 const styles = computed(() => ({

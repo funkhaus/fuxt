@@ -8,7 +8,8 @@ const siteStore = useSiteStore()
 const htmlClasses = computed(() => [
     'html',
     'route-' + route.name?.toString(),
-    { 'menu-opened': siteStore.menuOpened }
+    { 'menu-opened': siteStore.menuOpened },
+    { 'is-scroll-locked': siteStore.menuOpened || siteStore.isScrollLocked }
 ])
 
 // Methods

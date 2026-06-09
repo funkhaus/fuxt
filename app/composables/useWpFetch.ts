@@ -46,6 +46,14 @@ export function useWpFetch<K extends keyof EndpointTypeMap>(endpoint: K, options
             return keysToCamelCase(data || {}) as ResponseType<K>
         },
         onRequest({ options }) {
+            if (import.meta.server) {
+                // Tell Flywheel's reverse proxy not to serve a cached response during generate/ISR
+                options.headers = {
+                    ...options.headers,
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                }
+            }
             // Add credentials to fetch request if preview enabled
             if (isPreviewEnabled.value) {
                 options.credentials = 'include'

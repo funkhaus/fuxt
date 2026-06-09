@@ -1,15 +1,11 @@
 <template>
     <section class="page-home">
-        Home page here
-
         <wp-menu
             name="Main Menu"
         />
 
-        <global-hamburger
-            :menu-opened="siteStore.menuOpened"
-            @toggle-menu="toggleMenu()"
-        />
+        <!-- This is an examples component, delete it before development -->
+        <component-examples />
 
         <wp-image
             v-for="(item, index) in items"
@@ -20,31 +16,32 @@
 </template>
 
 <script setup lang="ts">
-const siteStore = useSiteStore()
+// Helpers
+const route = useRoute()
 
 // Fetch data from WP
 const { data: workData } = await useWpFetch(RequestType.POST, {
     query: {
-        uri: '/work',
+        uri: route.path,
         fields: 'acf, children'
     }
 })
 
-// Computed properties
+// Publish SEO data for wp-seo (no separate request needed)
+usePageSeo().value = {
+    title: workData.value?.title,
+    description: workData.value?.excerpt,
+    imageUrl: workData.value?.featuredMedia?.src
+}
+
+// Computeds
 const items = computed(() => {
     return workData?.value?.children?.map(item => item?.featuredMedia) || []
 })
-
-// Methods
-const toggleMenu = () => {
-    siteStore.menuOpened = !siteStore.menuOpened
-}
 </script>
 
 <style scoped>
 .page-home {
-    min-height: var(--unit-100vh);
-
     /* Hover */
     @media (--has-hover) {
     }

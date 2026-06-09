@@ -23,7 +23,7 @@ export default defineNuxtPlugin(() => {
     watch([newWinWidth, newWinHeight], () => {
         const newBreakpoint = useCssVar('--breakpoint-name')
         siteStore.breakpoint = newBreakpoint?.value?.replace(/['"]+/g, '').trim() || 'desktop'
-        
+
         siteStore.winWidth = newWinWidth.value
         siteStore.winHeight = newWinHeight.value
     }, {
