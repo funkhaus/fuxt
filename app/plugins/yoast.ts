@@ -14,26 +14,13 @@
  * — self-referencing canonical plus the site title, description and social image —
  * so they still get a share card and a paginated set can't read as duplicates.
  *
- * Two things this deliberately does NOT do:
- *   - It never runs for a path the region middleware is about to redirect away
- *     from. Plugins resolve before the router's first navigation, so `route.path`
- *     here is the pre-redirect path; fetching for it burnt a WordPress call on
- *     every request to `/` and logged a warning each time.
- *   - It never blocks the client. On the server the lookup is awaited (the tags
- *     must be in the HTML); on the client the payload already holds the answer,
- *     so navigation lookups run in the background and patch the head when done.
+ * This plugin is deliberately generic. Site-specific extras (e.g. regional
+ * hreflang) belong in a separate plugin that reads the same shared state.
+ *
+ * It deliberately does not block the client. On the server the lookup is awaited
+ * (the tags must be in the HTML); on the client the payload already holds the
+ * answer, so navigation lookups run in the background and patch the head when done.
  */
-
-import {
-    RiosRegionOrder,
-    pathSegmentFromRiosRegion,
-    riosRegionKeyFromPathSegment,
-    type RiosRegionKey
-} from '~/stores/geolocation'
-import {
-    regionRootRedirectTargetPath,
-    unprefixedRegionalRedirectTargetPath
-} from '~/utils/rios-region-path'
 
 /**
  * Request-time renders cap these calls rather than stall (Netlify's function limit
@@ -59,14 +46,6 @@ const WP_TIMEOUT_MS = import.meta.prerender ? 45000 : 2500
  * would squash the logo.
  */
 const FALLBACK_OG_IMAGE_PATH = '/favicon.png'
-
-/** BCP-47 tag per region, for the hreflang cluster on regional routes. */
-const REGION_HREFLANG: Record<RiosRegionKey, string> = {
-    usa: 'en-US',
-    globalUk: 'en-GB',
-    sea: 'en-SG',
-    china: 'zh-CN'
-}
 
 type YoastOgImage = {
     url?: string
@@ -123,22 +102,11 @@ export default defineNuxtPlugin(async () => {
     /**
      * Frontend origin per WordPress, without a trailing slash. Only used to build
      * absolute URLs that Yoast does not supply — the self-referencing canonical on
-     * routes with no WP entity, and the hreflang cluster. Yoast's own canonical and
-     * og:url are already built from this same WordPress `home` option, so they pass
+     * routes with no WP entity, and the last-resort favicon fallback image. Yoast's
+     * own canonical and og:url are already built from this same WordPress `home`
      * through untouched.
      */
     const siteOrigin = computed(() => String(siteStore.settings?.frontendUrl || '').replace(/\/+$/, ''))
-
-    /**
-     * True when the region middleware will move this path elsewhere. Plugins run
-     * before the router's first navigation, so without this check every request to
-     * `/`, `/work/` or `/usa/` did the full SEO lookup for a path that then 302s.
-     */
-    const willRedirect = (path: string): boolean => {
-        if (regionRootRedirectTargetPath(path)) return true
-        // The region segment is irrelevant here — only whether a rule applies at all.
-        return Boolean(unprefixedRegionalRedirectTargetPath(path, 'usa'))
-    }
 
     const load = async () => {
         const path = route.path
@@ -149,14 +117,6 @@ export default defineNuxtPlugin(async () => {
         // `/search/`, any 404 — from refetching on the client after SSR already
         // established there is nothing to find.
         if (currentPath.value === path) return
-
-        if (willRedirect(path)) {
-            currentPath.value = path
-            yoastHead.value = null
-            yoastEntityType.value = ''
-            yoastTitle.value = ''
-            return
-        }
 
         const resolved: YoastResolved = { head: null, entityType: '' }
         try {
@@ -206,35 +166,10 @@ export default defineNuxtPlugin(async () => {
 
     // ---- helpers used by the head builder ----
 
-    /** `og:type` per entity: Yoast reports `article` for everything, which is wrong for both. */
+    /** Yoast reports `article` for every entity; correct pages to `website`. */
     const openGraphType = (fromYoast: string | undefined, entityType: string): string => {
         if (entityType === 'page') return 'website'
-        if (entityType === 'people') return 'profile'
         return fromYoast || 'article'
-    }
-
-    /** hreflang cluster for the four regional variants of the current path. */
-    const regionAlternates = () => {
-        if (!siteOrigin.value) return []
-
-        const raw = route.params.region
-        const segment = Array.isArray(raw) ? raw[0] : raw
-        if (!segment || !riosRegionKeyFromPathSegment(segment)) return []
-
-        const rest = route.path.replace(/^\/[^/]+/, '')
-        const links = RiosRegionOrder.map(key => ({
-            rel: 'alternate',
-            hreflang: REGION_HREFLANG[key],
-            href: `${siteOrigin.value}/${pathSegmentFromRiosRegion(key)}${rest}`
-        }))
-
-        links.push({
-            rel: 'alternate',
-            hreflang: 'x-default',
-            href: `${siteOrigin.value}/${pathSegmentFromRiosRegion('usa')}${rest}`
-        })
-
-        return links
     }
 
     /**
@@ -363,7 +298,6 @@ export default defineNuxtPlugin(async () => {
         if (canonical) {
             link.push({ rel: 'canonical', href: canonical })
         }
-        link.push(...regionAlternates())
 
         return {
             title: yoastTitle.value || undefined,
