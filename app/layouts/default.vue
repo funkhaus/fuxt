@@ -1,7 +1,5 @@
 <template>
     <main :class="classes">
-        <wp-seo />
-
         <cursor-follow />
 
         <global-header />

@@ -1,4 +1,5 @@
 import type { WpImage } from '~/types'
+import type { YoastHeadJson } from '~/composables/useYoastHead'
 
 export type WpPageResponse = {
     id: number
@@ -19,6 +20,11 @@ export type WpPageResponse = {
     menu_order?: number
     featuredMedia?: WpImage
     children?: WpPageResponse[]
+
+    // Yoast's head payload, kept in Yoast's own snake_case by useWpFetch's transform.
+    // Null when Yoast is active but the post is not indexable; absent when Yoast is off.
+    // Only ever set on the top-level entity — nested children/next/prev never carry it.
+    yoastHeadJson?: YoastHeadJson | null
 
     terms?: {
         postTag?: { name: string }[]

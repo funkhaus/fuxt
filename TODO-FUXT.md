@@ -33,7 +33,7 @@
 - [x] WpMenu
 - VideoStage
 - Gutenberg (LLM help?)
-- [x] WpSeo
+- [x] SEO (Yoast — app/plugins/yoast.ts + app/composables/useYoastHead.ts; the old WpSeo component is gone)
 - WpControls
 - [x] WpLink (No longer needed actually, nuxt-link does it all now)
 - SplitText

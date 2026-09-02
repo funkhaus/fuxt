@@ -3,6 +3,8 @@ import decodeHtmlEntities from './utils/decodeHtmlEntities'
 
 const route = useRoute()
 const siteStore = useSiteStore()
+// Set by the yoast plugin; when present the SEO title wins verbatim
+const yoastTitle = useState<string>('yoast-title', () => '')
 
 // Computed
 const htmlClasses = computed(() => [
@@ -16,6 +18,11 @@ const htmlClasses = computed(() => [
 useHead(() => {
     return {
         titleTemplate(titleChunk) {
+            // Yoast provides the complete SEO title (site name included)
+            if (yoastTitle.value) {
+                return decodeHtmlEntities(yoastTitle.value)
+            }
+
             const title = decodeHtmlEntities(titleChunk)
             const siteTitle = decodeHtmlEntities(siteStore.settings?.title || '')
 
