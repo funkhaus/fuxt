@@ -33,17 +33,27 @@ export function useWpFetch<K extends keyof EndpointTypeMap>(endpoint: K, options
         ? false
         : (typeof serverFromCaller === 'boolean' ? serverFromCaller : true)
 
-    if (endpoint === RequestType.POST && autoSeo) {
-        const query = fetchOptions.query as Record<string, unknown> | undefined
-        if (query?.pick) {
-            const existing = Array.isArray(query.pick) ? query.pick as string[] : [query.pick as string]
-            query.pick = [...new Set([...existing, 'title', 'excerpt', 'featuredMedia'])]
-        }
-    }
-
     const response = useFetch(endpoint, {
         transform: (data) => {
-            return keysToCamelCase(data || {}) as ResponseType<K>
+            // Yoast's `yoast_head_json` is a third-party contract, so it is the one
+            // subtree that must survive verbatim: camelCasing recurses and would
+            // rewrite `og_image` to `ogImage` and mangle the JSON-LD `@context`,
+            // `@graph` and `@id` keys. Lift it out, camelCase the rest, put it back.
+            // `in` (not a truthiness test) so a present-but-null value is preserved —
+            // fuxt-api sends null when Yoast is active but the post is not indexable.
+            const raw = data as Record<string, unknown> | null | undefined
+            const hasYoastHead = typeof raw === 'object' && raw !== null && !Array.isArray(raw) && 'yoast_head_json' in raw
+
+            if (!hasYoastHead) {
+                return keysToCamelCase(data || {}) as ResponseType<K>
+            }
+
+            const { yoast_head_json: yoastHeadJson, ...rest } = raw as Record<string, unknown>
+
+            return {
+                ...(keysToCamelCase(rest) as object),
+                yoastHeadJson
+            } as ResponseType<K>
         },
         onRequest({ options }) {
             if (import.meta.server) {
@@ -64,17 +74,37 @@ export function useWpFetch<K extends keyof EndpointTypeMap>(endpoint: K, options
         server
     })
 
+    /*
+     * A `/post` response already carries this route's Yoast head, so publish it
+     * for the yoast plugin to render rather than let the plugin fetch the same
+     * entity a second time.
+     *
+     * Pass `seo: false` for a `/post` request that is not the current route's own
+     * entity (a related post, a sibling teaser); otherwise it would take over the
+     * page's head, last write winning.
+     */
     if (endpoint === RequestType.POST && autoSeo) {
-        const pageSeo = usePageSeo()
-        watch(response.data, (data) => {
-            const pageData = data as WpPageResponse | null
+        // Both captured at call time, while we are still in this page's setup:
+        // read later, `route.path` would be the route the data landed on (on a
+        // fast client nav, already the next one), and `useState` would have no
+        // Nuxt instance to attach to.
+        const nuxtApp = useNuxtApp()
+        const path = useRoute().path
+
+        const publish = () => {
+            const pageData = response.data.value as WpPageResponse | null
             if (!pageData) return
-            pageSeo.value = {
-                title: pageData.title,
-                description: pageData.excerpt,
-                imageUrl: pageData.featuredMedia?.src
-            }
-        }, { immediate: true })
+            nuxtApp.runWithContext(() => {
+                setYoastResolved(path, pageData.yoastHeadJson ?? null, pageData.type ?? '')
+            })
+        }
+
+        // Vue does not run watchers during SSR, so the server has to publish off
+        // the settled request itself — a watcher here would fire once with no data
+        // and never again, and the plugin would then refetch this same entity. The
+        // watch keeps the client in step with a later refresh or preview refetch.
+        response.then(publish)
+        watch(response.data, publish)
     }
 
     return response

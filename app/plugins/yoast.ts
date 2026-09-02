@@ -5,22 +5,27 @@
  * Open Graph, Twitter card, JSON-LD schema) into every page's <head>, for both
  * SSR HTML (crawlers) and client-side navigation.
  *
- * How it works, in one request:
- *   Resolve the current route to its WordPress entity through the existing
- *   `fuxt` API (`/post?uri=<path>`), which returns Yoast's `yoast_head_json`
- *   inline (added by fuxt-api's Yoast_Seo class). No separate WP REST hop.
+ * How it works, in no extra requests:
+ *   fuxt-api's Yoast_Seo class inlines `yoast_head_json` into the `/post`
+ *   response, so a page that fetches its own entity has already been handed the
+ *   answer — `useWpFetch` stashes it in the shared state this plugin renders.
+ *   No separate WP REST hop, and no second `/post` request.
  *
- * Routes with no WP entity (archives, `/search/`) fall back to the site settings
- * — self-referencing canonical plus the site title, description and social image —
+ * Routes with no WP entity (archives, `/search/`) have nothing to stash, so this
+ * plugin resolves them itself and falls back to the site settings — a
+ * self-referencing canonical plus the site title, description and social image —
  * so they still get a share card and a paginated set can't read as duplicates.
  *
  * This plugin is deliberately generic. Site-specific extras (e.g. regional
  * hreflang) belong in a separate plugin that reads the same shared state.
  *
- * It deliberately does not block the client. On the server the lookup is awaited
- * (the tags must be in the HTML); on the client the payload already holds the
- * answer, so navigation lookups run in the background and patch the head when done.
+ * This is the only thing that writes SEO meta tags. The `wp-seo` component that
+ * used to derive them from the WP title, excerpt and featured image is gone: it
+ * registered after this plugin and so won every shared tag, which meant the
+ * values an editor set in Yoast never reached the page.
  */
+
+import type { YoastHeadJson } from '~/composables/useYoastHead'
 
 /**
  * Request-time renders cap these calls rather than stall (Netlify's function limit
@@ -47,42 +52,13 @@ const WP_TIMEOUT_MS = import.meta.prerender ? 45000 : 2500
  */
 const FALLBACK_OG_IMAGE_PATH = '/favicon.png'
 
-type YoastOgImage = {
-    url?: string
-    width?: number
-    height?: number
-    type?: string
-    alt?: string
-}
-
-type YoastHeadJson = {
-    title?: string
-    description?: string
-    robots?: Record<string, string>
-    canonical?: string
-    og_locale?: string
-    og_type?: string
-    og_title?: string
-    og_description?: string
-    og_url?: string
-    og_site_name?: string
-    og_image?: YoastOgImage[]
-    twitter_card?: string
-    twitter_title?: string
-    twitter_description?: string
-    author?: string
-    article_published_time?: string
-    article_modified_time?: string
-    schema?: { '@context'?: string, '@graph'?: unknown[] }
-}
-
 /** What we resolved for a path — `entityType` drives the `og:type` correction. */
 type YoastResolved = {
     head: YoastHeadJson | null
     entityType: string
 }
 
-export default defineNuxtPlugin(async () => {
+export default defineNuxtPlugin((nuxtApp) => {
     const route = useRoute()
     const { public: { wordpressApiUrl } } = useRuntimeConfig()
     // WordPress already tells us the frontend origin; `init.ts` sorts before this
@@ -91,11 +67,12 @@ export default defineNuxtPlugin(async () => {
 
     // Shared state — serialised to the client payload via the reliable `state`
     // section, so SSR and client render the same tags (and to skip a redundant
-    // client refetch on first load).
-    const currentPath = useState<string>('yoast-path', () => '')
-    const yoastTitle = useState<string>('yoast-title', () => '')
-    const yoastHead = useState<YoastHeadJson | null>('yoast-head', () => null)
-    const yoastEntityType = useState<string>('yoast-entity-type', () => '')
+    // client refetch on first load). `useWpFetch` writes the same state for any
+    // route whose page already fetched its entity; see useYoastHead.ts.
+    const currentPath = useYoastPath()
+    const yoastTitle = useYoastTitle()
+    const yoastHead = useYoastHead()
+    const yoastEntityType = useYoastEntityType()
 
     let requestId = 0
 
@@ -142,27 +119,53 @@ export default defineNuxtPlugin(async () => {
         // Ignore results superseded by a newer navigation
         if (id !== requestId) return
 
-        currentPath.value = path
-        yoastHead.value = resolved.head
-        yoastEntityType.value = resolved.entityType
-        yoastTitle.value = resolved.head?.title || ''
+        // Both hooks below have lost the Nuxt instance by the time this runs.
+        nuxtApp.runWithContext(() => {
+            setYoastResolved(path, resolved.head, resolved.entityType)
+        })
     }
 
     /*
-     * The server must have the tags before it renders the head, so it waits. The
-     * client already has them in the payload, so it never does — a navigation
-     * lookup resolves in the background and the reactive `useHead` below patches
-     * the tags when it lands.
+     * Only routes that no page fetch resolved are looked up here.
+     *
+     * An entity page's `/post` request already carries `yoast_head_json`, and
+     * `useWpFetch` stashes it into the state above during that page's setup — so
+     * by the time either hook below runs, `load()` sees `currentPath` already
+     * matching and returns before it fetches anything. What is left is the
+     * entity-less routes: archives, `/search/`, 404s.
+     *
+     * Both hooks call `load()` unconditionally rather than pre-checking the path
+     * themselves. `load()` bumps `requestId` before that check, and that bump is
+     * what invalidates a still-in-flight lookup from the route we just left —
+     * skipping the call would let a slow archive response land on the entity page
+     * the reader has since navigated to and wipe its Yoast head.
+     *
+     * Server: `app:rendered` is awaited, and it runs after the Vue render but
+     * before unhead resolves the head and before the payload is serialised, so a
+     * lookup here still reaches both the SSR'd <head> and the client payload.
+     * Nothing renders this state into the body, so the late write is safe.
+     *
+     * Client: `page:finish` fires on first hydration and after every navigation's
+     * awaited fetches have settled — which is exactly when a page's own stash has
+     * either happened or definitively has not. It is not awaited; the reactive
+     * `useHead` below patches the tags when the lookup lands.
+     *
+     * A navigation that ends on the error page is the one case neither this nor
+     * the `route.fullPath` watch it replaced can see: `showError` unmounts the
+     * `<NuxtPage>` whose Suspense would have resolved, so `page:finish` never
+     * fires, and `useRoute()` in a plugin reads `nuxtApp._route`, which that same
+     * hook is what advances. Such a route keeps the previous page's share card.
+     * Fixing it means resolving the path from `useRouter().currentRoute` rather
+     * than `useRoute()`, which is a change to how every lookup picks its path.
      */
     if (import.meta.server) {
-        await load()
+        nuxtApp.hook('app:rendered', () => load())
     }
     else {
-        void load()
+        nuxtApp.hook('page:finish', () => {
+            void load()
+        })
     }
-    watch(() => route.fullPath, () => {
-        void load()
-    })
 
     // ---- helpers used by the head builder ----
 
@@ -292,6 +295,9 @@ export default defineNuxtPlugin(async () => {
         }
         if (h?.twitter_description) {
             meta.push({ name: 'twitter:description', content: h.twitter_description })
+        }
+        if (h?.twitter_site) {
+            meta.push({ name: 'twitter:site', content: h.twitter_site })
         }
 
         const link: Record<string, string>[] = []
