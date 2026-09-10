@@ -34,6 +34,7 @@
 - VideoStage
 - Gutenberg (LLM help?)
 - [x] SEO (Yoast — app/plugins/yoast.ts + app/composables/useYoastHead.ts; the old WpSeo component is gone)
+- [x] Global page `<h1>` (app/components/global-page-heading.vue + app/composables/usePageHeading.ts — see README)
 - WpControls
 - [x] WpLink (No longer needed actually, nuxt-link does it all now)
 - SplitText

@@ -9,6 +9,8 @@
             @close-menu="toggleMenu()"
         />
 
+        <global-page-heading />
+
         <slot />
 
         <!-- TODO: <client-only><wp-controls /> -->

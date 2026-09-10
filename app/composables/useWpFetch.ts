@@ -95,7 +95,7 @@ export function useWpFetch<K extends keyof EndpointTypeMap>(endpoint: K, options
             const pageData = response.data.value as WpPageResponse | null
             if (!pageData) return
             nuxtApp.runWithContext(() => {
-                setYoastResolved(path, pageData.yoastHeadJson ?? null, pageData.type ?? '')
+                setYoastResolved(path, pageData.yoastHeadJson ?? null, pageData.type ?? '', pageData.title ?? '')
             })
         }
 

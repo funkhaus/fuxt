@@ -12,6 +12,30 @@ PS: The name Fuxt comes from [Funkhaus](https://funkhaus.us) and Nuxt. [It's pro
 
 - TODO
 
+## Page headings (the `<h1>`)
+
+Every page gets exactly one `<h1>`, rendered by `<global-page-heading>` in the layout — not by
+pages or components. It is visually hidden but present in the HTML and the accessibility tree,
+because designs normally carry their own styled title. So:
+
+- **Inside components, any title-looking element is an `<h2>` or lower.** Never an `<h1>`.
+- The text is derived automatically from the route's WordPress entity — new pages need no wiring.
+- Give a route an exact, server-rendered heading when the slug is not a good one, or when the
+  route has no WordPress entity behind it (an archive, `/search/`):
+
+  ```js
+  definePageMeta({ pageHeading: 'News' })
+  ```
+
+- If a page's design genuinely shows a real `<h1>`, let it own it and stand the layout's down:
+
+  ```js
+  definePageMeta({ pageHeading: false })
+  ```
+
+See `app/composables/usePageHeading.ts` for the resolution order and why the WordPress title is
+applied after mount.
+
 ## Build Setup
 
 **This is just a [Nuxt site](https://nuxtjs.org), so it builds and deploys like any other Nuxt project.**

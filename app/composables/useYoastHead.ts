@@ -67,9 +67,22 @@ export function useYoastTitle() {
 }
 
 /**
+ * The WordPress title of the entity this route resolved to — no title template, no
+ * site name. Read by `usePageHeading()` for the global `<h1>`, which cannot use the
+ * SEO title because that one carries the site name.
+ *
+ * Stored raw, exactly as WordPress sent it. `usePageHeading()` strips tags and
+ * decodes entities at the point of use, so there is one normaliser rather than one
+ * per writer.
+ */
+export function useYoastEntityTitle() {
+    return useState<string>('yoast-entity-title', () => '')
+}
+
+/**
  * Publish what we resolved for a path.
  *
- * Writes all four keys unconditionally and on purpose: a page's own stash has to
+ * Writes all five keys unconditionally and on purpose: a page's own stash has to
  * be able to replace a plugin fallback that resolved the same path first, and a
  * null head has to be able to clear a previous page's values on client nav.
  *
@@ -77,9 +90,10 @@ export function useYoastTitle() {
  * has lost it (a `watch` on fetched data, a `app:rendered`/`page:finish` hook), so
  * call this inside `nuxtApp.runWithContext()`.
  */
-export function setYoastResolved(path: string, head: YoastHeadJson | null, entityType: string) {
+export function setYoastResolved(path: string, head: YoastHeadJson | null, entityType: string, entityTitle: string) {
     useYoastPath().value = path
     useYoastHead().value = head
     useYoastEntityType().value = entityType
     useYoastTitle().value = head?.title || ''
+    useYoastEntityTitle().value = entityTitle
 }

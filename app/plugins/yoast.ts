@@ -56,6 +56,8 @@ const FALLBACK_OG_IMAGE_PATH = '/favicon.png'
 type YoastResolved = {
     head: YoastHeadJson | null
     entityType: string
+    /** The entity's own WordPress title, for the global `<h1>`. See `usePageHeading()`. */
+    entityTitle: string
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -95,13 +97,17 @@ export default defineNuxtPlugin((nuxtApp) => {
         // established there is nothing to find.
         if (currentPath.value === path) return
 
-        const resolved: YoastResolved = { head: null, entityType: '' }
+        const resolved: YoastResolved = { head: null, entityType: '', entityTitle: '' }
         try {
             // fuxt's /post endpoint returns yoast_head_json inline (added by fuxt-api's Yoast_Seo class).
-            const entity = await $fetch<{ id?: number, type?: string, yoast_head_json?: YoastHeadJson } | null>(
+            const entity = await $fetch<{ id?: number, type?: string, title?: string, yoast_head_json?: YoastHeadJson } | null>(
                 `${wordpressApiUrl}/post`,
                 { query: { uri: path }, timeout: WP_TIMEOUT_MS }
             )
+
+            // Captured whether or not Yoast has anything to say about this entity — a page
+            // excluded from the sitemap still needs a heading.
+            resolved.entityTitle = entity?.title || ''
 
             if (entity?.yoast_head_json) {
                 resolved.head = entity.yoast_head_json
@@ -121,7 +127,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
         // Both hooks below have lost the Nuxt instance by the time this runs.
         nuxtApp.runWithContext(() => {
-            setYoastResolved(path, resolved.head, resolved.entityType)
+            setYoastResolved(path, resolved.head, resolved.entityType, resolved.entityTitle)
         })
     }
 
