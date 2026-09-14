@@ -66,6 +66,21 @@ export default defineNuxtConfig({
             // All routes should be ISR
             '/**': {
                 isr: true
+            },
+            // `/llms.txt` proxies WordPress and sets its own cache headers (see
+            // `server/routes/llms.txt.ts`). ISR on top of that would pin whichever
+            // answer happened to land first -- including a 404 from a WordPress
+            // that was briefly unreachable -- for the whole ISR window.
+            '/llms.txt': {
+                isr: false
+            },
+            // Yoast's `llms.txt` links the sitemap as `/sitemap_index.xml` -- the
+            // WordPress filename, which it has no way to know we don't use. Ours is
+            // `/sitemap.xml`, from `@nuxtjs/sitemap`, so that link would 404. Point
+            // the old name at the real one so it resolves, and so anything still
+            // citing the WordPress sitemap URL lands somewhere useful too.
+            '/sitemap_index.xml': {
+                redirect: { to: '/sitemap.xml', statusCode: 301 }
             }
         },
         prerender: {

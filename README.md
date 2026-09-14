@@ -36,6 +36,21 @@ because designs normally carry their own styled title. So:
 See `app/composables/usePageHeading.ts` for the resolution order and why the WordPress title is
 applied after mount.
 
+## `llms.txt`
+
+`/llms.txt` is served from the frontend by `server/routes/llms.txt.ts`, which re-serves the file
+Yoast SEO generates at the WordPress site root. It is a markdown index of the site's pages and
+post types, written to be read by LLMs and agents.
+
+Nothing to wire up per fork. Turn the feature on in **Yoast SEO → Settings → Site features →
+llms.txt** and the route starts serving it; leave it off and `/llms.txt` is a plain 404. The same
+applies if WordPress is unreachable or password-walled — the route fails to a 404 and never leaks
+an HTML error page onto a `.txt` URL.
+
+The links *inside* the file are Yoast's, built from WordPress's Home URL. If they point at the CMS
+domain instead of the frontend, that is the same misconfiguration breaking Yoast's canonicals and
+sitemap — fix Home URL in WordPress rather than rewriting the output here.
+
 ## Build Setup
 
 **This is just a [Nuxt site](https://nuxtjs.org), so it builds and deploys like any other Nuxt project.**
