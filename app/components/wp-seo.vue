@@ -1,15 +1,6 @@
 <template>
-    <div class="wp-seo">
-        <!-- Print content to page for SEO gain -->
-        <h1
-            v-if="headingTitle"
-            v-html="headingTitle"
-        />
-        <div
-            v-if="parsedDescription"
-            v-html="parsedDescription"
-        />
-    </div>
+    <!-- Renders <head> tags only; page templates own the <h1>. The slot keeps the component renderless. -->
+    <slot />
 </template>
 
 <script setup lang="ts">
@@ -58,7 +49,6 @@ const hasYoastTitle = computed(() => Boolean(yoast.value.title))
 
 // Source order per field: prop → Yoast → page state (WP title, excerpt, featured image) → site settings
 const pageTitle = computed(() => props.title || yoast.value.title || routeSeo.value.title || siteStore.settings?.title || undefined)
-const headingTitle = computed(() => props.title || routeSeo.value.title || yoast.value.title || siteStore.settings?.title || undefined)
 const parsedDescription = computed(() => {
     const raw = props.description || yoast.value.description || yoast.value.ogDescription || routeSeo.value.description || siteStore.settings?.description || undefined
     return stripHtml(raw)
@@ -119,9 +109,3 @@ useHead(() => ({
         : []
 }))
 </script>
-
-<style scoped>
-.wp-seo {
-    display: none;
-}
-</style>
