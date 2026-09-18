@@ -1,4 +1,4 @@
-import type { WpImage } from '~/types'
+import type { WpImage, WpSeo } from '~/types'
 
 export type WpPageResponse = {
     id: number
@@ -19,6 +19,10 @@ export type WpPageResponse = {
     menu_order?: number
     featuredMedia?: WpImage
     children?: WpPageResponse[]
+
+    // Yoast SEO head data (requires fields=seo). Null when Yoast is active but the post has none;
+    // absent when Yoast is off or not requested. Never set on nested children/next/prev.
+    seo?: WpSeo | null
 
     terms?: {
         postTag?: { name: string }[]
