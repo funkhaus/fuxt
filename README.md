@@ -27,6 +27,15 @@ SEO is driven by the [Yoast SEO](https://yoast.com) WordPress plugin, exposed th
 - `/llms.txt` is proxied from the file Yoast generates at the WordPress root. Enable it under Yoast → Settings → Site features; it regenerates weekly, or on toggling the feature.
 - WordPress "Site Address (URL)" must be the frontend domain: Yoast builds canonicals, `og:url` and schema from it.
 
+## Analytics
+
+`plugins/gtag.client.ts` loads every ID in the "Google Analytics" repeater in WP Site Options. It is disabled in dev.
+
+- `GTM-` IDs load as Tag Manager containers; every other ID (`G-`, `GT-`, `AW-`) is configured through gtag.js.
+- Page views are left to GA4: one on load, plus enhanced measurement's "Page changes based on browser history events" for client-side navigation. That setting is on by default; if a property has it off (GA4 → Admin → Data streams → Enhanced measurement), route changes aren't counted. Don't add manual `page_view` events while it's on, or every navigation is counted twice.
+- An ID Google doesn't recognise 404s and is skipped, so a typo in Site Options can't stop the others from tracking. Remove dead IDs anyway.
+- `useNuxtApp().$gtag(...)` is available for custom events, and is a no-op in dev or without IDs.
+
 ## Build Setup
 
 **This is just a [Nuxt site](https://nuxtjs.org), so it builds and deploys like any other Nuxt project.**
