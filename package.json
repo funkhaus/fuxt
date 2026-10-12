@@ -22,7 +22,7 @@
     },
     "devDependencies": {
         "@csstools/postcss-global-data": "^3.0.0",
-        "@nuxt/eslint-config": "^0.7.0",
+        "@nuxt/eslint-config": "^1.17.0",
         "@nuxt/fonts": "^0.10.0",
         "@nuxtjs/robots": "^4.1.11",
         "@nuxtjs/sitemap": "6.0.1",
@@ -43,7 +43,7 @@
         "pinia": "^2.1.7",
         "postcss": "^8.4.47",
         "postcss-custom-media": "^11.0.1",
-        "postcss-nested": "^6.2.0",
+        "postcss-nested": "^8.0.1",
         "prettier": "^3.3.3",
         "storybook": "9.0.5",
         "typescript": "^5.6.3",
