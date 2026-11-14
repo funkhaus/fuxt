@@ -18,15 +18,15 @@
         "build-storybook": "STORYBOOK=true storybook build"
     },
     "dependencies": {
-        "nuxt": "^3.13.2"
+        "nuxt": "^4.6.4"
     },
     "devDependencies": {
         "@csstools/postcss-global-data": "^3.0.0",
         "@nuxt/eslint-config": "^0.7.0",
-        "@nuxt/fonts": "^0.10.0",
-        "@nuxtjs/robots": "^4.1.11",
-        "@nuxtjs/sitemap": "6.0.1",
-        "@nuxtjs/storybook": "^8.4.1",
+        "@nuxt/fonts": "^1.2.0",
+        "@nuxtjs/robots": "^7.0.2",
+        "@nuxtjs/sitemap": "9.1.0",
+        "@nuxtjs/storybook": "^10.0.3",
         "@pinia/nuxt": "^0.5.1",
         "@storybook/vue3": "9.0.5",
         "@types/node": "^22.5.5",
